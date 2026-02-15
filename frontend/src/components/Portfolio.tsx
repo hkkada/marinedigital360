@@ -8,6 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getVisibleServices } from '@/lib/services';
 import { getImageProps, type ImageKey } from '@/lib/image-map';
+import { durations, sectionTiming } from '@/lib/animations';
 
 export function Portfolio() {
   const ref = useRef(null);
@@ -68,13 +69,13 @@ export function Portfolio() {
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: durations.normal }}
           className="mb-24"
         >
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: durations.normal, delay: 0.1 }}
             className="flex items-center gap-4 mb-8"
           >
             <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] to-transparent" />
@@ -95,7 +96,7 @@ export function Portfolio() {
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: durations.normal, delay: 0.15 }}
               className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed"
             >
               Real results for real manufacturers. We don't just build 
@@ -115,7 +116,7 @@ export function Portfolio() {
                 key={project.title}
                 initial={{ opacity: 0, y: 80 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 1, delay: index * 0.3 }}
+                transition={{ duration: sectionTiming.portfolio.projectDuration, delay: sectionTiming.portfolio.projectStagger(index) }}
                 className="group relative"
               >
                 <div className={`grid lg:grid-cols-2 gap-12 items-center ${!isEven ? 'lg:grid-flow-dense' : ''}`}>
@@ -124,7 +125,7 @@ export function Portfolio() {
                     <motion.div
                       className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-gray-900 shadow-2xl"
                       whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.6 }}
+                      transition={{ duration: durations.smooth }}
                     >
                       {projectImageProps && (
                         <Image
@@ -170,7 +171,7 @@ export function Portfolio() {
                     <motion.div
                       initial={{ opacity: 0, x: isEven ? -40 : 40 }}
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ duration: 0.8, delay: index * 0.3 + 0.3 }}
+                      transition={{ duration: durations.smooth, delay: sectionTiming.portfolio.projectStagger(index) + 0.15 }}
                     >
                       <span className="inline-block px-4 py-2 bg-gray-100 rounded-full text-sm font-semibold text-gray-700 mb-3">
                         {project.category}
@@ -208,7 +209,7 @@ export function Portfolio() {
                             key={metric.label}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: i * 0.1 }}
+                            transition={{ duration: sectionTiming.portfolio.metricDuration, delay: sectionTiming.portfolio.metricStagger(i) }}
                             className="relative p-6 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 hover:border-[#1877F2] transition-colors group/metric"
                           >
                             <metric.icon className="w-8 h-8 text-[#1877F2] mb-3 group-hover/metric:scale-110 transition-transform" />
@@ -247,7 +248,7 @@ export function Portfolio() {
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1.2 }}
+          transition={{ duration: durations.smooth, delay: 0.8 }}
           className="mt-32 relative"
         >
           <div className="relative p-16 bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-3xl overflow-hidden">

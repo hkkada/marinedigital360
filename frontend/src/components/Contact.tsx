@@ -7,6 +7,7 @@ import { Send, Mail, Phone, MapPin, Waves } from 'lucide-react';
 import Link from 'next/link';
 import { getVisibleServices } from '@/lib/services';
 import { BookingModal } from '@/components/BookingModal';
+import { durations } from '@/lib/animations';
 
 export function Contact() {
   const ref = useRef(null);
@@ -75,13 +76,13 @@ export function Contact() {
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: durations.normal }}
           className="mb-16 text-center"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: durations.normal, delay: 0.1 }}
             className="inline-flex items-center gap-4 mb-8"
           >
             <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#1877F2] to-transparent" />
@@ -100,7 +101,7 @@ export function Contact() {
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: durations.normal, delay: 0.15 }}
             className="text-lg md:text-xl text-gray-600 font-light max-w-3xl mx-auto leading-relaxed"
           >
             Let's create something exceptional. Start the conversation and
@@ -113,7 +114,7 @@ export function Contact() {
           <motion.div
             initial={{ opacity: 0, x: -60 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: durations.smooth, delay: 0.4 }}
             className="lg:col-span-3"
           >
             <form className="space-y-6" onSubmit={handleFormSubmit}>
@@ -265,7 +266,7 @@ export function Contact() {
           <motion.div
             initial={{ opacity: 0, x: 60 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: durations.smooth, delay: 0.6 }}
             className="lg:col-span-2 space-y-5"
           >
             {/* Contact methods with gradients */}
@@ -274,7 +275,7 @@ export function Contact() {
                 key={method.label}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
+                transition={{ duration: durations.smooth, delay: 1 + index * 0.1 }}
                 className="group"
               >
                 <a
@@ -287,7 +288,7 @@ export function Contact() {
                   <motion.div
                     className="absolute inset-0 bg-white/0"
                     whileHover={{ background: 'rgba(255, 255, 255, 0.1)' }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: durations.instant }}
                   />
 
                   <div className="relative flex items-start gap-4">
@@ -316,7 +317,7 @@ export function Contact() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 1.4 }}
+              transition={{ duration: durations.smooth, delay: 1.2 }}
               className="relative p-6 bg-gray-900 rounded-2xl overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#1877F2]/20 rounded-full blur-2xl" />
@@ -347,7 +348,7 @@ export function Contact() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 1.5 }}
+              transition={{ duration: durations.smooth, delay: 1.3 }}
               className="pt-8 border-t border-gray-200"
             >
               <p className="text-sm text-gray-500 uppercase tracking-wide mb-4">
@@ -371,7 +372,7 @@ export function Contact() {
         <motion.footer
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.8, delay: 1.8 }}
+          transition={{ duration: durations.smooth, delay: 1.5 }}
           className="mt-24 pt-12 border-t border-gray-200"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">

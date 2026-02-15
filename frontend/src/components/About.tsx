@@ -6,6 +6,7 @@ import { useRef } from 'react';
 import { Award, Target, Zap, Globe2, Anchor, Compass } from 'lucide-react';
 import Image from 'next/image';
 import { getImageProps } from '@/lib/image-map';
+import { durations, sectionTiming } from '@/lib/animations';
 
 export function About() {
   const ref = useRef(null);
@@ -81,13 +82,13 @@ export function About() {
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: sectionTiming.about.headerDuration }}
           className="mb-24"
         >
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: sectionTiming.about.headerDuration, delay: 0.1 }}
             className="flex items-center gap-4 mb-8"
           >
             <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] to-transparent" />
@@ -108,7 +109,7 @@ export function About() {
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: sectionTiming.about.headerDuration, delay: 0.15 }}
               className="text-xl md:text-2xl text-gray-400 font-light leading-relaxed"
             >
               We're not just another digital agency. We're former marine industry 
@@ -120,7 +121,7 @@ export function About() {
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.5 }}
+                transition={{ duration: sectionTiming.about.headerDuration, delay: 0.2 }}
                 className="text-lg text-gray-500 leading-relaxed mb-4"
               >
                 From technical specifications to emotional storytelling, we understand
@@ -131,7 +132,7 @@ export function About() {
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.6 }}
+                transition={{ duration: sectionTiming.about.headerDuration, delay: 0.25 }}
                 className="text-base text-gray-500 leading-relaxed"
               >
                 Based in Philadelphia, Pennsylvania, MarineForge is the only
@@ -147,7 +148,7 @@ export function About() {
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: durations.smooth, delay: 0.4 }}
           className="mb-32"
         >
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -156,7 +157,7 @@ export function About() {
                 key={stat.label}
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
+                transition={{ duration: sectionTiming.about.statDuration, delay: sectionTiming.about.statStagger(index) }}
                 className="relative group"
               >
                 <div className="relative p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 hover:border-[#1877F2]/50 transition-all duration-500">
@@ -191,17 +192,17 @@ export function About() {
               key={value.title}
               initial={{ opacity: 0, y: 60 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.8 + index * 0.15 }}
+              transition={{ duration: durations.smooth, delay: sectionTiming.about.valueStagger(index) }}
               className="group relative"
             >
               <div className="relative h-full p-10 bg-gradient-to-br from-white/5 to-white/0 border border-white/10 rounded-3xl hover:border-[#1877F2]/50 transition-all duration-500 overflow-hidden">
                 {/* Animated background on hover */}
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-br from-[#1877F2]/0 to-[#0D5DBF]/0"
-                  whileHover={{ 
-                    background: 'linear-gradient(to bottom right, rgba(24, 119, 242, 0.1), rgba(13, 93, 191, 0.1))' 
+                  whileHover={{
+                    background: 'linear-gradient(to bottom right, rgba(24, 119, 242, 0.1), rgba(13, 93, 191, 0.1))'
                   }}
-                  transition={{ duration: 0.5 }}
+                  transition={{ duration: durations.normal }}
                 />
 
                 <div className="relative">
@@ -231,7 +232,7 @@ export function About() {
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, delay: 1.2 }}
+          transition={{ duration: durations.smooth, delay: 0.8 }}
           className="relative"
         >
           <div className="grid md:grid-cols-3 gap-8">

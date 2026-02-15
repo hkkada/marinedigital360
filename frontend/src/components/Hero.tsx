@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 import { getImageProps } from '@/lib/image-map';
+import { sectionTiming } from '@/lib/animations';
 
 export function Hero() {
   const { scrollY } = useScroll();
@@ -49,7 +50,7 @@ export function Hero() {
 
             {/* Hero headline — renders immediately for LCP (no animation to avoid NO_LCP) */}
             <h1
-              className="text-6xl md:text-7xl lg:text-8xl text-white mb-8 leading-[0.95] tracking-tight drop-shadow(0 4px 12px rgba(0,0,0,0.6)) select-none"
+              className="text-6xl md:text-7xl lg:text-8xl text-white mb-8 leading-[0.95] tracking-tight drop-shadow(0 4px 12px rgba(0,0,0,0.6)) select-none hero-animate hero-animate-delay-1"
             >
               Where craft meets
               <br />
@@ -92,7 +93,7 @@ export function Hero() {
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 hero-animate hero-animate-delay-5">
         <motion.div
           animate={{ y: [0, 12, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: sectionTiming.hero.animationDuration * 5, repeat: Infinity, ease: 'easeInOut' }}
           className="flex flex-col items-center gap-2 text-white/60"
         >
           <span className="text-xs tracking-widest uppercase">Scroll</span>

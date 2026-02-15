@@ -4,6 +4,7 @@ import { getVisibleServices } from '@/lib/services';
 import { ServiceCard } from './ServiceCard';
 import { motion } from 'motion/react';
 import Link from 'next/link';
+import { durations, staggers } from '@/lib/animations';
 
 export function ServicesMegaMenu() {
   const services = getVisibleServices();
@@ -14,7 +15,7 @@ export function ServicesMegaMenu() {
       initial={{ opacity: 0, y: -10, scale: 0.98 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: -10, scale: 0.98 }}
-      transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+      transition={{ duration: durations.instant, ease: [0.4, 0, 0.2, 1] }}
     >
       <motion.div
         className="grid grid-cols-2 lg:grid-cols-3 gap-3"
@@ -22,8 +23,8 @@ export function ServicesMegaMenu() {
           hidden: {},
           visible: {
             transition: {
-              staggerChildren: 0.05,
-              delayChildren: 0.1
+              staggerChildren: staggers.tight,
+              delayChildren: 0.05
             }
           }
         }}

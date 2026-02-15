@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from 'motion/react';
 import { useInView } from 'motion/react';
 import { useRef } from 'react';
 import Link from 'next/link';
+import { durations, sectionTiming } from '@/lib/animations';
 import {
   Compass,
   Package,
@@ -64,7 +65,7 @@ export function Services() {
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: sectionTiming.services.headerDuration }}
           className="mb-24 relative"
         >
           <div className="grid lg:grid-cols-2 gap-16 items-end">
@@ -72,7 +73,7 @@ export function Services() {
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                transition={{ duration: sectionTiming.services.headerDuration, delay: 0.1 }}
                 className="flex items-center gap-4 mb-8"
               >
                 <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] to-transparent" />
@@ -94,7 +95,7 @@ export function Services() {
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.4 }}
+                transition={{ duration: sectionTiming.services.headerDuration, delay: 0.15 }}
                 className="text-xl md:text-2xl text-gray-400 font-light leading-relaxed mb-6"
               >
                 Full-spectrum marine digital services. From strategic positioning
@@ -103,7 +104,7 @@ export function Services() {
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.5 }}
+                transition={{ duration: sectionTiming.services.headerDuration, delay: 0.2 }}
                 className="text-base text-gray-500 leading-relaxed"
               >
                 MarineForge is a specialized marine marketing agency that transforms
@@ -125,7 +126,7 @@ export function Services() {
                 key={service.slug}
                 initial={{ opacity: 0, y: 60 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
+                transition={{ duration: sectionTiming.services.cardDuration, delay: sectionTiming.services.cardStagger(index) }}
                 whileHover={{ y: -4 }}
                 className="group"
               >
@@ -162,7 +163,7 @@ export function Services() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: durations.smooth, delay: sectionTiming.services.ctaDelay }}
           className="mt-20 text-center"
         >
           <motion.a

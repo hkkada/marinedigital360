@@ -205,13 +205,13 @@ html {
 }
 
 .hero-animate {
-  animation: hero-fade-up 1s ease-out both;
+  animation: hero-fade-up 0.4s ease-out both;
 }
-.hero-animate-delay-1 { animation-delay: 0.3s; }
+.hero-animate-delay-1 { animation-delay: 0.1s; }
 .hero-animate-delay-2 { animation-delay: 0.6s; }
-.hero-animate-delay-3 { animation-delay: 0.9s; }
-.hero-animate-delay-4 { animation-delay: 1.2s; }
-.hero-animate-delay-5 { animation-delay: 2s; }
+.hero-animate-delay-3 { animation-delay: 0.3s; }
+.hero-animate-delay-4 { animation-delay: 0.4s; }
+.hero-animate-delay-5 { animation-delay: 1.5s; }
 
 /* Navigation glassmorphism utilities */
 @layer utilities {

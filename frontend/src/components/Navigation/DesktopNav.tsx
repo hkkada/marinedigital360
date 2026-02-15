@@ -41,7 +41,7 @@ export function DesktopNav({ isScrolled }: DesktopNavProps) {
             >
               {link}
               {/* Hover underline animation */}
-              <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-[var(--nav-link-blue)] transition-all duration-250 group-hover:w-full" />
+              <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-[var(--nav-link-blue)] transition-all duration-150 group-hover:w-full" />
             </NavigationMenuLink>
           </NavigationMenuItem>
         ))}
