@@ -5,6 +5,7 @@ import { useInView } from 'motion/react';
 import { useRef } from 'react';
 import { Award, Target, Zap, Globe2, Anchor, Compass } from 'lucide-react';
 import Image from 'next/image';
+import { getImageProps } from '@/lib/image-map';
 
 export function About() {
   const ref = useRef(null);
@@ -15,6 +16,9 @@ export function About() {
     target: sectionRef,
     offset: ["start end", "end start"]
   });
+
+  const yachtImageProps = getImageProps('about.yacht-lifestyle');
+  const cockpitImageProps = getImageProps('about.cockpit-technology');
 
   const y1 = useTransform(scrollYProgress, [0, 1], [100, -100]);
   const y2 = useTransform(scrollYProgress, [0, 1], [-100, 100]);
@@ -50,7 +54,7 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="py-32 md:py-40 bg-gradient-to-b from-gray-900 via-black to-gray-900 relative overflow-hidden" ref={sectionRef}>
+    <section id="about" className="py-32 md:py-40 bg-gradient-to-b from-gray-900 via-black to-gray-900 relative overflow-hidden" ref={sectionRef} aria-labelledby="about-heading">
       {/* Animated background elements */}
       <motion.div 
         className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-[#1877F2]/20 rounded-full blur-3xl"
@@ -92,7 +96,7 @@ export function About() {
             </span>
           </motion.div>
 
-          <h2 className="text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.9] text-white mb-12">
+          <h2 id="about-heading" className="text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.9] text-white mb-12">
             Built by
             <br />
             <span className="bg-gradient-to-r from-[#1877F2] via-[#42A5F5] to-[#1877F2] bg-clip-text text-transparent">
@@ -112,17 +116,30 @@ export function About() {
               and breathe this industry.
             </motion.p>
 
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-lg text-gray-500 leading-relaxed"
-            >
-              From technical specifications to emotional storytelling, we understand 
-              what moves vessels worth millions. Our approach combines deep maritime 
-              knowledge with cutting-edge digital strategy to create experiences that 
-              captivate and convert.
-            </motion.p>
+            <div>
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="text-lg text-gray-500 leading-relaxed mb-4"
+              >
+                From technical specifications to emotional storytelling, we understand
+                what moves vessels worth millions. Our approach combines deep maritime
+                knowledge with cutting-edge digital strategy to create experiences that
+                captivate and convert.
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="text-base text-gray-500 leading-relaxed"
+              >
+                Based in Philadelphia, Pennsylvania, MarineForge is the only
+                marine-focused commercialization agency that combines productization,
+                sales enablement, and AI-powered marketing to drive revenue for marine
+                businesses across the Mid-Atlantic and Southeast United States.
+              </motion.p>
+            </div>
           </div>
         </motion.div>
 
@@ -221,13 +238,13 @@ export function About() {
             {/* Large featured image */}
             <div className="md:col-span-2 relative aspect-[16/10] rounded-3xl overflow-hidden group">
               <motion.div whileHover={{ scale: 1.05 }} className="w-full h-full relative">
-                <Image
-                  src="https://images.unsplash.com/photo-1768424744138-013d7af34289?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5YWNodCUyMGxpZmVzdHlsZSUyMHByZW1pdW0lMjBhZHZlbnR1cmV8ZW58MXx8fHwxNzcwNTgwMzcwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                  alt="Premium yacht adventure"
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700"
-                  sizes="(max-width: 768px) 100vw, 66vw"
-                />
+                {yachtImageProps && (
+                  <Image
+                    {...yachtImageProps}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                )}
               </motion.div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               
@@ -250,13 +267,13 @@ export function About() {
             <div className="space-y-8">
               <div className="relative aspect-square rounded-3xl overflow-hidden group">
                 <motion.div whileHover={{ scale: 1.05 }} className="w-full h-full relative">
-                  <Image
-                    src="https://images.unsplash.com/photo-1751250320427-2a26d131436a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5YWNodCUyMGNvY2twaXQlMjBjb250cm9scyUyMHRlY2hub2xvZ3l8ZW58MXx8fHwxNzcwNTgwODg0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                    alt="Marine technology"
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
+                  {cockpitImageProps && (
+                    <Image
+                      {...cockpitImageProps}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                  )}
                 </motion.div>
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1877F2]/80 to-transparent" />
                 

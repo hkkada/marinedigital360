@@ -4,6 +4,8 @@ import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
 import { useRef, useState } from 'react';
 import { Send, Mail, Phone, MapPin, Waves } from 'lucide-react';
+import Link from 'next/link';
+import { getVisibleServices } from '@/lib/services';
 
 export function Contact() {
   const ref = useRef(null);
@@ -21,21 +23,21 @@ export function Contact() {
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567',
+      value: '+1 (215) 555-0199',
+      href: 'tel:+12155550199',
       color: 'from-indigo-500 to-blue-500',
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: 'Miami, Florida',
+      value: 'Philadelphia, Pennsylvania',
       href: null,
       color: 'from-cyan-500 to-blue-600',
     },
   ];
 
   return (
-    <section id="contact" className="py-32 md:py-40 bg-white relative overflow-hidden" ref={ref}>
+    <section id="contact" className="py-32 md:py-40 bg-white relative overflow-hidden" ref={ref} aria-labelledby="contact-heading">
       {/* Bold background graphics */}
       <div className="absolute inset-0">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#1877F2]/10 via-[#42A5F5]/5 to-transparent rounded-full blur-3xl" />
@@ -79,7 +81,7 @@ export function Contact() {
             <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] via-transparent to-transparent" />
           </motion.div>
 
-          <h2 className="text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.9] text-gray-900 mb-8">
+          <h2 id="contact-heading" className="text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.9] text-gray-900 mb-8">
             Ready to
             <br />
             <span className="bg-gradient-to-r from-[#1877F2] via-[#42A5F5] to-[#0D5DBF] bg-clip-text text-transparent">
@@ -201,10 +203,11 @@ export function Contact() {
                     className="w-full px-6 py-5 bg-gray-50 border-2 border-gray-200 rounded-2xl text-gray-900 text-lg focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 appearance-none cursor-pointer"
                   >
                     <option value="">Select a service</option>
-                    <option value="website">Website Design & Development</option>
-                    <option value="brand">Brand Strategy & Identity</option>
-                    <option value="content">Visual Content Production</option>
-                    <option value="marketing">Digital Marketing</option>
+                    {getVisibleServices().map((service) => (
+                      <option key={service.slug} value={service.slug}>
+                        {service.title}
+                      </option>
+                    ))}
                     <option value="full">Full-Service Package</option>
                   </select>
                 </div>
@@ -360,33 +363,94 @@ export function Contact() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 1.8 }}
-          className="mt-32 pt-12 border-t border-gray-200"
+          className="mt-32 pt-16 border-t border-gray-200"
         >
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-[#1877F2] to-[#0D5DBF] rounded-2xl flex items-center justify-center">
-                <Waves className="w-6 h-6 text-white" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
+            {/* Column 1: Logo + tagline */}
+            <div className="col-span-2 md:col-span-1">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-gradient-to-br from-[#1877F2] to-[#0D5DBF] rounded-xl flex items-center justify-center">
+                  <Waves className="w-5 h-5 text-white" />
+                </div>
+                <span className="text-xl tracking-tight text-gray-900">
+                  MARINE<span className="font-light">FORGE</span>
+                </span>
               </div>
-              <span className="text-2xl tracking-tight text-gray-900">
-                MARINE<span className="font-light">FORGE</span>
-              </span>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                Full-spectrum marine digital agency. Strategy, design, and growth for the marine industry.
+              </p>
             </div>
 
-            <p className="text-gray-600">
+            {/* Column 2: Services */}
+            <div>
+              <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-4">
+                Services
+              </h4>
+              <ul className="space-y-3">
+                {getVisibleServices().map((service) => (
+                  <li key={service.slug}>
+                    <Link
+                      href={`/services/${service.slug}`}
+                      className="text-sm text-gray-600 hover:text-[#1877F2] transition-colors"
+                    >
+                      {service.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 3: Company */}
+            <div>
+              <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-4">
+                Company
+              </h4>
+              <ul className="space-y-3">
+                {[
+                  { label: 'Work', href: '/#work' },
+                  { label: 'About', href: '/#about' },
+                  { label: 'Contact', href: '/#contact' },
+                ].map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-gray-600 hover:text-[#1877F2] transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 4: Connect */}
+            <div>
+              <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-4">
+                Connect
+              </h4>
+              <ul className="space-y-3">
+                {['LinkedIn', 'Instagram', 'Behance'].map((social) => (
+                  <li key={social}>
+                    <a
+                      href="#"
+                      className="text-sm text-gray-600 hover:text-[#1877F2] transition-colors"
+                    >
+                      {social}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom bar */}
+          <div className="pt-8 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-gray-500">
               © 2026 MarineForge. Navigating digital excellence.
             </p>
-
-            <div className="flex gap-6">
-              {['LinkedIn', 'Instagram', 'Behance'].map((social) => (
-                <a
-                  key={social}
-                  href="#"
-                  className="text-gray-600 hover:text-[#1877F2] transition-colors font-medium"
-                >
-                  {social}
-                </a>
-              ))}
-            </div>
+            <p className="text-sm text-gray-400">
+              Philadelphia, Pennsylvania
+            </p>
           </div>
         </motion.footer>
       </div>

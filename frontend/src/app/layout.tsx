@@ -7,29 +7,57 @@ const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
 export const metadata: Metadata = {
   title: {
-    default: 'MarineForge - Premium Marine Digital Experiences',
+    default:
+      'MarineForge — Marine Marketing Agency | Productization, SEO & Sales Enablement',
     template: '%s | MarineForge',
   },
   description:
-    "We create immersive digital experiences for the world's finest boat and yacht manufacturers. Web design, branding, and digital marketing for the marine industry.",
+    'MarineForge is a specialized marine marketing agency that transforms boat manufacturer, dealer, and marine technology capabilities into market-ready products. Productization, sales enablement, SEO, GEO, and AI-powered digital marketing for the marine industry.',
+  keywords: [
+    'marine marketing agency',
+    'marine productization',
+    'boat manufacturer marketing',
+    'marine sales enablement',
+    'marine SEO',
+    'marine digital marketing',
+    'boat dealer marketing',
+    'marine commercialization',
+    'yacht marketing agency',
+    'marine GEO optimization',
+    'marine web design',
+    'fishing charter marketing',
+  ],
   metadataBase: new URL('https://marineforge.com'),
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: 'MarineForge - Premium Marine Digital Experiences',
+    title:
+      'MarineForge — Marine Marketing Agency | Productization, SEO & Sales Enablement',
     description:
-      'Award-winning digital experiences for marine manufacturers.',
+      'MarineForge transforms marine business capabilities into market-ready products. Productization, sales enablement, SEO, and AI-powered marketing for boat manufacturers, dealers, and marine technology companies.',
     siteName: 'MarineForge',
     locale: 'en_US',
     type: 'website',
+    url: 'https://marineforge.com',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'MarineForge - Premium Marine Digital Experiences',
+    title:
+      'MarineForge — Marine Marketing Agency | Productization, SEO & Sales Enablement',
     description:
-      'Award-winning digital experiences for marine manufacturers.',
+      'MarineForge transforms marine business capabilities into market-ready products. Productization, sales enablement, SEO, and AI-powered marketing for the marine industry.',
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
@@ -46,10 +74,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-     {process.env.NEXT_PUBLIC_GTM_ID && (
+      <body className={inter.className}>
+        {children}
+        {process.env.NEXT_PUBLIC_GTM_ID && (
           <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
         )}
-      <body className={inter.className}>{children}</body>
+      </body>
     </html>
   );
 }
