@@ -6,11 +6,19 @@ import { useRef, useState } from 'react';
 import { Send, Mail, Phone, MapPin, Waves } from 'lucide-react';
 import Link from 'next/link';
 import { getVisibleServices } from '@/lib/services';
+import { BookingModal } from '@/components/BookingModal';
 
 export function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-150px' });
   const [hoveredField, setHoveredField] = useState<string | null>(null);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log('Form submitted');
+    // TODO: Add form submission logic here (validate, send to API, etc.)
+  };
 
   const contactMethods = [
     {
@@ -37,7 +45,7 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-32 md:py-40 bg-white relative overflow-hidden" ref={ref} aria-labelledby="contact-heading">
+    <section id="contact" className="py-24 md:py-32 bg-white relative overflow-hidden" ref={ref} aria-labelledby="contact-heading">
       {/* Bold background graphics */}
       <div className="absolute inset-0">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#1877F2]/10 via-[#42A5F5]/5 to-transparent rounded-full blur-3xl" />
@@ -68,7 +76,7 @@ export function Contact() {
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-24 text-center"
+          className="mb-16 text-center"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -81,7 +89,7 @@ export function Contact() {
             <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] via-transparent to-transparent" />
           </motion.div>
 
-          <h2 id="contact-heading" className="text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.9] text-gray-900 mb-8">
+          <h2 id="contact-heading" className="text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[0.95] text-gray-900 mb-6">
             Ready to
             <br />
             <span className="bg-gradient-to-r from-[#1877F2] via-[#42A5F5] to-[#0D5DBF] bg-clip-text text-transparent">
@@ -93,14 +101,14 @@ export function Contact() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-gray-600 font-light max-w-3xl mx-auto"
+            className="text-lg md:text-xl text-gray-600 font-light max-w-3xl mx-auto leading-relaxed"
           >
-            Let's create something exceptional. Start the conversation and 
+            Let's create something exceptional. Start the conversation and
             discover how we can elevate your marine brand.
           </motion.p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-16">
+        <div className="grid lg:grid-cols-5 gap-12">
           {/* Contact form - bold and modern */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}
@@ -108,8 +116,8 @@ export function Contact() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="lg:col-span-3"
           >
-            <form className="space-y-8">
-              <div className="grid sm:grid-cols-2 gap-8">
+            <form className="space-y-6" onSubmit={handleFormSubmit}>
+              <div className="grid sm:grid-cols-2 gap-6">
                 {/* Name */}
                 <div className="relative">
                   <motion.div
@@ -129,7 +137,7 @@ export function Contact() {
                       placeholder="John Smith"
                       onFocus={() => setHoveredField('name')}
                       onBlur={() => setHoveredField(null)}
-                      className="w-full px-6 py-5 bg-gray-50 border-2 border-gray-200 rounded-2xl text-gray-900 text-lg focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 placeholder:text-gray-400"
+                      className="w-full px-5 py-3.5 bg-gray-50 border-2 border-gray-200 rounded-xl text-gray-900 text-base focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 placeholder:text-gray-400"
                     />
                   </div>
                 </div>
@@ -153,7 +161,7 @@ export function Contact() {
                       placeholder="Your Boat Company"
                       onFocus={() => setHoveredField('company')}
                       onBlur={() => setHoveredField(null)}
-                      className="w-full px-6 py-5 bg-gray-50 border-2 border-gray-200 rounded-2xl text-gray-900 text-lg focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 placeholder:text-gray-400"
+                      className="w-full px-5 py-3.5 bg-gray-50 border-2 border-gray-200 rounded-xl text-gray-900 text-base focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 placeholder:text-gray-400"
                     />
                   </div>
                 </div>
@@ -200,7 +208,7 @@ export function Contact() {
                   <select
                     onFocus={() => setHoveredField('type')}
                     onBlur={() => setHoveredField(null)}
-                    className="w-full px-6 py-5 bg-gray-50 border-2 border-gray-200 rounded-2xl text-gray-900 text-lg focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 appearance-none cursor-pointer"
+                    className="w-full px-5 py-3.5 bg-gray-50 border-2 border-gray-200 rounded-xl text-gray-900 text-base focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 appearance-none cursor-pointer"
                   >
                     <option value="">Select a service</option>
                     {getVisibleServices().map((service) => (
@@ -228,11 +236,11 @@ export function Contact() {
                     Your Message
                   </label>
                   <textarea
-                    rows={6}
+                    rows={5}
                     placeholder="Tell us about your vision and goals..."
                     onFocus={() => setHoveredField('message')}
                     onBlur={() => setHoveredField(null)}
-                    className="w-full px-6 py-5 bg-gray-50 border-2 border-gray-200 rounded-2xl text-gray-900 text-lg focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 resize-none placeholder:text-gray-400"
+                    className="w-full px-5 py-3.5 bg-gray-50 border-2 border-gray-200 rounded-xl text-gray-900 text-base focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 resize-none placeholder:text-gray-400 leading-relaxed"
                   />
                 </div>
               </div>
@@ -242,12 +250,12 @@ export function Contact() {
                 type="submit"
                 whileHover={{ scale: 1.02, boxShadow: '0 20px 60px rgba(24, 119, 242, 0.3)' }}
                 whileTap={{ scale: 0.98 }}
-                className="group w-full px-12 py-6 bg-gradient-to-r from-[#1877F2] to-[#0D5DBF] text-white rounded-2xl text-lg font-semibold shadow-2xl shadow-[#1877F2]/30 transition-all duration-300 flex items-center justify-center gap-3"
+                className="group w-full px-8 py-4 bg-gradient-to-r from-[#1877F2] to-[#0D5DBF] text-white rounded-xl text-base font-semibold shadow-lg shadow-[#1877F2]/20 transition-all duration-300 flex items-center justify-center gap-2.5"
               >
                 <span>Send Message</span>
-                <Send 
-                  size={22} 
-                  className="group-hover:translate-x-2 group-hover:-translate-y-1 transition-transform duration-300" 
+                <Send
+                  size={20}
+                  className="group-hover:translate-x-2 group-hover:-translate-y-1 transition-transform duration-300"
                 />
               </motion.button>
             </form>
@@ -258,7 +266,7 @@ export function Contact() {
             initial={{ opacity: 0, x: 60 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="lg:col-span-2 space-y-8"
+            className="lg:col-span-2 space-y-5"
           >
             {/* Contact methods with gradients */}
             {contactMethods.map((method, index) => (
@@ -271,7 +279,7 @@ export function Contact() {
               >
                 <a
                   href={method.href || undefined}
-                  className={`block relative p-8 bg-gradient-to-br ${method.color} rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 ${
+                  className={`block relative p-6 bg-gradient-to-br ${method.color} rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 ${
                     method.href ? 'cursor-pointer' : ''
                   }`}
                 >
@@ -284,18 +292,18 @@ export function Contact() {
 
                   <div className="relative flex items-start gap-4">
                     <motion.div
-                      className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0"
+                      className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       transition={{ type: 'spring', stiffness: 300 }}
                     >
-                      <method.icon className="w-8 h-8 text-white" />
+                      <method.icon className="w-6 h-6 text-white" />
                     </motion.div>
 
                     <div className="flex-1">
-                      <p className="text-sm text-white/80 uppercase tracking-wide mb-2">
+                      <p className="text-xs text-white/80 uppercase tracking-wide mb-1.5 font-medium">
                         {method.label}
                       </p>
-                      <p className="text-xl md:text-2xl text-white font-semibold">
+                      <p className="text-lg md:text-xl text-white font-semibold">
                         {method.value}
                       </p>
                     </div>
@@ -309,28 +317,29 @@ export function Contact() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 1.4 }}
-              className="relative p-8 bg-gray-900 rounded-3xl overflow-hidden"
+              className="relative p-6 bg-gray-900 rounded-2xl overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#1877F2]/20 rounded-full blur-2xl" />
-              
+
               <div className="relative">
-                <h3 className="text-2xl font-bold text-white mb-3">
+                <h3 className="text-xl font-bold text-white mb-2.5">
                   Prefer a Quick Call?
                 </h3>
-                <p className="text-gray-400 mb-6 leading-relaxed">
-                  Schedule a 30-minute discovery session with our team to 
+                <p className="text-gray-400 text-sm mb-5 leading-relaxed">
+                  Schedule a 30-minute discovery session with our team to
                   discuss your project in detail.
                 </p>
-                <motion.a
-                  href="#"
+                <motion.button
+                  onClick={() => setIsBookingOpen(true)}
                   whileHover={{ scale: 1.05 }}
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 rounded-full font-semibold hover:bg-gray-100 transition-all"
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 rounded-full text-sm font-semibold hover:bg-gray-100 transition-all"
                 >
                   <span>Book a Call</span>
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
-                </motion.a>
+                </motion.button>
               </div>
             </motion.div>
 
@@ -363,7 +372,7 @@ export function Contact() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 1.8 }}
-          className="mt-32 pt-16 border-t border-gray-200"
+          className="mt-24 pt-12 border-t border-gray-200"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
             {/* Column 1: Logo + tagline */}
@@ -454,6 +463,11 @@ export function Contact() {
           </div>
         </motion.footer>
       </div>
+
+      <BookingModal
+        isOpen={isBookingOpen}
+        onClose={() => setIsBookingOpen(false)}
+      />
     </section>
   );
 }
