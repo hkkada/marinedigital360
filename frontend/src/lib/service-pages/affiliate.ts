@@ -212,39 +212,44 @@ export const affiliatePage: ServicePageData = {
           'From strategy to scaling, our 5-phase approach gets your affiliate program generating revenue in 8–12 weeks.',
         steps: [
           {
-            phase: 'Phase 1',
+            iconName: 'Map',
             title: 'Strategy & Program Design',
+            duration: 'Weeks 1–2',
             description:
               'Define program goals, commission structures, partner criteria, competitive analysis, and technology selection.',
-            deliverable: 'Affiliate program strategy document',
+            deliverables: ['Program strategy document'],
           },
           {
-            phase: 'Phase 2',
+            iconName: 'Settings',
             title: 'Platform Setup & Configuration',
+            duration: 'Weeks 2–3',
             description:
               'Configure your chosen affiliate platform — tracking, attribution, payout rules, partner portal, and reporting dashboards.',
-            deliverable: 'Live affiliate platform with tracking',
+            deliverables: ['Live affiliate platform', 'Tracking setup'],
           },
           {
-            phase: 'Phase 3',
+            iconName: 'UserPlus',
             title: 'Asset Creation & Recruitment',
+            duration: 'Weeks 3–6',
             description:
               'Create marketing assets for partners, build the onboarding kit, and launch targeted partner recruitment campaigns.',
-            deliverable: 'Asset library & 50+ prospect outreach',
+            deliverables: ['Asset library', '50+ prospect outreach'],
           },
           {
-            phase: 'Phase 4',
+            iconName: 'Users',
             title: 'Partner Onboarding & Activation',
+            duration: 'Weeks 6–8',
             description:
               'Onboard recruited partners, provide training, distribute assets, and activate initial campaigns with top partners.',
-            deliverable: '15–25 active partners driving traffic',
+            deliverables: ['15–25 active partners', 'Campaign activation'],
           },
           {
-            phase: 'Phase 5',
+            iconName: 'TrendingUp',
             title: 'Optimization & Scaling',
+            duration: 'Ongoing',
             description:
               'Monitor partner performance, optimize commission structures, expand recruitment, and scale top-performing partnerships.',
-            deliverable: 'Monthly performance reports & scaling plan',
+            deliverables: ['Monthly performance reports', 'Scaling plan'],
           },
         ],
       },

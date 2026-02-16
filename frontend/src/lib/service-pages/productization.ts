@@ -186,39 +186,44 @@ export const productizationPage: ServicePageData = {
           'Our 5-phase productization methodology transforms your capabilities into market-ready products in 6–8 weeks.',
         steps: [
           {
-            phase: 'Phase 1',
+            iconName: 'Search',
             title: 'Discovery & Alignment',
+            duration: 'Weeks 1–2',
             description:
               'Deep-dive into your business capabilities, current sales process, competitive landscape, and target market segments.',
-            deliverable: 'Capability audit & market opportunity report',
+            deliverables: ['Capability audit', 'Market opportunity report'],
           },
           {
-            phase: 'Phase 2',
+            iconName: 'Map',
             title: 'Strategy & Architecture',
+            duration: 'Weeks 2–3',
             description:
               'Define product portfolio architecture — which capabilities become which products, at which price points, for which segments.',
-            deliverable: 'Product portfolio blueprint',
+            deliverables: ['Product portfolio blueprint'],
           },
           {
-            phase: 'Phase 3',
+            iconName: 'Package',
             title: 'Naming & Packaging',
+            duration: 'Weeks 3–4',
             description:
               'Create product names, tier structures, feature sets, and messaging frameworks. Test naming with market feedback.',
-            deliverable: 'Named products with tier pricing',
+            deliverables: ['Named products', 'Tier pricing'],
           },
           {
-            phase: 'Phase 4',
+            iconName: 'Presentation',
             title: 'Sales Enablement',
+            duration: 'Weeks 4–6',
             description:
               'Build complete sales collateral — playbooks, battle cards, one-pagers, objection handling guides, and pitch decks.',
-            deliverable: 'Sales-ready documentation package',
+            deliverables: ['Sales playbook', 'Battle cards', 'Pitch deck'],
           },
           {
-            phase: 'Phase 5',
+            iconName: 'Rocket',
             title: 'Launch & Optimization',
+            duration: 'Weeks 6–8',
             description:
               'Launch products to market, train your sales team, and iterate based on initial market feedback and conversion data.',
-            deliverable: 'Market launch & performance dashboard',
+            deliverables: ['Market launch', 'Performance dashboard'],
           },
         ],
       },

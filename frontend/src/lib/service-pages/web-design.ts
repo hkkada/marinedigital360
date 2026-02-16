@@ -176,39 +176,44 @@ export const webDesignPage: ServicePageData = {
           'Our web design process is transparent, collaborative, and delivers on time.',
         steps: [
           {
-            phase: 'Phase 1',
+            iconName: 'Search',
             title: 'Discovery & Strategy',
+            duration: 'Weeks 1–2',
             description:
               'Understand your business goals, target audience, competitive landscape, and technical requirements. Define sitemap and content strategy.',
-            deliverable: 'Project brief, sitemap, & content plan',
+            deliverables: ['Project brief', 'Sitemap', 'Content plan'],
           },
           {
-            phase: 'Phase 2',
+            iconName: 'PenTool',
             title: 'Wireframes & UX Design',
+            duration: 'Weeks 2–3',
             description:
               'Create low-fidelity wireframes for key pages, map user flows, and define the information architecture and conversion paths.',
-            deliverable: 'Wireframes & user flow diagrams',
+            deliverables: ['Wireframes', 'User flow diagrams'],
           },
           {
-            phase: 'Phase 3',
+            iconName: 'Image',
             title: 'Visual Design',
+            duration: 'Weeks 3–4',
             description:
               'High-fidelity mockups with your brand identity, typography, color palette, and imagery. Desktop and mobile views for approval.',
-            deliverable: 'Design mockups for review & approval',
+            deliverables: ['Design mockups', 'Style guide', 'Client approval'],
           },
           {
-            phase: 'Phase 4',
+            iconName: 'Code',
             title: 'Development & Integration',
+            duration: 'Weeks 4–6',
             description:
               'Build the site with clean, semantic code. Integrate CMS, forms, analytics, and any third-party tools. Optimize performance and SEO.',
-            deliverable: 'Fully functional staging site',
+            deliverables: ['Staging site', 'CMS setup', 'SEO configuration'],
           },
           {
-            phase: 'Phase 5',
+            iconName: 'Rocket',
             title: 'QA, Launch & Support',
+            duration: 'Weeks 6–7+',
             description:
               'Cross-browser and device testing, performance optimization, SEO validation, and go-live. Post-launch monitoring and support.',
-            deliverable: 'Live website & post-launch support',
+            deliverables: ['Live website', 'QA report', 'Post-launch support'],
           },
         ],
       },

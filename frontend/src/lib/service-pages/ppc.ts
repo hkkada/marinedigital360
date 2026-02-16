@@ -254,39 +254,44 @@ export const ppcPage: ServicePageData = {
           'Our PPC management process is structured for rapid results and continuous improvement.',
         steps: [
           {
-            phase: 'Phase 1',
+            iconName: 'Search',
             title: 'Audit & Strategy',
+            duration: 'Week 1',
             description:
               'Review existing campaigns (if any), analyze competitors, research marine-specific keywords, and define targeting strategy and budget allocation.',
-            deliverable: 'PPC audit report & campaign strategy',
+            deliverables: ['PPC audit report', 'Campaign strategy'],
           },
           {
-            phase: 'Phase 2',
+            iconName: 'Target',
             title: 'Campaign Build',
+            duration: 'Weeks 1–2',
             description:
               'Build campaign structures, write ad copy, create audience segments, set up conversion tracking, and configure bid strategies.',
-            deliverable: 'Launch-ready campaigns & tracking setup',
+            deliverables: ['Launch-ready campaigns', 'Tracking setup'],
           },
           {
-            phase: 'Phase 3',
+            iconName: 'Rocket',
             title: 'Launch & Monitor',
+            duration: 'Week 3',
             description:
               'Launch campaigns, monitor performance in real-time, and make initial adjustments based on early data signals.',
-            deliverable: 'Live campaigns & real-time monitoring dashboard',
+            deliverables: ['Live campaigns', 'Monitoring dashboard'],
           },
           {
-            phase: 'Phase 4',
+            iconName: 'TrendingUp',
             title: 'Optimize & Scale',
+            duration: 'Weeks 3–8',
             description:
               'Continuous A/B testing, bid optimization, audience refinement, negative keyword expansion, and budget reallocation to top performers.',
-            deliverable: 'Optimization log & performance improvements',
+            deliverables: ['Optimization log', 'Performance improvements'],
           },
           {
-            phase: 'Phase 5',
+            iconName: 'BarChart3',
             title: 'Report & Strategize',
+            duration: 'Monthly',
             description:
               'Detailed performance reporting, ROAS analysis, and strategic recommendations for scaling budget and expanding to new platforms.',
-            deliverable: 'Monthly performance report & scaling roadmap',
+            deliverables: ['Monthly performance report', 'Scaling roadmap'],
           },
         ],
       },

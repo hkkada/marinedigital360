@@ -23,10 +23,11 @@ export interface ProcessTimelineData {
   headline: string;
   description: string;
   steps: Array<{
-    phase: string;
     title: string;
     description: string;
-    deliverable: string;
+    iconName: string;
+    duration: string;
+    deliverables: string[];
   }>;
 }
 

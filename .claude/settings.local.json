@@ -9,7 +9,8 @@
       "Bash(npx tsc:*)",
       "Bash(ls -la \"c:\\\\Users\\\\harik\\\\source\\\\repos\\\\MarineMarketing\\\\code\\\\MarineForge\\\\frontend\\\\src\\\\app\"\" | grep -E \"^d \")",
       "Bash(wc:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(ls:*)"
     ]
   }
 }

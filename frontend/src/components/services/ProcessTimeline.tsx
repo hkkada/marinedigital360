@@ -1,19 +1,117 @@
 'use client';
 
-import { motion, useInView } from 'motion/react';
+import { motion, useInView, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
+import { Check } from 'lucide-react';
+import { getIcon } from '@/lib/icon-map';
 import type { ProcessTimelineData } from '@/lib/service-pages/types';
+
+interface TimelineStepProps {
+  step: ProcessTimelineData['steps'][number];
+  index: number;
+}
+
+function TimelineStep({ step, index }: TimelineStepProps) {
+  const stepRef = useRef(null);
+  const isInView = useInView(stepRef, { once: true, margin: '-80px' });
+  const Icon = getIcon(step.iconName);
+  const stepNumber = String(index + 1).padStart(2, '0');
+
+  return (
+    <div ref={stepRef} className="relative grid grid-cols-[48px_1fr] md:grid-cols-[80px_1fr] gap-4 md:gap-6">
+      {/* Milestone node column */}
+      <div className="flex flex-col items-center">
+        {/* Node */}
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={
+            isInView
+              ? { scale: 1, opacity: 1 }
+              : { scale: 0.8, opacity: 0 }
+          }
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className={`relative z-10 w-9 h-9 md:w-12 md:h-12 rounded-full flex items-center justify-center text-xs md:text-sm font-bold transition-all duration-500 ${
+            isInView
+              ? 'bg-gradient-to-br from-[#1877F2] to-[#0D5DBF] border-2 border-[#1877F2] text-white shadow-lg shadow-[#1877F2]/30'
+              : 'bg-white/5 border-2 border-white/20 text-gray-500'
+          }`}
+        >
+          {stepNumber}
+        </motion.div>
+      </div>
+
+      {/* Card column */}
+      <motion.div
+        initial={{ opacity: 0, x: -30 }}
+        animate={isInView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+        whileHover={{ y: -2 }}
+        className="pb-8 md:pb-12"
+      >
+        <div className="p-5 md:p-6 lg:p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-[#1877F2]/30 hover:shadow-lg hover:shadow-[#1877F2]/5 transition-all duration-300">
+          {/* Header row */}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+            <div className="flex items-center gap-3">
+              {Icon && (
+                <div className="w-10 h-10 bg-gradient-to-br from-[#1877F2] to-[#0D5DBF] rounded-lg flex items-center justify-center shadow-md shadow-[#1877F2]/20 flex-shrink-0">
+                  <Icon className="text-white" size={20} />
+                </div>
+              )}
+              <h3 className="text-xl md:text-2xl font-semibold text-white">
+                {step.title}
+              </h3>
+            </div>
+            <span className="sm:ml-auto px-3 py-1 bg-[#1877F2]/10 text-[#42A5F5] text-xs font-semibold tracking-wide rounded-full border border-[#1877F2]/20 w-fit">
+              {step.duration}
+            </span>
+          </div>
+
+          {/* Description */}
+          <p className="text-gray-400 leading-relaxed mt-4">
+            {step.description}
+          </p>
+
+          {/* Deliverables */}
+          <div className="flex flex-wrap gap-2 mt-5 pt-5 border-t border-white/10">
+            {step.deliverables.map((deliverable, i) => (
+              <motion.span
+                key={deliverable}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.3, delay: 0.4 + i * 0.08 }}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#1877F2]/10 rounded-full text-sm text-[#42A5F5]"
+              >
+                <Check size={14} className="flex-shrink-0" />
+                {deliverable}
+              </motion.span>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+}
 
 interface ProcessTimelineProps {
   data: ProcessTimelineData;
 }
 
 export function ProcessTimeline({ data }: ProcessTimelineProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const sectionRef = useRef(null);
+  const timelineRef = useRef(null);
+  const isSectionInView = useInView(sectionRef, { once: true, margin: '-100px' });
+
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ['start 0.8', 'end 0.5'],
+  });
+  const fillScaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <section className="py-24 md:py-32 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden" ref={ref}>
+    <section
+      ref={sectionRef}
+      className="py-24 md:py-32 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden"
+    >
       {/* Background */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#1877F2]/10 rounded-full blur-3xl" />
 
@@ -21,13 +119,13 @@ export function ProcessTimeline({ data }: ProcessTimelineProps) {
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          animate={isSectionInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
           className="mb-20 text-center"
         >
           <motion.div
             initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            animate={isSectionInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex items-center justify-center gap-4 mb-6"
           >
@@ -43,7 +141,7 @@ export function ProcessTimeline({ data }: ProcessTimelineProps) {
           </h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            animate={isSectionInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-xl text-gray-400 font-light max-w-2xl mx-auto"
           >
@@ -52,58 +150,24 @@ export function ProcessTimeline({ data }: ProcessTimelineProps) {
         </motion.div>
 
         {/* Timeline */}
-        <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#1877F2]/50 via-[#1877F2]/30 to-transparent hidden md:block" />
-          <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-[#1877F2]/50 via-[#1877F2]/30 to-transparent md:hidden" />
+        <div ref={timelineRef} className="relative">
+          {/* Progress rail */}
+          <div className="absolute left-6 md:left-10 top-0 bottom-0 w-0.5 bg-white/10 -translate-x-1/2">
+            <motion.div
+              className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#1877F2] to-[#42A5F5] origin-top shadow-[0_0_8px_rgba(24,119,242,0.4)]"
+              style={{ scaleY: fillScaleY }}
+            />
+          </div>
 
-          <div className="space-y-12 md:space-y-16">
-            {data.steps.map((step, index) => {
-              const isLeft = index % 2 === 0;
-              return (
-                <motion.div
-                  key={step.phase}
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.4 + index * 0.15 }}
-                  className={`relative flex items-start gap-8 md:gap-0 ${
-                    isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
-                  }`}
-                >
-                  {/* Phase number dot */}
-                  <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-[#1877F2] border-4 border-gray-900 shadow-lg shadow-[#1877F2]/50 z-10" />
-
-                  {/* Spacer for mobile */}
-                  <div className="w-16 flex-shrink-0 md:hidden" />
-
-                  {/* Content card */}
-                  <div className={`flex-1 md:w-[calc(50%-2rem)] ${isLeft ? 'md:pr-16' : 'md:pl-16'}`}>
-                    <div className="p-6 md:p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-[#1877F2]/30 transition-all duration-300">
-                      <div className="flex items-center gap-3 mb-4">
-                        <span className="px-3 py-1 bg-[#1877F2]/20 text-[#42A5F5] text-xs font-semibold tracking-wide uppercase rounded-full">
-                          {step.phase}
-                        </span>
-                      </div>
-                      <h3 className="text-xl md:text-2xl font-semibold text-white mb-3">
-                        {step.title}
-                      </h3>
-                      <p className="text-gray-400 leading-relaxed mb-4">
-                        {step.description}
-                      </p>
-                      <div className="flex items-center gap-2 text-sm text-[#42A5F5]">
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4" />
-                        </svg>
-                        <span className="font-medium">{step.deliverable}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Empty spacer for the other side on desktop */}
-                  <div className="hidden md:block flex-1 md:w-[calc(50%-2rem)]" />
-                </motion.div>
-              );
-            })}
+          {/* Steps */}
+          <div>
+            {data.steps.map((step, index) => (
+              <TimelineStep
+                key={step.title}
+                step={step}
+                index={index}
+              />
+            ))}
           </div>
         </div>
       </div>

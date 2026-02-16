@@ -228,39 +228,44 @@ export const seoGeoPage: ServicePageData = {
           'Our SEO/GEO/AEO methodology builds a compounding visibility engine over 6–12 months.',
         steps: [
           {
-            phase: 'Phase 1',
+            iconName: 'Search',
             title: 'Audit & Discovery',
+            duration: 'Weeks 1–2',
             description:
               'Comprehensive technical SEO audit, keyword research (200–500 keywords), competitor analysis, and current AI visibility assessment.',
-            deliverable: 'Technical audit report & keyword opportunity map',
+            deliverables: ['Technical audit report', 'Keyword opportunity map'],
           },
           {
-            phase: 'Phase 2',
+            iconName: 'Map',
             title: 'Strategy & Architecture',
+            duration: 'Weeks 2–3',
             description:
               'Site architecture optimization, content calendar planning, schema markup strategy, and GEO/AEO content framework design.',
-            deliverable: 'SEO/GEO/AEO strategy document & content roadmap',
+            deliverables: ['SEO/GEO/AEO strategy document', 'Content roadmap'],
           },
           {
-            phase: 'Phase 3',
+            iconName: 'Settings',
             title: 'Technical Fixes & On-Page',
+            duration: 'Weeks 3–6',
             description:
               'Implement technical fixes (Core Web Vitals, crawl issues, indexation), on-page optimization, and schema markup deployment.',
-            deliverable: 'Optimized site architecture & schema implementation',
+            deliverables: ['Optimized site architecture', 'Schema implementation'],
           },
           {
-            phase: 'Phase 4',
+            iconName: 'FileText',
             title: 'Content & Link Building',
+            duration: 'Weeks 6–12',
             description:
               'Publish optimized content (buyer guides, comparisons, FAQs), build quality backlinks, and optimize Google Business Profile.',
-            deliverable: '12–24 content pieces & link building campaign',
+            deliverables: ['12–24 content pieces', 'Link building campaign'],
           },
           {
-            phase: 'Phase 5',
+            iconName: 'TrendingUp',
             title: 'Optimization & Scaling',
+            duration: 'Ongoing',
             description:
               'Monitor rankings, refine content for featured snippets, expand GEO signals, and scale what works based on performance data.',
-            deliverable: 'Monthly performance reports & optimization playbook',
+            deliverables: ['Monthly performance reports', 'Optimization playbook'],
           },
         ],
       },
