@@ -14,11 +14,7 @@ interface BookingModalProps {
  * BookingModal Component
  *
  * Renders Calendly booking widget inside a Sheet (side drawer) modal.
- *
- * IMPORTANT:
- * - Requires Calendly script to be loaded in layout.tsx
- * - Uses bookingProvider abstraction from @/lib/booking
- * - Script loads via lazyOnload strategy (non-blocking)
+ * Loads the Calendly script on-demand when the modal opens (not globally).
  *
  * @param isOpen - Controls modal visibility
  * @param onClose - Callback when modal closes
@@ -30,29 +26,58 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
   useEffect(() => {
     if (!isOpen) return;
 
-    let retries = 0;
-    const maxRetries = 10;
+    const scriptSrc = bookingProvider.getEmbedScript();
 
-    const initCalendly = () => {
-      const Calendly = (window as any).Calendly;
-
-      if (!Calendly) {
-        if (retries < maxRetries) {
-          retries++;
-          setTimeout(initCalendly, 500);
-          return;
-        }
-        setError('Unable to load booking calendar. Please try again.');
-        setIsLoading(false);
+    const loadScriptAndInit = () => {
+      // If Calendly is already loaded, initialize directly
+      if ((window as any).Calendly) {
+        initWidget();
         return;
       }
 
+      // Check if script tag already exists (from a previous open)
+      if (document.querySelector(`script[src="${scriptSrc}"]`)) {
+        // Script exists but hasn't loaded yet — poll for it
+        pollForCalendly();
+        return;
+      }
+
+      // Inject the script on-demand
+      const script = document.createElement('script');
+      script.src = scriptSrc;
+      script.async = true;
+      script.onload = () => initWidget();
+      script.onerror = () => {
+        setError('Unable to load booking calendar. Please try again.');
+        setIsLoading(false);
+      };
+      document.head.appendChild(script);
+    };
+
+    let retries = 0;
+    const maxRetries = 10;
+
+    const pollForCalendly = () => {
+      if ((window as any).Calendly) {
+        initWidget();
+        return;
+      }
+      if (retries < maxRetries) {
+        retries++;
+        setTimeout(pollForCalendly, 500);
+      } else {
+        setError('Unable to load booking calendar. Please try again.');
+        setIsLoading(false);
+      }
+    };
+
+    const initWidget = () => {
       try {
         const container = document.getElementById('calendly-embed-container');
         if (!container) return;
 
-        Calendly.initInlineWidget({
-          url: bookingProvider.getEmbedUrl(), // Uses 'discovery-call' event type
+        (window as any).Calendly.initInlineWidget({
+          url: bookingProvider.getEmbedUrl(),
           parentElement: container,
           prefill: {},
           utm: {
@@ -64,7 +89,6 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
 
         setIsLoading(false);
 
-        // Track analytics if GTM is available
         if (typeof window !== 'undefined' && (window as any).dataLayer) {
           (window as any).dataLayer.push({
             event: 'booking_modal_opened',
@@ -78,8 +102,8 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
       }
     };
 
-    // Delay initialization to ensure DOM is ready
-    const timeout = setTimeout(initCalendly, 100);
+    // Delay to ensure DOM is ready
+    const timeout = setTimeout(loadScriptAndInit, 100);
 
     return () => {
       clearTimeout(timeout);
