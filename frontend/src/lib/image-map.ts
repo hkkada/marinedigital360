@@ -65,7 +65,7 @@ const imageRegistry: ImageCategory = {
   // ═══════════════════════════════════════════════════════════════════════════
   about: {
     'yacht-lifestyle': {
-      src: '/images/IMG_1822.PNG',
+      src: '/images/IMG_1822.jpg',
       alt: 'MarineForge team — premium yacht lifestyle and ocean adventure experience',
       sizes: '(max-width: 768px) 100vw, 66vw',
     },

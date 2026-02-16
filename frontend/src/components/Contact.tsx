@@ -420,6 +420,8 @@ export function Contact() {
                   { label: 'Work', href: '/#work' },
                   { label: 'About', href: '/#about' },
                   { label: 'Contact', href: '/#contact' },
+                  { label: 'Privacy Policy', href: '/legal/privacy-policy' },
+                  { label: 'Terms of Service', href: '/legal/terms-of-service' },
                 ].map((link) => (
                   <li key={link.label}>
                     <Link

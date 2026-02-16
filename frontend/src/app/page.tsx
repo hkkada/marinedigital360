@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import { Hero } from '@/components/Hero';
 import { Navigation } from '@/components/Navigation/Navigation';
+import { ScrollToTop } from '@/components/ScrollToTop';
 import { StructuredData } from '@/components/StructuredData';
 
 // Lazy-load below-fold components to reduce initial JS bundle (HTML still server-rendered for SEO)
@@ -25,6 +26,7 @@ export default function HomePage() {
         <FAQ />
       </main>
       <Contact />
+      <ScrollToTop />
     </div>
   );
 }

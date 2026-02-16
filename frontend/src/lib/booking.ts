@@ -72,7 +72,7 @@ class CalendlyBookingProvider implements BookingProvider {
 
   constructor(config: Partial<BookingConfig> = {}) {
     this.config = {
-      username: config.username || process.env.NEXT_PUBLIC_CALENDLY_USERNAME || 'aivanceworks',
+      username: config.username || process.env.NEXT_PUBLIC_CALENDLY_USERNAME || 'marineforge',
       defaultEventType: config.defaultEventType || 'discovery-call',
       theme: config.theme || 'light',
       brandColor: config.brandColor || '#2563eb',
