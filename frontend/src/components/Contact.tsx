@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { getVisibleServices } from '@/lib/services';
 import { BookingModal } from '@/components/BookingModal';
 import { durations } from '@/lib/animations';
+import { CONTACT_EMAIL, CONTACT_CONFIG, SITE_CONFIG } from '@/lib/constants';
 
 export function Contact() {
   const ref = useRef(null);
@@ -25,15 +26,15 @@ export function Contact() {
     {
       icon: Mail,
       label: 'Email',
-      value: 'hello@marineforge.com',
-      href: 'mailto:hello@marineforge.com',
+      value: CONTACT_EMAIL,
+      href: `mailto:${CONTACT_EMAIL}`,
       color: 'from-blue-500 to-cyan-500',
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (215) 555-0199',
-      href: 'tel:+12155550199',
+      value: CONTACT_CONFIG.phone,
+      href: `tel:${CONTACT_CONFIG.phone.replace(/[^+\d]/g, '')}`,
       color: 'from-indigo-500 to-blue-500',
     },
     {
@@ -383,7 +384,7 @@ export function Contact() {
                   <Waves className="w-5 h-5 text-white" />
                 </div>
                 <span className="text-xl tracking-tight text-gray-900">
-                  MARINE<span className="font-light">FORGE</span>
+                  MARINE<span className="font-light"> DIGITAL 360</span>
                 </span>
               </div>
               <p className="text-sm text-gray-500 leading-relaxed">
@@ -458,7 +459,7 @@ export function Contact() {
           {/* Bottom bar */}
           <div className="pt-8 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-sm text-gray-500">
-              © 2026 MarineForge. Navigating digital excellence.
+              © 2026 {SITE_CONFIG.name}. {SITE_CONFIG.company.slogan}.
             </p>
             <p className="text-sm text-gray-400">
               Philadelphia, Pennsylvania

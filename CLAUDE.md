@@ -1,4 +1,4 @@
-# MarineForge
+# MarineDigital360
 
 Single-page marketing website for a marine digital agency. Built with Next.js 14 (App Router), React 18, Tailwind CSS v4, and Framer Motion.
 
@@ -6,7 +6,7 @@ Single-page marketing website for a marine digital agency. Built with Next.js 14
 
 **IMPORTANT:** Before working on content, copy, SEO, AEO, GEO, schema markup, or marketing strategy, agents and skills MUST review the domain knowledge documents:
 
-- **[domain-knowledge/MarineForge_Domain_Knowledge.md](../domain-knowledge/MarineForge_Domain_Knowledge.md)** — Complete business context including:
+- **[domain-knowledge/MarineDigital360_Domain_Knowledge.md](../domain-knowledge/MarineDigital360_Domain_Knowledge.md)** — Complete business context including:
   - Company identity, mission, vision, and values
   - Brand positioning and key differentiators
   - Target markets and client segments (boat manufacturers, marine tech, dealers, charters, e-commerce)
@@ -16,7 +16,7 @@ Single-page marketing website for a marine digital agency. Built with Next.js 14
   - Messaging frameworks, value propositions, and objection handling
   - Competitive landscape
 
-- **[domain-knowledge/MarineForge_SEO_GEO_AEO_Knowledge.md](../domain-knowledge/MarineForge_SEO_GEO_AEO_Knowledge.md)** — Technical SEO and optimization strategy:
+- **[domain-knowledge/MarineDigital360_SEO_GEO_AEO_Knowledge.md](../domain-knowledge/MarineDigital360_SEO_GEO_AEO_Knowledge.md)** — Technical SEO and optimization strategy:
   - SEO (Search Engine Optimization) — traditional search rankings
   - AEO (Answer Engine Optimization) — featured snippets, voice search, People Also Ask
   - GEO (Generative Engine Optimization) — AI citations in ChatGPT, Perplexity, Google AI Overviews

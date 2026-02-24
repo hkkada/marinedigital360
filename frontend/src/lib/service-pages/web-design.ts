@@ -1,3 +1,4 @@
+import { SITE_CONFIG } from '../constants';
 import type { ServicePageData } from './types';
 
 export const webDesignPage: ServicePageData = {
@@ -7,7 +8,7 @@ export const webDesignPage: ServicePageData = {
   metadata: {
     title: 'Marine Web Design & Development — Custom Websites for Marine Businesses',
     description:
-      'MarineForge builds custom marine websites with mobile-first responsive design, conversion-focused UX, and high-performance optimization for boat manufacturers, dealers, and marine tech companies.',
+      `${SITE_CONFIG.name} builds custom marine websites with mobile-first responsive design, conversion-focused UX, and high-performance optimization for boat manufacturers, dealers, and marine tech companies.`,
     keywords: [
       'marine web design',
       'boat manufacturer website',
@@ -36,7 +37,7 @@ export const webDesignPage: ServicePageData = {
       data: {
         headline: 'What makes a great marine website?',
         description:
-          'A great marine website combines stunning visuals with conversion-focused design, fast performance, and search engine visibility. It showcases vessels and marine products with the visual impact they deserve, while guiding buyers through a clear path from discovery to inquiry. MarineForge builds custom websites purpose-built for the marine industry — from single-page dealer sites to full e-commerce platforms with inventory management.',
+          `A great marine website combines stunning visuals with conversion-focused design, fast performance, and search engine visibility. It showcases vessels and marine products with the visual impact they deserve, while guiding buyers through a clear path from discovery to inquiry. ${SITE_CONFIG.name} builds custom websites purpose-built for the marine industry — from single-page dealer sites to full e-commerce platforms with inventory management.`,
         cards: [
           {
             iconName: 'Smartphone',

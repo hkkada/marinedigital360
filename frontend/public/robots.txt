@@ -1,4 +1,4 @@
-# MarineForge — robots.txt
+# MarineDigital360 — robots.txt
 # Allow all search engine and AI crawlers
 
 User-agent: *
@@ -24,4 +24,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://marineforge.com/sitemap.xml
+Sitemap: https://marinedigital360.com/sitemap.xml

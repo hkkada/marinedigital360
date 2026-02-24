@@ -6,10 +6,13 @@
  *
  * IMPORTANT: Never import Cal.com or other booking SDKs directly in components.
  * Always use bookingProvider from this module.
+ * Brand username fallback reads from SITE_CONFIG.sld — update constants.ts to change it.
  *
  * Pattern follows content.ts (CMS abstraction) and email.ts (email abstraction) -
  * enables provider swapping without touching business logic.
  */
+
+import { SITE_CONFIG } from '@/lib/constants';
 
 /**
  * Booking Provider Configuration
@@ -72,7 +75,7 @@ class CalendlyBookingProvider implements BookingProvider {
 
   constructor(config: Partial<BookingConfig> = {}) {
     this.config = {
-      username: config.username || process.env.NEXT_PUBLIC_CALENDLY_USERNAME || 'marineforge',
+      username: config.username || process.env.NEXT_PUBLIC_CALENDLY_USERNAME || SITE_CONFIG.sld,
       defaultEventType: config.defaultEventType || 'discovery-call',
       theme: config.theme || 'light',
       brandColor: config.brandColor || '#2563eb',

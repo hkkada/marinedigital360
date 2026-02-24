@@ -1,4 +1,4 @@
-# MarineForge LLC — SEO, GEO & AEO Domain Knowledge
+# MarineDigital360 LLC — SEO, GEO & AEO Domain Knowledge
 
 > **Purpose:** Detailed tactical reference for AI agent use in content creation, service page writing, blog post generation, SEO briefs, and strategy documentation. Covers all three modern search optimization disciplines as separate, distinct practices with marine industry application.
 
@@ -14,9 +14,9 @@ These are three complementary — not competing — disciplines. Think of them a
 | **AEO** | Answer Engine Optimization | Google Featured Snippets, Voice Assistants (Siri, Alexa, Google Assistant), People Also Ask | Be the direct answer to specific questions | Featured snippet ownership, voice answer citations, zero-click impressions |
 | **GEO** | Generative Engine Optimization | ChatGPT, Perplexity, Google AI Overviews, Gemini, Claude, Bing Copilot | Be cited as a trusted source in AI-generated responses | Brand citations in LLM outputs, AI share of voice, entity presence |
 
-**Key insight for MarineForge:** Marine buyers increasingly start their research in AI tools before ever touching Google. A boat manufacturer prospect might ask ChatGPT "what should I look for in a marine marketing agency" before Googling anything. MarineForge must be visible across all three surfaces.
+**Key insight for MarineDigital360:** Marine buyers increasingly start their research in AI tools before ever touching Google. A boat manufacturer prospect might ask ChatGPT "what should I look for in a marine marketing agency" before Googling anything. MarineDigital360 must be visible across all three surfaces.
 
-**The strategic priority order for a new brand like MarineForge:**
+**The strategic priority order for a new brand like MarineDigital360:**
 1. SEO first — builds the technical and content foundation that feeds GEO and AEO
 2. AEO second — captures high-intent, question-based queries from marine buyers
 3. GEO third — builds long-term authority and AI citation presence as the brand matures
@@ -28,8 +28,8 @@ These are three complementary — not competing — disciplines. Think of them a
 ### What It Is
 The practice of optimizing a website so it ranks higher in traditional search engine results pages (SERPs) on Google and Bing. SEO drives click-through traffic to the website. It remains the foundation that all other optimization disciplines are built on.
 
-### Why It Matters for MarineForge
-Marine businesses — boat dealers, charter captains, manufacturers — are actively Googling for marketing agencies and services. SEO ensures MarineForge appears when they do. It also underpins GEO and AEO: if content isn't crawlable and authoritative in traditional search, it won't be cited by AI engines either.
+### Why It Matters for MarineDigital360
+Marine businesses — boat dealers, charter captains, manufacturers — are actively Googling for marketing agencies and services. SEO ensures MarineDigital360 appears when they do. It also underpins GEO and AEO: if content isn't crawlable and authoritative in traditional search, it won't be cited by AI engines either.
 
 ---
 
@@ -60,7 +60,7 @@ Marine businesses — boat dealers, charter captains, manufacturers — are acti
 
 **What it covers:** Identifying the exact terms marine business prospects type into Google at each stage of their buying journey.
 
-**Keyword categories for MarineForge:**
+**Keyword categories for MarineDigital360:**
 
 *Brand/service keywords (high intent):*
 - "marine marketing agency"
@@ -107,7 +107,7 @@ Marine businesses — boat dealers, charter captains, manufacturers — are acti
 **What it covers:** Optimizing the content and HTML elements of individual pages.
 
 **Tactics:**
-- **Title tags** — Include primary keyword + brand name; under 60 characters; e.g., "Marine Marketing Agency | MarineForge"
+- **Title tags** — Include primary keyword + brand name; under 60 characters; e.g., "Marine Marketing Agency | MarineDigital360"
 - **Meta descriptions** — 150–160 characters; include keyword and a clear value proposition; written to earn the click
 - **H1 tags** — One per page; includes primary keyword; matches the user's search intent
 - **H2/H3 structure** — Logical hierarchy; H2s are subtopics; H3s are sub-subtopics; helps AI parse the page
@@ -122,7 +122,7 @@ Marine businesses — boat dealers, charter captains, manufacturers — are acti
 
 ### A.4 Content Strategy & SEO Content Creation
 
-**What it covers:** Creating the content that ranks, attracts marine business prospects, and establishes MarineForge as an authority.
+**What it covers:** Creating the content that ranks, attracts marine business prospects, and establishes MarineDigital360 as an authority.
 
 **Content types and their SEO purpose:**
 
@@ -143,7 +143,7 @@ Marine businesses — boat dealers, charter captains, manufacturers — are acti
 
 ### A.5 Local SEO
 
-**What it covers:** Dominating search results in the specific geographic markets MarineForge serves and that its clients operate in.
+**What it covers:** Dominating search results in the specific geographic markets MarineDigital360 serves and that its clients operate in.
 
 **Tactics:**
 - **Google Business Profile (GBP)** — Fully claimed, verified, and optimized; complete all fields; add photos, services, and regular posts; enable messaging
@@ -197,8 +197,8 @@ The practice of structuring content so that search engines and voice assistants 
 
 AEO focuses on providing direct answers to user queries through AI-powered answer engines, with approximately 60% of Google searches now resulting in zero clicks — users get their answer without ever visiting a website.
 
-### Why It Matters for MarineForge
-Marine business owners ask highly specific questions: "How much does a marine marketing agency cost?" or "What is productization in marketing?" When MarineForge content owns those featured snippets and PAA boxes, it captures mindshare even when the user doesn't click through. This is especially valuable for brand awareness at the top of the funnel.
+### Why It Matters for MarineDigital360
+Marine business owners ask highly specific questions: "How much does a marine marketing agency cost?" or "What is productization in marketing?" When MarineDigital360 content owns those featured snippets and PAA boxes, it captures mindshare even when the user doesn't click through. This is especially valuable for brand awareness at the top of the funnel.
 
 AI Overviews now appear in 16% of all Google desktop searches in the United States, fundamentally changing how people find information online.
 
@@ -207,7 +207,7 @@ AI Overviews now appear in 16% of all Google desktop searches in the United Stat
 ### B.1 The Three Pillars of AEO
 
 **Pillar 1: Build Consensus**
-Reinforce consistent facts, statistics, and brand positioning across all owned and earned media. AI answer engines look for agreement across multiple credible sources before citing something as factual. MarineForge should use identical positioning language across its website, social profiles, directory listings, and any press mentions.
+Reinforce consistent facts, statistics, and brand positioning across all owned and earned media. AI answer engines look for agreement across multiple credible sources before citing something as factual. MarineDigital360 should use identical positioning language across its website, social profiles, directory listings, and any press mentions.
 
 **Pillar 2: Provide Information Gain**
 Publish content that adds new, verifiable information to the web — original data, first-party research, proprietary frameworks, or unique marine industry insights. AI engines prefer to cite content that can't be found anywhere else.
@@ -222,7 +222,7 @@ Write content so that claims, facts, and answers are easy for machines to extrac
 **The answer-first format:**
 Every piece of AEO-optimized content should open with a concise 2–3 sentence direct answer to the question, followed by expanded supporting detail. This mirrors how AI answer engines summarize content.
 
-Example structure for a MarineForge blog post on "What is marine productization?":
+Example structure for a MarineDigital360 blog post on "What is marine productization?":
 ```
 H1: What Is Marine Productization? (And Why Your Business Needs It)
 
@@ -256,14 +256,14 @@ proposition that reduces sales friction.
 
 Schema markup is machine-readable code (JSON-LD format) that tells search engines exactly what your content is and how to categorize it. It is non-negotiable for AEO.
 
-**Priority schema types for MarineForge:**
+**Priority schema types for MarineDigital360:**
 
 | Schema Type | Where to Use | What It Does |
 |---|---|---|
 | `FAQPage` | FAQ sections on service pages, blog posts | Enables FAQ rich results; powers voice answers |
 | `HowTo` | Process/step-by-step content | Enables HowTo rich results in SERPs |
 | `Article` | Blog posts, guides | Establishes content type and authorship |
-| `Organization` | Homepage | Defines MarineForge's entity: name, URL, logo, contacts, social profiles |
+| `Organization` | Homepage | Defines MarineDigital360's entity: name, URL, logo, contacts, social profiles |
 | `LocalBusiness` | Homepage, location pages | Powers local knowledge panels and map results |
 | `Service` | Each service page | Defines services offered, service area, provider |
 | `BreadcrumbList` | All pages | Helps Google understand site structure |
@@ -292,9 +292,9 @@ Voice assistants (Siri, Alexa, Google Assistant) pull answers from featured snip
 
 ---
 
-### B.5 AEO Content Topics for MarineForge
+### B.5 AEO Content Topics for MarineDigital360
 
-These are the high-priority question-based topics MarineForge should own in featured snippets and PAA boxes:
+These are the high-priority question-based topics MarineDigital360 should own in featured snippets and PAA boxes:
 
 **Definition/explanation queries (paragraph snippets):**
 - What is a marine marketing agency?
@@ -337,12 +337,12 @@ These are the high-priority question-based topics MarineForge should own in feat
 ## Section C: GEO — Generative Engine Optimization
 
 ### What It Is
-The practice of optimizing content so that large language models (LLMs) and AI-powered search platforms — ChatGPT, Perplexity, Google AI Overviews, Gemini, Bing Copilot, Claude — cite MarineForge as a trusted source when generating their responses.
+The practice of optimizing content so that large language models (LLMs) and AI-powered search platforms — ChatGPT, Perplexity, Google AI Overviews, Gemini, Bing Copilot, Claude — cite MarineDigital360 as a trusted source when generating their responses.
 
 GEO goes further than AEO by optimizing content so AI systems like ChatGPT can understand, cite, and incorporate it into generated responses. The goal isn't just to show up first or as a direct answer — it's a larger strategic approach to increasing visibility, authority, and citations in AI-generated responses.
 
-### Why It Matters for MarineForge
-AI referrals to top websites surged 357% year-over-year between June 2024 and June 2025. Marine business owners and marketing managers increasingly use ChatGPT and Perplexity to research agencies before making contact. 34% of U.S. adults in June 2025 say they have used ChatGPT, roughly doubling since 2023. If MarineForge isn't cited when someone asks "Who are the best marine marketing agencies?" in an AI tool, it's invisible to a growing segment of potential clients.
+### Why It Matters for MarineDigital360
+AI referrals to top websites surged 357% year-over-year between June 2024 and June 2025. Marine business owners and marketing managers increasingly use ChatGPT and Perplexity to research agencies before making contact. 34% of U.S. adults in June 2025 say they have used ChatGPT, roughly doubling since 2023. If MarineDigital360 isn't cited when someone asks "Who are the best marine marketing agencies?" in an AI tool, it's invisible to a growing segment of potential clients.
 
 ---
 
@@ -351,8 +351,8 @@ AI referrals to top websites surged 357% year-over-year between June 2024 and Ju
 Understanding this is foundational to GEO strategy:
 
 - **AI engines synthesize, then cite** — They don't just list links; they pull information from multiple sources, combine it, and attribute the most credible or frequently-validated claims
-- **Entity recognition over keywords** — LLMs map the world using entities: brands, people, products, locations, concepts. If MarineForge isn't clearly defined as an entity across the web, AI systems can't confidently mention it
-- **Consensus principle** — If multiple credible sources say the same thing about MarineForge (e.g., "specializes in marine productization"), AI systems are more likely to cite it as fact
+- **Entity recognition over keywords** — LLMs map the world using entities: brands, people, products, locations, concepts. If MarineDigital360 isn't clearly defined as an entity across the web, AI systems can't confidently mention it
+- **Consensus principle** — If multiple credible sources say the same thing about MarineDigital360 (e.g., "specializes in marine productization"), AI systems are more likely to cite it as fact
 - **Authority signals** — Domain authority, backlink quality, brand mentions in respected publications, author credentials, and E-E-A-T signals all feed AI citation decisions
 - **Recency signals** — Fresh content performs better; AI engines use real-time web search (Perplexity, Bing) or training data recency (ChatGPT) — both reward updated, current information
 - **Extractability** — Content must be structured so AI can cleanly pull specific facts, statistics, names, and claims without ambiguity
@@ -363,13 +363,13 @@ Understanding this is foundational to GEO strategy:
 
 Entity optimization is the most distinctly "GEO-specific" tactic — it has no real equivalent in traditional SEO.
 
-**What an entity is:** A clearly defined, consistent identity for MarineForge that AI systems can recognize, verify, and reference with confidence. Think of it as creating a "Wikipedia-style" digital profile for the brand, without needing to be on Wikipedia.
+**What an entity is:** A clearly defined, consistent identity for MarineDigital360 that AI systems can recognize, verify, and reference with confidence. Think of it as creating a "Wikipedia-style" digital profile for the brand, without needing to be on Wikipedia.
 
 **Entity building tactics:**
 
 - **Consistent brand information everywhere** — Identical name, description, service areas, and positioning language across: website, LinkedIn, Google Business Profile, Crunchbase, BuiltWith, marine industry directories, and any press coverage
 - **`sameAs` schema links** — In Organization schema, include `sameAs` links to all official brand profiles: LinkedIn, Google Business Profile, industry association member pages
-- **Knowledge panel signals** — Publish content that clearly defines: what MarineForge is, what it does, who it serves, where it operates, and what makes it distinct — in consistent language across owned and earned media
+- **Knowledge panel signals** — Publish content that clearly defines: what MarineDigital360 is, what it does, who it serves, where it operates, and what makes it distinct — in consistent language across owned and earned media
 - **Author entities** — Founders and key team members should have their own online presence (LinkedIn, author bios on content) with credentials established in the marine marketing space. Link author profiles to content via Article schema
 - **Wikipedia/Wikidata** — If the brand grows to notability thresholds, a Wikipedia entry creates a high-trust entity signal for all major AI systems
 - **Brand mentions without links** — Earn "unlinked mentions" in trade publications, forums, and relevant online communities. AI systems count these as authority signals
@@ -380,7 +380,7 @@ Entity optimization is the most distinctly "GEO-specific" tactic — it has no r
 
 E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) is the Google framework that AI systems have adopted as a credibility proxy.
 
-**How MarineForge builds each signal:**
+**How MarineDigital360 builds each signal:**
 
 **Experience:**
 - Case studies with specific, quantified results from real marine industry clients
@@ -396,7 +396,7 @@ E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) is the Googl
 **Authoritativeness:**
 - Backlinks from authoritative marine industry sources (NMMA, MRAA, trade publications)
 - Quotes and references in marine marketing discussions on Reddit, LinkedIn, Quora
-- Third-party reviews and mentions validating MarineForge's expertise
+- Third-party reviews and mentions validating MarineDigital360's expertise
 - Guest posts on recognized industry blogs
 
 **Trustworthiness:**
@@ -496,7 +496,7 @@ Each major AI engine has nuances in how it sources content:
 
 **Structured data for GEO:**
 Beyond the AEO schema types, GEO benefits from:
-- `Dataset` schema — For any original research data MarineForge publishes
+- `Dataset` schema — For any original research data MarineDigital360 publishes
 - `DefinedTerm` schema — For industry terminology definitions (marine productization glossary)
 - `SpeakableSpecification` — Flags content appropriate for voice and AI reading
 - Complete `Organization` schema with all `sameAs` entity links
@@ -509,11 +509,11 @@ Measuring GEO requires different approaches than traditional SEO:
 
 | Metric | Tool | How to Track |
 |---|---|---|
-| AI brand citations | Manual prompting in ChatGPT, Perplexity, Gemini, Claude | Monthly: ask "What are the top marine marketing agencies?" and variants; log MarineForge appearances |
-| AI share of voice | Profound, Geneo, Otterly.ai | Track % of relevant AI responses mentioning MarineForge vs. competitors |
+| AI brand citations | Manual prompting in ChatGPT, Perplexity, Gemini, Claude | Monthly: ask "What are the top marine marketing agencies?" and variants; log MarineDigital360 appearances |
+| AI share of voice | Profound, Geneo, Otterly.ai | Track % of relevant AI responses mentioning MarineDigital360 vs. competitors |
 | Brand mention velocity | Brand24, Mention.com | Track unlinked brand mentions across the web; growth = stronger entity signals |
 | Referral traffic from AI platforms | GA4 (source: perplexity.ai, chat.openai.com) | Track and trend month-over-month |
-| Entity correctness | Manual ChatGPT/Gemini prompting | Verify AI descriptions of MarineForge are accurate; correct misinformation via content updates |
+| Entity correctness | Manual ChatGPT/Gemini prompting | Verify AI descriptions of MarineDigital360 are accurate; correct misinformation via content updates |
 | Featured snippet + AI Overview overlap | Semrush, Search Console | Pages winning AI Overviews also tend to win traditional featured snippets |
 | Content citation rate | Track which URLs appear in Perplexity citations | Identify which content formats earn citations and replicate them |
 
@@ -525,20 +525,20 @@ Measuring GEO requires different approaches than traditional SEO:
 
 ## Section D: Marine Industry-Specific Applications
 
-### High-Priority Topics MarineForge Should Own Across SEO + AEO + GEO
+### High-Priority Topics MarineDigital360 Should Own Across SEO + AEO + GEO
 
-These are the topic clusters where MarineForge should establish the deepest content authority:
+These are the topic clusters where MarineDigital360 should establish the deepest content authority:
 
-1. **Marine productization** — Define the term, explain the process, establish MarineForge as the originator of best practices in this niche
+1. **Marine productization** — Define the term, explain the process, establish MarineDigital360 as the originator of best practices in this niche
 2. **Marine go-to-market strategy** — Comprehensive content covering GTM for boat manufacturers, marine tech companies, dealers, and charters separately
 3. **Marine SEO** — Own the educational content about marine-specific SEO; demonstrate expertise while attracting clients
 4. **Marine sales enablement** — What it is, why marine companies need it, what good looks like
 5. **Marine revenue enablement** — CRM, automation, and AI-powered outreach for marine businesses
-6. **Marine AI marketing** — Position MarineForge as the marine industry's AI-powered agency ahead of the curve
+6. **Marine AI marketing** — Position MarineDigital360 as the marine industry's AI-powered agency ahead of the curve
 
 ### Marine-Specific Content Topics for AI Citation
 
-These are the questions marine business owners and marketing managers ask AI tools — MarineForge content should answer them authoritatively:
+These are the questions marine business owners and marketing managers ask AI tools — MarineDigital360 content should answer them authoritatively:
 
 - "What marketing strategies work best for boat manufacturers?"
 - "How do fishing charter businesses get more bookings?"
@@ -555,7 +555,7 @@ These are the questions marine business owners and marketing managers ask AI too
 
 ## Section E: Integrated Strategy Summary
 
-### How the Three Disciplines Work Together for MarineForge
+### How the Three Disciplines Work Together for MarineDigital360
 
 ```
 SEO Foundation
@@ -574,7 +574,7 @@ GEO (Generative Layer)
     └── Feeds AEO: AI Overview wins are connected to AEO-structured content
 ```
 
-### Priority Actions for a New MarineForge Website Launch
+### Priority Actions for a New MarineDigital360 Website Launch
 
 **Month 1–2 (SEO Foundation):**
 - Technical SEO setup: fast site, HTTPS, mobile-first, clean URLs
@@ -598,4 +598,4 @@ GEO (Generative Layer)
 
 ---
 
-*This document reflects industry best practices as of early 2026, combined with MarineForge's specific marine industry positioning and service portfolio. Update quarterly as AI search platforms and best practices evolve.*
+*This document reflects industry best practices as of early 2026, combined with MarineDigital360's specific marine industry positioning and service portfolio. Update quarterly as AI search platforms and best practices evolve.*

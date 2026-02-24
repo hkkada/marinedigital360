@@ -1,3 +1,4 @@
+import { SITE_CONFIG } from '../constants';
 import type { ServicePageData } from './types';
 
 export const seoGeoPage: ServicePageData = {
@@ -7,7 +8,7 @@ export const seoGeoPage: ServicePageData = {
   metadata: {
     title: 'Marine SEO, GEO & AEO Services — Search, AI & Voice Optimization',
     description:
-      'MarineForge delivers marine SEO, Generative Engine Optimization (GEO), and Answer Engine Optimization (AEO) — ensuring your business is found on Google, AI platforms, and voice search.',
+      `${SITE_CONFIG.name} delivers marine SEO, Generative Engine Optimization (GEO), and Answer Engine Optimization (AEO) — ensuring your business is found on Google, AI platforms, and voice search.`,
     keywords: [
       'marine SEO',
       'marine GEO optimization',
@@ -27,7 +28,7 @@ export const seoGeoPage: ServicePageData = {
         tagline: 'SEO / GEO / AEO Services',
         headline: 'Be found everywhere — Google, AI, and voice',
         description:
-          'Search has three surfaces now. Traditional rankings, AI-generated answers, and voice assistants. MarineForge optimizes your marine business for all three — so you get found no matter how your buyers search.',
+          `${SITE_CONFIG.name} ensures your marine business is found on Google, AI platforms, and voice search — so you get found no matter how your buyers search.`,
         ctaText: 'Get Your SEO Audit',
         ctaHref: '#contact',
         imageKey: 'serviceHero.seo-geo',

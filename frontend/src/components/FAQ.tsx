@@ -5,6 +5,7 @@ import { useInView } from 'motion/react';
 import { useRef, useState } from 'react';
 import { ChevronDown, HelpCircle } from 'lucide-react';
 import { faqData } from './StructuredData';
+import { SITE_CONFIG } from '@/lib/constants';
 
 function FAQItem({
   question,
@@ -113,7 +114,7 @@ export function FAQ() {
             className="text-xl text-gray-400 font-light max-w-2xl mx-auto"
           >
             Answers to common questions about marine marketing, productization,
-            and how MarineForge helps marine businesses grow.
+            and how {SITE_CONFIG.name} helps marine businesses grow.
           </motion.p>
         </motion.div>
 

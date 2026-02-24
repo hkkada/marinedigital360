@@ -1,11 +1,13 @@
 /**
  * Centralized Image Configuration
  *
- * This file manages all images across the MarineForge site.
+ * This file manages all images across the MarineDigital360 site.
  * Update images here without modifying component code.
  *
  * Following the pattern from icon-map.ts — semantic keys, type-safe lookups.
  */
+
+import { SITE_CONFIG } from '@/lib/constants';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // TypeScript Interfaces
@@ -53,7 +55,7 @@ const imageRegistry: ImageCategory = {
   hero: {
     'main-background': {
       src: '/images/nicol-JrMzz7jUD5s-unsplash.jpg',
-      alt: 'MarineForge marine marketing agency — luxury yacht cruising on open blue ocean water',
+      alt: `${SITE_CONFIG.name} marine marketing agency — luxury yacht cruising on open blue ocean water`,
       priority: true, // LCP optimization
       quality: 75,
       sizes: '100vw',
@@ -66,7 +68,7 @@ const imageRegistry: ImageCategory = {
   about: {
     'yacht-lifestyle': {
       src: '/images/IMG_1822.jpg',
-      alt: 'MarineForge team — premium yacht lifestyle and ocean adventure experience',
+      alt: `${SITE_CONFIG.name} team — premium yacht lifestyle and ocean adventure experience`,
       sizes: '(max-width: 768px) 100vw, 66vw',
     },
     'cockpit-technology': {
@@ -82,17 +84,17 @@ const imageRegistry: ImageCategory = {
   portfolio: {
     'velocity-marine': {
       src: velocityMarineImage,
-      alt: 'Velocity Marine case study — high-performance speedboat racing across open ocean, digital experience and brand project by MarineForge',
+      alt: `Velocity Marine case study — high-performance speedboat racing across open ocean, digital experience and brand project by ${SITE_CONFIG.name}`,
       sizes: '(max-width: 1024px) 100vw, 50vw',
     },
     'oceanic-yachts': {
       src: oceanicYachtsImage,
-      alt: 'Oceanic Yachts case study — luxury yacht at sunset on calm waters, complete brand transformation by MarineForge',
+      alt: `Oceanic Yachts case study — luxury yacht at sunset on calm waters, complete brand transformation by ${SITE_CONFIG.name}`,
       sizes: '(max-width: 1024px) 100vw, 50vw',
     },
     'horizon-boats': {
       src: horizonBoatsImage,
-      alt: 'Horizon Boats case study — adventure boat cutting through ocean waves, e-commerce platform project by MarineForge',
+      alt: `Horizon Boats case study — adventure boat cutting through ocean waves, e-commerce platform project by ${SITE_CONFIG.name}`,
       sizes: '(max-width: 1024px) 100vw, 50vw',
     },
   },

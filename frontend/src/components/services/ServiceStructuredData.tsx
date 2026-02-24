@@ -1,5 +1,6 @@
 import type { ServicePageData } from '@/lib/service-pages/types';
 import type { ServiceData } from '@/lib/services';
+import { SITE_CONFIG } from '@/lib/constants';
 
 interface ServiceStructuredDataProps {
   pageData: ServicePageData;
@@ -7,7 +8,7 @@ interface ServiceStructuredDataProps {
 }
 
 export function ServiceStructuredData({ pageData, serviceData }: ServiceStructuredDataProps) {
-  const baseUrl = 'https://marineforge.com';
+  const baseUrl = SITE_CONFIG.url;
   const pageUrl = `${baseUrl}/services/${pageData.slug}`;
 
   // Extract FAQ data from sections
@@ -23,7 +24,7 @@ export function ServiceStructuredData({ pageData, serviceData }: ServiceStructur
     provider: {
       '@type': 'Organization',
       '@id': `${baseUrl}/#organization`,
-      name: 'MarineForge',
+      name: SITE_CONFIG.name,
       url: baseUrl,
     },
     serviceType: serviceData.serviceType,
