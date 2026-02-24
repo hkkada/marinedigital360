@@ -276,8 +276,6 @@ export function About() {
                     />
                   )}
                 </motion.div>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1877F2]/80 to-transparent" />
-                
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
