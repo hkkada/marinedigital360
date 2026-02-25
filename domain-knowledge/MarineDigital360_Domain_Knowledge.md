@@ -1,4 +1,4 @@
-# MarineForge LLC — Domain Knowledge Base
+# MarineDigital360 LLC — Domain Knowledge Base
 
 > **Purpose:** Structured domain knowledge for AI agent use — content creation, SEO optimization, sales copy, web development, and marketing strategy.
 
@@ -6,8 +6,8 @@
 
 ## 1. Company Identity
 
-**Legal Name:** MarineForge LLC
-**DBA:** MarineForge | Marine Product Marketing Agency
+**Legal Name:** MarineDigital360 LLC
+**DBA:** MarineDigital360 | Marine Product Marketing Agency
 **Category:** Specialized Marine Product Marketing Agency
 **Tagline:** *"Transforming Marine Business Capabilities into Market-Ready Products"*
 **Location:** Philadelphia, Pennsylvania (registered in Commonwealth of Pennsylvania)
@@ -36,7 +36,7 @@
 ## 3. Brand Positioning
 
 ### Primary Positioning Statement
-> "MarineForge is the only marine-focused commercialization agency that transforms business capabilities into finished, sellable products—complete with naming, pricing, positioning, sales systems, and AI-powered enablement tools. We don't just market; we productize."
+> "MarineDigital360 is the only marine-focused commercialization agency that transforms business capabilities into finished, sellable products—complete with naming, pricing, positioning, sales systems, and AI-powered enablement tools. We don't just market; we productize."
 
 ### Key Differentiators (for SEO, ads, and sales copy)
 - **Productization-First Model** — We transform capabilities into packaged, branded, priced products ready for market (competitors only market existing services)
@@ -48,7 +48,7 @@
 - **Finished Product Delivery** — Clients leave with completed, ready-to-sell products — not just plans
 - **Ongoing Partnership** — Continuous optimization and support post-launch
 
-### The MarineForge Difference (Feature/Benefit Language)
+### The MarineDigital360 Difference (Feature/Benefit Language)
 | What We Deliver | Why It Matters |
 |---|---|
 | Finished products, not just plans | Clients can sell immediately upon delivery |
@@ -269,7 +269,7 @@ Affiliate program setup and management to leverage partnership networks for expa
 
 ## 7. AI Technology Stack
 
-MarineForge uses AI to deliver results 3–5x faster than traditional agencies.
+MarineDigital360 uses AI to deliver results 3–5x faster than traditional agencies.
 
 | Category | Tools | Use Cases |
 |---|---|---|
@@ -419,7 +419,7 @@ All retainers include priority support, monthly strategy sessions, and continuou
 
 ## 12. Competitive Landscape
 
-### Competitor Categories & Gaps MarineForge Fills
+### Competitor Categories & Gaps MarineDigital360 Fills
 
 | Competitor Type | Examples | Their Focus | Their Gap |
 |---|---|---|---|
@@ -427,14 +427,14 @@ All retainers include priority support, monthly strategy sessions, and continuou
 | General B2B Marketing | Gresham Group | Broad marine brand marketing | Industry knowledge but no product transformation or sales enablement |
 | Marine PR/Media | MAA, Marine Marketing International | PR, content, events | Awareness-only; no revenue enablement or productization |
 
-**MarineForge's unique position:** The only marine-focused commercialization agency that does productization + sales systems + AI acceleration + full revenue enablement together.
+**MarineDigital360's unique position:** The only marine-focused commercialization agency that does productization + sales systems + AI acceleration + full revenue enablement together.
 
 ---
 
 ## 13. Messaging Frameworks
 
 ### Elevator Pitch (Short)
-MarineForge is a specialized marine commercialization agency. We take what marine businesses already do and transform it into fully packaged, sellable products — complete with pricing, positioning, sales systems, and AI-powered automation — so they can go to market faster and generate more revenue.
+MarineDigital360 is a specialized marine commercialization agency. We take what marine businesses already do and transform it into fully packaged, sellable products — complete with pricing, positioning, sales systems, and AI-powered automation — so they can go to market faster and generate more revenue.
 
 ### Value Proposition by Segment
 
@@ -460,4 +460,4 @@ Scale profitably with optimized product catalogs, high-ROAS paid media, conversi
 
 ---
 
-*Last updated from MarineForge LLC Formation Document — source of truth for all content, SEO, and application development.*
+*Last updated from MarineDigital360 LLC Formation Document — source of truth for all content, SEO, and application development.*

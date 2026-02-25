@@ -46,7 +46,7 @@ export function Navigation() {
               <span className={`text-2xl tracking-tight transition-colors duration-300 ${
                 isScrolled ? 'text-gray-900' : 'text-white'
               }`}>
-                MARINE<span className="font-light">DIGITAL 360</span>
+                MARINE<span className="font-light"> DIGITAL 360</span>
               </span>
             </motion.span>
           </Link>

@@ -40,7 +40,7 @@ export function MobileNav({ isScrolled }: MobileNavProps) {
       <SheetContent side="right" className="w-[85vw] max-w-[320px]">
         <SheetHeader>
           <SheetTitle className="text-xl">
-            MARINE<span className="font-light">FORGE</span>
+            MARINE<span className="font-light"> DIGITAL 360</span>
           </SheetTitle>
         </SheetHeader>
 

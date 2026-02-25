@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { getVisibleServices } from '@/lib/services';
+import { SITE_CONFIG } from '@/lib/constants';
 
 const iconMap: Record<string, LucideIcon> = {
   Package,
@@ -107,7 +108,7 @@ export function Services() {
                 transition={{ duration: sectionTiming.services.headerDuration, delay: 0.2 }}
                 className="text-base text-gray-500 leading-relaxed"
               >
-                MarineForge is a specialized marine marketing agency that transforms
+                {SITE_CONFIG.name} is a specialized marine marketing agency that transforms
                 marine business capabilities into market-ready products. We deliver
                 end-to-end digital services for boat manufacturers, marine technology
                 companies, dealers, and charter operators — from productization and

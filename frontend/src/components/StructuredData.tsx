@@ -1,12 +1,14 @@
+import { getServices } from '@/lib/services';
+import { SITE_CONFIG, CONTACT_EMAIL } from '@/lib/constants';
+
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  '@id': 'https://marineforge.com/#organization',
-  name: 'MarineForge',
-  legalName: 'MarineForge LLC',
-  url: 'https://marineforge.com',
-  description:
-    'MarineForge is a specialized marine marketing agency that transforms boat manufacturer, dealer, and marine technology capabilities into market-ready products through productization, sales enablement, SEO, and AI-powered digital marketing.',
+  '@id': `${SITE_CONFIG.url}/#organization`,
+  name: SITE_CONFIG.name,
+  legalName: SITE_CONFIG.company.legalName,
+  url: SITE_CONFIG.url,
+  description: SITE_CONFIG.description,
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Philadelphia',
@@ -15,12 +17,12 @@ const organizationSchema = {
   },
   contactPoint: {
     '@type': 'ContactPoint',
-    email: 'hello@marineforge.com',
+    email: CONTACT_EMAIL,
     contactType: 'sales',
     availableLanguage: 'English',
   },
   sameAs: [
-    'https://www.linkedin.com/company/marineforge',
+    SITE_CONFIG.links.linkedin,
   ],
   knowsAbout: [
     'Marine marketing',
@@ -37,11 +39,11 @@ const organizationSchema = {
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  '@id': 'https://marineforge.com/#localbusiness',
-  name: 'MarineForge',
+  '@id': `${SITE_CONFIG.url}/#localbusiness`,
+  name: SITE_CONFIG.name,
   description:
     'Specialized marine marketing agency offering productization, sales enablement, SEO, GEO, and AI-powered digital marketing for boat manufacturers, dealers, and marine technology companies.',
-  url: 'https://marineforge.com',
+  url: SITE_CONFIG.url,
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Philadelphia',
@@ -63,17 +65,15 @@ const localBusinessSchema = {
     { '@type': 'State', name: 'Georgia' },
   ],
   priceRange: '$$$$',
-  parentOrganization: { '@id': 'https://marineforge.com/#organization' },
+  parentOrganization: { '@id': `${SITE_CONFIG.url}/#organization` },
 };
-
-import { getServices } from '@/lib/services';
 
 const serviceSchemas = getServices().map((service) => ({
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: service.title,
   description: service.schemaDescription,
-  provider: { '@id': 'https://marineforge.com/#organization' },
+  provider: { '@id': `${SITE_CONFIG.url}/#organization` },
   serviceType: service.serviceType,
   areaServed: 'United States',
 }));
@@ -81,9 +81,9 @@ const serviceSchemas = getServices().map((service) => ({
 const webSiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'MarineForge',
-  url: 'https://marineforge.com',
-  publisher: { '@id': 'https://marineforge.com/#organization' },
+  name: SITE_CONFIG.name,
+  url: SITE_CONFIG.url,
+  publisher: { '@id': `${SITE_CONFIG.url}/#organization` },
 };
 
 const breadcrumbSchema = {
@@ -94,7 +94,7 @@ const breadcrumbSchema = {
       '@type': 'ListItem',
       position: 1,
       name: 'Home',
-      item: 'https://marineforge.com',
+      item: SITE_CONFIG.url,
     },
   ],
 };
@@ -103,32 +103,32 @@ export const faqData = [
   {
     question: 'What does a marine marketing agency do?',
     answer:
-      'A marine marketing agency specializes in marketing services for the boating and marine industry. MarineForge goes beyond traditional marketing by offering productization, sales enablement, SEO, GEO optimization, and AI-powered digital marketing specifically for boat manufacturers, marine technology companies, dealers, and charter operators.',
+      `A marine marketing agency specializes in marketing services for the boating and marine industry. ${SITE_CONFIG.name} goes beyond traditional marketing by offering productization, sales enablement, SEO, GEO optimization, and AI-powered digital marketing specifically for boat manufacturers, marine technology companies, dealers, and charter operators.`,
   },
   {
     question: 'What is marine productization?',
     answer:
-      'Marine productization is the process of transforming a marine business\'s capabilities and services into fully packaged, market-ready products with defined naming, pricing, positioning, and differentiation. MarineForge delivers finished products — not just plans — so clients can sell immediately upon delivery.',
+      `Marine productization is the process of transforming a marine business's capabilities and services into fully packaged, market-ready products with defined naming, pricing, positioning, and differentiation. ${SITE_CONFIG.name} delivers finished products — not just plans — so clients can sell immediately upon delivery.`,
   },
   {
     question: 'How much does marine marketing cost?',
     answer:
-      'Marine marketing costs vary based on scope and services. MarineForge offers scalable packages from startup to enterprise, with project-based, retainer, and hybrid pricing models. Services range from single landing pages to full-service enterprise engagements including productization, sales enablement, and ongoing revenue optimization.',
+      `Marine marketing costs vary based on scope and services. ${SITE_CONFIG.name} offers scalable packages from startup to enterprise, with project-based, retainer, and hybrid pricing models. Services range from single landing pages to full-service enterprise engagements including productization, sales enablement, and ongoing revenue optimization.`,
   },
   {
     question: 'What is the difference between a marine marketing agency and a general marketing agency?',
     answer:
-      'A marine marketing agency has deep expertise in the boating industry — understanding boat manufacturers, dealers, marine technology, and the high-net-worth buyer journey. MarineForge combines marine industry specialization with productization and AI-powered acceleration, delivering results 3-5x faster than general agencies unfamiliar with the marine market.',
+      `A marine marketing agency has deep expertise in the boating industry — understanding boat manufacturers, dealers, marine technology, and the high-net-worth buyer journey. ${SITE_CONFIG.name} combines marine industry specialization with productization and AI-powered acceleration, delivering results 3-5x faster than general agencies unfamiliar with the marine market,`
   },
   {
     question: 'How can I improve my boat dealership\'s online presence?',
     answer:
-      'Improving a boat dealership\'s online presence requires local SEO, Google Business Profile optimization, inventory marketing, and conversion-focused web design. MarineForge provides marine-specific SEO, GEO optimization for AI search results, and digital systems that generate leads automatically for boat dealers.',
+      `Improving a boat dealership's online presence requires local SEO, Google Business Profile optimization, inventory marketing, and conversion-focused web design. ${SITE_CONFIG.name} provides marine-specific SEO, GEO optimization for AI search results, and digital systems that generate leads automatically for boat dealers.`,
   },
   {
     question: 'What is GEO optimization for marine businesses?',
     answer:
-      'GEO (Generative Engine Optimization) ensures your marine business appears in AI-generated search results from platforms like ChatGPT, Perplexity, and Google AI Overviews. MarineForge optimizes content structure, schema markup, and entity signals so marine businesses are cited as authoritative sources by AI systems.',
+      `GEO (Generative Engine Optimization) ensures your marine business appears in AI-generated search results from platforms like ChatGPT, Perplexity, and Google AI Overviews. ${SITE_CONFIG.name} optimizes content structure, schema markup, and entity signals so marine businesses are cited as authoritative sources by AI systems.`,
   },
 ];
 

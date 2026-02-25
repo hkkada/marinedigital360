@@ -1,3 +1,4 @@
+import { SITE_CONFIG } from '../constants';
 import type { ServicePageData } from './types';
 
 export const affiliatePage: ServicePageData = {
@@ -7,7 +8,7 @@ export const affiliatePage: ServicePageData = {
   metadata: {
     title: 'Marine Affiliate Marketing — Build Performance-Based Partner Networks',
     description:
-      'MarineForge builds and manages affiliate marketing programs for marine businesses — partner recruitment, commission design, platform setup, and performance-based revenue growth.',
+      `${SITE_CONFIG.name} builds and manages affiliate marketing programs for marine businesses — partner recruitment, commission design, platform setup, and performance-based revenue growth.`,
     keywords: [
       'marine affiliate marketing',
       'marine affiliate program',
@@ -36,7 +37,7 @@ export const affiliatePage: ServicePageData = {
       data: {
         headline: 'What is marine affiliate marketing?',
         description:
-          'Marine affiliate marketing is a performance-based strategy where partners (affiliates) promote your marine products or services and earn commissions on resulting sales or leads. Unlike traditional advertising where you pay upfront, affiliate marketing means you only pay for actual results. MarineForge builds, manages, and scales affiliate programs for marine e-commerce retailers, boat accessory brands, fishing gear companies, and marine service providers.',
+          `Marine affiliate marketing is a performance-based strategy where partners (affiliates) promote your marine products or services and earn commissions on resulting sales or leads. Unlike traditional advertising where you pay upfront, affiliate marketing means you only pay for actual results. \n ${SITE_CONFIG.name} builds, manages, and scales affiliate programs for marine e-commerce retailers, boat accessory brands, fishing gear companies, and marine service providers.`,
         cards: [
           {
             iconName: 'Network',

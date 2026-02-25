@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { bookingProvider } from '@/lib/booking';
 import { Loader2 } from 'lucide-react';
+import { SITE_CONFIG } from '@/lib/constants';
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -81,7 +82,7 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
           parentElement: container,
           prefill: {},
           utm: {
-            utmSource: 'marineforge',
+            utmSource: SITE_CONFIG.sld,
             utmMedium: 'website',
             utmCampaign: 'contact',
           },

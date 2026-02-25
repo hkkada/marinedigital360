@@ -1,3 +1,4 @@
+import { SITE_CONFIG } from '../constants';
 import type { ServicePageData } from './types';
 
 export const ppcPage: ServicePageData = {
@@ -7,7 +8,7 @@ export const ppcPage: ServicePageData = {
   metadata: {
     title: 'Marine PPC Management — Paid Advertising for Marine Businesses',
     description:
-      'MarineForge manages Google Ads, Bing, and social media advertising for marine businesses — optimizing ROAS, reducing wasted spend, and driving qualified leads for boat manufacturers, dealers, and marine e-commerce.',
+      `${SITE_CONFIG.name} manages Google Ads, Bing, and social media advertising for marine businesses — optimizing ROAS, reducing wasted spend, and driving qualified leads for boat manufacturers, dealers, and marine e-commerce.`,
     keywords: [
       'marine PPC management',
       'boat advertising Google Ads',

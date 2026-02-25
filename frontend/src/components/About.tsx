@@ -7,6 +7,7 @@ import { Award, Target, Zap, Globe2, Anchor, Compass } from 'lucide-react';
 import Image from 'next/image';
 import { getImageProps } from '@/lib/image-map';
 import { durations, sectionTiming } from '@/lib/animations';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export function About() {
   const ref = useRef(null);
@@ -93,7 +94,7 @@ export function About() {
           >
             <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] to-transparent" />
             <span className="text-sm tracking-[0.3em] uppercase text-[#1877F2]">
-              About MarineForge
+              About {SITE_CONFIG.name}
             </span>
           </motion.div>
 
@@ -135,7 +136,7 @@ export function About() {
                 transition={{ duration: sectionTiming.about.headerDuration, delay: 0.25 }}
                 className="text-base text-gray-500 leading-relaxed"
               >
-                Based in Philadelphia, Pennsylvania, MarineForge is the only
+                Based in Philadelphia, Pennsylvania, {SITE_CONFIG.name} is the only
                 marine-focused commercialization agency that combines productization,
                 sales enablement, and AI-powered marketing to drive revenue for marine
                 businesses across the Mid-Atlantic and Southeast United States.

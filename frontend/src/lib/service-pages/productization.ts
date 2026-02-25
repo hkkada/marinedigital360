@@ -1,3 +1,4 @@
+import { SITE_CONFIG } from '../constants';
 import type { ServicePageData } from './types';
 
 export const productizationPage: ServicePageData = {
@@ -7,7 +8,7 @@ export const productizationPage: ServicePageData = {
   metadata: {
     title: 'Marine Productization Services — Transform Capabilities into Products',
     description:
-      'MarineForge productization services transform marine business capabilities into fully packaged, market-ready products with naming, pricing, positioning, and sales enablement.',
+      `${SITE_CONFIG.name} productization services transform marine business capabilities into fully packaged, market-ready products with naming, pricing, positioning, and sales enablement.`,
     keywords: [
       'marine productization',
       'marine product development',

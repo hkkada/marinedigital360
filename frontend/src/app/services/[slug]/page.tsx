@@ -7,6 +7,7 @@ import { RelatedServices } from '@/components/services/RelatedServices';
 import { ServiceStructuredData } from '@/components/services/ServiceStructuredData';
 import { getServicePageData, getAllServicePageSlugs } from '@/lib/service-pages';
 import { getServiceBySlug } from '@/lib/services';
+import { SITE_CONFIG } from '@/lib/constants';
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   const pageData = getServicePageData(slug);
   if (!pageData) return {};
 
-  const baseUrl = 'https://marineforge.com';
+  const baseUrl = SITE_CONFIG.url;
 
   return {
     title: pageData.metadata.title,
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
       description: pageData.metadata.description,
       url: `${baseUrl}/services/${slug}`,
       type: 'website',
-      siteName: 'MarineForge',
+      siteName: SITE_CONFIG.name,
     },
     twitter: {
       card: 'summary_large_image',
