@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(dir /s \"c:\\\\Users\\\\harik\\\\source\\\\repos\\\\MarineMarketing\\\\code\\\\MarineForge\\\\frontend\"\")",
+      "Bash(npm ls:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npx tsc:*)",
+      "Bash(ls -la \"c:\\\\Users\\\\harik\\\\source\\\\repos\\\\MarineMarketing\\\\code\\\\MarineForge\\\\frontend\\\\src\\\\app\"\" | grep -E \"^d \")",
+      "Bash(wc:*)",
+      "Bash(curl:*)",
+      "Bash(ls:*)",
+      "Bash(npx sharp-cli:*)"
+    ]
+  }
+}

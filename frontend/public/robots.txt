@@ -1,0 +1,27 @@
+# MarineForge — robots.txt
+# Allow all search engine and AI crawlers
+
+User-agent: *
+Allow: /
+
+# Search engine crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# AI crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://marineforge.com/sitemap.xml

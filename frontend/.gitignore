@@ -11,6 +11,10 @@
 /docs
 .docusaurus
 
+# Next.js
+/.next/
+next-env.d.ts
+
 # misc
 .env.local
 .env.development.local

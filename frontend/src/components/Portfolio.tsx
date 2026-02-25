@@ -1,19 +1,29 @@
+'use client';
+
 import { motion, useScroll, useTransform } from 'motion/react';
 import { useInView } from 'motion/react';
 import { useRef } from 'react';
 import { ExternalLink, TrendingUp, Users, Award } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { getVisibleServices } from '@/lib/services';
+import { getImageProps, type ImageKey } from '@/lib/image-map';
+import { durations, sectionTiming } from '@/lib/animations';
 
 export function Portfolio() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-150px' });
+
+  const visibleServices = getVisibleServices();
 
   const projects = [
     {
       title: 'Velocity Marine',
       subtitle: 'Performance Redefined',
       category: 'Digital Experience & Brand',
+      services: ['web-design', 'seo-geo'],
       year: '2025',
-      image: 'https://images.unsplash.com/photo-1717940729001-f8662bd515dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzcGVlZGJvYXQlMjBhZXJpYWwlMjBvY2VhbiUyMGFkdmVudHVyZXxlbnwxfHx8fDE3NzA1ODA4ODV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+      imageKey: 'portfolio.velocity-marine',
       metrics: [
         { icon: TrendingUp, label: 'Conversions', value: '+145%' },
         { icon: Users, label: 'Traffic', value: '+230%' },
@@ -24,8 +34,9 @@ export function Portfolio() {
       title: 'Oceanic Yachts',
       subtitle: 'Luxury Elevated',
       category: 'Complete Brand Transformation',
+      services: ['productization', 'web-design', 'ppc'],
       year: '2025',
-      image: 'https://images.unsplash.com/photo-1761047726527-6f263d10e09d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5YWNodCUyMHN1bnNldCUyMGFkdmVudHVyZSUyMGV4cGxvcmF0aW9ufGVufDF8fHx8MTc3MDU4MDg4Nnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+      imageKey: 'portfolio.oceanic-yachts',
       metrics: [
         { icon: Award, label: 'Lead Quality', value: '+320%' },
         { icon: TrendingUp, label: 'Revenue', value: '+185%' },
@@ -36,8 +47,9 @@ export function Portfolio() {
       title: 'Horizon Boats',
       subtitle: 'Built for Adventure',
       category: 'E-commerce Platform',
+      services: ['web-design', 'seo-geo', 'affiliate'],
       year: '2024',
-      image: 'https://images.unsplash.com/photo-1653467213158-f6a896e813a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxib2F0JTIwcmFjaW5nJTIwd2F2ZXMlMjBhZHZlbnR1cmV8ZW58MXx8fHwxNzcwNTgwODg0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+      imageKey: 'portfolio.horizon-boats',
       metrics: [
         { icon: TrendingUp, label: 'Online Sales', value: '+275%' },
         { icon: Users, label: 'Engagement', value: '+410%' },
@@ -47,7 +59,7 @@ export function Portfolio() {
   ];
 
   return (
-    <section id="work" className="py-32 md:py-40 bg-white relative overflow-hidden" ref={ref}>
+    <section id="work" className="py-32 md:py-40 bg-white relative overflow-hidden" ref={ref} aria-labelledby="work-heading">
       {/* Decorative elements */}
       <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-[#1877F2]/5 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-0 w-[400px] h-[400px] bg-[#0D5DBF]/5 rounded-full blur-3xl" />
@@ -57,13 +69,13 @@ export function Portfolio() {
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: durations.normal }}
           className="mb-24"
         >
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: durations.normal, delay: 0.1 }}
             className="flex items-center gap-4 mb-8"
           >
             <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] to-transparent" />
@@ -73,7 +85,7 @@ export function Portfolio() {
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-end">
-            <h2 className="text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.9] text-gray-900">
+            <h2 id="work-heading" className="text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.9] text-gray-900">
               Projects that
               <br />
               <span className="bg-gradient-to-r from-[#1877F2] to-[#0D5DBF] bg-clip-text text-transparent">
@@ -84,7 +96,7 @@ export function Portfolio() {
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: durations.normal, delay: 0.15 }}
               className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed"
             >
               Real results for real manufacturers. We don't just build 
@@ -97,13 +109,14 @@ export function Portfolio() {
         <div className="space-y-32">
           {projects.map((project, index) => {
             const isEven = index % 2 === 0;
-            
+            const projectImageProps = getImageProps(project.imageKey as ImageKey);
+
             return (
               <motion.article
                 key={project.title}
                 initial={{ opacity: 0, y: 80 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 1, delay: index * 0.3 }}
+                transition={{ duration: sectionTiming.portfolio.projectDuration, delay: sectionTiming.portfolio.projectStagger(index) }}
                 className="group relative"
               >
                 <div className={`grid lg:grid-cols-2 gap-12 items-center ${!isEven ? 'lg:grid-flow-dense' : ''}`}>
@@ -112,13 +125,15 @@ export function Portfolio() {
                     <motion.div
                       className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-gray-900 shadow-2xl"
                       whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.6 }}
+                      transition={{ duration: durations.smooth }}
                     >
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                      />
+                      {projectImageProps && (
+                        <Image
+                          {...projectImageProps}
+                          fill
+                          className="object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                      )}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                       
                       {/* Floating year badge */}
@@ -156,11 +171,28 @@ export function Portfolio() {
                     <motion.div
                       initial={{ opacity: 0, x: isEven ? -40 : 40 }}
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ duration: 0.8, delay: index * 0.3 + 0.3 }}
+                      transition={{ duration: durations.smooth, delay: sectionTiming.portfolio.projectStagger(index) + 0.15 }}
                     >
-                      <span className="inline-block px-4 py-2 bg-gray-100 rounded-full text-sm font-semibold text-gray-700 mb-6">
+                      <span className="inline-block px-4 py-2 bg-gray-100 rounded-full text-sm font-semibold text-gray-700 mb-3">
                         {project.category}
                       </span>
+
+                      {/* Service tags */}
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {project.services.map((slug) => {
+                          const service = visibleServices.find((s) => s.slug === slug);
+                          if (!service) return null;
+                          return (
+                            <Link
+                              key={slug}
+                              href={`/services/${slug}`}
+                              className="inline-block px-3 py-1 bg-[#1877F2]/10 text-[#1877F2] rounded-full text-xs font-medium hover:bg-[#1877F2]/20 transition-colors"
+                            >
+                              {service.title}
+                            </Link>
+                          );
+                        })}
+                      </div>
 
                       <h3 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-4 leading-[0.9] group-hover:text-[#1877F2] transition-colors duration-300">
                         {project.title}
@@ -177,7 +209,7 @@ export function Portfolio() {
                             key={metric.label}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: i * 0.1 }}
+                            transition={{ duration: sectionTiming.portfolio.metricDuration, delay: sectionTiming.portfolio.metricStagger(i) }}
                             className="relative p-6 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 hover:border-[#1877F2] transition-colors group/metric"
                           >
                             <metric.icon className="w-8 h-8 text-[#1877F2] mb-3 group-hover/metric:scale-110 transition-transform" />
@@ -216,7 +248,7 @@ export function Portfolio() {
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1.2 }}
+          transition={{ duration: durations.smooth, delay: 0.8 }}
           className="mt-32 relative"
         >
           <div className="relative p-16 bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-3xl overflow-hidden">

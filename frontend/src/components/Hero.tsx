@@ -1,88 +1,62 @@
-import { useState, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'motion/react';
+'use client';
+
+import { motion } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
+import Image from 'next/image';
+import { getImageProps } from '@/lib/image-map';
+import { sectionTiming } from '@/lib/animations';
 
 export function Hero() {
-  const [videoLoaded, setVideoLoaded] = useState(false);
-  const { scrollY } = useScroll();
-  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
-  const scale = useTransform(scrollY, [0, 400], [1, 1.1]);
-
-  useEffect(() => {
-    // Simulate video load
-    const timer = setTimeout(() => setVideoLoaded(true), 500);
-    return () => clearTimeout(timer);
-  }, []);
+  const heroImageProps = getImageProps('hero.main-background');
 
   return (
     <div className="relative h-screen overflow-hidden bg-black">
-      {/* Video Background */}
-      <motion.div 
-        className="absolute inset-0"
-        style={{ scale }}
-      >
-        {/* Placeholder for video - using high-quality image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1651821949453-f11a1ddfaf1a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB5YWNodCUyMGFlcmlhbCUyMGNpbmVtYXRpYyUyMGJsdWUlMjB3YXRlcnxlbnwxfHx8fDE3NzA1ODAzNjl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral')`,
-          }}
-        />
-        
-        {/* Elegant overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
-      </motion.div>
+      {/* Background image — plain div (no motion wrapper) so browser can identify LCP */}
+      <div className="absolute inset-0">
+        {/* Hero background image */}
+        {heroImageProps && (
+          <Image
+            {...heroImageProps}
+            fill
+            className="object-cover flip-horizontal"
+          />
+        )}
 
-      {/* Content */}
-      <motion.div 
-        className="relative h-full flex items-center"
-        style={{ opacity }}
-      >
+        {/* Elegant overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent" />
+      </div>
+
+      {/* Content — h1 is outside motion.div so it paints immediately for LCP */}
+      <div className="relative h-full flex items-center">
         <div className="max-w-[1600px] mx-auto px-8 lg:px-16 w-full">
           <div className="max-w-4xl">
             {/* Elegant subtitle */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: videoLoaded ? 1 : 0, y: videoLoaded ? 0 : 30 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              className="mb-8"
-            >
-              <span className="text-white/80 text-sm tracking-[0.3em] uppercase">
+            <div className="mb-8 hero-animate hero-animate-delay-1">
+              <span className="text-white/80 text-sm tracking-[0.3em] uppercase drop-shadow(0 2px 8px rgba(0,0,0,0.5))">
                 Premium Marine Digital
               </span>
-            </motion.div>
+            </div>
 
-            {/* Hero headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: videoLoaded ? 1 : 0, y: videoLoaded ? 0 : 30 }}
-              transition={{ duration: 1, delay: 0.6 }}
-              className="text-6xl md:text-7xl lg:text-8xl text-white mb-8 leading-[0.95] tracking-tight"
+            {/* Hero headline — no animation classes or motion wrapper to ensure LCP detection */}
+            <h1
+              className="text-6xl md:text-7xl lg:text-8xl text-white mb-8 leading-[0.95] tracking-tight drop-shadow(0 4px 12px rgba(0,0,0,0.6)) select-none"
             >
               Where craft meets
               <br />
               digital excellence
-            </motion.h1>
+            </h1>
 
             {/* Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: videoLoaded ? 1 : 0, y: videoLoaded ? 0 : 30 }}
-              transition={{ duration: 1, delay: 0.9 }}
-              className="text-xl md:text-2xl text-white/70 mb-12 max-w-2xl leading-relaxed font-light"
+            <p
+              className="text-xl md:text-2xl text-white/80 mb-12 max-w-2xl leading-relaxed font-light drop-shadow(0 2px 8px rgba(0,0,0,0.5)) hero-animate hero-animate-delay-3"
             >
               We create immersive digital experiences for the world's finest
               boat and yacht manufacturers.
-            </motion.p>
+            </p>
 
             {/* CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: videoLoaded ? 1 : 0, y: videoLoaded ? 0 : 30 }}
-              transition={{ duration: 1, delay: 1.2 }}
-              className="flex flex-col sm:flex-row gap-6"
-            >
+            <div className="flex flex-col sm:flex-row gap-6 hero-animate hero-animate-delay-4">
               <motion.a
                 href="#contact"
                 whileHover={{ scale: 1.05 }}
@@ -91,7 +65,7 @@ export function Hero() {
               >
                 Start Your Project
               </motion.a>
-              
+
               <motion.a
                 href="#work"
                 whileHover={{ scale: 1.05 }}
@@ -100,27 +74,22 @@ export function Hero() {
               >
                 View Our Work
               </motion.a>
-            </motion.div>
+            </div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: videoLoaded ? 1 : 0 }}
-        transition={{ duration: 1, delay: 2 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2"
-      >
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 hero-animate hero-animate-delay-5">
         <motion.div
           animate={{ y: [0, 12, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: sectionTiming.hero.animationDuration * 5, repeat: Infinity, ease: 'easeInOut' }}
           className="flex flex-col items-center gap-2 text-white/60"
         >
           <span className="text-xs tracking-widest uppercase">Scroll</span>
           <ChevronDown size={20} />
         </motion.div>
-      </motion.div>
+      </div>
     </div>
   );
 }
