@@ -44,10 +44,9 @@ const ppcImage = '/images/photo-1551288049-bebda4e38f71.jpg';
 const seoGeoImage = '/images/photo-1460925895917-afdab827c52f.jpg';
 const productizationImage = '/images/photo-1454165804606-c3d57bc86b40.jpg';
 
-const velocityMarineImage = '/images/photo-1717940729001-f8662bd515dd.jpg';
-const oceanicYachtsImage = '/images/photo-1761047726527-6f263d10e09d.jpg';
-const horizonBoatsImage = '/images/photo-1653467213158-f6a896e813a1.jpg';
-
+const continentalYatchsImage = '/images/cy_iStock-2209853704.jpg';
+const sportFishingYachtsImage = '/images/sf_iStock-2166434797.jpg';
+const centerConsolesImage = '/images/cc_iStock-2184376329.jpg';
 const imageRegistry: ImageCategory = {
   // ═══════════════════════════════════════════════════════════════════════════
   // Main Page Hero
@@ -72,7 +71,7 @@ const imageRegistry: ImageCategory = {
       sizes: '(max-width: 768px) 100vw, 66vw',
     },
     'cockpit-technology': {
-      src: '/images/dmitrii-e-sWCmHYAWUvc-unsplash.jpg',
+      src: '/images/cp_iStock-1426197685.jpg',
       alt: 'Marine technology innovation — yacht cockpit controls and digital navigation systems',
       sizes: '(max-width: 768px) 100vw, 33vw',
     },
@@ -82,19 +81,19 @@ const imageRegistry: ImageCategory = {
   // Portfolio Projects (Main Page)
   // ═══════════════════════════════════════════════════════════════════════════
   portfolio: {
-    'velocity-marine': {
-      src: velocityMarineImage,
-      alt: `Velocity Marine case study — high-performance speedboat racing across open ocean, digital experience and brand project by ${SITE_CONFIG.name}`,
+    'continental-yatchs': {
+      src: continentalYatchsImage,
+      alt: `Continental Yachts case study — high-performance speedboat racing across open ocean, digital experience and brand project by ${SITE_CONFIG.name}`,
       sizes: '(max-width: 1024px) 100vw, 50vw',
     },
-    'oceanic-yachts': {
-      src: oceanicYachtsImage,
-      alt: `Oceanic Yachts case study — luxury yacht at sunset on calm waters, complete brand transformation by ${SITE_CONFIG.name}`,
+    'sport-fishing-yatchs': {
+      src: sportFishingYachtsImage,
+      alt: `Sport Fishing Yachts case study — luxury yacht at sunset on calm waters, complete brand transformation by ${SITE_CONFIG.name}`,
       sizes: '(max-width: 1024px) 100vw, 50vw',
     },
-    'horizon-boats': {
-      src: horizonBoatsImage,
-      alt: `Horizon Boats case study — adventure boat cutting through ocean waves, e-commerce platform project by ${SITE_CONFIG.name}`,
+    'center-consoles': {
+      src: centerConsolesImage,
+      alt: `Center Consoles case study — adventure boat cutting through ocean waves, e-commerce platform project by ${SITE_CONFIG.name}`,
       sizes: '(max-width: 1024px) 100vw, 50vw',
     },
   },
@@ -141,12 +140,12 @@ const imageRegistry: ImageCategory = {
   servicePortfolio: {
     'web-design-velocity': {
       src: '/images/Placeholder_Sail-Yacht.jpg',
-      alt: 'Velocity Marine Group website — boat manufacturer website with interactive boat builder | Placeholder: search "luxury yacht website mockup on laptop"',
+      alt: 'Continental Yachts Group website — boat manufacturer website with interactive boat builder | Placeholder: search "luxury yacht website mockup on laptop"',
       sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
     },
     'web-design-oceanic': {
       src: '/images/Placeholder_Sail-Yacht.jpg',
-      alt: 'Oceanic Yachts website — luxury yacht dealer with virtual tours | Placeholder: search "yacht dealer website design modern"',
+      alt: 'Sport Fishing Yachts website — luxury yacht dealer with virtual tours | Placeholder: search "yacht dealer website design modern"',
       sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
     },
     'web-design-horizon': {
@@ -175,7 +174,7 @@ export type ImageKey =
 /**
  * Get image configuration by semantic key.
  *
- * @param key - Dot-notation image key (e.g., "hero.main-background", "portfolio.velocity-marine")
+ * @param key - Dot-notation image key (e.g., "hero.main-background", "portfolio.continental-yatchs")
  * @returns ImageConfig object or undefined if not found
  *
  * @example

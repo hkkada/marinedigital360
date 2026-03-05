@@ -18,42 +18,42 @@ export function Portfolio() {
 
   const projects = [
     {
-      title: 'Velocity Marine',
+      title: 'Continental Yachts',
       subtitle: 'Performance Redefined',
       category: 'Digital Experience & Brand',
       services: ['web-design', 'seo-geo'],
       year: '2025',
-      imageKey: 'portfolio.velocity-marine',
+      imageKey: 'portfolio.continental-yatchs',
       metrics: [
-        { icon: TrendingUp, label: 'Conversions', value: '+145%' },
-        { icon: Users, label: 'Traffic', value: '+230%' },
-      ],
+        // { icon: TrendingUp, label: 'Conversions', value: '+145%' },
+        // { icon: Users, label: 'Traffic', value: '+230%' },
+      ] as any[],
       color: 'from-blue-600 to-cyan-500',
     },
     {
-      title: 'Oceanic Yachts',
+      title: 'Sport Fishing Yachts',
       subtitle: 'Luxury Elevated',
       category: 'Complete Brand Transformation',
       services: ['productization', 'web-design', 'ppc'],
       year: '2025',
-      imageKey: 'portfolio.oceanic-yachts',
+      imageKey: 'portfolio.sport-fishing-yatchs',
       metrics: [
-        { icon: Award, label: 'Lead Quality', value: '+320%' },
-        { icon: TrendingUp, label: 'Revenue', value: '+185%' },
-      ],
+        // { icon: Award, label: 'Lead Quality', value: '+320%' },
+        // { icon: TrendingUp, label: 'Revenue', value: '+185%' },
+      ] as any[],
       color: 'from-indigo-600 to-purple-500',
     },
     {
-      title: 'Horizon Boats',
+      title: 'Center Consoles',
       subtitle: 'Built for Adventure',
       category: 'E-commerce Platform',
       services: ['web-design', 'seo-geo', 'affiliate'],
       year: '2024',
-      imageKey: 'portfolio.horizon-boats',
+      imageKey: 'portfolio.center-consoles',
       metrics: [
-        { icon: TrendingUp, label: 'Online Sales', value: '+275%' },
-        { icon: Users, label: 'Engagement', value: '+410%' },
-      ],
+        // { icon: TrendingUp, label: 'Online Sales', value: '+275%' },
+        // { icon: Users, label: 'Engagement', value: '+410%' },
+      ]  as any[],
       color: 'from-cyan-500 to-blue-600',
     },
   ];
@@ -203,6 +203,7 @@ export function Portfolio() {
                       </p>
 
                       {/* Metrics with icons */}
+                      {project.metrics && project.metrics.length > 0 && (
                       <div className="grid grid-cols-2 gap-8 mb-12">
                         {project.metrics.map((metric, i) => (
                           <motion.div
@@ -222,6 +223,7 @@ export function Portfolio() {
                           </motion.div>
                         ))}
                       </div>
+                      )}
 
                       {/* CTA */}
                       <motion.a

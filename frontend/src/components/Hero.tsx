@@ -1,26 +1,44 @@
 'use client';
 
-import { motion } from 'motion/react';
+import { useRef, useEffect } from 'react';
+import { motion, useReducedMotion } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
-import Image from 'next/image';
-import { getImageProps } from '@/lib/image-map';
+import { getImageSrc } from '@/lib/image-map';
 import { sectionTiming } from '@/lib/animations';
 
 export function Hero() {
-  const heroImageProps = getImageProps('hero.main-background');
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (prefersReducedMotion) {
+      video.pause();
+    } else {
+      video.play().catch(() => {});
+    }
+  }, [prefersReducedMotion]);
 
   return (
     <div className="relative h-screen overflow-hidden bg-black">
-      {/* Background image — plain div (no motion wrapper) so browser can identify LCP */}
+      {/* Background video — aria-hidden since it's decorative */}
       <div className="absolute inset-0">
-        {/* Hero background image */}
-        {heroImageProps && (
-          <Image
-            {...heroImageProps}
-            fill
-            className="object-cover flip-horizontal"
-          />
-        )}
+        {/* Hero background video */}
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster={getImageSrc('hero.main-background')}
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover will-change-transform"
+          style={{ filter: 'contrast(1.1) saturate(1.05)' }}
+        >
+          <source src="/clips/iStock-1481894582.mp4" type="video/mp4" />
+        </video>
 
         {/* Elegant overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />

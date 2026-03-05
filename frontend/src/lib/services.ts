@@ -20,7 +20,7 @@ const allServices: ServiceData[] = [
     schemaDescription:
       'Marine productization services that transform business capabilities into fully packaged, market-ready products with defined naming, pricing, positioning, and differentiation for boat manufacturers and marine technology companies.',
     serviceType: 'Marine Product Development',
-    isVisible: true,
+    isVisible: false,
   },
   {
     slug: 'go-to-market',
@@ -62,12 +62,24 @@ const allServices: ServiceData[] = [
     slug: 'seo-geo',
     title: 'SEO/GEO/AEO',
     iconName: 'Search',
-    tagline: 'Be found everywhere — Google, AI, and voice',
+    tagline: 'Increase online visibility across Google, AI, and voice search',
     description:
       'Technical SEO, content strategy, local search optimization, and generative engine optimization for AI search visibility.',
     schemaDescription:
       'Marine SEO and GEO optimization services including technical SEO, content strategy, local search optimization, and generative engine optimization ensuring marine businesses appear in AI-generated search results.',
     serviceType: 'SEO & Digital Marketing',
+    isVisible: true,
+  },
+  {
+    slug: 'ppc',
+    title: 'PPC',
+    iconName: 'MousePointerClick',
+    tagline: 'Every dollar tracked. Every click optimized.',
+    description:
+      'Strategic paid advertising across Google, Bing, and social platforms with bid optimization and ROAS tracking.',
+    schemaDescription:
+      'PPC advertising management for marine businesses including strategic paid campaigns across Google, Bing, and social platforms with bid optimization, audience targeting, and ROAS tracking.',
+    serviceType: 'PPC Advertising',
     isVisible: true,
   },
   {
@@ -82,16 +94,16 @@ const allServices: ServiceData[] = [
     serviceType: 'Web Design & Development',
     isVisible: true,
   },
-  {
-    slug: 'ppc',
-    title: 'PPC Management',
-    iconName: 'MousePointerClick',
-    tagline: 'Every dollar tracked. Every click optimized.',
+   {
+    slug: 'affiliate',
+    title: 'Affiliate Marketing',
+    iconName: 'Share2',
+    tagline: 'Performance-based growth through partnerships',
     description:
-      'Strategic paid advertising across Google, Bing, and social platforms with bid optimization and ROAS tracking.',
+      'Affiliate program setup, partner recruitment, commission structure design, and performance-based revenue growth.',
     schemaDescription:
-      'PPC advertising management for marine businesses including strategic paid campaigns across Google, Bing, and social platforms with bid optimization, audience targeting, and ROAS tracking.',
-    serviceType: 'PPC Advertising',
+      'Marine affiliate marketing services including affiliate program setup, partner recruitment, commission structure design, and performance-based revenue growth strategies for the boating industry.',
+    serviceType: 'Affiliate Marketing',
     isVisible: true,
   },
   {
@@ -105,19 +117,7 @@ const allServices: ServiceData[] = [
       'Marine marketing strategy services including market analysis, competitive intelligence, brand positioning, multi-channel planning, and growth roadmaps for boat manufacturers and marine businesses.',
     serviceType: 'Marketing Strategy',
     isVisible: false,
-  },
-  {
-    slug: 'affiliate',
-    title: 'Affiliate Marketing',
-    iconName: 'Share2',
-    tagline: 'Performance-based growth through partnerships',
-    description:
-      'Affiliate program setup, partner recruitment, commission structure design, and performance-based revenue growth.',
-    schemaDescription:
-      'Marine affiliate marketing services including affiliate program setup, partner recruitment, commission structure design, and performance-based revenue growth strategies for the boating industry.',
-    serviceType: 'Affiliate Marketing',
-    isVisible: true,
-  },
+  }
 ];
 
 export function getServices(): ServiceData[] {

@@ -11,7 +11,11 @@
       "Bash(wc:*)",
       "Bash(curl:*)",
       "Bash(ls:*)",
-      "Bash(npx sharp-cli:*)"
+      "Bash(npx sharp-cli:*)",
+      "Bash(python3 -c \":*)",
+      "Bash(node -e \":*)",
+      "Bash(node -e \"const d=require\\(''fs''\\).readFileSync\\(''/dev/stdin'',''utf8''\\); const p=JSON.parse\\(d\\); console.log\\(JSON.stringify\\({...p.dependencies,...p.devDependencies}, null, 2\\)\\)\")",
+      "Bash(npm uninstall sharp)"
     ]
   }
 }

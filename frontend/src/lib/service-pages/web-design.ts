@@ -74,7 +74,7 @@ export const webDesignPage: ServicePageData = {
           'Marine websites we have designed and developed for industry-leading brands.',
         projects: [
           {
-            title: 'Velocity Marine Group',
+            title: 'Continental Yachts Group',
             category: 'Boat Manufacturer',
             description:
               'Full-scale manufacturer website with interactive boat builder, dealer locator, and immersive vessel galleries.',
@@ -82,7 +82,7 @@ export const webDesignPage: ServicePageData = {
             metrics: '+180% lead generation',
           },
           {
-            title: 'Oceanic Yachts',
+            title: 'Sport Fishing Yachts',
             category: 'Luxury Yacht Dealer',
             description:
               'Premium dealer website with inventory management, virtual tours, and appointment scheduling.',

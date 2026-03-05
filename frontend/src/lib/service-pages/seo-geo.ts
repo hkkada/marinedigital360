@@ -26,9 +26,9 @@ export const seoGeoPage: ServicePageData = {
       type: 'service-hero',
       data: {
         tagline: 'SEO / GEO / AEO Services',
-        headline: 'Be found everywhere — Google, AI, and voice',
+        headline: 'Total marine visibility — Google, AI, and voice search',
         description:
-          `${SITE_CONFIG.name} ensures your marine business is found on Google, AI platforms, and voice search — so you get found no matter how your buyers search.`,
+          `${SITE_CONFIG.name} increases your online visibility and presence across every search surface — Google rankings, AI-generated answers, and voice assistants — reaching buyers through every channel they use.`,
         ctaText: 'Get Your SEO Audit',
         ctaHref: '#contact',
         imageKey: 'serviceHero.seo-geo',
@@ -188,6 +188,59 @@ export const seoGeoPage: ServicePageData = {
       },
     },
     {
+      type: 'pricing-tiers',
+      data: {
+        headline: 'Full-spectrum visibility — one package',
+        description:
+          'Each discipline compounds the others. SEO builds the foundation. AEO captures zero-click mindshare. GEO earns AI citations. Together, they deliver search dominance no single service can match.',
+        tiers: [
+          {
+            name: 'SEO Only',
+            description: 'Traditional search rankings on Google and Bing.',
+            features: [
+              'Technical audit & Core Web Vitals',
+              'Keyword research (200–500 keywords)',
+              'On-page optimization',
+              'Content creation & link building',
+              'Local SEO & Google Business Profile',
+              'Schema markup',
+            ],
+            ctaText: 'Get Started',
+          },
+          {
+            name: 'SEO + AEO + GEO Bundle',
+            description: 'Complete search visibility across every surface your buyers use.',
+            priceLabel: '30% better price — limited to first 5 clients',
+            features: [
+              'Everything in SEO Only',
+              'Featured snippet & PAA box targeting',
+              'FAQ + HowTo schema for voice search',
+              'Entity building for AI platform citations',
+              'E-E-A-T signal strengthening',
+              'Citation-ready content formatting',
+              'AI crawler access verification',
+              'Monthly cross-discipline performance report',
+            ],
+            highlighted: true,
+            ctaText: 'Claim Your Spot',
+          },
+          {
+            name: 'AEO + GEO Add-On',
+            description: 'Extend an existing SEO program with AI and voice visibility.',
+            features: [
+              'Answer engine optimization (AEO)',
+              'Generative engine optimization (GEO)',
+              'Question-based content rewriting',
+              'Speakable schema markup',
+              'AI citation gap analysis',
+              'Structured data for AI extraction',
+            ],
+            ctaText: 'Learn More',
+          },
+        ],
+      },
+    },
+    {
       type: 'tech-stack',
       data: {
         headline: 'Tools we use',
@@ -295,7 +348,7 @@ export const seoGeoPage: ServicePageData = {
           {
             question: 'Do I need all three (SEO + AEO + GEO)?',
             answer:
-              'SEO is the foundation — you need it regardless. AEO and GEO build on that foundation. We recommend starting with SEO + AEO (they share 80% of the work), then layering GEO as your content authority grows. All three disciplines reinforce each other.',
+              'SEO is the foundation — every marine business needs it regardless. AEO and GEO build on that foundation, sharing 80% of the underlying work, so adding them costs far less than running three separate programs. For marine businesses ready for all-channel visibility from day one, we offer SEO + AEO + GEO as a bundled package at 30% better pricing than purchasing each service separately — currently limited to the first 5 clients to ensure focused delivery. It\'s the most cost-effective path to complete search dominance.',
           },
           {
             question: 'How do you measure AI visibility?',
@@ -313,9 +366,9 @@ export const seoGeoPage: ServicePageData = {
     {
       type: 'service-cta',
       data: {
-        headline: 'Ready to dominate search — and AI?',
+        headline: 'Ready for all-channel search visibility?',
         description:
-          'Get found on Google, featured snippets, voice assistants, and AI platforms. Start with a free SEO audit.',
+          'Start with a free SEO audit. If the SEO + AEO + GEO bundle is right for your marine business, we\'ll walk you through exactly what it includes and lock in your 30% bundle pricing before the first-cohort spots fill.',
         ctaText: 'Get Your Free Audit',
         ctaHref: '#contact',
       },
