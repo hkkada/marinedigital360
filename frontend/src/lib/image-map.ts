@@ -46,7 +46,7 @@ const productizationImage = '/images/photo-1454165804606-c3d57bc86b40.jpg';
 
 const continentalYatchsImage = '/images/cy_iStock-2209853704.jpg';
 const sportFishingYachtsImage = '/images/sf_iStock-2166434797.jpg';
-const centerConsolesImage = '/images/cc_iStock-2184376329.jpg';
+const centerConsolesImage = '/images/cc_iStock-2184376329-2-g2.webp';
 const imageRegistry: ImageCategory = {
   // ═══════════════════════════════════════════════════════════════════════════
   // Main Page Hero

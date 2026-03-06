@@ -64,7 +64,7 @@ const allServices: ServiceData[] = [
     iconName: 'Search',
     tagline: 'Increase online visibility across Google, AI, and voice search',
     description:
-      'Technical SEO, content strategy, local search optimization, and generative engine optimization for AI search visibility.',
+      'Technical SEO, content strategy, local search optimization, or generative engine optimization for AI search visibility. Marine digital offers discounted packages for utilizing more than one of theese services together.',
     schemaDescription:
       'Marine SEO and GEO optimization services including technical SEO, content strategy, local search optimization, and generative engine optimization ensuring marine businesses appear in AI-generated search results.',
     serviceType: 'SEO & Digital Marketing',

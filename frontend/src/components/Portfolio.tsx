@@ -50,6 +50,7 @@ export function Portfolio() {
       services: ['web-design', 'seo-geo', 'affiliate'],
       year: '2024',
       imageKey: 'portfolio.center-consoles',
+      imageScale: 1.2,
       metrics: [
         // { icon: TrendingUp, label: 'Online Sales', value: '+275%' },
         // { icon: Users, label: 'Engagement', value: '+410%' },
@@ -110,6 +111,7 @@ export function Portfolio() {
           {projects.map((project, index) => {
             const isEven = index % 2 === 0;
             const projectImageProps = getImageProps(project.imageKey as ImageKey);
+            const imageScale = (project as any).imageScale as number | undefined;
 
             return (
               <motion.article
@@ -128,11 +130,16 @@ export function Portfolio() {
                       transition={{ duration: durations.smooth }}
                     >
                       {projectImageProps && (
-                        <Image
-                          {...projectImageProps}
-                          fill
-                          className="object-cover group-hover:scale-110 transition-transform duration-700"
-                        />
+                        <div
+                          className="absolute inset-0"
+                          style={imageScale ? { transform: `scale(${imageScale})` } : undefined}
+                        >
+                          <Image
+                            {...projectImageProps}
+                            fill
+                            className="object-cover group-hover:scale-110 transition-transform duration-700"
+                          />
+                        </div>
                       )}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                       
@@ -140,18 +147,18 @@ export function Portfolio() {
                       <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        className="absolute top-8 right-8 w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-xl"
+                        className="absolute top-4 right-4 w-14 h-14 md:top-8 md:right-8 md:w-20 md:h-20 bg-white rounded-full flex items-center justify-center shadow-xl"
                       >
-                        <span className="text-lg font-bold text-gray-900">{project.year}</span>
+                        <span className="text-sm md:text-lg font-bold text-gray-900">{project.year}</span>
                       </motion.div>
 
                       {/* Gradient overlay on hover */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
+                      <div className={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300`} />
                     </motion.div>
 
                     {/* Decorative element */}
                     <motion.div
-                      className={`absolute -z-10 w-full h-full bg-gradient-to-br ${project.color} rounded-3xl blur-2xl opacity-20 ${
+                      className={`absolute -z-10 w-full h-full rounded-3xl blur-2xl opacity-20 ${
                         isEven ? '-right-12 -bottom-12' : '-left-12 -bottom-12'
                       }`}
                       animate={{

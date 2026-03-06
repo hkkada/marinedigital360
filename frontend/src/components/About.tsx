@@ -161,13 +161,13 @@ export function About() {
                 transition={{ duration: sectionTiming.about.statDuration, delay: sectionTiming.about.statStagger(index) }}
                 className="relative group"
               >
-                <div className="relative p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 hover:border-[#1877F2]/50 transition-all duration-500">
+                <div className="relative p-5 md:p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 hover:border-[#1877F2]/50 transition-all duration-500">
                   {/* Hover gradient */}
                   <div className="absolute inset-0 bg-gradient-to-br from-[#1877F2]/0 to-[#0D5DBF]/0 group-hover:from-[#1877F2]/10 group-hover:to-[#0D5DBF]/10 rounded-2xl transition-all duration-500" />
                   
                   <div className="relative">
                     <motion.div
-                      className="text-5xl md:text-6xl font-bold text-white mb-2"
+                      className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2"
                       whileHover={{ scale: 1.1 }}
                       transition={{ type: 'spring', stiffness: 300 }}
                     >

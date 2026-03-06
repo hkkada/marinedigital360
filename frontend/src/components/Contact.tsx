@@ -383,7 +383,7 @@ export function Contact() {
                 <div className="w-10 h-10 bg-gradient-to-br from-[#1877F2] to-[#0D5DBF] rounded-xl flex items-center justify-center">
                   <Waves className="w-5 h-5 text-white" />
                 </div>
-                <span className="text-xl tracking-tight text-gray-900">
+                <span className="text-xl tracking-tight text-gray-900 whitespace-nowrap">
                   MARINE<span className="font-light"> DIGITAL 360</span>
                 </span>
               </div>

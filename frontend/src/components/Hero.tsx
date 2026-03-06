@@ -31,10 +31,10 @@ export function Hero() {
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
           poster={getImageSrc('hero.main-background')}
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover will-change-transform"
+          className="absolute inset-0 w-full h-full object-cover will-change-transform pointer-events-none"
           style={{ filter: 'contrast(1.1) saturate(1.05)' }}
         >
           <source src="/clips/iStock-1481894582.mp4" type="video/mp4" />
@@ -48,9 +48,9 @@ export function Hero() {
       {/* Content — h1 is outside motion.div so it paints immediately for LCP */}
       <div className="relative h-full flex items-center">
         <div className="max-w-[1600px] mx-auto px-8 lg:px-16 w-full">
-          <div className="max-w-4xl">
+          <div className="max-w-4xl mx-auto sm:mx-0">
             {/* Elegant subtitle */}
-            <div className="mb-8 hero-animate hero-animate-delay-1">
+            <div className="mb-8 hero-animate hero-animate-delay-1 text-center sm:text-left">
               <span className="text-white/80 text-sm tracking-[0.3em] uppercase drop-shadow(0 2px 8px rgba(0,0,0,0.5))">
                 Premium Marine Digital
               </span>
@@ -58,7 +58,7 @@ export function Hero() {
 
             {/* Hero headline — no animation classes or motion wrapper to ensure LCP detection */}
             <h1
-              className="text-6xl md:text-7xl lg:text-8xl text-white mb-8 leading-[0.95] tracking-tight drop-shadow(0 4px 12px rgba(0,0,0,0.6)) select-none"
+              className="text-5xl md:text-7xl lg:text-8xl text-white mb-8 leading-[0.95] tracking-tight drop-shadow(0 4px 12px rgba(0,0,0,0.6)) select-none text-center sm:text-left"
             >
               Where craft meets
               <br />
@@ -67,14 +67,14 @@ export function Hero() {
 
             {/* Description */}
             <p
-              className="text-xl md:text-2xl text-white/80 mb-12 max-w-2xl leading-relaxed font-light drop-shadow(0 2px 8px rgba(0,0,0,0.5)) hero-animate hero-animate-delay-3"
+              className="text-xl md:text-2xl text-white/80 mb-12 max-w-2xl leading-relaxed font-light drop-shadow(0 2px 8px rgba(0,0,0,0.5)) hero-animate hero-animate-delay-3 text-center sm:text-left mx-auto sm:mx-0"
             >
               We create immersive digital experiences for the world's finest
               boat and yacht manufacturers.
             </p>
 
             {/* CTA */}
-            <div className="flex flex-col sm:flex-row gap-6 hero-animate hero-animate-delay-4">
+            <div className="flex flex-col sm:flex-row gap-6 hero-animate hero-animate-delay-4 items-center sm:items-start">
               <motion.a
                 href="#contact"
                 whileHover={{ scale: 1.05 }}

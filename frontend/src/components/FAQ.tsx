@@ -10,21 +10,18 @@ import { SITE_CONFIG } from '@/lib/constants';
 function FAQItem({
   question,
   answer,
-  index,
-  isInView,
 }: {
   question: string;
   answer: string;
-  index: number;
-  isInView: boolean;
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: '-30px' }}
+      transition={{ duration: 0.4 }}
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
@@ -70,7 +67,7 @@ export function FAQ() {
   return (
     <section
       id="faq"
-      className="py-32 md:py-40 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden"
+      className="py-20 md:py-32 lg:py-40 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden"
       aria-labelledby="faq-heading"
       ref={ref}
     >
@@ -83,7 +80,7 @@ export function FAQ() {
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-16 text-center"
+          className="mb-8 md:mb-16 text-center"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -91,9 +88,9 @@ export function FAQ() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="inline-flex items-center gap-4 mb-8"
           >
-            <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#1877F2] to-transparent" />
+            <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#1877F2]" />
             <HelpCircle className="w-8 h-8 text-[#1877F2]" />
-            <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] via-transparent to-transparent" />
+            <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] to-transparent" />
           </motion.div>
 
           <h2
@@ -125,8 +122,6 @@ export function FAQ() {
               key={index}
               question={item.question}
               answer={item.answer}
-              index={index}
-              isInView={isInView}
             />
           ))}
         </div>
