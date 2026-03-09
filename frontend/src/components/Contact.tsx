@@ -356,7 +356,7 @@ export function Contact() {
                 Trusted By Leading Manufacturers
               </p>
               <div className="flex flex-wrap gap-3">
-                {['Continental Yachts', 'Sport Fishing Yachts', 'Center Consoles'].map((brand) => (
+                {['Manufacturers & Custom Yachts Builders', 'Marine Products', 'Marine Technologies'].map((brand) => (
                   <span
                     key={brand}
                     className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium"

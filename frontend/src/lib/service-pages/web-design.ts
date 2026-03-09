@@ -1,5 +1,5 @@
 import { SITE_CONFIG } from '../constants';
-import type { ServicePageData } from './types';
+import type { ServicePageData, ServiceSection } from './types';
 
 export const webDesignPage: ServicePageData = {
   slug: 'web-design',
@@ -30,7 +30,7 @@ export const webDesignPage: ServicePageData = {
         ctaText: 'Get a Free Estimate',
         ctaHref: '#contact',
         imageKey: 'serviceHero.web-design',
-      },
+      }
     },
     {
       type: 'service-overview',
@@ -64,40 +64,36 @@ export const webDesignPage: ServicePageData = {
               'Semantic HTML, structured data, meta tags, and clean URL structures — ready to rank from day one.',
           },
         ],
-      },
+      }
     },
     {
-      type: 'portfolio-showcase',
+      type: 'transformation-showcase',
       data: {
-        headline: 'Our work speaks for itself',
+        headline: 'Your website is either closing deals — or losing them to competitors',
         description:
-          'Marine websites we have designed and developed for industry-leading brands.',
-        projects: [
-          {
-            title: 'Continental Yachts Group',
-            category: 'Boat Manufacturer',
-            description:
-              'Full-scale manufacturer website with interactive boat builder, dealer locator, and immersive vessel galleries.',
-            imageKey: 'servicePortfolio.web-design-velocity',
-            metrics: '+180% lead generation',
-          },
-          {
-            title: 'Sport Fishing Yachts',
-            category: 'Luxury Yacht Dealer',
-            description:
-              'Premium dealer website with inventory management, virtual tours, and appointment scheduling.',
-            imageKey: 'servicePortfolio.web-design-oceanic',
-            metrics: '+240% organic traffic',
-          },
-          {
-            title: 'Horizon Marine Supply',
-            category: 'Marine E-Commerce',
-            description:
-              'Full e-commerce platform with 5,000+ marine parts, advanced filtering, and dealer pricing integration.',
-            imageKey: 'servicePortfolio.web-design-horizon',
-            metrics: '+320% online revenue',
-          },
-        ],
+          'Marine buyers today research 3–5 dealerships online before ever picking up the phone. If your site doesn\'t convert that first visit into a conversation, someone else\'s will.',
+        before: {
+          label: 'What\'s Costing You Sales Right Now',
+          items: [
+            'Flat photos and cluttered layouts that make six-figure vessels look forgettable',
+            'Buyers abandon your site because specs, availability, and pricing are buried or missing',
+            'Zero lead capture — visitors browse your inventory and call your competitor instead',
+            'Invisible on Google when someone searches "boats for sale near me" or your exact brand',
+            'A website that looks like it was built in 2015 — undermining trust before the first conversation',
+            'No data on which vessels get the most views, where buyers drop off, or what drives inquiries',
+          ],
+        },
+        after: {
+          label: `What Changes With ${SITE_CONFIG.name}`,
+          items: [
+            'Cinematic vessel galleries and detail pages that make buyers feel like they\'re already on board',
+            'A frictionless path from search to inquiry — specs, inventory, and financing options exactly where buyers look',
+            'Strategic lead capture on every high-intent page, turning anonymous traffic into booked showings',
+            'Search-optimized architecture that puts you in front of buyers actively shopping your market',
+            'A premium digital storefront that signals the same quality as the vessels you represent',
+            'Real-time analytics showing which listings, campaigns, and pages are generating your pipeline',
+          ],
+        },
       },
     },
     {
@@ -167,7 +163,8 @@ export const webDesignPage: ServicePageData = {
             ctaText: 'Contact Us',
           },
         ],
-      },
+      }
+    
     },
     {
       type: 'process-timeline',
@@ -217,7 +214,7 @@ export const webDesignPage: ServicePageData = {
             deliverables: ['Live website', 'QA report', 'Post-launch support'],
           },
         ],
-      },
+      }
     },
     {
       type: 'service-faq',
@@ -256,7 +253,7 @@ export const webDesignPage: ServicePageData = {
               'Yes. We frequently redesign existing marine websites — migrating content, improving UX, and optimizing performance while preserving SEO equity. We conduct a thorough audit of your current site before starting to ensure nothing is lost in the transition.',
           },
         ],
-      },
+      }
     },
     {
       type: 'service-cta',
@@ -266,7 +263,7 @@ export const webDesignPage: ServicePageData = {
           'From landing pages to enterprise platforms, we build websites that convert visitors into customers.',
         ctaText: 'Get a Free Estimate',
         ctaHref: '#contact',
-      },
+      }
     },
-  ],
+  ]
 };

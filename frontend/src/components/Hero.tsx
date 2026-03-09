@@ -69,8 +69,7 @@ export function Hero() {
             <p
               className="text-xl md:text-2xl text-white/80 mb-12 max-w-2xl leading-relaxed font-light drop-shadow(0 2px 8px rgba(0,0,0,0.5)) hero-animate hero-animate-delay-3 text-center sm:text-left mx-auto sm:mx-0"
             >
-              We create immersive digital experiences for the world's finest
-              boat and yacht manufacturers.
+              We create immersive digital experiences for the world's finest manufactures and marine businesses.
             </p>
 
             {/* CTA */}

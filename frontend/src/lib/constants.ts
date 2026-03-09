@@ -1,5 +1,5 @@
-export const CONTACT_EMAIL = 'hello@marinedigital360.com';
-export const SUPPORT_EMAIL = 'hello@marinedigital360.com';
+export const CONTACT_EMAIL = 'info@marinedigital360.com';
+export const SUPPORT_EMAIL = 'info@marinedigital360.com';
 export const PRIVACY_EMAIL = 'privacy@marinedigital360.com';
 export const LEGAL_EMAIL = 'legal@marinedigital360.com';
 export const BILLING_EMAIL = 'billing@marinedigital360.com';

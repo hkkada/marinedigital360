@@ -44,13 +44,16 @@ const ppcImage = '/images/photo-1551288049-bebda4e38f71.jpg';
 const seoGeoImage = '/images/photo-1460925895917-afdab827c52f.jpg';
 const productizationImage = '/images/photo-1454165804606-c3d57bc86b40.jpg';
 
-const continentalYatchsImage = '/images/cy_iStock-2209853704.jpg';
+const continentalYachtsImage = '/images/cy_iStock-2209853704.jpg';
 const sportFishingYachtsImage = '/images/sf_iStock-2166434797.jpg';
 const centerConsolesImage = '/images/cc_iStock-2184376329-2-g2.webp';
+
+const marineProductsImage = '/images/iStock-163915213.webp';
+const marineTechnologyImage = '/images/iStock-1184598249.webp';
 const imageRegistry: ImageCategory = {
   // ═══════════════════════════════════════════════════════════════════════════
   // Main Page Hero
-  // ═══════════════════════════════════════════════════════════════════════════
+  // ══════════════════════════════════
   hero: {
     'main-background': {
       src: '/images/nicol-JrMzz7jUD5s-unsplash.jpg',
@@ -66,7 +69,7 @@ const imageRegistry: ImageCategory = {
   // ═══════════════════════════════════════════════════════════════════════════
   about: {
     'yacht-lifestyle': {
-      src: '/images/IMG_1822.jpg',
+      src: centerConsolesImage,
       alt: `${SITE_CONFIG.name} team — premium yacht lifestyle and ocean adventure experience`,
       sizes: '(max-width: 768px) 100vw, 66vw',
     },
@@ -81,19 +84,19 @@ const imageRegistry: ImageCategory = {
   // Portfolio Projects (Main Page)
   // ═══════════════════════════════════════════════════════════════════════════
   portfolio: {
-    'continental-yatchs': {
-      src: continentalYatchsImage,
-      alt: `Continental Yachts case study — high-performance speedboat racing across open ocean, digital experience and brand project by ${SITE_CONFIG.name}`,
+    'continental-yachts': {
+      src: sportFishingYachtsImage,
+      alt: `Manufacturers & Custom Yachts Builders case study — high-performance speedboat racing across open ocean, digital experience and brand project by ${SITE_CONFIG.name}`,
       sizes: '(max-width: 1024px) 100vw, 50vw',
     },
-    'sport-fishing-yatchs': {
-      src: sportFishingYachtsImage,
-      alt: `Sport Fishing Yachts case study — luxury yacht at sunset on calm waters, complete brand transformation by ${SITE_CONFIG.name}`,
+    'sport-fishing-yachts': {
+      src: marineProductsImage,
+      alt: `Marine Products case study — luxury yacht at sunset on calm waters, complete brand transformation by ${SITE_CONFIG.name}`,
       sizes: '(max-width: 1024px) 100vw, 50vw',
     },
     'center-consoles': {
-      src: centerConsolesImage,
-      alt: `Center Consoles case study — adventure boat cutting through ocean waves, e-commerce platform project by ${SITE_CONFIG.name}`,
+      src: marineTechnologyImage,
+      alt: `Marine Technologies case study — adventure boat cutting through ocean waves, e-commerce platform project by ${SITE_CONFIG.name}`,
       sizes: '(max-width: 1024px) 100vw, 50vw',
     },
   },
@@ -140,12 +143,12 @@ const imageRegistry: ImageCategory = {
   servicePortfolio: {
     'web-design-velocity': {
       src: '/images/Placeholder_Sail-Yacht.jpg',
-      alt: 'Continental Yachts Group website — boat manufacturer website with interactive boat builder | Placeholder: search "luxury yacht website mockup on laptop"',
+      alt: 'Manufacturers & Custom Yachts Builders Group website — boat manufacturer website with interactive boat builder | Placeholder: search "luxury yacht website mockup on laptop"',
       sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
     },
     'web-design-oceanic': {
       src: '/images/Placeholder_Sail-Yacht.jpg',
-      alt: 'Sport Fishing Yachts website — luxury yacht dealer with virtual tours | Placeholder: search "yacht dealer website design modern"',
+      alt: 'Marine Products website — luxury yacht dealer with virtual tours | Placeholder: search "yacht dealer website design modern"',
       sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
     },
     'web-design-horizon': {
@@ -174,7 +177,7 @@ export type ImageKey =
 /**
  * Get image configuration by semantic key.
  *
- * @param key - Dot-notation image key (e.g., "hero.main-background", "portfolio.continental-yatchs")
+ * @param key - Dot-notation image key (e.g., "hero.main-background", "portfolio.continental-yachts")
  * @returns ImageConfig object or undefined if not found
  *
  * @example

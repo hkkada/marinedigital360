@@ -27,9 +27,9 @@ export function About() {
 
   const stats = [
     { number: '12+', label: 'Years', sublabel: 'Marine expertise' },
-    { number: '50+', label: 'Partners', sublabel: 'Global manufacturers' },
-    { number: '$2.5B', label: 'Value', sublabel: 'Vessels marketed' },
-    { number: '98%', label: 'Retention', sublabel: 'Client satisfaction' },
+    // { number: '50+', label: 'Partners', sublabel: 'Global manufacturers' },
+    // { number: '$2.5B', label: 'Value', sublabel: 'Vessels marketed' },
+    { number: '100%', label: 'Retention', sublabel: 'Client satisfaction' }
   ];
 
   const values = [

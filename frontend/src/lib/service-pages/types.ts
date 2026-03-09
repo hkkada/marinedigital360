@@ -174,7 +174,7 @@ export interface PartnerNetworkData {
 export type ServiceSection =
   | { type: 'service-hero'; data: ServiceHeroData }
   | { type: 'service-overview'; data: ServiceOverviewData }
-  | { type: 'process-timeline'; data: ProcessTimelineData }
+  | { type: 'process-timeline'; data: ProcessTimelineData}
   | { type: 'service-faq'; data: ServiceFAQData }
   | { type: 'service-cta'; data: ServiceCTAData }
   | { type: 'transformation-showcase'; data: TransformationShowcaseData }

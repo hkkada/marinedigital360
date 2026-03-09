@@ -18,12 +18,12 @@ export function Portfolio() {
 
   const projects = [
     {
-      title: 'Continental Yachts',
-      subtitle: 'Performance Redefined',
+      title: 'Marine Manufacturers',
+      subtitle: '',
       category: 'Digital Experience & Brand',
       services: ['web-design', 'seo-geo'],
       year: '2025',
-      imageKey: 'portfolio.continental-yatchs',
+      imageKey: 'portfolio.continental-yachts',
       metrics: [
         // { icon: TrendingUp, label: 'Conversions', value: '+145%' },
         // { icon: Users, label: 'Traffic', value: '+230%' },
@@ -31,12 +31,12 @@ export function Portfolio() {
       color: 'from-blue-600 to-cyan-500',
     },
     {
-      title: 'Sport Fishing Yachts',
-      subtitle: 'Luxury Elevated',
+      title: 'Marine Products',
+      subtitle: '',
       category: 'Complete Brand Transformation',
       services: ['productization', 'web-design', 'ppc'],
       year: '2025',
-      imageKey: 'portfolio.sport-fishing-yatchs',
+      imageKey: 'portfolio.sport-fishing-yachts',
       metrics: [
         // { icon: Award, label: 'Lead Quality', value: '+320%' },
         // { icon: TrendingUp, label: 'Revenue', value: '+185%' },
@@ -44,8 +44,8 @@ export function Portfolio() {
       color: 'from-indigo-600 to-purple-500',
     },
     {
-      title: 'Center Consoles',
-      subtitle: 'Built for Adventure',
+      title: 'Marine Technologies',
+      subtitle: '',
       category: 'E-commerce Platform',
       services: ['web-design', 'seo-geo', 'affiliate'],
       year: '2024',
