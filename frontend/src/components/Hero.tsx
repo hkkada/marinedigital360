@@ -60,16 +60,16 @@ export function Hero() {
             <h1
               className="text-5xl md:text-7xl lg:text-8xl text-white mb-8 leading-[0.95] tracking-tight drop-shadow(0 4px 12px rgba(0,0,0,0.6)) select-none text-center sm:text-left"
             >
-              Where craft meets
+              Where content
               <br />
-              digital excellence
+              meets growth
             </h1>
 
             {/* Description */}
             <p
               className="text-xl md:text-2xl text-white/80 mb-12 max-w-2xl leading-relaxed font-light drop-shadow(0 2px 8px rgba(0,0,0,0.5)) hero-animate hero-animate-delay-3 text-center sm:text-left mx-auto sm:mx-0"
             >
-              We create immersive digital experiences for the world's finest manufactures and marine businesses.
+              We ignite growth through visibility for the world's best manufactures and marine businesses.
             </p>
 
             {/* CTA */}

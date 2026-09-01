@@ -19,6 +19,8 @@ export function About() {
     offset: ["start end", "end start"]
   });
 
+  const showValues = false;
+
   const yachtImageProps = getImageProps('about.yacht-lifestyle');
   const cockpitImageProps = getImageProps('about.cockpit-technology');
 
@@ -107,7 +109,7 @@ export function About() {
           </h2>
 
           <div className="grid lg:grid-cols-2 gap-16">
-            <motion.p
+            {/* <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: sectionTiming.about.headerDuration, delay: 0.15 }}
@@ -116,17 +118,16 @@ export function About() {
               We're not just another digital agency. We're former marine industry 
               executives, boat enthusiasts, and award-winning designers who live 
               and breathe this industry.
-            </motion.p>
+            </motion.p> */}
 
             <div>
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: sectionTiming.about.headerDuration, delay: 0.2 }}
-                className="text-lg text-gray-500 leading-relaxed mb-4"
+                className="text-xl text-gray-500 leading-relaxed mb-4"
               >
-                From technical specifications to emotional storytelling, we understand
-                what moves vessels worth millions. Our approach combines deep maritime
+                Our approach combines deep maritime
                 knowledge with cutting-edge digital strategy to create experiences that
                 captivate and convert.
               </motion.p>
@@ -134,7 +135,7 @@ export function About() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: sectionTiming.about.headerDuration, delay: 0.25 }}
-                className="text-base text-gray-500 leading-relaxed"
+                className="text-xl text-gray-500 leading-relaxed"
               >
                 Based in Philadelphia, Pennsylvania, {SITE_CONFIG.name} is the only
                 marine-focused commercialization agency that combines productization,
@@ -187,6 +188,8 @@ export function About() {
         </motion.div>
 
         {/* Values grid with dramatic visuals */}
+
+        {showValues && (
         <div className="grid md:grid-cols-2 gap-8 mb-32">
           {values.map((value, index) => (
             <motion.div
@@ -228,7 +231,7 @@ export function About() {
             </motion.div>
           ))}
         </div>
-
+        )}
         {/* Image showcase with adventure theme */}
         <motion.div
           initial={{ opacity: 0, y: 80 }}

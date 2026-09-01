@@ -16,6 +16,8 @@ export function Portfolio() {
 
   const visibleServices = getVisibleServices();
 
+  const showPortfolio = false; // Set to false to hide the portfolio section
+
   const projects = [
     {
       title: 'Marine Manufacturers',
@@ -66,6 +68,8 @@ export function Portfolio() {
       <div className="absolute bottom-20 left-0 w-[400px] h-[400px] bg-[#0D5DBF]/5 rounded-full blur-3xl" />
 
       <div className="max-w-[1600px] mx-auto px-8 lg:px-16 relative z-10">
+        {showPortfolio && (
+          <>
         {/* Bold section header */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
@@ -252,13 +256,15 @@ export function Portfolio() {
             );
           })}
         </div>
+          </>
+        )}
 
         {/* Bold CTA section */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: durations.smooth, delay: 0.8 }}
-          className="mt-32 relative"
+          className={showPortfolio ? 'mt-32 relative' : 'relative'}
         >
           <div className="relative p-16 bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-3xl overflow-hidden">
             {/* Animated background */}
