@@ -13,7 +13,7 @@ export function MetricsResults({ data }: MetricsResultsProps) {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="py-24 md:py-32 bg-white relative overflow-hidden" ref={ref}>
+    <section className="pt-8 pb-24 md:pt-12 md:pb-32 bg-white relative overflow-hidden" ref={ref}>
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#1877F2]/5 to-transparent rounded-full blur-3xl" />
 
       <div className="max-w-[1600px] mx-auto px-8 lg:px-16 relative z-10">

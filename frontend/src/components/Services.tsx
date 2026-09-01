@@ -16,6 +16,7 @@ import {
   MousePointerClick,
   BarChart3,
   Share2,
+  Sparkles,
   ArrowRight,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
@@ -32,6 +33,7 @@ const iconMap: Record<string, LucideIcon> = {
   MousePointerClick,
   BarChart3,
   Share2,
+  Sparkles,
 };
 
 const services = getVisibleServices();
@@ -52,7 +54,7 @@ export function Services() {
   return (
     <section id="services" ref={sectionRef} aria-labelledby="services-heading">
       {/* Section header — dark background */}
-      <div className="pt-42 md:pt-20 pb-24 bg-white relative overflow-hidden">
+      <div className="pt-16 md:pt-20 pb-24 bg-white relative overflow-hidden">
         {/* Animated background elements */}
         <motion.div
           className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-[#1877F2]/10 to-transparent rounded-full blur-3xl"
@@ -76,7 +78,7 @@ export function Services() {
                   initial={{ opacity: 0, x: -30 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: sectionTiming.services.headerDuration, delay: 0.1 }}
-                  className="flex items-center gap-4 mb-8"
+                  className="flex items-center justify-center lg:justify-start gap-4 mb-8"
                 >
                   <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#1877F2]" />
                   <span className="text-sm tracking-[0.3em] uppercase text-[#1877F2]">
@@ -94,13 +96,13 @@ export function Services() {
                   </span>
                 </h2>
               </div>
-
-              <div>
+          
+              <div className="mt-6 lg:mt-10">
                 <motion.p
                   initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: sectionTiming.services.headerDuration, delay: 0.15 }}
-                  className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed mb-6"
+                  className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed mb-5"
                 >
                   Full-spectrum marine digital services. From strategic positioning
                   to breathtaking execution—we deliver results that move millions.

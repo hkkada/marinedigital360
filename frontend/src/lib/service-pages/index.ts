@@ -1,6 +1,7 @@
 import type { ServicePageData } from './types';
 import { productizationPage } from './productization';
-import { seoGeoPage } from './seo-geo';
+import { seoPage } from './seo';
+import { geoAeoPage } from './geo-aeo';
 import { webDesignPage } from './web-design';
 import { ppcPage } from './ppc';
 import { affiliatePage } from './affiliate';
@@ -10,7 +11,8 @@ export type * from './types';
 
 const servicePages: Record<string, ServicePageData> = {
   productization: productizationPage,
-  'seo-geo': seoGeoPage,
+  seo: seoPage,
+  'geo-aeo': geoAeoPage,
   'web-design': webDesignPage,
   ppc: ppcPage,
   affiliate: affiliatePage,

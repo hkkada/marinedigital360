@@ -59,15 +59,27 @@ const allServices: ServiceData[] = [
     isVisible: false,
   },
   {
-    slug: 'seo-geo',
-    title: 'SEO/GEO/AEO',
+    slug: 'seo',
+    title: 'SEO',
     iconName: 'Search',
-    tagline: 'Increase online visibility across Google, AI, and voice search',
+    tagline: 'Dominate search rankings on Google and Bing',
     description:
-      'Technical SEO, content strategy, local search optimization, or generative engine optimization for AI search visibility. Marine digital offers discounted packages for utilizing more than one of these services together.',
+      'Technical SEO, keyword strategy, content optimization, local search, and link building to drive organic traffic and top rankings for marine businesses.',
     schemaDescription:
-      'Marine SEO and GEO optimization services including technical SEO, content strategy, local search optimization, and generative engine optimization ensuring marine businesses appear in AI-generated search results.',
-    serviceType: 'SEO & Digital Marketing',
+      'Marine SEO services including technical audits, keyword research, content strategy, local search optimization, and link building to drive organic traffic growth for boat manufacturers and marine technology companies.',
+    serviceType: 'Search Engine Optimization',
+    isVisible: true,
+  },
+  {
+    slug: 'geo-aeo',
+    title: 'GEO/AEO',
+    iconName: 'Sparkles',
+    tagline: 'Get cited by AI and voice search platforms',
+    description:
+      'AI citation optimization, featured snippets, voice search, and entity building to ensure your marine business is found on ChatGPT, Perplexity, and Google AI Overviews.',
+    schemaDescription:
+      'Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO) services for marine businesses — AI citations, featured snippets, voice search optimization, and entity building across ChatGPT, Perplexity, and Google AI Overviews.',
+    serviceType: 'AI & Answer Engine Optimization',
     isVisible: true,
   },
   {
