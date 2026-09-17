@@ -19,7 +19,7 @@ export function ServiceHero({ data, serviceName, iconName }: ServiceHeroProps) {
   const imageProps = getImageProps(data.imageKey as ImageKey);
 
   return (
-    <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-black">
+    <section className="relative min-h-[85vh] flex items-center-safe overflow-hidden bg-black">
       {/* Background Image */}
       <div className="absolute inset-0">
         {imageProps && (
@@ -34,7 +34,7 @@ export function ServiceHero({ data, serviceName, iconName }: ServiceHeroProps) {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-[1600px] mx-auto px-8 lg:px-16 w-full py-32">
+      <div className="relative z-10 max-w-[1600px] mx-auto px-8 lg:px-16 w-full pt-hero pb-section">
         {/* Breadcrumb */}
         <motion.nav
           initial={{ opacity: 0, y: 20 }}

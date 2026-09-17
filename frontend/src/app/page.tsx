@@ -21,8 +21,9 @@ export default function HomePage() {
       </header>
       <main>
         <Hero />
+         <Services />
         <Experience />
-        <Services />
+
         {/* <Portfolio /> */}
         <About />
         {/* <FAQ /> */}

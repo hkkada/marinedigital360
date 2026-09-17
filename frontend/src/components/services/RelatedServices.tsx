@@ -20,14 +20,14 @@ export function RelatedServices({ currentSlug }: RelatedServicesProps) {
   );
 
   return (
-    <section className="py-24 md:py-32 bg-gray-50 relative overflow-hidden" ref={ref}>
+    <section className="py-section bg-gray-50 relative overflow-hidden" ref={ref}>
       <div className="max-w-[1600px] mx-auto px-8 lg:px-16">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="text-center mb-block"
         >
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="h-px w-12 bg-gradient-to-r from-transparent to-[#1877F2]" />
@@ -42,7 +42,7 @@ export function RelatedServices({ currentSlug }: RelatedServicesProps) {
         </motion.div>
 
         {/* Service cards grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
           {otherServices.map((service, index) => {
             const Icon = getIcon(service.iconName);
             const ArrowRight = getIcon('ArrowRight');

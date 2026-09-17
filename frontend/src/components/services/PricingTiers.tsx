@@ -14,7 +14,7 @@ export function PricingTiers({ data }: PricingTiersProps) {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="py-24 md:py-32 bg-white relative overflow-hidden" ref={ref}>
+    <section className="py-section bg-white relative overflow-hidden" ref={ref}>
       <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-[#1877F2]/5 to-transparent rounded-full blur-3xl" />
 
       <div className="max-w-[1600px] mx-auto px-8 lg:px-16 relative z-10">
@@ -23,7 +23,7 @@ export function PricingTiers({ data }: PricingTiersProps) {
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-16 text-center"
+          className="mb-block text-center"
         >
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#1877F2] to-transparent" />

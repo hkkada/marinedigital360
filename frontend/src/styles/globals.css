@@ -121,6 +121,30 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /**
+   * Vertical rhythm — the single source of truth for spacing between sections.
+   * These feed Tailwind's spacing scale, so they are used as ordinary utilities:
+   * `py-section`, `pt-section-sm`, `mb-block`, `space-y-block`. Retune the whole
+   * site from here. clamp() scales them with the viewport, so every screen size
+   * is covered without breakpoint-by-breakpoint overrides.
+   *
+   * `section` is per-side padding: two stacked sections each contribute it, so
+   * the band a visitor actually sees between them is double the value below.
+   */
+  --spacing-section: clamp(2.75rem, 2.25vw + 1.25rem, 4rem);  /* 44 → 64px per side, so an 88 → 128px band between sections */
+  --spacing-section-sm: clamp(1.5rem, 1.5vw + 0.75rem, 2.5rem);  /* 24 → 40px: join between same-background sections */
+  --spacing-block: clamp(2rem, 2vw + 1rem, 3rem);             /* 32 → 48px: header → content inside a section */
+
+  /**
+   * The navigation bar is `position: fixed`, so it paints over whatever is at the
+   * top of the page. Any section that starts a page (a hero) must reserve room for
+   * it — that clearance is a fixed-nav concern, not part of the section rhythm
+   * above, so it gets its own token. Keep `--spacing-nav` in sync with the real
+   * rendered height of `components/Navigation/Navigation.tsx` (py-6 + logo row).
+   */
+  --spacing-nav: 6rem;                                        /* 96px: measured height of the fixed nav */
+  --spacing-hero: clamp(7.5rem, 4vw + 6rem, 9rem);            /* 120 → 144px: nav clearance + breathing room, for a hero's top padding */
 }
 
 @layer base {

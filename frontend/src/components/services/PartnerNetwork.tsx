@@ -14,7 +14,7 @@ export function PartnerNetwork({ data }: PartnerNetworkProps) {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="py-24 md:py-32 bg-black relative overflow-hidden" ref={ref}>
+    <section className="py-section bg-black relative overflow-hidden" ref={ref}>
       <div className="absolute top-0 left-1/3 w-[600px] h-[600px] bg-[#1877F2]/10 rounded-full blur-3xl" />
 
       <div className="max-w-[1600px] mx-auto px-8 lg:px-16 relative z-10">
@@ -23,7 +23,7 @@ export function PartnerNetwork({ data }: PartnerNetworkProps) {
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-16"
+          className="mb-block"
         >
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -46,7 +46,7 @@ export function PartnerNetwork({ data }: PartnerNetworkProps) {
         </motion.div>
 
         {/* Partner types grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-block">
           {data.partnerTypes.map((partner, index) => {
             const Icon = getIcon(partner.iconName);
             return (

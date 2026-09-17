@@ -71,7 +71,7 @@ export function ServiceFAQ({ data }: ServiceFAQProps) {
 
   return (
     <section
-      className="py-24 md:py-32 bg-gradient-to-b from-black to-gray-900 relative overflow-hidden"
+      className="py-section bg-gradient-to-b from-black to-gray-900 relative overflow-hidden"
       ref={ref}
     >
       {/* Background */}
@@ -83,7 +83,7 @@ export function ServiceFAQ({ data }: ServiceFAQProps) {
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-16 text-center"
+          className="mb-block text-center"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}

@@ -46,8 +46,10 @@ export function Contact() {
     },
   ];
 
+  // scroll-mt (not top padding) offsets the #contact anchor jump past the fixed nav,
+  // so the section keeps the same compact vertical rhythm as the sections above it.
   return (
-    <section id="contact" className="py-24 md:py-32 bg-white relative overflow-hidden" ref={ref} aria-labelledby="contact-heading">
+    <section id="contact" className="py-section scroll-mt-20 lg:scroll-mt-24 bg-white relative overflow-hidden" ref={ref} aria-labelledby="contact-heading">
       {/* Bold background graphics */}
       <div className="absolute inset-0">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#1877F2]/10 via-[#42A5F5]/5 to-transparent rounded-full blur-3xl" />
@@ -78,22 +80,23 @@ export function Contact() {
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: durations.normal }}
-          className="mb-16 text-center"
+          className="mb-8 md:mb-10 lg:mb-4 xl:mb-5 text-center"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: durations.normal, delay: 0.1 }}
-            className="inline-flex items-center gap-4 mb-8"
+            className="inline-flex items-center gap-3 md:gap-4 mb-4 md:mb-5 lg:mb-3"
           >
-            <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#1877F2] to-transparent" />
-            <Waves className="w-8 h-8 text-[#1877F2]" />
-            <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] via-transparent to-transparent" />
+            <div className="h-px w-10 sm:w-12 md:w-16 bg-gradient-to-r from-transparent via-[#1877F2] to-transparent" />
+            <Waves className="w-5 h-5 md:w-6 md:h-6 text-[#1877F2]" />
+            <div className="h-px w-10 sm:w-12 md:w-16 bg-gradient-to-r from-[#1877F2] via-transparent to-transparent" />
           </motion.div>
 
-          <h2 id="contact-heading" className="text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[0.95] text-gray-900 mb-6">
-            Ready to
-            <br />
+          <h2 id="contact-heading" className="text-2xl sm:text-3xl md:text-4xl xl:text-[2.75rem] tracking-tight leading-tight md:leading-[1.05] text-gray-900 mb-3 md:mb-4 text-balance">
+            Ready to{' '}
+            {/* Stacks on small screens; single line from lg up so the section fits one viewport */}
+            <br className="lg:hidden" />
             <span className="bg-gradient-to-r from-[#1877F2] via-[#42A5F5] to-[#0D5DBF] bg-clip-text text-transparent">
               chart your course?
             </span>
@@ -103,23 +106,23 @@ export function Contact() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: durations.normal, delay: 0.15 }}
-            className="text-lg md:text-xl text-gray-600 font-light max-w-3xl mx-auto leading-relaxed"
+            className="text-sm sm:text-base md:text-lg lg:text-base text-gray-600 font-light max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto leading-relaxed text-pretty"
           >
             Let's create something exceptional. Start the conversation and
             discover how we can elevate your marine brand.
           </motion.p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-12">
+        <div className="grid lg:grid-cols-5 gap-10 lg:gap-8">
           {/* Contact form - bold and modern */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: durations.smooth, delay: 0.4 }}
-            className="lg:col-span-3"
+            className="lg:col-span-3 min-w-0"
           >
-            <form className="space-y-6" onSubmit={handleFormSubmit}>
-              <div className="grid sm:grid-cols-2 gap-6">
+            <form className="space-y-5 lg:space-y-4" onSubmit={handleFormSubmit}>
+              <div className="grid sm:grid-cols-2 gap-5 lg:gap-4">
                 {/* Name */}
                 <div className="relative">
                   <motion.div
@@ -131,7 +134,7 @@ export function Contact() {
                     }}
                   />
                   <div className="relative">
-                    <label className="block text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
+                    <label className="block text-xs lg:text-[0.7rem] font-semibold text-gray-700 mb-2 uppercase tracking-wide">
                       Your Name
                     </label>
                     <input
@@ -139,7 +142,7 @@ export function Contact() {
                       placeholder="John Smith"
                       onFocus={() => setHoveredField('name')}
                       onBlur={() => setHoveredField(null)}
-                      className="w-full px-5 py-3.5 bg-gray-50 border-2 border-gray-200 rounded-xl text-gray-900 text-base focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 placeholder:text-gray-400"
+                      className="w-full px-5 py-3 lg:py-2.5 bg-gray-50 border-2 border-gray-200 rounded-xl text-gray-900 text-base focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 placeholder:text-gray-400"
                     />
                   </div>
                 </div>
@@ -155,7 +158,7 @@ export function Contact() {
                     }}
                   />
                   <div className="relative">
-                    <label className="block text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
+                    <label className="block text-xs lg:text-[0.7rem] font-semibold text-gray-700 mb-2 uppercase tracking-wide">
                       Company
                     </label>
                     <input
@@ -163,7 +166,7 @@ export function Contact() {
                       placeholder="Your Boat Company"
                       onFocus={() => setHoveredField('company')}
                       onBlur={() => setHoveredField(null)}
-                      className="w-full px-5 py-3.5 bg-gray-50 border-2 border-gray-200 rounded-xl text-gray-900 text-base focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 placeholder:text-gray-400"
+                      className="w-full px-5 py-3 lg:py-2.5 bg-gray-50 border-2 border-gray-200 rounded-xl text-gray-900 text-base focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 placeholder:text-gray-400"
                     />
                   </div>
                 </div>
@@ -180,7 +183,7 @@ export function Contact() {
                   }}
                 />
                 <div className="relative">
-                  <label className="block text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
+                  <label className="block text-xs lg:text-[0.7rem] font-semibold text-gray-700 mb-2 uppercase tracking-wide">
                     Email Address
                   </label>
                   <input
@@ -188,7 +191,7 @@ export function Contact() {
                     placeholder="john@company.com"
                     onFocus={() => setHoveredField('email')}
                     onBlur={() => setHoveredField(null)}
-                    className="w-full px-6 py-5 bg-gray-50 border-2 border-gray-200 rounded-2xl text-gray-900 text-lg focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 placeholder:text-gray-400"
+                    className="w-full px-5 py-3 lg:py-2.5 bg-gray-50 border-2 border-gray-200 rounded-xl text-gray-900 text-base focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 placeholder:text-gray-400"
                   />
                 </div>
               </div>
@@ -204,13 +207,13 @@ export function Contact() {
                   }}
                 />
                 <div className="relative">
-                  <label className="block text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
+                  <label className="block text-xs lg:text-[0.7rem] font-semibold text-gray-700 mb-2 uppercase tracking-wide">
                     Project Type
                   </label>
                   <select
                     onFocus={() => setHoveredField('type')}
                     onBlur={() => setHoveredField(null)}
-                    className="w-full px-5 py-3.5 bg-gray-50 border-2 border-gray-200 rounded-xl text-gray-900 text-base focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 appearance-none cursor-pointer"
+                    className="w-full px-5 py-3 lg:py-2.5 bg-gray-50 border-2 border-gray-200 rounded-xl text-gray-900 text-base focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 appearance-none cursor-pointer"
                   >
                     <option value="">Select a service</option>
                     {getVisibleServices().map((service) => (
@@ -234,15 +237,15 @@ export function Contact() {
                   }}
                 />
                 <div className="relative">
-                  <label className="block text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
+                  <label className="block text-xs lg:text-[0.7rem] font-semibold text-gray-700 mb-2 uppercase tracking-wide">
                     Your Message
                   </label>
                   <textarea
-                    rows={5}
+                    rows={4}
                     placeholder="Tell us about your vision and goals..."
                     onFocus={() => setHoveredField('message')}
                     onBlur={() => setHoveredField(null)}
-                    className="w-full px-5 py-3.5 bg-gray-50 border-2 border-gray-200 rounded-xl text-gray-900 text-base focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 resize-none placeholder:text-gray-400 leading-relaxed"
+                    className="w-full px-5 py-3 lg:py-2.5 bg-gray-50 border-2 border-gray-200 rounded-xl text-gray-900 text-base focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 resize-none placeholder:text-gray-400 leading-relaxed"
                   />
                 </div>
               </div>
@@ -252,7 +255,7 @@ export function Contact() {
                 type="submit"
                 whileHover={{ scale: 1.02, boxShadow: '0 20px 60px rgba(24, 119, 242, 0.3)' }}
                 whileTap={{ scale: 0.98 }}
-                className="group w-full px-8 py-4 bg-gradient-to-r from-[#1877F2] to-[#0D5DBF] text-white rounded-xl text-base font-semibold shadow-lg shadow-[#1877F2]/20 transition-all duration-300 flex items-center justify-center gap-2.5"
+                className="group w-full px-8 py-3.5 lg:py-3 bg-gradient-to-r from-[#1877F2] to-[#0D5DBF] text-white rounded-xl text-base font-semibold shadow-lg shadow-[#1877F2]/20 transition-all duration-300 flex items-center justify-center gap-2.5"
               >
                 <span>Send Message</span>
                 <Send
@@ -268,7 +271,7 @@ export function Contact() {
             initial={{ opacity: 0, x: 60 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: durations.smooth, delay: 0.6 }}
-            className="lg:col-span-2 space-y-5"
+            className="lg:col-span-2 space-y-4 lg:space-y-2.5 xl:space-y-3 min-w-0"
           >
             {/* Contact methods with gradients */}
             {contactMethods.map((method, index) => (
@@ -281,7 +284,7 @@ export function Contact() {
               >
                 <a
                   href={method.href || undefined}
-                  className={`block relative p-6 bg-gradient-to-br ${method.color} rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 ${
+                  className={`block relative p-5 lg:p-3.5 bg-gradient-to-br ${method.color} rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 ${
                     method.href ? 'cursor-pointer' : ''
                   }`}
                 >
@@ -292,20 +295,20 @@ export function Contact() {
                     transition={{ duration: durations.instant }}
                   />
 
-                  <div className="relative flex items-start gap-4">
+                  <div className="relative flex items-start gap-3.5">
                     <motion.div
-                      className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0"
+                      className="w-11 h-11 lg:w-10 lg:h-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       transition={{ type: 'spring', stiffness: 300 }}
                     >
-                      <method.icon className="w-6 h-6 text-white" />
+                      <method.icon className="w-5 h-5 text-white" />
                     </motion.div>
 
-                    <div className="flex-1">
+                    <div className="flex-1 min-w-0">
                       <p className="text-xs text-white/80 uppercase tracking-wide mb-1.5 font-medium">
                         {method.label}
                       </p>
-                      <p className="text-lg md:text-xl text-white font-semibold">
+                      <p className="text-base lg:text-[0.9375rem] text-white font-semibold break-words">
                         {method.value}
                       </p>
                     </div>
@@ -319,15 +322,15 @@ export function Contact() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: durations.smooth, delay: 1.2 }}
-              className="relative p-6 bg-gray-900 rounded-2xl overflow-hidden"
+              className="relative p-5 lg:p-4 bg-gray-900 rounded-2xl overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#1877F2]/20 rounded-full blur-2xl" />
 
               <div className="relative">
-                <h3 className="text-xl font-bold text-white mb-2.5">
+                <h3 className="text-lg font-bold text-white mb-2">
                   Prefer a Quick Call?
                 </h3>
-                <p className="text-gray-400 text-sm mb-5 leading-relaxed">
+                <p className="text-gray-400 text-sm lg:text-xs mb-4 leading-relaxed">
                   Schedule a 30-minute discovery session with our team to
                   discuss your project in detail.
                 </p>
@@ -335,7 +338,7 @@ export function Contact() {
                   onClick={() => setIsBookingOpen(true)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 rounded-full text-sm font-semibold hover:bg-gray-100 transition-all"
+                  className="inline-flex items-center gap-2 px-5 py-2 bg-white text-gray-900 rounded-full text-sm font-semibold hover:bg-gray-100 transition-all"
                 >
                   <span>Book a Call</span>
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -350,16 +353,16 @@ export function Contact() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: durations.smooth, delay: 1.3 }}
-              className="pt-8 border-t border-gray-200"
+              className="pt-6 lg:pt-5 border-t border-gray-200"
             >
-              <p className="text-sm text-gray-500 uppercase tracking-wide mb-4">
+              <p className="text-xs text-gray-500 uppercase tracking-wide mb-3">
                 Trusted By Leading Manufacturers
               </p>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2">
                 {['Manufacturers & Custom Yachts Builders', 'Marine Products', 'Marine Technologies'].map((brand) => (
                   <span
                     key={brand}
-                    className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium"
+                    className="px-3.5 py-1.5 bg-gray-100 text-gray-700 rounded-full text-xs font-medium"
                   >
                     {brand}
                   </span>
@@ -374,9 +377,9 @@ export function Contact() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: durations.smooth, delay: 1.5 }}
-          className="mt-24 pt-12 border-t border-gray-200"
+          className="mt-block pt-block border-t border-gray-200"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-10">
             {/* Column 1: Logo + tagline */}
             <div className="col-span-2 md:col-span-1">
               <div className="flex items-center gap-3 mb-4">

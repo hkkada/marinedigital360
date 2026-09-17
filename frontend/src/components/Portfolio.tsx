@@ -62,7 +62,7 @@ export function Portfolio() {
   ];
 
   return (
-    <section id="work" className="py-32 md:py-40 bg-white relative overflow-hidden" ref={ref} aria-labelledby="work-heading">
+    <section id="work" className="py-section bg-white relative overflow-hidden" ref={ref} aria-labelledby="work-heading">
       {/* Decorative elements */}
       <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-[#1877F2]/5 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-0 w-[400px] h-[400px] bg-[#0D5DBF]/5 rounded-full blur-3xl" />
@@ -75,7 +75,7 @@ export function Portfolio() {
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: durations.normal }}
-          className="mb-24"
+          className="mb-block"
         >
           <motion.div
             initial={{ opacity: 0, x: -30 }}

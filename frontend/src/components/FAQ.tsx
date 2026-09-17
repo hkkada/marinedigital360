@@ -67,7 +67,7 @@ export function FAQ() {
   return (
     <section
       id="faq"
-      className="py-20 md:py-32 lg:py-40 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden"
+      className="py-section bg-gradient-to-b from-gray-900 to-black relative overflow-hidden"
       aria-labelledby="faq-heading"
       ref={ref}
     >
@@ -80,7 +80,7 @@ export function FAQ() {
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-8 md:mb-16 text-center"
+          className="mb-block text-center"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}

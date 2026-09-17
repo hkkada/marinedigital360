@@ -46,7 +46,7 @@ function TimelineStep({ step, index }: TimelineStepProps) {
         animate={isInView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
         whileHover={{ y: -2 }}
-        className="pb-8 md:pb-12"
+        className="pb-block"
       >
         <div className="p-5 md:p-6 lg:p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-[#1877F2]/30 hover:shadow-lg hover:shadow-[#1877F2]/5 transition-all duration-300">
           {/* Header row */}
@@ -110,7 +110,7 @@ export function ProcessTimeline({ data }: ProcessTimelineProps) {
   return (
     <section
       ref={sectionRef}
-      className="py-24 md:py-32 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden"
+      className="py-section bg-gradient-to-b from-gray-900 to-black relative overflow-hidden"
     >
       {/* Background */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#1877F2]/10 rounded-full blur-3xl" />
@@ -121,7 +121,7 @@ export function ProcessTimeline({ data }: ProcessTimelineProps) {
           initial={{ opacity: 0, y: 60 }}
           animate={isSectionInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-20 text-center"
+          className="mb-block text-center"
         >
           <motion.div
             initial={{ opacity: 0, x: -30 }}

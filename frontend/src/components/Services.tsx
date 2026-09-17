@@ -54,7 +54,7 @@ export function Services() {
   return (
     <section id="services" ref={sectionRef} aria-labelledby="services-heading">
       {/* Section header — dark background */}
-      <div className="pt-16 md:pt-20 pb-24 bg-white relative overflow-hidden">
+      <div className="pt-section pb-section bg-white relative overflow-hidden">
         {/* Animated background elements */}
         <motion.div
           className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-[#1877F2]/10 to-transparent rounded-full blur-3xl"
@@ -72,23 +72,22 @@ export function Services() {
             transition={{ duration: sectionTiming.services.headerDuration }}
             className="relative"
           >
-            <div className="grid lg:grid-cols-2 gap-1 items-end">
+            <div className="grid xl:grid-cols-2 gap-8 md:gap-12 xl:gap-16">
+              {/* Left column — eyebrow + heading */}
               <div>
                 <motion.div
                   initial={{ opacity: 0, x: -30 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: sectionTiming.services.headerDuration, delay: 0.1 }}
-                  className="flex items-center justify-center lg:justify-start gap-4 mb-8"
+                  className="flex items-center gap-4 mb-5 sm:mb-6"
                 >
-                  <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#1877F2]" />
+                  <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] to-transparent" />
                   <span className="text-sm tracking-[0.3em] uppercase text-[#1877F2]">
                     What We Do
                   </span>
-                  <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] to-transparent" />
-
                 </motion.div>
 
-                <h2 id="services-heading" className="text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.9] text-gray-900">
+                <h2 id="services-heading" className="text-5xl sm:text-6xl md:text-7xl 2xl:text-8xl tracking-tight leading-[0.9] text-gray-900">
                   Navigate the
                   <br />
                   <span className="bg-gradient-to-r from-[#1877F2] via-[#42A5F5] to-[#1877F2] bg-clip-text text-transparent">
@@ -96,22 +95,24 @@ export function Services() {
                   </span>
                 </h2>
               </div>
-          
-              <div className="mt-6 lg:mt-10">
+
+              {/* Right column — supporting copy */}
+              <div className="xl:pt-2">
                 <motion.p
                   initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: sectionTiming.services.headerDuration, delay: 0.15 }}
-                  className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed mb-5"
+                  className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed mb-5 sm:mb-6"
                 >
                   Full-spectrum marine digital services. From strategic positioning
                   to breathtaking execution—we deliver results that move millions.
                 </motion.p>
+
                 <motion.p
                   initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: sectionTiming.services.headerDuration, delay: 0.2 }}
-                  className="text-base text-gray-500 leading-relaxed"
+                  className="text-lg md:text-xl text-gray-500 leading-relaxed"
                 >
                   {SITE_CONFIG.name} is a specialized marine marketing agency that transforms
                   marine business capabilities into market-ready products. We deliver
@@ -126,10 +127,10 @@ export function Services() {
       </div>
 
       {/* Services grid + CTA — white background */}
-      <div className="py-24 md:py-32 bg-white">
+      <div className="pt-section pb-section-sm bg-white">
         <div className="max-w-[1600px] mx-auto px-8 lg:px-16">
           {/* Services grid — 3 columns on desktop, 2 on tablet, 1 on mobile */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
             {services.map((service, index) => {
               const Icon = iconMap[service.iconName];
               return (
@@ -142,9 +143,9 @@ export function Services() {
                   className="group"
                 >
                   <Link href={`/services/${service.slug}`} className="block h-full">
-                    <div className="relative h-full p-8 bg-gray-900 backdrop-blur-sm border border-gray-800 rounded-2xl transition-all duration-300 overflow-hidden hover:border-[#1877F2]/50">
+                    <div className="relative h-full p-6 sm:p-7 md:p-8 bg-gray-900 backdrop-blur-sm border border-gray-800 rounded-2xl transition-all duration-300 overflow-hidden hover:border-[#1877F2]/50">
                       {/* Icon box */}
-                      <div className="w-14 h-14 bg-gradient-to-br from-[#1877F2] to-[#0D5DBF] rounded-xl flex items-center justify-center mb-5 shadow-lg shadow-[#1877F2]/30">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-[#1877F2] to-[#0D5DBF] rounded-xl flex items-center justify-center mb-4 sm:mb-5 shadow-lg shadow-[#1877F2]/30">
                         {Icon && <Icon className="text-white" size={24} />}
                       </div>
 
@@ -159,7 +160,7 @@ export function Services() {
                       </p>
 
                       {/* Learn more indicator */}
-                      <div className="flex items-center gap-2 text-sm font-medium text-[#42A5F5] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="flex items-center gap-2 text-sm font-medium text-[#42A5F5] opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300">
                         <span>Learn more</span>
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </div>
@@ -192,9 +193,9 @@ export function Services() {
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: durations.smooth, delay: 0.8 }}
-          className='mt-32 relative'
+          className='mt-block relative'
         >
-          <div className="relative p-16 bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-3xl overflow-hidden">
+          <div className="relative p-6 sm:p-10 md:p-12 bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-3xl overflow-hidden">
             {/* Animated background */}
             <motion.div
               className="absolute inset-0 opacity-20"
@@ -213,20 +214,20 @@ export function Services() {
             />
 
             <div className="relative z-10 text-center">
-              <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 md:mb-5">
                 Ready to make waves?
               </h3>
-              <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+              <p className="text-lg sm:text-xl text-gray-400 mb-7 md:mb-8 max-w-2xl mx-auto">
                 Let's create a digital experience that dominates your market
               </p>
               <motion.a
                 href="#contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 px-12 py-6 bg-white text-gray-900 rounded-full text-lg font-semibold shadow-2xl hover:bg-gray-100 transition-all"
+                className="inline-flex items-center justify-center gap-2 sm:gap-3 px-5 py-3.5 sm:px-9 sm:py-4 md:px-12 md:py-5 bg-white text-gray-900 rounded-full text-base sm:text-lg font-semibold whitespace-nowrap shadow-2xl hover:bg-gray-100 transition-all"
               >
                 Start Your Project
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </motion.a>

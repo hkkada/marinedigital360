@@ -14,7 +14,7 @@ export function ServiceCTA({ data }: ServiceCTAProps) {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="py-24 md:py-32 bg-black relative overflow-hidden" ref={ref}>
+    <section className="py-section bg-black relative overflow-hidden" ref={ref}>
       <div className="max-w-[1600px] mx-auto px-8 lg:px-16 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 60 }}

@@ -18,7 +18,7 @@ export function DisciplineBreakdown({ data }: DisciplineBreakdownProps) {
   const Check = getIcon('Check');
 
   return (
-    <section className="py-24 md:py-32 bg-black relative overflow-hidden" ref={ref}>
+    <section className="py-section bg-black relative overflow-hidden" ref={ref}>
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-[#1877F2]/15 to-transparent rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-[#0D5DBF]/15 to-transparent rounded-full blur-3xl" />
 
@@ -28,7 +28,7 @@ export function DisciplineBreakdown({ data }: DisciplineBreakdownProps) {
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-16 text-center"
+          className="mb-block text-center"
         >
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#1877F2] to-transparent" />
@@ -50,7 +50,7 @@ export function DisciplineBreakdown({ data }: DisciplineBreakdownProps) {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col sm:flex-row gap-3 mb-12 max-w-3xl mx-auto"
+          className="flex flex-col sm:flex-row gap-3 mb-block max-w-3xl mx-auto"
         >
           {data.disciplines.map((discipline) => {
             const Icon = getIcon(discipline.iconName);

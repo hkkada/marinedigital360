@@ -1,44 +1,91 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import { getImageSrc } from '@/lib/image-map';
 import { sectionTiming } from '@/lib/animations';
 
+const SLIDES = [
+  { src: '/clips/istockphoto-1716746648-640_adpp_is.mp4', label: 'Boating footage' },
+  { src: '/clips/iStock-1481894582.mp4', label: 'Marine lifestyle footage' },
+] as const;
+
+const SWIPE_THRESHOLD = 50;
+
 export function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const [active, setActive] = useState(0);
   const prefersReducedMotion = useReducedMotion();
 
+  const go = useCallback((dir: 1 | -1) => {
+    setActive((i) => (i + dir + SLIDES.length) % SLIDES.length);
+  }, []);
+
+  // Play only the active clip; pause the rest (and everything under reduced motion)
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    if (prefersReducedMotion) {
-      video.pause();
-    } else {
-      video.play().catch(() => {});
+    videoRefs.current.forEach((video, i) => {
+      if (!video) return;
+      if (i === active && !prefersReducedMotion) {
+        video.currentTime = 0;
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, [active, prefersReducedMotion]);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    const t = e.changedTouches[0];
+    touchStart.current = { x: t.clientX, y: t.clientY };
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const start = touchStart.current;
+    if (!start) return;
+    touchStart.current = null;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - start.x;
+    const dy = t.clientY - start.y;
+    // Horizontal intent only — never hijack vertical scrolling
+    if (Math.abs(dx) > SWIPE_THRESHOLD && Math.abs(dx) > Math.abs(dy)) {
+      go(dx < 0 ? 1 : -1);
     }
-  }, [prefersReducedMotion]);
+  };
+
+  const arrowClass =
+    'items-center justify-center w-10 h-10 sm:w-11 sm:h-11 shrink-0 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white transition-all hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70';
 
   return (
-    <div className="relative h-screen overflow-hidden bg-black">
-      {/* Background video — aria-hidden since it's decorative */}
+    <div
+      className="relative h-screen overflow-hidden bg-black"
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+    >
+      {/* Background video slider — aria-hidden since it's decorative */}
       <div className="absolute inset-0">
-        {/* Hero background video */}
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          poster={getImageSrc('hero.main-background')}
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover will-change-transform pointer-events-none"
-          style={{ filter: 'contrast(1.1) saturate(1.05)' }}
-        >
-          <source src="/clips/iStock-1481894582.mp4" type="video/mp4" />
-        </video>
+        {SLIDES.map((slide, i) => (
+          <video
+            key={slide.src}
+            ref={(el) => {
+              videoRefs.current[i] = el;
+            }}
+            autoPlay={i === 0}
+            muted
+            loop
+            playsInline
+            preload={i === 0 ? 'auto' : 'metadata'}
+            poster={getImageSrc('hero.main-background')}
+            aria-hidden="true"
+            className={`absolute inset-0 w-full h-full object-cover will-change-[opacity] pointer-events-none transition-opacity duration-700 ease-out ${
+              i === active ? 'opacity-100' : 'opacity-0'
+            }`}
+            style={{ filter: 'contrast(1.1) saturate(1.05)' }}
+          >
+            <source src={slide.src} type="video/mp4" />
+          </video>
+        ))}
 
         {/* Elegant overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
@@ -94,6 +141,61 @@ export function Hero() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Slider arrows — edge-anchored from lg up, where the layout gutter has room */}
+      <button
+        type="button"
+        onClick={() => go(-1)}
+        aria-label="Previous background clip"
+        className={`${arrowClass} hidden lg:flex absolute left-4 top-1/2 -translate-y-1/2 z-20`}
+      >
+        <ChevronLeft size={20} />
+      </button>
+      <button
+        type="button"
+        onClick={() => go(1)}
+        aria-label="Next background clip"
+        className={`${arrowClass} hidden lg:flex absolute right-4 top-1/2 -translate-y-1/2 z-20`}
+      >
+        <ChevronRight size={20} />
+      </button>
+
+      {/* Compact control cluster — arrows collapse here below lg so they never overlap the copy */}
+      <div className="absolute bottom-5 sm:bottom-10 right-4 sm:right-8 z-20 flex items-center gap-2 sm:gap-3">
+        <button
+          type="button"
+          onClick={() => go(-1)}
+          aria-label="Previous background clip"
+          className={`${arrowClass} flex lg:hidden`}
+        >
+          <ChevronLeft size={20} />
+        </button>
+
+        {/* Dots hidden on the narrowest screens so the cluster clears the centered scroll cue */}
+        <div className="hidden sm:flex items-center gap-2">
+          {SLIDES.map((slide, i) => (
+            <button
+              key={slide.src}
+              type="button"
+              onClick={() => setActive(i)}
+              aria-label={`Show ${slide.label}`}
+              aria-current={i === active}
+              className={`h-1.5 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent ${
+                i === active ? 'w-6 bg-white' : 'w-1.5 bg-white/40 hover:bg-white/70'
+              }`}
+            />
+          ))}
+        </div>
+
+        <button
+          type="button"
+          onClick={() => go(1)}
+          aria-label="Next background clip"
+          className={`${arrowClass} flex lg:hidden`}
+        >
+          <ChevronRight size={20} />
+        </button>
       </div>
 
       {/* Scroll indicator */}

@@ -14,7 +14,7 @@ export function ServiceOverview({ data }: ServiceOverviewProps) {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="py-24 md:py-32 bg-white relative overflow-hidden" ref={ref}>
+    <section className="py-section bg-white relative overflow-hidden" ref={ref}>
       {/* Background accent */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-[#1877F2]/5 to-transparent rounded-full blur-3xl" />
 
@@ -24,7 +24,7 @@ export function ServiceOverview({ data }: ServiceOverviewProps) {
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-20"
+          className="mb-block"
         >
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
@@ -57,7 +57,7 @@ export function ServiceOverview({ data }: ServiceOverviewProps) {
         </motion.div>
 
         {/* Value cards grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
           {data.cards.map((card, index) => {
             const Icon = getIcon(card.iconName);
             return (

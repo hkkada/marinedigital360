@@ -58,7 +58,7 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="py-32 md:py-40 bg-gradient-to-b from-gray-900 via-black to-gray-900 relative overflow-hidden" ref={sectionRef} aria-labelledby="about-heading">
+    <section id="about" className="py-section bg-gradient-to-b from-gray-900 via-black to-gray-900 relative overflow-hidden" ref={sectionRef} aria-labelledby="about-heading">
       {/* Animated background elements */}
       <motion.div 
         className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-[#1877F2]/20 rounded-full blur-3xl"
@@ -86,13 +86,13 @@ export function About() {
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: sectionTiming.about.headerDuration }}
-          className="mb-24"
+          className="mb-block"
         >
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: sectionTiming.about.headerDuration, delay: 0.1 }}
-            className="flex items-center gap-4 mb-8"
+            className="flex items-center gap-4 mb-5 sm:mb-6"
           >
             <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] to-transparent" />
             <span className="text-sm tracking-[0.3em] uppercase text-[#1877F2]">
@@ -100,7 +100,7 @@ export function About() {
             </span>
           </motion.div>
 
-          <h2 id="about-heading" className="text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.9] text-white mb-12">
+          <h2 id="about-heading" className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.9] text-white mb-4 sm:mb-6">
             Built by
             <br />
             <span className="bg-gradient-to-r from-[#1877F2] via-[#42A5F5] to-[#1877F2] bg-clip-text text-transparent">
@@ -108,7 +108,7 @@ export function About() {
             </span>
           </h2>
 
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
             {/* <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -151,7 +151,7 @@ export function About() {
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: durations.smooth, delay: 0.4 }}
-          className="mb-32"
+          className="mb-block"
         >
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -190,7 +190,7 @@ export function About() {
         {/* Values grid with dramatic visuals */}
 
         {showValues && (
-        <div className="grid md:grid-cols-2 gap-8 mb-32">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-block">
           {values.map((value, index) => (
             <motion.div
               key={value.title}
@@ -239,7 +239,7 @@ export function About() {
           transition={{ duration: durations.smooth, delay: 0.8 }}
           className="relative"
         >
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
             {/* Large featured image */}
             <div className="md:col-span-2 relative aspect-[16/10] rounded-3xl overflow-hidden group">
               <motion.div whileHover={{ scale: 1.05 }} className="w-full h-full relative">
@@ -269,7 +269,7 @@ export function About() {
             </div>
 
             {/* Side content */}
-            <div className="space-y-8">
+            <div className="space-y-6 md:space-y-8">
               <div className="relative aspect-square rounded-3xl overflow-hidden group">
                 <motion.div whileHover={{ scale: 1.05 }} className="w-full h-full relative">
                   {cockpitImageProps && (
