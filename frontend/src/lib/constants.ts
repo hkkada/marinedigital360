@@ -46,10 +46,16 @@ export const SITE_CONFIG = {
     phone: '+1 (215) 555-0199',
     address: {
       street: '',
-      city: 'Philadelphia',
-      state: 'PA',
+      city: 'New Orleans',
+      state: 'LA',
+      /** Spelled-out form for prose; `state` stays the 2-letter code for schema. */
+      stateName: 'Louisiana',
       zip: '',
       country: 'US',
+      // Consumed by the LocalBusiness/geo schema in StructuredData.tsx. Kept
+      // here so the visible NAP and the structured data cannot disagree.
+      latitude: 29.9511,
+      longitude: -90.0715,
     },
   },
 } as const;
@@ -58,7 +64,7 @@ export const NAVIGATION = {
   main: [
     { label: 'Services', href: '/#services' },
     { label: 'Work', href: '/#work' },
-    { label: 'About', href: '/#about' },
+    { label: 'About', href: '/about' },
     { label: 'Contact', href: '/#contact' },
   ],
 } as const;

@@ -3,12 +3,12 @@ import type { ServicePageData } from './types';
 
 export const ppcPage: ServicePageData = {
   slug: 'ppc',
-  title: 'PPC Management',
+  title: 'Paid Ads',
   iconName: 'MousePointerClick',
   metadata: {
-    title: 'Marine PPC Management — Paid Advertising for Marine Businesses',
+    title: 'Paid Ads for Marine Businesses — Google Ads & Bing PPC Management',
     description:
-      `${SITE_CONFIG.name} manages Google Ads, Bing, and social media advertising for marine businesses — optimizing ROAS, reducing wasted spend, and driving qualified leads for boat manufacturers, dealers, and marine e-commerce.`,
+      `Paid Ads managed by ${SITE_CONFIG.name} — Google Ads, Bing, and social media advertising for marine businesses — optimizing ROAS, reducing wasted spend, and driving qualified leads for boat manufacturers, dealers, and marine e-commerce.`,
     keywords: [
       'marine PPC management',
       'boat advertising Google Ads',
@@ -24,13 +24,27 @@ export const ppcPage: ServicePageData = {
     {
       type: 'service-hero',
       data: {
-        tagline: 'PPC Management',
+        tagline: 'Paid Ads',
         headline: 'Every dollar tracked. Every click optimized.',
         description:
           'Marine advertising requires precision — high-value products, long sales cycles, and savvy buyers. We manage your paid campaigns across Google, Bing, and social platforms to maximize return on ad spend and drive qualified leads.',
         ctaText: 'Get Your PPC Audit',
         ctaHref: '#contact',
         imageKey: 'serviceHero.ppc',
+      },
+    },
+    {
+      type: 'content-block',
+      id: 'what-is-paid-advertising',
+      navLabel: 'What It Is',
+      data: {
+        eyebrow: 'Definition',
+        headline: 'What Is Paid Advertising?',
+        surface: 'light',
+        paragraphs: [
+          'Paid advertising for marine businesses is the practice of buying placement in search results, shopping listings, and social feeds — through platforms like Google Ads and Microsoft/Bing Ads — so a boat manufacturer, dealer, or marine technology company appears in front of in-market buyers on demand, rather than waiting for organic traffic to arrive.',
+          `For marine businesses, that means running search, shopping, display, and social campaigns tuned to a buyer journey that looks nothing like typical e-commerce — long consideration windows, seasonal demand tied to boating season, and purchase decisions often shaped by photos and video well before a showroom visit. ${SITE_CONFIG.name} plans, builds, and manages those campaigns across Google Ads, Bing Ads, and social platforms so ad spend is aimed at buyers who are ready to browse inventory, request a quote, or talk to a dealer.`,
+        ],
       },
     },
     {
@@ -69,6 +83,8 @@ export const ppcPage: ServicePageData = {
     },
     {
       type: 'platform-coverage',
+      id: 'platforms',
+      navLabel: 'Platforms',
       data: {
         headline: 'Every platform, managed',
         description:
@@ -128,7 +144,49 @@ export const ppcPage: ServicePageData = {
       },
     },
     {
+      type: 'content-block',
+      id: 'ppc-management',
+      navLabel: 'Management',
+      data: {
+        eyebrow: 'Ongoing Management',
+        headline: 'PPC Management',
+        paragraphs: [
+          `Ongoing PPC management is what happens after a campaign goes live — it starts with PPC strategy and planning, deciding which platforms, audiences, and budget allocations make sense for a given boat manufacturer, dealer, or marine technology company, and carries through into day-to-day campaign management across Google Ads, Bing Ads, and Facebook/Instagram Ads, plus display and remarketing campaigns that keep a brand in front of buyers who have already shown interest.`,
+          `For marine e-commerce and parts catalogs, that also includes shopping ads built around product feeds, alongside landing page optimization so traffic lands on pages built to convert rather than a generic homepage. Underneath all of it sits bid management and budget optimization — shifting spend toward what is working — and conversion tracking and analytics that connect every dollar spent back to the leads and sales it produces. ${SITE_CONFIG.name} runs this as a continuous cycle across every platform in the account, not a one-time setup.`,
+        ],
+      },
+    },
+    {
+      type: 'content-block',
+      id: 'google-ads',
+      navLabel: 'Google Ads',
+      data: {
+        eyebrow: 'Search & Shopping',
+        headline: 'Google Ads Campaign Management',
+        surface: 'light',
+        paragraphs: [
+          `On Google Ads, ${SITE_CONFIG.name} builds search, shopping, and Performance Max campaigns structured around how marine buyers actually search — model-specific queries, comparison terms, and local dealer intent — then puts conversion tracking behind every campaign so form fills, phone calls, and quote requests tie back to the keyword and ad that produced them.`,
+          'Shopping campaigns run on product feeds tuned for marine e-commerce and parts catalogs, and landing pages are built and tested to match ad intent rather than sending traffic to a generic homepage. From there, bid management and budget optimization shift spend toward the campaigns and audiences producing qualified leads and away from clicks that do not convert for a high-value marine purchase.',
+        ],
+      },
+    },
+    {
+      type: 'content-block',
+      id: 'bing-ads',
+      navLabel: 'Bing Ads',
+      data: {
+        eyebrow: 'Microsoft Advertising',
+        headline: 'Bing Ads Campaign Management',
+        paragraphs: [
+          `${SITE_CONFIG.name} mirrors Google Ads campaign structures over to Microsoft/Bing Ads rather than treating the platform as an afterthought — search campaigns, keyword targeting, and conversion tracking are rebuilt for Bing's audience and auction dynamics, since a channel with a different cost and buyer profile needs its own bid strategy to perform.`,
+          'Because Bing reaches a smaller, often lower-cost slice of marine searchers, we manage it as a budget-efficient complement to Google rather than a replacement — expanding spend there once Google campaigns are converting, and applying the same bid management, conversion tracking, and reporting cadence across both platforms.',
+        ],
+      },
+    },
+    {
       type: 'metrics-results',
+      id: 'results',
+      navLabel: 'Results',
       data: {
         headline: 'Performance that proves itself',
         description:
@@ -159,6 +217,8 @@ export const ppcPage: ServicePageData = {
     },
     {
       type: 'pricing-tiers',
+      id: 'pricing',
+      navLabel: 'Pricing',
       data: {
         headline: 'Transparent pricing',
         description:
@@ -216,6 +276,8 @@ export const ppcPage: ServicePageData = {
     },
     {
       type: 'tech-stack',
+      id: 'tools',
+      navLabel: 'Tools',
       data: {
         headline: 'Campaign management tools',
         description:
@@ -249,6 +311,8 @@ export const ppcPage: ServicePageData = {
     },
     {
       type: 'process-timeline',
+      id: 'process',
+      navLabel: 'Process',
       data: {
         headline: 'How we manage your campaigns',
         description:
@@ -299,6 +363,8 @@ export const ppcPage: ServicePageData = {
     },
     {
       type: 'service-faq',
+      id: 'faq',
+      navLabel: 'FAQ',
       data: {
         headline: 'PPC Management FAQ',
         description: 'Common questions about marine paid advertising.',

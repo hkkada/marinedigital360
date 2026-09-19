@@ -155,6 +155,24 @@ export interface PlatformCoverageData {
   }>;
 }
 
+export interface ContentBlockData {
+  /**
+   * Uppercase kicker above the headline, e.g. "Definition". Every other
+   * section pairs the gradient rule with a label; omit it only for a block
+   * that genuinely has nothing to say there.
+   */
+  eyebrow?: string;
+  headline: string;
+  paragraphs: string[];
+  /**
+   * Section surface. Defaults to `white`. Use `light` to break up a run of
+   * consecutive blocks that would otherwise read as one undifferentiated
+   * slab — the alternation is chosen per page, since it depends on what
+   * sections sit above and below.
+   */
+  surface?: 'white' | 'light';
+}
+
 export interface PartnerNetworkData {
   headline: string;
   description: string;
@@ -171,7 +189,26 @@ export interface PartnerNetworkData {
 
 // ─── Section Discriminated Union ─────────────────────────────────────
 
-export type ServiceSection =
+/**
+ * In-page anchor metadata, available on *every* section type rather than on one
+ * section's data. A section opts into `ServiceSubNav` by carrying both fields;
+ * `SectionRenderer` then wraps it in the anchor target, so no section component
+ * has to know about ids or scroll offsets. Any section can therefore be linked
+ * — not just the prose blocks — which is what lets a sub-nav cover a whole page
+ * instead of stopping at the last `content-block`.
+ */
+export interface SectionAnchor {
+  /** Anchor id, e.g. `pricing`. Required for the section to be linkable. */
+  id?: string;
+  /**
+   * Short label for `ServiceSubNav` — "Pricing", not "Transparent pricing".
+   * A section with an `id` but no `navLabel` is deep-linkable but stays out of
+   * the sub-nav, which is how a page keeps the bar short on purpose.
+   */
+  navLabel?: string;
+}
+
+type ServiceSectionVariant =
   | { type: 'service-hero'; data: ServiceHeroData }
   | { type: 'service-overview'; data: ServiceOverviewData }
   | { type: 'process-timeline'; data: ProcessTimelineData}
@@ -186,7 +223,10 @@ export type ServiceSection =
   | { type: 'portfolio-showcase'; data: PortfolioShowcaseData }
   | { type: 'pricing-tiers'; data: PricingTiersData }
   | { type: 'platform-coverage'; data: PlatformCoverageData }
-  | { type: 'partner-network'; data: PartnerNetworkData };
+  | { type: 'partner-network'; data: PartnerNetworkData }
+  | { type: 'content-block'; data: ContentBlockData };
+
+export type ServiceSection = ServiceSectionVariant & SectionAnchor;
 
 // ─── Service Page Data ───────────────────────────────────────────────
 

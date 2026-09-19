@@ -8,8 +8,9 @@ import Link from 'next/link';
 import { getVisibleServices } from '@/lib/services';
 import { BookingModal } from '@/components/BookingModal';
 import { durations } from '@/lib/animations';
-import { CONTACT_EMAIL, CONTACT_CONFIG, SITE_CONFIG } from '@/lib/constants';
+import { CONTACT_EMAIL, CONTACT_CONFIG, SITE_CONFIG, NAVIGATION } from '@/lib/constants';
 import { BrandWordmark } from '@/components/BrandWordmark';
+import { Card, IconBox } from '@/components/shared';
 
 export function Contact() {
   const ref = useRef(null);
@@ -29,21 +30,20 @@ export function Contact() {
       label: 'Email',
       value: CONTACT_EMAIL,
       href: `mailto:${CONTACT_EMAIL}`,
-      color: 'from-blue-500 to-cyan-500',
     },
     {
       icon: Phone,
       label: 'Phone',
       value: CONTACT_CONFIG.phone,
       href: `tel:${CONTACT_CONFIG.phone.replace(/[^+\d]/g, '')}`,
-      color: 'from-indigo-500 to-blue-500',
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: 'New Orleans, Louisiana',
+      // Derived from SITE_CONFIG so the visible NAP cannot drift from the
+      // LocalBusiness schema emitted by StructuredData.tsx.
+      value: `${SITE_CONFIG.company.address.city}, ${SITE_CONFIG.company.address.stateName}`,
       href: null,
-      color: 'from-cyan-500 to-blue-600',
     },
   ];
 
@@ -274,46 +274,30 @@ export function Contact() {
             transition={{ duration: durations.smooth, delay: 0.6 }}
             className="lg:col-span-2 space-y-4 lg:space-y-2.5 xl:space-y-3 min-w-0"
           >
-            {/* Contact methods with gradients */}
+            {/* Contact methods */}
             {contactMethods.map((method, index) => (
               <motion.div
                 key={method.label}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: durations.smooth, delay: 1 + index * 0.1 }}
-                className="group"
               >
                 <a
                   href={method.href || undefined}
-                  className={`block relative p-5 lg:p-3.5 bg-gradient-to-br ${method.color} rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 ${
-                    method.href ? 'cursor-pointer' : ''
-                  }`}
+                  className={`block ${method.href ? 'cursor-pointer' : ''}`}
                 >
-                  {/* Animated background */}
-                  <motion.div
-                    className="absolute inset-0 bg-white/0"
-                    whileHover={{ background: 'rgba(255, 255, 255, 0.1)' }}
-                    transition={{ duration: durations.instant }}
-                  />
-
-                  <div className="relative flex items-start gap-3.5">
-                    <motion.div
-                      className="w-11 h-11 lg:w-10 lg:h-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0"
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      transition={{ type: 'spring', stiffness: 300 }}
-                    >
-                      <method.icon className="w-5 h-5 text-white" />
-                    </motion.div>
+                  <Card variant="light" size="sm" className="flex items-start gap-3.5">
+                    <IconBox icon={method.icon} className="flex-shrink-0" />
 
                     <div className="flex-1 min-w-0">
-                      <p className="text-xs text-white/80 uppercase tracking-wide mb-1.5 font-medium">
+                      <p className="text-xs text-gray-500 uppercase tracking-wide mb-1.5 font-medium">
                         {method.label}
                       </p>
-                      <p className="text-base lg:text-[0.9375rem] text-white font-semibold break-words">
+                      <p className="text-base font-semibold text-gray-900 break-words">
                         {method.value}
                       </p>
                     </div>
-                  </div>
+                  </Card>
                 </a>
               </motion.div>
             ))}
@@ -323,30 +307,31 @@ export function Contact() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: durations.smooth, delay: 1.2 }}
-              className="relative p-5 lg:p-4 bg-gray-900 rounded-2xl overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#1877F2]/20 rounded-full blur-2xl" />
+              <Card variant="solid" size="none" hoverable={false} className="p-5 lg:p-4 overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#1877F2]/20 rounded-full blur-2xl" />
 
-              <div className="relative">
-                <h3 className="text-lg font-bold text-white mb-2">
-                  Prefer a Quick Call?
-                </h3>
-                <p className="text-gray-400 text-sm lg:text-xs mb-4 leading-relaxed">
-                  Schedule a 30-minute discovery session with our team to
-                  discuss your project in detail.
-                </p>
-                <motion.button
-                  onClick={() => setIsBookingOpen(true)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-2 px-5 py-2 bg-white text-gray-900 rounded-full text-sm font-semibold hover:bg-gray-100 transition-all"
-                >
-                  <span>Book a Call</span>
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </motion.button>
-              </div>
+                <div className="relative">
+                  <h3 className="text-lg font-bold text-white mb-2">
+                    Prefer a Quick Call?
+                  </h3>
+                  <p className="text-gray-400 text-sm lg:text-xs mb-4 leading-relaxed">
+                    Schedule a 30-minute discovery session with our team to
+                    discuss your project in detail.
+                  </p>
+                  <motion.button
+                    onClick={() => setIsBookingOpen(true)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="inline-flex items-center gap-2 px-5 py-2 bg-white text-gray-900 rounded-full text-sm font-semibold hover:bg-gray-100 transition-all"
+                  >
+                    <span>Book a Call</span>
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </motion.button>
+                </div>
+              </Card>
             </motion.div>
 
             {/* Social proof */}
@@ -419,10 +404,13 @@ export function Contact() {
                 Company
               </h4>
               <ul className="space-y-3">
+                {/*
+                  Derived from NAVIGATION.main so the footer cannot drift from the
+                  header the way it did when About moved to its own page. Services
+                  is excluded — column 2 already lists them individually.
+                */}
                 {[
-                  { label: 'Work', href: '/#work' },
-                  { label: 'About', href: '/#about' },
-                  { label: 'Contact', href: '/#contact' },
+                  ...NAVIGATION.main.filter((link) => link.label !== 'Services'),
                   { label: 'Privacy Policy', href: '/legal/privacy-policy' },
                   { label: 'Terms of Service', href: '/legal/terms-of-service' },
                 ].map((link) => (
@@ -464,7 +452,7 @@ export function Contact() {
               © 2026 {SITE_CONFIG.name}. {SITE_CONFIG.company.slogan}.
             </p>
             <p className="text-sm text-gray-400">
-              New Orleans, Louisiana
+              {SITE_CONFIG.company.address.city}, {SITE_CONFIG.company.address.stateName}
             </p>
           </div>
         </motion.footer>

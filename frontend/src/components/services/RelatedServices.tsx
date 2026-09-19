@@ -6,6 +6,7 @@ import { useRef } from 'react';
 import Link from 'next/link';
 import { getIcon } from '@/lib/icon-map';
 import { getVisibleServices } from '@/lib/services';
+import { Card, IconBox } from '@/components/shared';
 
 interface RelatedServicesProps {
   currentSlug: string;
@@ -54,31 +55,31 @@ export function RelatedServices({ currentSlug }: RelatedServicesProps) {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
               >
-                <Link
-                  href={`/services/${service.slug}`}
-                  className="group block h-full p-6 bg-white rounded-2xl border border-gray-200 hover:border-[#1877F2]/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-                >
-                  {/* Icon */}
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#1877F2] to-[#0D5DBF] rounded-xl flex items-center justify-center mb-4 shadow-md shadow-[#1877F2]/20">
-                    {Icon && <Icon className="w-6 h-6 text-white" />}
-                  </div>
+                <Card variant="light" size="none" className="h-full">
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="group block h-full p-6"
+                  >
+                    {/* Icon */}
+                    <IconBox icon={Icon} className="mb-4" />
 
-                  {/* Title */}
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-[#1877F2] transition-colors">
-                    {service.title}
-                  </h3>
+                    {/* Title */}
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-[#1877F2] transition-colors">
+                      {service.title}
+                    </h3>
 
-                  {/* Tagline */}
-                  <p className="text-sm text-gray-500 leading-relaxed mb-4">
-                    {service.tagline}
-                  </p>
+                    {/* Tagline */}
+                    <p className="text-sm text-gray-500 leading-relaxed mb-4">
+                      {service.tagline}
+                    </p>
 
-                  {/* Arrow */}
-                  <div className="flex items-center gap-1.5 text-sm font-medium text-[#42A5F5] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span>Learn more</span>
-                    {ArrowRight && <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />}
-                  </div>
-                </Link>
+                    {/* Arrow */}
+                    <div className="flex items-center gap-1.5 text-sm font-medium text-[#42A5F5] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span>Learn more</span>
+                      {ArrowRight && <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />}
+                    </div>
+                  </Link>
+                </Card>
               </motion.div>
             );
           })}

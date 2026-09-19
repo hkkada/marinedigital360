@@ -4,6 +4,7 @@ import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import Image from 'next/image';
 import { getImageProps, type ImageKey } from '@/lib/image-map';
+import { Card, CardBody, CardTitle } from '@/components/shared';
 import type { PortfolioShowcaseData } from '@/lib/service-pages/types';
 
 interface PortfolioShowcaseProps {
@@ -55,7 +56,7 @@ export function PortfolioShowcase({ data }: PortfolioShowcaseProps) {
                 transition={{ duration: 0.8, delay: 0.3 + index * 0.15 }}
                 className="group"
               >
-              <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-[#1877F2]/40 transition-all duration-300">
+              <Card variant="glass" size="none" className="relative overflow-hidden">
                 {/* Browser frame mockup */}
                 <div className="bg-gray-800 px-4 py-3 flex items-center gap-2">
                   <div className="flex gap-1.5">
@@ -106,14 +107,12 @@ export function PortfolioShowcase({ data }: PortfolioShowcaseProps) {
                       </span>
                     )}
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-[#1877F2] transition-colors">
+                  <CardTitle className="mb-2 group-hover:text-[#1877F2] transition-colors">
                     {project.title}
-                  </h3>
-                  <p className="text-sm text-gray-400 leading-relaxed">
-                    {project.description}
-                  </p>
+                  </CardTitle>
+                  <CardBody className="leading-relaxed">{project.description}</CardBody>
                 </div>
-              </div>
+              </Card>
             </motion.div>
             );
           })}

@@ -1,9 +1,9 @@
 'use client';
 
-import { motion } from 'motion/react';
 import Link from 'next/link';
 import { ServiceData } from '@/lib/services';
 import * as LucideIcons from 'lucide-react';
+import { Card, CardTitle, CardBody, IconBox } from '@/components/shared';
 
 interface ServiceCardProps {
   service: ServiceData;
@@ -14,10 +14,14 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
   const Icon = LucideIcons[service.iconName as keyof typeof LucideIcons] as React.FC<{ className?: string }>;
   const href = service.isVisible ? `/services/${service.slug}` : '/#services';
 
+  // flex-1 (not h-full) so a sibling child link can share the grid cell
+  // without the card pushing it out of the menu.
   return (
-    <Link href={href} className="h-full">
-      <motion.div
-        className="h-full flex flex-col p-4 sm:p-5 border border-gray-200 rounded-xl bg-white hover:border-blue-500 hover:-translate-y-1 hover:shadow-lg transition-all duration-200"
+    <Link href={href} className="flex-1 min-h-0">
+      <Card
+        variant="light"
+        size="sm"
+        className="h-full flex flex-col"
         variants={{
           hidden: { opacity: 0, y: 10 },
           visible: {
@@ -28,16 +32,10 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
         }}
         aria-label={`Learn more about ${service.title}`}
       >
-        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center mb-3">
-          {Icon && <Icon className="w-5 h-5 text-white" />}
-        </div>
-        <h3 className="text-base font-semibold text-gray-900 mb-1">
-          {service.title}
-        </h3>
-        <p className="text-sm text-gray-600 line-clamp-2 sm:min-h-[2.5rem]">
-          {service.tagline}
-        </p>
-      </motion.div>
+        <IconBox icon={Icon} size="sm" className="mb-3" />
+        <CardTitle className="mb-1">{service.title}</CardTitle>
+        <CardBody className="line-clamp-2 sm:min-h-[2.5rem]">{service.tagline}</CardBody>
+      </Card>
     </Link>
   );
 }

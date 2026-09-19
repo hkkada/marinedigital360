@@ -4,6 +4,7 @@ import { motion, useInView, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
 import { Check } from 'lucide-react';
 import { getIcon } from '@/lib/icon-map';
+import { Card, IconBox } from '@/components/shared';
 import type { ProcessTimelineData } from '@/lib/service-pages/types';
 
 interface TimelineStepProps {
@@ -45,18 +46,13 @@ function TimelineStep({ step, index }: TimelineStepProps) {
         initial={{ opacity: 0, x: -30 }}
         animate={isInView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-        whileHover={{ y: -2 }}
         className="pb-block"
       >
-        <div className="p-5 md:p-6 lg:p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-[#1877F2]/30 hover:shadow-lg hover:shadow-[#1877F2]/5 transition-all duration-300">
+        <Card variant="glass" size="none" className="p-5 md:p-6 lg:p-8">
           {/* Header row */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
             <div className="flex items-center gap-3">
-              {Icon && (
-                <div className="w-10 h-10 bg-gradient-to-br from-[#1877F2] to-[#0D5DBF] rounded-lg flex items-center justify-center shadow-md shadow-[#1877F2]/20 flex-shrink-0">
-                  <Icon className="text-white" size={20} />
-                </div>
-              )}
+              {Icon && <IconBox icon={Icon} size="sm" className="flex-shrink-0" />}
               <h3 className="text-xl md:text-2xl font-semibold text-white">
                 {step.title}
               </h3>
@@ -86,7 +82,7 @@ function TimelineStep({ step, index }: TimelineStepProps) {
               </motion.span>
             ))}
           </div>
-        </div>
+        </Card>
       </motion.div>
     </div>
   );

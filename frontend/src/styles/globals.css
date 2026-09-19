@@ -145,6 +145,24 @@
    */
   --spacing-nav: 6rem;                                        /* 96px: measured height of the fixed nav */
   --spacing-hero: clamp(7.5rem, 4vw + 6rem, 9rem);            /* 120 → 144px: nav clearance + breathing room, for a hero's top padding */
+
+  /**
+   * A service page stacks a second sticky bar under the fixed nav
+   * (`components/services/ServiceSubNav.tsx`), so an in-page anchor has two
+   * bars to clear, not one. `--spacing-anchor` is that combined clearance and
+   * is consumed as `scroll-mt-anchor` on the anchor target itself — which
+   * covers both a sub-nav click and a cold load of `/services/ppc#google-ads`,
+   * where no click handler ever runs.
+   *
+   * It is the two bars' combined height with no padding added: the target's own
+   * `py-section` supplies the breathing room under the bar, and overshooting
+   * instead parks the tail of the *previous* section in the gap — an 11px black
+   * sliver under the bar when the block above is `platform-coverage`. Landing a
+   * hair behind the bar is invisible; landing short of it is not. Undershooting
+   * is therefore the safe direction, so this tracks the *smallest* combined
+   * height across breakpoints (desktop; the mobile bar is taller).
+   */
+  --spacing-anchor: 9.5rem;                                   /* 152px = nav 96 + sub-nav 56 */
 }
 
 @layer base {

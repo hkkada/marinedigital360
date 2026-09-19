@@ -3,6 +3,7 @@
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import { getIcon } from '@/lib/icon-map';
+import { Card, IconBox } from '@/components/shared';
 import type { TechStackData } from '@/lib/service-pages/types';
 
 interface TechStackProps {
@@ -68,10 +69,8 @@ export function TechStack({ data }: TechStackProps) {
                       transition={{ duration: 0.4, delay: 0.5 + catIndex * 0.15 + toolIndex * 0.05 }}
                       className="group"
                     >
-                      <div className="flex items-start gap-4 p-5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:border-[#1877F2]/30 transition-all duration-300">
-                        <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                          {Icon && <Icon className="text-[#42A5F5]" size={20} />}
-                        </div>
+                      <Card variant="glass" size="none" hoverable className="flex items-start gap-4 p-5">
+                        <IconBox icon={Icon} variant="glass" size="sm" />
                         <div>
                           <h4 className="text-sm font-semibold text-white mb-1 group-hover:text-[#42A5F5] transition-colors">
                             {tool.name}
@@ -80,7 +79,7 @@ export function TechStack({ data }: TechStackProps) {
                             {tool.description}
                           </p>
                         </div>
-                      </div>
+                      </Card>
                     </motion.div>
                   );
                 })}

@@ -11,9 +11,9 @@ const organizationSchema = {
   description: SITE_CONFIG.description,
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Philadelphia',
-    addressRegion: 'PA',
-    addressCountry: 'US',
+    addressLocality: SITE_CONFIG.company.address.city,
+    addressRegion: SITE_CONFIG.company.address.state,
+    addressCountry: SITE_CONFIG.company.address.country,
   },
   contactPoint: {
     '@type': 'ContactPoint',
@@ -46,14 +46,14 @@ const localBusinessSchema = {
   url: SITE_CONFIG.url,
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Philadelphia',
-    addressRegion: 'PA',
-    addressCountry: 'US',
+    addressLocality: SITE_CONFIG.company.address.city,
+    addressRegion: SITE_CONFIG.company.address.state,
+    addressCountry: SITE_CONFIG.company.address.country,
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: 39.9526,
-    longitude: -75.1652,
+    latitude: SITE_CONFIG.company.address.latitude,
+    longitude: SITE_CONFIG.company.address.longitude,
   },
   areaServed: [
     { '@type': 'State', name: 'Pennsylvania' },

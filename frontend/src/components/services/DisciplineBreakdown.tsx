@@ -3,6 +3,7 @@
 import { motion, useInView } from 'motion/react';
 import { useRef, useState } from 'react';
 import { getIcon } from '@/lib/icon-map';
+import { Card } from '@/components/shared';
 import type { DisciplineBreakdownData } from '@/lib/service-pages/types';
 
 interface DisciplineBreakdownProps {
@@ -81,7 +82,7 @@ export function DisciplineBreakdown({ data }: DisciplineBreakdownProps) {
             transition={{ duration: 0.4 }}
             className="max-w-5xl mx-auto"
           >
-            <div className="p-8 md:p-12 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl">
+            <Card variant="glass" size="none" hoverable={false} className="p-8 md:p-12">
               <div className="grid lg:grid-cols-2 gap-10">
                 {/* Left: description */}
                 <div>
@@ -125,7 +126,7 @@ export function DisciplineBreakdown({ data }: DisciplineBreakdownProps) {
                   </ul>
                 </div>
               </div>
-            </div>
+            </Card>
           </motion.div>
         )}
       </div>

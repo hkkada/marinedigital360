@@ -5,38 +5,17 @@ import { useInView } from 'motion/react';
 import { useRef } from 'react';
 import Link from 'next/link';
 import { durations, sectionTiming } from '@/lib/animations';
-import {
-  Compass,
-  Package,
-  Rocket,
-  Presentation,
-  Workflow,
-  Search,
-  Monitor,
-  MousePointerClick,
-  BarChart3,
-  Share2,
-  Sparkles,
-  ArrowRight,
-} from 'lucide-react';
-import type { LucideIcon } from 'lucide-react';
-import { getVisibleServices } from '@/lib/services';
-import { SITE_CONFIG } from '@/lib/constants';
+import { ArrowRight } from 'lucide-react';
+import { getIcon } from '@/lib/icon-map';
+import { getServicesByGroup } from '@/lib/service-groups';
+import { Card, CardTitle, CardBody, IconBox } from '@/components/shared';
 
-const iconMap: Record<string, LucideIcon> = {
-  Package,
-  Rocket,
-  Presentation,
-  Workflow,
-  Search,
-  Monitor,
-  MousePointerClick,
-  BarChart3,
-  Share2,
-  Sparkles,
-};
-
-const services = getVisibleServices();
+// Groups (and their membership) are entirely data-driven — see
+// `getServicesByGroup()` in `lib/service-groups.ts`. This component never
+// hardcodes a group id, label, or count: flipping a service's `isVisible`
+// flag to `true` is sufficient to surface it (and its group, if it wasn't
+// rendering before) with zero changes here.
+const serviceGroups = getServicesByGroup();
 
 export function Services() {
   const ref = useRef(null);
@@ -114,11 +93,10 @@ export function Services() {
                   transition={{ duration: sectionTiming.services.headerDuration, delay: 0.2 }}
                   className="text-lg md:text-xl text-gray-500 leading-relaxed"
                 >
-                  {SITE_CONFIG.name} is a specialized marine marketing agency that transforms
-                  marine business capabilities into market-ready products. We deliver
-                  end-to-end digital services for boat manufacturers, marine technology
-                  companies, dealers, and charter operators — from productization and
-                  brand strategy to SEO, sales enablement, and AI-powered marketing.
+                  Each engagement is scoped as a package with defined deliverables,
+                  so you know what lands and when. Services combine across groups —
+                  a launch pairs productization with paid acquisition; a rebuild pairs
+                  web design with search.
                 </motion.p>
               </div>
             </div>
@@ -129,47 +107,67 @@ export function Services() {
       {/* Services grid + CTA — white background */}
       <div className="pt-section pb-section-sm bg-white">
         <div className="max-w-[1600px] mx-auto px-8 lg:px-16">
-          {/* Services grid — 3 columns on desktop, 2 on tablet, 1 on mobile */}
-          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
-            {services.map((service, index) => {
-              const Icon = iconMap[service.iconName];
-              return (
-                <motion.div
-                  key={service.slug}
-                  initial={{ opacity: 0, y: 60 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: sectionTiming.services.cardDuration, delay: sectionTiming.services.cardStagger(index) }}
-                  whileHover={{ y: -4 }}
-                  className="group"
-                >
-                  <Link href={`/services/${service.slug}`} className="block h-full">
-                    <div className="relative h-full p-6 sm:p-7 md:p-8 bg-gray-900 backdrop-blur-sm border border-gray-800 rounded-2xl transition-all duration-300 overflow-hidden hover:border-[#1877F2]/50">
-                      {/* Icon box */}
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-[#1877F2] to-[#0D5DBF] rounded-xl flex items-center justify-center mb-4 sm:mb-5 shadow-lg shadow-[#1877F2]/30">
-                        {Icon && <Icon className="text-white" size={24} />}
-                      </div>
-
-                      {/* Title */}
-                      <h3 className="text-xl md:text-2xl font-semibold text-white mb-3 group-hover:text-[#1877F2] transition-colors duration-300">
-                        {service.title}
+          {/*
+            One labelled block per group, each carrying its own service
+            cards. `serviceGroups` already omits groups with no visible
+            services, so nothing here assumes a fixed group count, id, or
+            label — a group that renders nowhere today appears automatically
+            the moment one of its services' `isVisible` flags flips true.
+          */}
+          {(() => {
+            let cardIndex = 0;
+            return (
+              <div className="space-y-block">
+                {serviceGroups.map((group) => (
+                  <div key={group.id}>
+                    <div className="mb-block">
+                      <h3 className="text-2xl sm:text-3xl font-semibold text-gray-900 mb-2">
+                        {group.label}
                       </h3>
-
-                      {/* Description */}
-                      <p className="text-base text-gray-400 leading-relaxed mb-4">
-                        {service.description}
-                      </p>
-
-                      {/* Learn more indicator */}
-                      <div className="flex items-center gap-2 text-sm font-medium text-[#42A5F5] opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300">
-                        <span>Learn more</span>
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </div>
+                      <p className="text-base sm:text-lg text-gray-500">{group.tagline}</p>
                     </div>
-                  </Link>
-                </motion.div>
-              );
-            })}
-          </div>
+
+                    <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
+                      {group.services.map((service) => {
+                        const index = cardIndex++;
+                        const Icon = getIcon(service.iconName);
+                        return (
+                          <motion.div
+                            key={service.slug}
+                            initial={{ opacity: 0, y: 60 }}
+                            animate={isInView ? { opacity: 1, y: 0 } : {}}
+                            transition={{ duration: sectionTiming.services.cardDuration, delay: sectionTiming.services.cardStagger(index) }}
+                            className="group"
+                          >
+                            <Link href={`/services/${service.slug}`} className="block h-full">
+                              <Card variant="solid" size="lg" className="h-full">
+                                <IconBox icon={Icon} className="mb-4 sm:mb-5" />
+
+                                <CardTitle
+                                  as="h4"
+                                  className="md:text-2xl mb-3 group-hover:text-[#1877F2] transition-colors duration-300"
+                                >
+                                  {service.title}
+                                </CardTitle>
+
+                                <CardBody className="mb-4">{service.description}</CardBody>
+
+                                {/* Learn more indicator */}
+                                <div className="flex items-center gap-2 text-sm font-medium text-[#42A5F5] opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300">
+                                  <span>Learn more</span>
+                                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                </div>
+                              </Card>
+                            </Link>
+                          </motion.div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            );
+          })()}
 
           {/* CTA */}
           {/* <motion.div

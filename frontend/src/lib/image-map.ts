@@ -68,9 +68,12 @@ const imageRegistry: ImageCategory = {
   // About Section Images
   // ═══════════════════════════════════════════════════════════════════════════
   about: {
+    // TODO(brand): this is still a marine stock photo, now the only marine
+    // reference left on the industry-agnostic /about page. Replace the asset;
+    // the alt text describes the current image truthfully until then.
     'yacht-lifestyle': {
       src: centerConsolesImage,
-      alt: `${SITE_CONFIG.name} team — premium yacht lifestyle and ocean adventure experience`,
+      alt: 'Boats on open water at golden hour',
       sizes: '(max-width: 768px) 100vw, 66vw',
     },
     'cockpit-technology': {

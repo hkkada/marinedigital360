@@ -22,6 +22,11 @@ export function Navigation() {
         ticking = true;
       }
     };
+    // Seed from the current position, not just from future scroll events: a
+    // page opened at an anchor (`/services/ppc#pricing`) starts already
+    // scrolled, and without this the nav stays transparent over the content
+    // until the visitor happens to scroll.
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);

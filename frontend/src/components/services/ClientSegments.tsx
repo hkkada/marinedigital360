@@ -3,6 +3,7 @@
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import { getIcon } from '@/lib/icon-map';
+import { Card, CardTitle, IconBox } from '@/components/shared';
 import type { ClientSegmentsData } from '@/lib/service-pages/types';
 
 interface ClientSegmentsProps {
@@ -58,14 +59,12 @@ export function ClientSegments({ data }: ClientSegmentsProps) {
                 transition={{ duration: 0.6, delay: 0.3 + index * 0.15 }}
                 className="group"
               >
-                <div className="h-full p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-[#1877F2]/40 transition-all duration-300">
-                  <div className="w-14 h-14 bg-gradient-to-br from-[#1877F2] to-[#0D5DBF] rounded-xl flex items-center justify-center mb-5 shadow-lg shadow-[#1877F2]/30">
-                    {Icon && <Icon className="text-white" size={24} />}
-                  </div>
+                <Card variant="glass" size="none" className="h-full p-8">
+                  <IconBox icon={Icon} size="lg" className="mb-5" />
 
-                  <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-[#1877F2] transition-colors">
+                  <CardTitle className="mb-3 group-hover:text-[#1877F2] transition-colors">
                     {segment.title}
-                  </h3>
+                  </CardTitle>
                   <p className="text-gray-400 leading-relaxed mb-5">
                     {segment.description}
                   </p>
@@ -78,7 +77,7 @@ export function ClientSegments({ data }: ClientSegmentsProps) {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </Card>
               </motion.div>
             );
           })}

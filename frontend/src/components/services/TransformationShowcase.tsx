@@ -3,6 +3,7 @@
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import { X, Check } from 'lucide-react';
+import { Card } from '@/components/shared';
 import type { TransformationShowcaseData } from '@/lib/service-pages/types';
 
 interface TransformationShowcaseProps {
@@ -51,7 +52,7 @@ export function TransformationShowcase({ data }: TransformationShowcaseProps) {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative"
           >
-            <div className="p-8 md:p-10 bg-white/5 backdrop-blur-sm border border-red-500/20 rounded-2xl">
+            <Card variant="glass" tone="negative" hoverable={false} size="none" className="p-8 md:p-10">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/10 text-red-400 rounded-full text-sm font-semibold mb-6">
                 <X className="w-4 h-4" />
                 {data.before.label}
@@ -70,7 +71,7 @@ export function TransformationShowcase({ data }: TransformationShowcaseProps) {
                   </motion.li>
                 ))}
               </ul>
-            </div>
+            </Card>
           </motion.div>
 
           {/* After */}
@@ -80,7 +81,7 @@ export function TransformationShowcase({ data }: TransformationShowcaseProps) {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="relative"
           >
-            <div className="p-8 md:p-10 bg-white/5 backdrop-blur-sm border border-[#1877F2]/30 rounded-2xl">
+            <Card variant="glass" tone="positive" hoverable={false} size="none" className="p-8 md:p-10">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#1877F2]/10 text-[#42A5F5] rounded-full text-sm font-semibold mb-6">
                 <Check className="w-4 h-4" />
                 {data.after.label}
@@ -99,7 +100,7 @@ export function TransformationShowcase({ data }: TransformationShowcaseProps) {
                   </motion.li>
                 ))}
               </ul>
-            </div>
+            </Card>
           </motion.div>
         </div>
       </div>

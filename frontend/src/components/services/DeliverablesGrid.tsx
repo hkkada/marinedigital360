@@ -3,6 +3,7 @@
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import { getIcon } from '@/lib/icon-map';
+import { Card, CardBody, IconBox } from '@/components/shared';
 import type { DeliverablesGridData } from '@/lib/service-pages/types';
 
 interface DeliverablesGridProps {
@@ -57,17 +58,13 @@ export function DeliverablesGrid({ data }: DeliverablesGridProps) {
                 transition={{ duration: 0.6, delay: 0.3 + index * 0.08 }}
                 className="group"
               >
-                <div className="h-full p-6 bg-gray-50 border border-gray-200 rounded-2xl hover:border-[#1877F2]/50 hover:shadow-lg transition-all duration-300">
-                  <div className="w-10 h-10 bg-gradient-to-br from-[#1877F2] to-[#0D5DBF] rounded-lg flex items-center justify-center mb-4 shadow-md shadow-[#1877F2]/20">
-                    {Icon && <Icon className="text-white" size={20} />}
-                  </div>
+                <Card variant="light" size="md" className="h-full">
+                  <IconBox icon={Icon} size="sm" className="mb-4" />
                   <h3 className="text-base font-semibold text-gray-900 mb-2 group-hover:text-[#1877F2] transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
+                  <CardBody className="leading-relaxed">{item.description}</CardBody>
+                </Card>
               </motion.div>
             );
           })}

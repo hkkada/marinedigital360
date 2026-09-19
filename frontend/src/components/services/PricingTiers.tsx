@@ -3,6 +3,7 @@
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import { Check } from 'lucide-react';
+import { Card, CardBody, CardTitle } from '@/components/shared';
 import type { PricingTiersData } from '@/lib/service-pages/types';
 
 interface PricingTiersProps {
@@ -52,21 +53,15 @@ export function PricingTiers({ data }: PricingTiersProps) {
               transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
               className="group"
             >
-              <div
-                className={`h-full flex flex-col p-8 rounded-2xl border-2 transition-all duration-300 ${
-                  tier.highlighted
-                    ? 'bg-gradient-to-b from-[#1877F2]/5 to-white border-[#1877F2] shadow-xl shadow-[#1877F2]/10'
-                    : 'bg-white border-gray-200 hover:border-[#1877F2]/50 hover:shadow-lg'
-                }`}
-              >
+              <Card variant="light" highlighted={tier.highlighted} className="flex flex-col">
                 {tier.highlighted && (
                   <div className="inline-flex self-start px-3 py-1 bg-[#1877F2] text-white text-xs font-semibold rounded-full mb-4">
                     Recommended
                   </div>
                 )}
 
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{tier.name}</h3>
-                <p className="text-gray-600 mb-4 text-sm">{tier.description}</p>
+                <CardTitle className="mb-2">{tier.name}</CardTitle>
+                <CardBody className="mb-4">{tier.description}</CardBody>
 
                 {tier.price && (
                   <div className="mb-4">
@@ -100,7 +95,7 @@ export function PricingTiers({ data }: PricingTiersProps) {
                 >
                   {tier.ctaText}
                 </motion.a>
-              </div>
+              </Card>
             </motion.div>
           ))}
         </div>

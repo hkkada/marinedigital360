@@ -3,6 +3,7 @@
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import { getIcon } from '@/lib/icon-map';
+import { Card, CardBody, IconBox, StatCard } from '@/components/shared';
 import type { PartnerNetworkData } from '@/lib/service-pages/types';
 
 interface PartnerNetworkProps {
@@ -57,17 +58,13 @@ export function PartnerNetwork({ data }: PartnerNetworkProps) {
                 transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                 className="group"
               >
-                <div className="h-full p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-[#1877F2]/40 transition-all duration-300">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#1877F2] to-[#0D5DBF] rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-[#1877F2]/20">
-                    {Icon && <Icon className="text-white" size={22} />}
-                  </div>
+                <Card variant="glass" size="md" className="h-full">
+                  <IconBox icon={Icon} className="mb-4" />
                   <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-[#1877F2] transition-colors">
                     {partner.title}
                   </h3>
-                  <p className="text-sm text-gray-400 leading-relaxed">
-                    {partner.description}
-                  </p>
-                </div>
+                  <CardBody className="leading-relaxed">{partner.description}</CardBody>
+                </Card>
               </motion.div>
             );
           })}
@@ -87,14 +84,13 @@ export function PartnerNetwork({ data }: PartnerNetworkProps) {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
             >
-              <div className="p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl text-center">
-                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#1877F2] to-[#42A5F5] bg-clip-text text-transparent mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-gray-400">
-                  {stat.label}
-                </div>
-              </div>
+              <StatCard
+                variant="glass"
+                hoverable={false}
+                value={stat.value}
+                label={stat.label}
+                valueClassName="text-3xl md:text-4xl bg-gradient-to-r from-[#1877F2] to-[#42A5F5] mb-2"
+              />
             </motion.div>
           ))}
         </motion.div>

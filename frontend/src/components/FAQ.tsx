@@ -6,6 +6,7 @@ import { useRef, useState } from 'react';
 import { ChevronDown, HelpCircle } from 'lucide-react';
 import { faqData } from './StructuredData';
 import { SITE_CONFIG } from '@/lib/constants';
+import { Card } from '@/components/shared';
 
 function FAQItem({
   question,
@@ -25,36 +26,38 @@ function FAQItem({
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full text-left p-6 md:p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-[#1877F2]/50 transition-all duration-300 group"
+        className="w-full text-left group"
         aria-expanded={isOpen}
       >
-        <div className="flex items-start justify-between gap-4">
-          <h3 className="text-lg md:text-xl font-semibold text-white group-hover:text-[#1877F2] transition-colors pr-4">
-            {question}
-          </h3>
-          <motion.div
-            animate={{ rotate: isOpen ? 180 : 0 }}
-            transition={{ duration: 0.3 }}
-            className="flex-shrink-0 mt-1"
-          >
-            <ChevronDown className="w-5 h-5 text-gray-400 group-hover:text-[#1877F2] transition-colors" />
-          </motion.div>
-        </div>
+        <Card variant="glass" size="none" className="p-6 md:p-8">
+          <div className="flex items-start justify-between gap-4">
+            <h3 className="text-lg md:text-xl font-semibold text-white group-hover:text-[#1877F2] transition-colors pr-4">
+              {question}
+            </h3>
+            <motion.div
+              animate={{ rotate: isOpen ? 180 : 0 }}
+              transition={{ duration: 0.3 }}
+              className="flex-shrink-0 mt-1"
+            >
+              <ChevronDown className="w-5 h-5 text-gray-400 group-hover:text-[#1877F2] transition-colors" />
+            </motion.div>
+          </div>
 
-        <motion.div
-          initial={false}
-          animate={{
-            height: isOpen ? 'auto' : 0,
-            opacity: isOpen ? 1 : 0,
-            marginTop: isOpen ? 16 : 0,
-          }}
-          transition={{ duration: 0.3 }}
-          className="overflow-hidden"
-        >
-          <p className="text-gray-400 leading-relaxed text-base md:text-lg">
-            {answer}
-          </p>
-        </motion.div>
+          <motion.div
+            initial={false}
+            animate={{
+              height: isOpen ? 'auto' : 0,
+              opacity: isOpen ? 1 : 0,
+              marginTop: isOpen ? 16 : 0,
+            }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <p className="text-gray-400 leading-relaxed text-base md:text-lg">
+              {answer}
+            </p>
+          </motion.div>
+        </Card>
       </button>
     </motion.div>
   );

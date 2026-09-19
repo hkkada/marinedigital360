@@ -54,27 +54,41 @@ export function MobileNav({ isScrolled }: MobileNavProps) {
             </CollapsibleTrigger>
             <CollapsibleContent className="pl-4 pt-2 space-y-1">
               {services.map((service) => (
-                <Link
-                  key={service.slug}
-                  href={`/services/${service.slug}`}
-                  onClick={() => setOpen(false)}
-                  className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
-                >
-                  {service.title}
-                </Link>
+                <div key={service.slug}>
+                  <Link
+                    href={`/services/${service.slug}`}
+                    onClick={() => setOpen(false)}
+                    className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                  >
+                    {service.title}
+                  </Link>
+                  {service.slug === 'ppc' && (
+                    <Link
+                      href="/services/ppc#ppc-management"
+                      onClick={() => setOpen(false)}
+                      className="block py-2 px-4 ml-3 text-sm text-gray-500 hover:bg-gray-100 rounded-lg transition-colors"
+                    >
+                      PPC Management
+                    </Link>
+                  )}
+                </div>
               ))}
             </CollapsibleContent>
           </Collapsible>
 
-          {/* Other links */}
-          {['Work', 'About', 'Contact'].map((link) => (
+          {/* Other links (Work, Contact anchor to the homepage; About is a real page) */}
+          {[
+            { label: 'Work', href: '/#work' },
+            { label: 'About', href: '/about' },
+            { label: 'Contact', href: '/#contact' },
+          ].map((link) => (
             <Link
-              key={link}
-              href={`/#${link.toLowerCase()}`}
+              key={link.label}
+              href={link.href}
               onClick={() => setOpen(false)}
               className="py-3 px-4 text-base font-medium hover:bg-gray-100 rounded-lg transition-colors"
             >
-              {link}
+              {link.label}
             </Link>
           ))}
 

@@ -32,7 +32,17 @@ export function ServicesMegaMenu() {
         animate="visible"
       >
         {services.map((service, index) => (
-          <ServiceCard key={service.slug} service={service} index={index} />
+          <div key={service.slug} className="flex flex-col h-full">
+            <ServiceCard service={service} index={index} />
+            {service.slug === 'ppc' && (
+              <Link
+                href="/services/ppc#ppc-management"
+                className="mt-1 ml-3 text-xs text-gray-500 hover:text-[var(--nav-link-blue)] hover:underline transition-colors"
+              >
+                PPC Management →
+              </Link>
+            )}
+          </div>
         ))}
       </motion.div>
 

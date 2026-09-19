@@ -3,6 +3,7 @@
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import { getIcon } from '@/lib/icon-map';
+import { Card, CardBody, CardTitle, IconBox } from '@/components/shared';
 import type { PlatformCoverageData } from '@/lib/service-pages/types';
 
 interface PlatformCoverageProps {
@@ -58,18 +59,14 @@ export function PlatformCoverage({ data }: PlatformCoverageProps) {
                 transition={{ duration: 0.6, delay: 0.3 + index * 0.12 }}
                 className="group"
               >
-                <div className="h-full p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-[#1877F2]/40 transition-all duration-300">
+                <Card variant="glass" size="none" className="h-full p-8">
                   <div className="flex items-start gap-5 mb-6">
-                    <div className="w-14 h-14 bg-gradient-to-br from-[#1877F2] to-[#0D5DBF] rounded-xl flex items-center justify-center shadow-lg shadow-[#1877F2]/30 flex-shrink-0">
-                      {Icon && <Icon className="text-white" size={24} />}
-                    </div>
+                    <IconBox icon={Icon} size="lg" className="flex-shrink-0" />
                     <div>
-                      <h3 className="text-xl font-semibold text-white mb-1 group-hover:text-[#1877F2] transition-colors">
+                      <CardTitle className="mb-1 group-hover:text-[#1877F2] transition-colors">
                         {platform.name}
-                      </h3>
-                      <p className="text-gray-400 text-sm leading-relaxed">
-                        {platform.description}
-                      </p>
+                      </CardTitle>
+                      <CardBody className="leading-relaxed">{platform.description}</CardBody>
                     </div>
                   </div>
 
@@ -81,7 +78,7 @@ export function PlatformCoverage({ data }: PlatformCoverageProps) {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </Card>
               </motion.div>
             );
           })}

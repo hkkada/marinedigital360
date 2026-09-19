@@ -3,6 +3,7 @@
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import { getIcon } from '@/lib/icon-map';
+import { Card, CardBody, CardTitle, IconBox } from '@/components/shared';
 import type { ServiceOverviewData } from '@/lib/service-pages/types';
 
 interface ServiceOverviewProps {
@@ -68,17 +69,13 @@ export function ServiceOverview({ data }: ServiceOverviewProps) {
                 transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
                 className="group"
               >
-                <div className="h-full p-8 bg-gray-50 border border-gray-200 rounded-2xl hover:border-[#1877F2]/50 hover:shadow-lg hover:shadow-[#1877F2]/5 transition-all duration-300">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#1877F2] to-[#0D5DBF] rounded-xl flex items-center justify-center mb-5 shadow-lg shadow-[#1877F2]/20">
-                    {Icon && <Icon className="text-white" size={22} />}
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-[#1877F2] transition-colors">
+                <Card variant="light" size="md" className="h-full">
+                  <IconBox icon={Icon} className="mb-5" />
+                  <CardTitle className="mb-2 group-hover:text-[#1877F2] transition-colors">
                     {card.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed text-sm">
-                    {card.description}
-                  </p>
-                </div>
+                  </CardTitle>
+                  <CardBody className="leading-relaxed">{card.description}</CardBody>
+                </Card>
               </motion.div>
             );
           })}

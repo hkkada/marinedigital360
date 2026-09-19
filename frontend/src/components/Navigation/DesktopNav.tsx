@@ -32,14 +32,18 @@ export function DesktopNav({ isScrolled }: DesktopNavProps) {
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-        {/* Simple anchor links */}
-        {['Work', 'About', 'Contact'].map((link) => (
-          <NavigationMenuItem key={link}>
+        {/* Simple links (Work, Contact anchor to the homepage; About is a real page) */}
+        {[
+          { label: 'Work', href: '/#work' },
+          { label: 'About', href: '/about' },
+          { label: 'Contact', href: '/#contact' },
+        ].map((link) => (
+          <NavigationMenuItem key={link.label}>
             <NavigationMenuLink
-              href={`/#${link.toLowerCase()}`}
+              href={link.href}
               className={`text-base font-medium relative group ${textColor} px-0 py-2 hover:bg-transparent focus:bg-transparent data-[active=true]:bg-transparent`}
             >
-              {link}
+              {link.label}
               {/* Hover underline animation */}
               <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-[var(--nav-link-blue)] transition-all duration-150 group-hover:w-full" />
             </NavigationMenuLink>

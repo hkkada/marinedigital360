@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Navigation } from '@/components/Navigation/Navigation';
 import { Contact } from '@/components/Contact';
 import { SectionRenderer } from '@/components/services/SectionRenderer';
+import { ServiceSubNav } from '@/components/services/ServiceSubNav';
 import { RelatedServices } from '@/components/services/RelatedServices';
 import { ServiceStructuredData } from '@/components/services/ServiceStructuredData';
 import { getServicePageData, getAllServicePageSlugs } from '@/lib/service-pages';
@@ -55,6 +56,11 @@ export default async function ServicePage({ params }: ServicePageProps) {
     notFound();
   }
 
+  // A service page always opens with its hero; guard anyway so a malformed
+  // data file degrades to "no sections" instead of throwing in SectionRenderer.
+  const [heroSection, ...remainingSections] = pageData.sections;
+  const heroSections = heroSection ? [heroSection] : [];
+
   return (
     <div className="min-h-screen bg-white">
       <ServiceStructuredData pageData={pageData} serviceData={serviceData} />
@@ -63,7 +69,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
       </header>
       <main>
         <SectionRenderer
-          sections={pageData.sections}
+          sections={heroSections}
+          serviceName={pageData.title}
+          iconName={pageData.iconName}
+        />
+        <ServiceSubNav sections={pageData.sections} />
+        <SectionRenderer
+          sections={remainingSections}
           serviceName={pageData.title}
           iconName={pageData.iconName}
         />

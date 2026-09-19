@@ -2,6 +2,7 @@
 
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
+import { StatCard } from '@/components/shared';
 import type { MetricsResultsData } from '@/lib/service-pages/types';
 
 interface MetricsResultsProps {
@@ -49,21 +50,13 @@ export function MetricsResults({ data }: MetricsResultsProps) {
               transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
               className="group"
             >
-              <div className="h-full p-8 bg-gray-50 border border-gray-200 rounded-2xl hover:border-[#1877F2]/50 hover:shadow-lg transition-all duration-300 text-center">
-                <motion.div
-                  className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#1877F2] to-[#0D5DBF] bg-clip-text text-transparent mb-3"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                >
-                  {metric.value}
-                </motion.div>
-                <div className="text-base font-semibold text-gray-900 mb-1">
-                  {metric.label}
-                </div>
-                <div className="text-sm text-gray-500">
-                  {metric.description}
-                </div>
-              </div>
+              <StatCard
+                variant="light"
+                className="h-full"
+                value={metric.value}
+                label={metric.label}
+                description={metric.description}
+              />
             </motion.div>
           ))}
         </div>

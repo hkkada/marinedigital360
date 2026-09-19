@@ -1,3 +1,9 @@
+/**
+ * Service group taxonomy — every service belongs to exactly one group.
+ * Group membership and copy live in `lib/service-groups.ts`.
+ */
+export type ServiceGroupId = 'sales' | 'administration' | 'marketing' | 'advertising';
+
 export interface ServiceData {
   slug: string;
   title: string;
@@ -6,6 +12,7 @@ export interface ServiceData {
   tagline: string;
   schemaDescription: string;
   serviceType: string;
+  group: ServiceGroupId;
   isVisible?: boolean;
 }
 
@@ -20,6 +27,7 @@ const allServices: ServiceData[] = [
     schemaDescription:
       'Marine productization services that transform business capabilities into fully packaged, market-ready products with defined naming, pricing, positioning, and differentiation for boat manufacturers and marine technology companies.',
     serviceType: 'Marine Product Development',
+    group: 'sales',
     isVisible: false,
   },
   {
@@ -32,6 +40,7 @@ const allServices: ServiceData[] = [
     schemaDescription:
       'Go-to-market strategy services for marine businesses including buyer persona development, market segmentation, channel strategy, and 90-day launch plans for boat manufacturers and marine technology companies.',
     serviceType: 'Go-To-Market Strategy',
+    group: 'sales',
     isVisible: false,
   },
   {
@@ -44,6 +53,7 @@ const allServices: ServiceData[] = [
     schemaDescription:
       'Marine sales enablement services including landing pages, pitch decks, demo scripts, sales playbooks, and competitive battle cards designed to shorten sales cycles and increase win rates for marine businesses.',
     serviceType: 'Sales Enablement',
+    group: 'sales',
     isVisible: false,
   },
   {
@@ -56,6 +66,7 @@ const allServices: ServiceData[] = [
     schemaDescription:
       'Revenue enablement and CRM services for marine businesses including CRM configuration, AI-powered outreach sequences, lead scoring, pipeline management, and revenue forecasting dashboards.',
     serviceType: 'Revenue Enablement & CRM',
+    group: 'administration',
     isVisible: false,
   },
   {
@@ -68,6 +79,7 @@ const allServices: ServiceData[] = [
     schemaDescription:
       'Marine SEO services including technical audits, keyword research, content strategy, local search optimization, and link building to drive organic traffic growth for boat manufacturers and marine technology companies.',
     serviceType: 'Search Engine Optimization',
+    group: 'marketing',
     isVisible: true,
   },
   {
@@ -80,11 +92,12 @@ const allServices: ServiceData[] = [
     schemaDescription:
       'Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO) services for marine businesses — AI citations, featured snippets, voice search optimization, and entity building across ChatGPT, Perplexity, and Google AI Overviews.',
     serviceType: 'AI & Answer Engine Optimization',
+    group: 'marketing',
     isVisible: true,
   },
   {
     slug: 'ppc',
-    title: 'PPC',
+    title: 'Paid Ads',
     iconName: 'MousePointerClick',
     tagline: 'Every dollar tracked. Every click optimized.',
     description:
@@ -92,6 +105,7 @@ const allServices: ServiceData[] = [
     schemaDescription:
       'PPC advertising management for marine businesses including strategic paid campaigns across Google, Bing, and social platforms with bid optimization, audience targeting, and ROAS tracking.',
     serviceType: 'PPC Advertising',
+    group: 'advertising',
     isVisible: true,
   },
   {
@@ -104,6 +118,7 @@ const allServices: ServiceData[] = [
     schemaDescription:
       'Custom marine web design and development services with mobile-first responsive design, conversion-focused UX, and high-performance optimization for boat manufacturers, dealers, and marine technology companies.',
     serviceType: 'Web Design & Development',
+    group: 'marketing',
     isVisible: true,
   },
    {
@@ -116,6 +131,7 @@ const allServices: ServiceData[] = [
     schemaDescription:
       'Marine affiliate marketing services including affiliate program setup, partner recruitment, commission structure design, and performance-based revenue growth strategies for the boating industry.',
     serviceType: 'Affiliate Marketing',
+    group: 'marketing',
     isVisible: true,
   },
   {
@@ -128,6 +144,7 @@ const allServices: ServiceData[] = [
     schemaDescription:
       'Marine marketing strategy services including market analysis, competitive intelligence, brand positioning, multi-channel planning, and growth roadmaps for boat manufacturers and marine businesses.',
     serviceType: 'Marketing Strategy',
+    group: 'marketing',
     isVisible: false,
   }
 ];
