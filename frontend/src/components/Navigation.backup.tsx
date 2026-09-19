@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
+import { BrandWordmark } from '@/components/BrandWordmark';
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,11 +33,11 @@ export function Navigation() {
             whileHover={{ opacity: 0.8 }}
             className="flex items-center gap-3"
           >
-            <span className={`text-2xl tracking-tight transition-colors duration-300 ${
-              isScrolled ? 'text-gray-900' : 'text-white'
-            }`}>
-              MARINE<span className="font-light"> DIGITAL 360</span>
-            </span>
+            <BrandWordmark
+              className={`text-2xl tracking-tight transition-colors duration-300 ${
+                isScrolled ? 'text-gray-900' : 'text-white'
+              }`}
+            />
           </motion.a>
 
           {/* Desktop Navigation */}

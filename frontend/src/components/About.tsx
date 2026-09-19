@@ -104,7 +104,7 @@ export function About() {
             Built by
             <br />
             <span className="bg-gradient-to-r from-[#1877F2] via-[#42A5F5] to-[#1877F2] bg-clip-text text-transparent">
-              marine experts
+              industry experts
             </span>
           </h2>
 
@@ -127,7 +127,7 @@ export function About() {
                 transition={{ duration: sectionTiming.about.headerDuration, delay: 0.2 }}
                 className="text-xl text-gray-500 leading-relaxed mb-4"
               >
-                Our approach combines deep maritime
+                Our approach combines deep industry
                 knowledge with cutting-edge digital strategy to create experiences that
                 captivate and convert.
               </motion.p>
@@ -137,7 +137,7 @@ export function About() {
                 transition={{ duration: sectionTiming.about.headerDuration, delay: 0.25 }}
                 className="text-xl text-gray-500 leading-relaxed"
               >
-                Based in Philadelphia, Pennsylvania, {SITE_CONFIG.name} is the only
+                Based in New Orleans, Louisiana, {SITE_CONFIG.name} is the only
                 marine-focused commercialization agency that combines productization,
                 sales enablement, and AI-powered marketing to drive revenue for marine
                 businesses across the Mid-Atlantic and Southeast United States.

@@ -7,7 +7,7 @@ import { getImageSrc } from '@/lib/image-map';
 import { sectionTiming } from '@/lib/animations';
 
 const SLIDES = [
-  { src: '/clips/istockphoto-1716746648-640_adpp_is.mp4', label: 'Boating footage' },
+  { src: '/clips/iStock-1716746648.mp4', label: 'Boating footage' },
   { src: '/clips/iStock-1481894582.mp4', label: 'Marine lifestyle footage' },
 ] as const;
 
@@ -99,7 +99,7 @@ export function Hero() {
             {/* Elegant subtitle */}
             <div className="mb-8 hero-animate hero-animate-delay-1 text-center sm:text-left">
               <span className="text-white/80 text-sm tracking-[0.3em] uppercase drop-shadow(0 2px 8px rgba(0,0,0,0.5))">
-                Premium Marine Digital
+                Premium Digital
               </span>
             </div>
 

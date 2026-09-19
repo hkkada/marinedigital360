@@ -1,3 +1,5 @@
+import { BRAND } from './brand';
+
 export const CONTACT_EMAIL = 'info@marinedigital360.com';
 export const SUPPORT_EMAIL = 'info@marinedigital360.com';
 export const PRIVACY_EMAIL = 'privacy@marinedigital360.com';
@@ -6,21 +8,20 @@ export const BILLING_EMAIL = 'billing@marinedigital360.com';
 export const FROM_EMAIL = 'notifications@marinedigital360.com';
 
 export const SITE_CONFIG = {
-  name: 'Marine Digital 360',
-  sld: 'marinedigital360',
-  title:
-    'MarineDigital360 — Marine Marketing Agency | Productization, SEO & Sales Enablement',
+  name: BRAND.name,
+  sld: BRAND.slug,
+  title: `${BRAND.compact} — Marine Marketing Agency | Productization, SEO & Sales Enablement`,
   description:
-    'MarineDigital360 is a specialized marine marketing agency that transforms boat manufacturer, dealer, and marine technology capabilities into market-ready products through productization, sales enablement, SEO, and AI-powered digital marketing.',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://marinedigital360.com',
+    `${BRAND.compact} is a specialized marine marketing agency that transforms boat manufacturer, dealer, and marine technology capabilities into market-ready products through productization, sales enablement, SEO, and AI-powered digital marketing.`,
+  url: process.env.NEXT_PUBLIC_SITE_URL || `https://${BRAND.slug}.com`,
   ogImage: '/og-default.jpg',
   links: {
-    linkedin: 'https://www.linkedin.com/company/marinedigital360',
+    linkedin: `https://www.linkedin.com/company/${BRAND.slug}`,
   },
   ogDescription:
-    'MarineDigital360 transforms marine business capabilities into market-ready products. Productization, sales enablement, SEO, and AI-powered marketing for boat manufacturers, dealers, and marine technology companies.',
+    `${BRAND.compact} transforms marine business capabilities into market-ready products. Productization, sales enablement, SEO, and AI-powered marketing for boat manufacturers, dealers, and marine technology companies.`,
   twitterDescription:
-    'MarineDigital360 transforms marine business capabilities into market-ready products. Productization, sales enablement, SEO, and AI-powered marketing for the marine industry.',
+    `${BRAND.compact} transforms marine business capabilities into market-ready products. Productization, sales enablement, SEO, and AI-powered marketing for the marine industry.`,
   keywords: [
     'marine marketing agency',
     'marine productization',
@@ -36,10 +37,10 @@ export const SITE_CONFIG = {
     'fishing charter marketing',
   ],
   themeColor: '#030213',
-  creator: 'MarineDigital360 Team',
+  creator: `${BRAND.compact} Team`,
   company: {
-    name: 'MarineDigital360',
-    legalName: 'MarineDigital360 LLC',
+    name: BRAND.compact,
+    legalName: BRAND.legalName,
     slogan: 'Navigating digital excellence',
     email: CONTACT_EMAIL,
     phone: '+1 (215) 555-0199',

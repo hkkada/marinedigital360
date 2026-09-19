@@ -9,6 +9,7 @@ import { getVisibleServices } from '@/lib/services';
 import { BookingModal } from '@/components/BookingModal';
 import { durations } from '@/lib/animations';
 import { CONTACT_EMAIL, CONTACT_CONFIG, SITE_CONFIG } from '@/lib/constants';
+import { BrandWordmark } from '@/components/BrandWordmark';
 
 export function Contact() {
   const ref = useRef(null);
@@ -40,7 +41,7 @@ export function Contact() {
     {
       icon: MapPin,
       label: 'Location',
-      value: 'Philadelphia, Pennsylvania',
+      value: 'New Orleans, Louisiana',
       href: null,
       color: 'from-cyan-500 to-blue-600',
     },
@@ -386,9 +387,7 @@ export function Contact() {
                 <div className="w-10 h-10 bg-gradient-to-br from-[#1877F2] to-[#0D5DBF] rounded-xl flex items-center justify-center">
                   <Waves className="w-5 h-5 text-white" />
                 </div>
-                <span className="text-xl tracking-tight text-gray-900 whitespace-nowrap">
-                  MARINE<span className="font-light"> DIGITAL 360</span>
-                </span>
+                <BrandWordmark className="text-xl tracking-tight text-gray-900 whitespace-nowrap" />
               </div>
               <p className="text-sm text-gray-500 leading-relaxed">
                 Full-spectrum marine digital agency. Strategy, design, and growth for the marine industry.
@@ -465,7 +464,7 @@ export function Contact() {
               © 2026 {SITE_CONFIG.name}. {SITE_CONFIG.company.slogan}.
             </p>
             <p className="text-sm text-gray-400">
-              Philadelphia, Pennsylvania
+              New Orleans, Louisiana
             </p>
           </div>
         </motion.footer>

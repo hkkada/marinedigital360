@@ -13,6 +13,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { getVisibleServices } from '@/lib/services';
+import { BrandWordmark } from '@/components/BrandWordmark';
 
 interface MobileNavProps {
   isScrolled: boolean;
@@ -40,7 +41,7 @@ export function MobileNav({ isScrolled }: MobileNavProps) {
       <SheetContent side="right" className="w-[85vw] max-w-[320px]">
         <SheetHeader>
           <SheetTitle className="text-xl">
-            MARINE<span className="font-light"> DIGITAL 360</span>
+            <BrandWordmark />
           </SheetTitle>
         </SheetHeader>
 

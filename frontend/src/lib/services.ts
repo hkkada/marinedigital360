@@ -98,7 +98,7 @@ const allServices: ServiceData[] = [
     slug: 'web-design',
     title: 'Web Design & Development',
     iconName: 'Monitor',
-    tagline: 'Websites that move vessels',
+    tagline: 'Fast, mobile-first sites built to convert boat buyers',
     description:
       'Custom marine websites with mobile-first responsive design, conversion-focused UX, and high-performance optimization.',
     schemaDescription:

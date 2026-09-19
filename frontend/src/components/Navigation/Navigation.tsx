@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { DesktopNav } from './DesktopNav';
 import { MobileNav } from './MobileNav';
 import { springs } from '@/lib/animations';
+import { BrandWordmark } from '@/components/BrandWordmark';
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -43,11 +44,11 @@ export function Navigation() {
               transition={springs.smooth}
               className="flex items-center gap-3"
             >
-              <span className={`text-2xl tracking-tight transition-colors duration-300 whitespace-nowrap ${
-                isScrolled ? 'text-gray-900' : 'text-white'
-              }`}>
-                MARINE<span className="font-light"> DIGITAL 360</span>
-              </span>
+              <BrandWordmark
+                className={`text-2xl tracking-tight transition-colors duration-300 whitespace-nowrap ${
+                  isScrolled ? 'text-gray-900' : 'text-white'
+                }`}
+              />
             </motion.span>
           </Link>
 

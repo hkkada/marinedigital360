@@ -15,9 +15,9 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
   const href = service.isVisible ? `/services/${service.slug}` : '/#services';
 
   return (
-    <Link href={href}>
+    <Link href={href} className="h-full">
       <motion.div
-        className="p-5 border border-gray-200 rounded-xl bg-white hover:border-blue-500 hover:-translate-y-1 hover:shadow-lg transition-all duration-200"
+        className="h-full flex flex-col p-4 sm:p-5 border border-gray-200 rounded-xl bg-white hover:border-blue-500 hover:-translate-y-1 hover:shadow-lg transition-all duration-200"
         variants={{
           hidden: { opacity: 0, y: 10 },
           visible: {
@@ -34,7 +34,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
         <h3 className="text-base font-semibold text-gray-900 mb-1">
           {service.title}
         </h3>
-        <p className="text-sm text-gray-600 line-clamp-2">
+        <p className="text-sm text-gray-600 line-clamp-2 sm:min-h-[2.5rem]">
           {service.tagline}
         </p>
       </motion.div>
