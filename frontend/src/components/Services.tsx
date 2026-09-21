@@ -8,7 +8,9 @@ import { durations, sectionTiming } from '@/lib/animations';
 import { ArrowRight } from 'lucide-react';
 import { getIcon } from '@/lib/icon-map';
 import { getServicesByGroup } from '@/lib/service-groups';
+import { getServiceHref } from '@/lib/services';
 import { Card, CardTitle, CardBody, IconBox } from '@/components/shared';
+import { SITE_CONFIG } from '@/lib/constants';
 
 // Groups (and their membership) are entirely data-driven — see
 // `getServicesByGroup()` in `lib/service-groups.ts`. This component never
@@ -83,21 +85,38 @@ export function Services() {
                   transition={{ duration: sectionTiming.services.headerDuration, delay: 0.15 }}
                   className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed mb-5 sm:mb-6"
                 >
-                  Full-spectrum marine digital services. From strategic positioning
-                  to breathtaking execution—we deliver results that move millions.
+                  We are here to deliver comprehensive digital marketing services with no long-term commitments. 
+                  From strategic positioning to instant execution—we deliver results that move millions.
                 </motion.p>
 
-                <motion.p
+                <motion.ul
                   initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: sectionTiming.services.headerDuration, delay: 0.2 }}
-                  className="text-lg md:text-xl text-gray-500 leading-relaxed"
+                  className="space-y-4 text-lg md:text-xl text-gray-500 leading-relaxed"
                 >
-                  Each engagement is scoped as a package with defined deliverables,
-                  so you know what lands and when. Services combine across groups —
-                  a launch pairs productization with paid acquisition; a rebuild pairs
-                  web design with search.
-                </motion.p>
+                  <li className="flex gap-4">
+                    <span
+                      aria-hidden="true"
+                      className="mt-[0.7em] h-1.5 w-1.5 shrink-0 rounded-full bg-[#1877F2]"
+                    />
+                    <span>
+                      {SITE_CONFIG.name} is a specialized digital marketing agency that
+                      transforms businesses by providing the jump start your market requires.&nbsp;
+                      {SITE_CONFIG.abv} Marketing focuses on startup to Enterprise businesses.
+                    </span>
+                  </li>
+                  <li className="flex gap-4">
+                    <span
+                      aria-hidden="true"
+                      className="mt-[0.7em] h-1.5 w-1.5 shrink-0 rounded-full bg-[#1877F2]"
+                    />
+                    <span>
+                      Our team is made up of AI engineers and experienced marketing professionals
+                      poised to bring your company to the new horizons.
+                    </span>
+                  </li>
+                </motion.ul>
               </div>
             </div>
           </motion.div>
@@ -139,7 +158,7 @@ export function Services() {
                             transition={{ duration: sectionTiming.services.cardDuration, delay: sectionTiming.services.cardStagger(index) }}
                             className="group"
                           >
-                            <Link href={`/services/${service.slug}`} className="block h-full">
+                            <Link href={getServiceHref(service)} className="block h-full">
                               <Card variant="solid" size="lg" className="h-full">
                                 <IconBox icon={Icon} className="mb-4 sm:mb-5" />
 
@@ -211,12 +230,35 @@ export function Services() {
               }}
             />
 
-            <div className="relative z-10 text-center">
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 md:mb-5">
-                Ready to make waves?
+            <div className="relative z-10 max-w-3xl">
+              <div className="flex items-center gap-4 mb-5 sm:mb-6">
+                <div className="h-px w-16 bg-gradient-to-r from-[#42A5F5] to-transparent" />
+                <span className="text-sm tracking-[0.3em] uppercase text-[#42A5F5]">
+                  Who We Are
+                </span>
+              </div>
+
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-[1.05] mb-block">
+                We don&apos;t just market &mdash;
+                <br />
+                <span className="bg-gradient-to-r from-[#42A5F5] via-[#90CAF9] to-[#42A5F5] bg-clip-text text-transparent">
+                  we productize
+                </span>
               </h3>
-              <p className="text-lg sm:text-xl text-gray-400 mb-7 md:mb-8 max-w-2xl mx-auto">
-                Let's create a digital experience that dominates your market
+
+              <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-5 sm:mb-6">
+                {SITE_CONFIG.name} is a specialized marine commercialization agency for boat
+                manufacturers, marine technology companies, dealers, and charter operators. We take
+                what your business already does and transform it into a fully packaged, sellable
+                product &mdash; complete with naming, pricing, positioning, and AI-powered sales
+                systems &mdash; so you can go to market faster and generate more revenue.
+              </p>
+
+              <p className="text-base md:text-lg text-gray-400 leading-relaxed mb-7 md:mb-8">
+                Most marine marketing agencies run campaigns for what you already sell. We build the
+                product itself &mdash; pairing deep marine industry expertise with an AI-powered
+                process that delivers finished, revenue-ready systems in weeks, not months &mdash;
+                so you leave with something ready to sell, not just a plan.
               </p>
               <motion.a
                 href="#contact"

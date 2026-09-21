@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
-import { getVisibleServices } from '@/lib/services';
+import { getVisibleServices, getServiceHref } from '@/lib/services';
 import { BrandWordmark } from '@/components/BrandWordmark';
 
 interface MobileNavProps {
@@ -56,21 +56,12 @@ export function MobileNav({ isScrolled }: MobileNavProps) {
               {services.map((service) => (
                 <div key={service.slug}>
                   <Link
-                    href={`/services/${service.slug}`}
+                    href={getServiceHref(service)}
                     onClick={() => setOpen(false)}
                     className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
                   >
                     {service.title}
                   </Link>
-                  {service.slug === 'ppc' && (
-                    <Link
-                      href="/services/ppc#ppc-management"
-                      onClick={() => setOpen(false)}
-                      className="block py-2 px-4 ml-3 text-sm text-gray-500 hover:bg-gray-100 rounded-lg transition-colors"
-                    >
-                      PPC Management
-                    </Link>
-                  )}
                 </div>
               ))}
             </CollapsibleContent>

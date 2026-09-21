@@ -5,7 +5,7 @@ import { useInView } from 'motion/react';
 import { useRef } from 'react';
 import Link from 'next/link';
 import { getIcon } from '@/lib/icon-map';
-import { getVisibleServices } from '@/lib/services';
+import { getVisibleServices, getServiceHref } from '@/lib/services';
 import { Card, IconBox } from '@/components/shared';
 
 interface RelatedServicesProps {
@@ -16,8 +16,10 @@ export function RelatedServices({ currentSlug }: RelatedServicesProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
+  // Excludes the current service and anything that only links to a section of
+  // this same page (e.g. PPC → /services/ppc#ppc-management).
   const otherServices = getVisibleServices().filter(
-    (s) => s.slug !== currentSlug
+    (s) => s.slug !== currentSlug && !getServiceHref(s).startsWith(`/services/${currentSlug}#`)
   );
 
   return (
@@ -57,7 +59,7 @@ export function RelatedServices({ currentSlug }: RelatedServicesProps) {
               >
                 <Card variant="light" size="none" className="h-full">
                   <Link
-                    href={`/services/${service.slug}`}
+                    href={getServiceHref(service)}
                     className="group block h-full p-6"
                   >
                     {/* Icon */}

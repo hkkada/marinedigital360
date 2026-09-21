@@ -14,7 +14,7 @@ interface ContentBlockProps {
  * definitional / "what this service actually is" copy, and the only one that
  * takes an anchor id and feeds `ServiceSubNav`.
  *
- * Layout follows the site's shipped prose-band pattern (`components/Intro.tsx`):
+ * Layout follows the site's shipped prose-band pattern:
  * the full `max-w-[1600px]` section container with the reading column
  * constrained to `max-w-3xl` *inside* it and left-aligned — not a centered
  * `max-w-3xl` container. That distinction is what keeps this block's left edge
@@ -79,7 +79,7 @@ export function ContentBlock({ data }: ContentBlockProps) {
                 transition={{ duration: 0.5, delay: 0.15 + index * 0.05 }}
                 // The opening paragraph carries the definition and reads as the
                 // lead; the rest are supporting detail. Same two-tier prose
-                // treatment as `Intro.tsx`, which is what stops a multi-paragraph
+                // treatment as the who-we-are block in `Services.tsx`, which stops a multi-paragraph
                 // block from rendering as one flat wall of identical text.
                 className={
                   index === 0

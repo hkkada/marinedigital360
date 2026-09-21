@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Check, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import { getImageSrc } from '@/lib/image-map';
 import { sectionTiming } from '@/lib/animations';
 
@@ -116,8 +116,21 @@ export function Hero() {
             <p
               className="text-xl md:text-2xl text-white/80 mb-12 max-w-2xl leading-relaxed font-light drop-shadow(0 2px 8px rgba(0,0,0,0.5)) hero-animate hero-animate-delay-3 text-center sm:text-left mx-auto sm:mx-0"
             >
-              We ignite growth through visibility for the world's best manufactures and marine businesses.
+              We ignite growth through visibility for the world's best businesses.
             </p>
+
+            {/* Quick proof points, directly above the CTAs */}
+            <ul className="flex flex-wrap gap-x-8 gap-y-3 mb-8 hero-animate hero-animate-delay-4 justify-center sm:justify-start">
+              {['Instant bookings', 'No delays'].map((point) => (
+                <li
+                  key={point}
+                  className="flex items-center gap-2 text-white/90 text-sm md:text-base tracking-wide drop-shadow(0 2px 8px rgba(0,0,0,0.5))"
+                >
+                  <Check className="w-4 h-4 shrink-0 text-white" aria-hidden="true" />
+                  {point}
+                </li>
+              ))}
+            </ul>
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-6 hero-animate hero-animate-delay-4 items-center sm:items-start">

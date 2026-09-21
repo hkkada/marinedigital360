@@ -14,6 +14,7 @@
 
 const PART_1 = process.env.NEXT_PUBLIC_BRAND_NAME_PART_1?.trim() || 'Marine';
 const PART_2 = process.env.NEXT_PUBLIC_BRAND_NAME_PART_2?.trim() || 'Digital 360';
+const ABV = process.env.NEXT_PUBLIC_BRAND_NAME_ABV?.trim();
 
 /** "Marine Digital 360" — spaced, human-readable form. */
 const FULL_NAME = `${PART_1} ${PART_2}`;
@@ -31,4 +32,5 @@ export const BRAND = {
   compact: COMPACT_NAME,
   slug: SLUG,
   legalName: `${COMPACT_NAME} LLC`,
+  abbreviation: ABV,
 } as const;

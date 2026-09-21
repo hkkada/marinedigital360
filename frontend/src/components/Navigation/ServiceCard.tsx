@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ServiceData } from '@/lib/services';
+import { ServiceData, getServiceHref } from '@/lib/services';
 import * as LucideIcons from 'lucide-react';
 import { Card, CardTitle, CardBody, IconBox } from '@/components/shared';
 
@@ -12,7 +12,7 @@ interface ServiceCardProps {
 
 export function ServiceCard({ service, index }: ServiceCardProps) {
   const Icon = LucideIcons[service.iconName as keyof typeof LucideIcons] as React.FC<{ className?: string }>;
-  const href = service.isVisible ? `/services/${service.slug}` : '/#services';
+  const href = service.isVisible ? getServiceHref(service) : '/#services';
 
   // flex-1 (not h-full) so a sibling child link can share the grid cell
   // without the card pushing it out of the menu.

@@ -14,6 +14,12 @@ export interface ServiceData {
   serviceType: string;
   group: ServiceGroupId;
   isVisible?: boolean;
+  /**
+   * Where the service links to. Defaults to `/services/<slug>` via
+   * `getServiceHref()`. Set it when a service is a section of another
+   * service's page rather than a page of its own.
+   */
+  href?: string;
 }
 
 const allServices: ServiceData[] = [
@@ -109,6 +115,22 @@ const allServices: ServiceData[] = [
     isVisible: true,
   },
   {
+    // Lives as a section of the Paid Ads page (`#ppc-management`), so it has
+    // an explicit `href` and no entry in `lib/service-pages`.
+    slug: 'ppc-management',
+    title: 'PPC',
+    iconName: 'Target',
+    tagline: 'Campaigns managed daily, not set and forgotten',
+    description:
+      'Ongoing PPC strategy, campaign management, bid and budget optimization, and conversion tracking across Google, Bing, and social.',
+    schemaDescription:
+      'Ongoing PPC management for marine businesses including PPC strategy and planning, day-to-day campaign management across Google Ads, Bing Ads, and social platforms, shopping and remarketing campaigns, landing page optimization, bid and budget optimization, and conversion tracking.',
+    serviceType: 'PPC Management',
+    group: 'advertising',
+    isVisible: true,
+    href: '/services/ppc#ppc-management',
+  },
+  {
     slug: 'web-design',
     title: 'Web Design & Development',
     iconName: 'Monitor',
@@ -155,6 +177,11 @@ export function getServices(): ServiceData[] {
 
 export function getVisibleServices(): ServiceData[] {
   return allServices.filter((s) => s.isVisible);
+}
+
+/** Canonical link target for a service card anywhere in the UI. */
+export function getServiceHref(service: ServiceData): string {
+  return service.href ?? `/services/${service.slug}`;
 }
 
 export function getServiceBySlug(slug: string): ServiceData | undefined {

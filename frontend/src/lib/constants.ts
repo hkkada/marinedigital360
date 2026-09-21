@@ -10,6 +10,7 @@ export const FROM_EMAIL = 'notifications@marinedigital360.com';
 export const SITE_CONFIG = {
   name: BRAND.name,
   sld: BRAND.slug,
+  abv: BRAND.abbreviation,
   title: `${BRAND.compact} — Marine Marketing Agency | Productization, SEO & Sales Enablement`,
   description:
     `${BRAND.compact} is a specialized marine marketing agency that transforms boat manufacturer, dealer, and marine technology capabilities into market-ready products through productization, sales enablement, SEO, and AI-powered digital marketing.`,

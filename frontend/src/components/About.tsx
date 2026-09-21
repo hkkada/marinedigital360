@@ -93,9 +93,7 @@ export function About() {
                 transition={{ duration: sectionTiming.about.headerDuration, delay: 0.2 }}
                 className="text-xl text-gray-500 leading-relaxed mb-4"
               >
-                Our approach combines deep industry
-                knowledge with cutting-edge digital strategy to create experiences that
-                captivate and convert.
+                Our approach combines deep industry knowledge with cutting-edge digital strategy to create experiences that captivate and convert.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
@@ -103,10 +101,14 @@ export function About() {
                 transition={{ duration: sectionTiming.about.headerDuration, delay: 0.25 }}
                 className="text-xl text-gray-500 leading-relaxed"
               >
-                Based in {SITE_CONFIG.company.address.city}, {SITE_CONFIG.company.address.stateName}, {SITE_CONFIG.name} is the only
+                {/* Based in {SITE_CONFIG.company.address.city}, {SITE_CONFIG.company.address.stateName}, {SITE_CONFIG.name} is the only
                 marine-focused commercialization agency that combines productization,
                 sales enablement, and AI-powered marketing to drive revenue for marine
-                businesses across the Mid-Atlantic and Southeast United States.
+                businesses across the Mid-Atlantic and Southeast United States. */}
+  
+                Based in {SITE_CONFIG.company.address.city}, {SITE_CONFIG.company.address.stateName}, {SITE_CONFIG.name} focus combines digital visibility, sales enablement, and AI-powered marketing to drive revenue for businesses across the Sun belt cities in the United States. 
+                <br></br>
+                Our capabilities range from productization and brand strategy to SEO, sales enablement, and AI-powered search & marketing.
               </motion.p>
             </div>
           </div>
