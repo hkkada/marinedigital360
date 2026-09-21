@@ -30,7 +30,7 @@ export const SERVICE_GROUPS: ServiceGroup[] = [
     label: 'Sales',
     tagline: 'Turn capabilities into market-ready products',
     description:
-      'Productization, go-to-market strategy, and sales enablement assets that package marine business capabilities into named, priced, sellable products — plus the pitch decks, playbooks, and battle cards that get them sold.',
+      'Productization, go-to-market strategy, and sales enablement assets that package business capabilities into named, priced, sellable products — plus the pitch decks, playbooks, and battle cards that get them sold.',
     iconName: 'Presentation',
     order: 1,
   },
@@ -39,7 +39,7 @@ export const SERVICE_GROUPS: ServiceGroup[] = [
     label: 'Administration',
     tagline: 'Build scalable revenue systems',
     description:
-      'CRM configuration, AI-powered outreach sequences, lead scoring, and pipeline management that keep marine sales operations running and revenue forecasting accurate.',
+      'CRM configuration, AI-powered outreach sequences, lead scoring, and pipeline management that keep sales operations running and revenue forecasting accurate.',
     iconName: 'Workflow',
     order: 2,
   },
@@ -48,7 +48,7 @@ export const SERVICE_GROUPS: ServiceGroup[] = [
     label: 'Marketing',
     tagline: 'Get found, get cited, get chosen',
     description:
-      'SEO, GEO/AEO, marketing strategy, web design, and affiliate programs that grow organic visibility, AI search citations, and qualified traffic for marine businesses.',
+      'SEO, GEO/AEO, marketing strategy, web design, and affiliate programs that grow organic visibility, AI search citations, and qualified traffic for businesses.',
     iconName: 'Search',
     order: 3,
   },
@@ -57,7 +57,7 @@ export const SERVICE_GROUPS: ServiceGroup[] = [
     label: 'Advertising',
     tagline: 'Every dollar tracked. Every click optimized.',
     description:
-      'Strategic paid advertising across Google, Bing, and social platforms with bid optimization and ROAS tracking for marine businesses.',
+      'Strategic paid advertising across Google, Bing, and social platforms with bid optimization and ROAS tracking for businesses.',
     iconName: 'MousePointerClick',
     order: 4,
   },

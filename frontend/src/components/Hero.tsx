@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import { Check, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronDown, ChevronLeft, ChevronRight, Gauge, Zap } from 'lucide-react';
 import { getImageSrc } from '@/lib/image-map';
 import { sectionTiming } from '@/lib/animations';
 
@@ -12,6 +12,13 @@ const SLIDES = [
 ] as const;
 
 const SWIPE_THRESHOLD = 50;
+
+// Proof points shown between the hero copy and the CTAs. Distinct icons rather
+// than two identical checkmarks so each claim reads on its own.
+const PROOF_POINTS = [
+  { label: 'Instant bookings', Icon: Zap },
+  { label: 'No delays', Icon: Gauge },
+] as const;
 
 export function Hero() {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
@@ -119,16 +126,62 @@ export function Hero() {
               We ignite growth through visibility for the world's best businesses.
             </p>
 
-            {/* Quick proof points, directly above the CTAs */}
-            <ul className="flex flex-wrap gap-x-8 gap-y-3 mb-8 hero-animate hero-animate-delay-4 justify-center sm:justify-start">
-              {['Instant bookings', 'No delays'].map((point) => (
-                <li
-                  key={point}
-                  className="flex items-center gap-2 text-white/90 text-sm md:text-base tracking-wide drop-shadow(0 2px 8px rgba(0,0,0,0.5))"
+            {/* Quick proof points, directly above the CTAs. Gradient-edged glass
+                pills rather than plain text: the video behind them is too busy
+                for low-contrast body copy, and the live pulse on each icon is
+                what sells "instant" before the words are even read. Each pill
+                carries its own entrance so they arrive in sequence. */}
+            <ul className="flex flex-col gap-3.5 mb-10 items-center sm:items-start">
+              {PROOF_POINTS.map(({ label, Icon }, i) => (
+                <motion.li
+                  key={label}
+                  initial={prefersReducedMotion ? false : { opacity: 0, x: -24, filter: 'blur(6px)' }}
+                  animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+                  transition={{ delay: 0.45 + i * 0.14, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                  whileHover={{ x: 6 }}
+                  className="group relative rounded-full p-px bg-gradient-to-r from-[#1877F2]/80 via-white/25 to-white/5 shadow-lg shadow-black/25 transition-shadow hover:shadow-[#1877F2]/30"
                 >
-                  <Check className="w-4 h-4 shrink-0 text-white" aria-hidden="true" />
-                  {point}
-                </li>
+                  <div className="relative flex items-center gap-3 rounded-full bg-black/40 backdrop-blur-xl pl-2 pr-6 py-2 overflow-hidden">
+                    {/* Light sweep — a slow, occasional shine across the glass */}
+                    <motion.span
+                      aria-hidden="true"
+                      className="absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none"
+                      animate={prefersReducedMotion ? undefined : { x: ['-150%', '400%'] }}
+                      transition={{
+                        duration: 2.2,
+                        repeat: Infinity,
+                        repeatDelay: 5,
+                        delay: 1.6 + i * 0.4,
+                        ease: 'easeInOut',
+                      }}
+                    />
+
+                    <span className="relative flex items-center justify-center w-7 h-7 shrink-0">
+                      {/* Pulsing halo behind the icon */}
+                      <motion.span
+                        aria-hidden="true"
+                        className="absolute inset-0 rounded-full bg-[#1877F2]"
+                        animate={
+                          prefersReducedMotion ? { opacity: 0 } : { scale: [1, 1.9], opacity: [0.55, 0] }
+                        }
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          repeatDelay: 0.6,
+                          delay: i * 0.5,
+                          ease: 'easeOut',
+                        }}
+                      />
+                      <span className="relative flex items-center justify-center w-7 h-7 rounded-full bg-gradient-to-br from-[#42A5F5] to-[#1877F2] ring-1 ring-white/30">
+                        <Icon className="w-3.5 h-3.5 text-white" strokeWidth={2.5} aria-hidden="true" />
+                      </span>
+                    </span>
+
+                    <span className="relative text-white text-sm md:text-base font-medium tracking-wide whitespace-nowrap">
+                      {label}
+                    </span>
+                  </div>
+                </motion.li>
               ))}
             </ul>
 

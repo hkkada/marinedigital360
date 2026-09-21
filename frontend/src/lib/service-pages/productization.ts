@@ -8,15 +8,15 @@ export const productizationPage: ServicePageData = {
   metadata: {
     title: 'Marine Productization Services — Transform Capabilities into Products',
     description:
-      `${SITE_CONFIG.name} productization services transform marine business capabilities into fully packaged, market-ready products with naming, pricing, positioning, and sales enablement.`,
+      `${SITE_CONFIG.name} productization services transform business capabilities into fully packaged, market-ready products with naming, pricing, positioning, and sales enablement.`,
     keywords: [
-      'marine productization',
-      'marine product development',
+      'productization',
+      'product development',
       'boat manufacturer productization',
-      'marine service packaging',
-      'marine product naming',
-      'marine pricing strategy',
-      'marine competitive positioning',
+      'service packaging',
+      'product naming',
+      'pricing strategy',
+      'competitive positioning',
     ],
   },
   sections: [
@@ -26,7 +26,7 @@ export const productizationPage: ServicePageData = {
         tagline: 'Productization Services',
         headline: 'Transform capabilities into market-ready products',
         description:
-          'Stop selling hours. Start selling outcomes. We package your marine expertise into named, priced, and positioned products that sell themselves — shortening sales cycles and increasing deal size.',
+          'Stop selling hours. Start selling outcomes. We package your expertise into named, priced, and positioned products that sell themselves — shortening sales cycles and increasing deal size.',
         ctaText: 'Start Your Productization',
         ctaHref: '#contact',
         imageKey: 'serviceHero.productization',
@@ -35,7 +35,7 @@ export const productizationPage: ServicePageData = {
     {
       type: 'service-overview',
       data: {
-        headline: 'What is marine productization?',
+        headline: 'What is productization?',
         description:
           'Marine productization is the process of transforming your business capabilities — custom services, expertise, and know-how — into clearly defined, repeatable products with distinct names, pricing tiers, and market positioning. Instead of custom-quoting every engagement, you offer packaged solutions that buyers can evaluate, compare, and purchase with confidence.',
         cards: [
@@ -43,7 +43,7 @@ export const productizationPage: ServicePageData = {
             iconName: 'Tag',
             title: 'Product Naming & Identity',
             description:
-              'Memorable, market-tested product names with brand messaging that resonates with marine buyers.',
+              'Memorable, market-tested product names with brand messaging that resonates with buyers.',
           },
           {
             iconName: 'DollarSign',
@@ -71,7 +71,7 @@ export const productizationPage: ServicePageData = {
       data: {
         headline: 'From vague capabilities to clear products',
         description:
-          'See the transformation that productization delivers for marine businesses.',
+          'See the transformation that productization delivers for businesses.',
         before: {
           label: 'Before Productization',
           items: [
@@ -141,7 +141,7 @@ export const productizationPage: ServicePageData = {
       data: {
         headline: 'Who is productization for?',
         description:
-          'Productization works for marine businesses that have proven expertise but struggle to package and sell it consistently.',
+          'Productization works for businesses that have proven expertise but struggle to package and sell it consistently.',
         segments: [
           {
             iconName: 'Ship',
@@ -233,7 +233,7 @@ export const productizationPage: ServicePageData = {
       type: 'service-faq',
       data: {
         headline: 'Productization FAQ',
-        description: 'Common questions about our marine productization services.',
+        description: 'Common questions about our productization services.',
         items: [
           {
             question: 'What is the difference between productization and packaging?',
@@ -251,9 +251,9 @@ export const productizationPage: ServicePageData = {
               'No. Productization creates a standard offering that handles 70–80% of your market. You can still offer custom engagements for unique requirements, but the productized offerings become your lead generation and qualification engine.',
           },
           {
-            question: 'How many products should my marine business have?',
+            question: 'How many products should my business have?',
             answer:
-              'Most marine businesses benefit from 3–5 core products. Fewer than 3 limits your market coverage; more than 5 creates decision paralysis for buyers. We help you find the right number based on your capabilities and market segments.',
+              'Most businesses benefit from 3–5 core products. Fewer than 3 limits your market coverage; more than 5 creates decision paralysis for buyers. We help you find the right number based on your capabilities and market segments.',
           },
           {
             question: 'What ROI can I expect from productization?',
@@ -263,7 +263,7 @@ export const productizationPage: ServicePageData = {
           {
             question: 'Can you productize services that involve significant customization?',
             answer:
-              'Yes. The key is identifying the repeatable core (80% of the work that is similar across clients) and packaging that, while keeping a defined customization layer. Many marine tech companies and boat manufacturers operate this way — standard base product with configurable options.',
+              'Yes. The key is identifying the repeatable core (80% of the work that is similar across clients) and packaging that, while keeping a defined customization layer. Many tech companies and boat manufacturers operate this way — standard base product with configurable options.',
           },
         ],
       },
@@ -271,7 +271,7 @@ export const productizationPage: ServicePageData = {
     {
       type: 'service-cta',
       data: {
-        headline: 'Ready to productize your marine business?',
+        headline: 'Ready to productize your business?',
         description:
           'Stop custom-quoting every deal. Let us transform your capabilities into products that sell themselves.',
         ctaText: 'Start Your Productization',

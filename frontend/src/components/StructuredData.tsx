@@ -42,7 +42,7 @@ const localBusinessSchema = {
   '@id': `${SITE_CONFIG.url}/#localbusiness`,
   name: SITE_CONFIG.name,
   description:
-    'Specialized marine marketing agency offering productization, sales enablement, SEO, GEO, and AI-powered digital marketing for boat manufacturers, dealers, and marine technology companies.',
+    'Specialized marketing agency offering productization, sales enablement, SEO, GEO, and AI-powered digital marketing for boat manufacturers, dealers, and technology companies.',
   url: SITE_CONFIG.url,
   address: {
     '@type': 'PostalAddress',
@@ -101,24 +101,24 @@ const breadcrumbSchema = {
 
 export const faqData = [
   {
-    question: 'What does a marine marketing agency do?',
+    question: 'What does a marketing agency do?',
     answer:
-      `A marine marketing agency specializes in marketing services for the boating and marine industry. ${SITE_CONFIG.name} goes beyond traditional marketing by offering productization, sales enablement, SEO, GEO optimization, and AI-powered digital marketing specifically for boat manufacturers, marine technology companies, dealers, and charter operators.`,
+      `A marketing agency specializes in marketing services for the boating and industry. ${SITE_CONFIG.name} goes beyond traditional marketing by offering productization, sales enablement, SEO, GEO optimization, and AI-powered digital marketing specifically for boat manufacturers, technology companies, dealers, and charter operators.`,
   },
   {
-    question: 'What is marine productization?',
+    question: 'What is productization?',
     answer:
-      `Marine productization is the process of transforming a marine business's capabilities and services into fully packaged, market-ready products with defined naming, pricing, positioning, and differentiation. ${SITE_CONFIG.name} delivers finished products — not just plans — so clients can sell immediately upon delivery.`,
+      `Marine productization is the process of transforming a business's capabilities and services into fully packaged, market-ready products with defined naming, pricing, positioning, and differentiation. ${SITE_CONFIG.name} delivers finished products — not just plans — so clients can sell immediately upon delivery.`,
   },
   {
-    question: 'How much does marine marketing cost?',
+    question: 'How much does marketing cost?',
     answer:
       `Marine marketing costs vary based on scope and services. ${SITE_CONFIG.name} offers scalable packages from startup to enterprise, with project-based, retainer, and hybrid pricing models. Services range from single landing pages to full-service enterprise engagements including productization, sales enablement, and ongoing revenue optimization.`,
   },
   {
-    question: 'What is the difference between a marine marketing agency and a general marketing agency?',
+    question: 'What is the difference between a marketing agency and a general marketing agency?',
     answer:
-      `A marine marketing agency has deep expertise in the boating industry — understanding boat manufacturers, dealers, marine technology, and the high-net-worth buyer journey. ${SITE_CONFIG.name} combines marine industry specialization with productization and AI-powered acceleration, delivering results 3-5x faster than general agencies unfamiliar with the marine market,`
+      `A marketing agency has deep expertise in the boating industry — understanding boat manufacturers, dealers, technology, and the high-net-worth buyer journey. ${SITE_CONFIG.name} combines industry specialization with productization and AI-powered acceleration, delivering results 3-5x faster than general agencies unfamiliar with the market,`
   },
   {
     question: 'How can I improve my boat dealership\'s online presence?',
@@ -126,9 +126,9 @@ export const faqData = [
       `Improving a boat dealership's online presence requires local SEO, Google Business Profile optimization, inventory marketing, and conversion-focused web design. ${SITE_CONFIG.name} provides marine-specific SEO, GEO optimization for AI search results, and digital systems that generate leads automatically for boat dealers.`,
   },
   {
-    question: 'What is GEO optimization for marine businesses?',
+    question: 'What is GEO optimization for businesses?',
     answer:
-      `GEO (Generative Engine Optimization) ensures your marine business appears in AI-generated search results from platforms like ChatGPT, Perplexity, and Google AI Overviews. ${SITE_CONFIG.name} optimizes content structure, schema markup, and entity signals so marine businesses are cited as authoritative sources by AI systems.`,
+      `GEO (Generative Engine Optimization) ensures your business appears in AI-generated search results from platforms like ChatGPT, Perplexity, and Google AI Overviews. ${SITE_CONFIG.name} optimizes content structure, schema markup, and entity signals so businesses are cited as authoritative sources by AI systems.`,
   },
 ];
 

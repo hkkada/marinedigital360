@@ -8,15 +8,15 @@ export const affiliatePage: ServicePageData = {
   metadata: {
     title: 'Marine Affiliate Marketing — Build Performance-Based Partner Networks',
     description:
-      `${SITE_CONFIG.name} builds and manages affiliate marketing programs for marine businesses — partner recruitment, commission design, platform setup, and performance-based revenue growth.`,
+      `${SITE_CONFIG.name} builds and manages affiliate marketing programs for businesses — partner recruitment, commission design, platform setup, and performance-based revenue growth.`,
     keywords: [
-      'marine affiliate marketing',
-      'marine affiliate program',
+      'affiliate marketing',
+      'affiliate program',
       'boat affiliate program',
-      'marine partner network',
-      'marine influencer marketing',
-      'performance-based marine marketing',
-      'marine e-commerce affiliate',
+      'partner network',
+      'influencer marketing',
+      'performance-based marketing',
+      'e-commerce affiliate',
     ],
   },
   sections: [
@@ -35,9 +35,9 @@ export const affiliatePage: ServicePageData = {
     {
       type: 'service-overview',
       data: {
-        headline: 'What is marine affiliate marketing?',
+        headline: 'What is affiliate marketing?',
         description:
-          `Marine affiliate marketing is a performance-based strategy where partners (affiliates) promote your marine products or services and earn commissions on resulting sales or leads. Unlike traditional advertising where you pay upfront, affiliate marketing means you only pay for actual results. \n ${SITE_CONFIG.name} builds, manages, and scales affiliate programs for marine e-commerce retailers, boat accessory brands, fishing gear companies, and marine service providers.`,
+          `Marine affiliate marketing is a performance-based strategy where partners (affiliates) promote your products or services and earn commissions on resulting sales or leads. Unlike traditional advertising where you pay upfront, affiliate marketing means you only pay for actual results. \n ${SITE_CONFIG.name} builds, manages, and scales affiliate programs for e-commerce retailers, boat accessory brands, fishing gear companies, and service providers.`,
         cards: [
           {
             iconName: 'Network',
@@ -49,7 +49,7 @@ export const affiliatePage: ServicePageData = {
             iconName: 'UserPlus',
             title: 'Partner Recruitment',
             description:
-              'Targeted recruitment of marine bloggers, fishing influencers, boating YouTubers, and industry publications.',
+              'Targeted recruitment of bloggers, fishing influencers, boating YouTubers, and industry publications.',
           },
           {
             iconName: 'DollarSign',
@@ -86,7 +86,7 @@ export const affiliatePage: ServicePageData = {
           {
             iconName: 'UserPlus',
             title: 'Partner Recruitment Plan',
-            description: 'Targeted outreach strategy with identified prospects — marine bloggers, influencers, publications, and reviewers.',
+            description: 'Targeted outreach strategy with identified prospects — bloggers, influencers, publications, and reviewers.',
           },
           {
             iconName: 'DollarSign',
@@ -121,17 +121,17 @@ export const affiliatePage: ServicePageData = {
       data: {
         headline: 'Building your partner ecosystem',
         description:
-          'We recruit and manage partners across the marine industry — from niche fishing bloggers to major marine publications.',
+          'We recruit and manage partners across the industry — from niche fishing bloggers to major publications.',
         partnerTypes: [
           {
             iconName: 'PenTool',
             title: 'Marine Content Creators',
-            description: 'Boating bloggers, fishing journalists, and marine lifestyle writers with engaged audiences.',
+            description: 'Boating bloggers, fishing journalists, and lifestyle writers with engaged audiences.',
           },
           {
             iconName: 'Video',
             title: 'Boating YouTubers & Influencers',
-            description: 'Video creators covering boat reviews, fishing trips, sailing, and marine product unboxings.',
+            description: 'Video creators covering boat reviews, fishing trips, sailing, and product unboxings.',
           },
           {
             iconName: 'Newspaper',
@@ -141,7 +141,7 @@ export const affiliatePage: ServicePageData = {
           {
             iconName: 'Star',
             title: 'Review & Comparison Sites',
-            description: 'Product review sites, comparison platforms, and buying guide publishers in the marine niche.',
+            description: 'Product review sites, comparison platforms, and buying guide publishers in the niche.',
           },
           {
             iconName: 'Users',
@@ -167,13 +167,13 @@ export const affiliatePage: ServicePageData = {
       data: {
         headline: 'Who is affiliate marketing for?',
         description:
-          'Affiliate marketing works best for marine businesses with products that can be promoted, reviewed, and sold through partner channels.',
+          'Affiliate marketing works best for businesses with products that can be promoted, reviewed, and sold through partner channels.',
         segments: [
           {
             iconName: 'ShoppingCart',
             title: 'Marine E-Commerce',
             description:
-              'Online stores selling boat parts, marine electronics, fishing tackle, safety gear, and accessories.',
+              'Online stores selling boat parts, electronics, fishing tackle, safety gear, and accessories.',
             benefits: [
               'Performance-based — pay only for sales',
               'Leverage product review content',
@@ -184,7 +184,7 @@ export const affiliatePage: ServicePageData = {
             iconName: 'Package',
             title: 'Marine Product Brands',
             description:
-              'Manufacturers of marine electronics, outboard engines, boat covers, marine paint, and accessories.',
+              'Manufacturers of electronics, outboard engines, boat covers, paint, and accessories.',
             benefits: [
               'Reach new audiences through influencers',
               'Build product awareness at scale',
@@ -195,7 +195,7 @@ export const affiliatePage: ServicePageData = {
             iconName: 'Anchor',
             title: 'Charter & Experience Operators',
             description:
-              'Fishing charters, yacht rentals, sailing schools, and marine adventure experience providers.',
+              'Fishing charters, yacht rentals, sailing schools, and adventure experience providers.',
             benefits: [
               'Tap into travel & lifestyle audiences',
               'Seasonal promotion campaigns',
@@ -259,7 +259,7 @@ export const affiliatePage: ServicePageData = {
       type: 'service-faq',
       data: {
         headline: 'Affiliate Marketing FAQ',
-        description: 'Common questions about marine affiliate programs.',
+        description: 'Common questions about affiliate programs.',
         items: [
           {
             question: 'Which affiliate platform should I use?',
@@ -274,7 +274,7 @@ export const affiliatePage: ServicePageData = {
           {
             question: 'How many affiliate partners do I need?',
             answer:
-              'Quality over quantity. A program with 15–25 engaged, relevant partners will outperform one with 500 inactive affiliates. We focus on recruiting partners who genuinely reach your target marine audience. Most programs hit meaningful revenue with 20–30 active partners.',
+              'Quality over quantity. A program with 15–25 engaged, relevant partners will outperform one with 500 inactive affiliates. We focus on recruiting partners who genuinely reach your target audience. Most programs hit meaningful revenue with 20–30 active partners.',
           },
           {
             question: 'How do you prevent affiliate fraud?',
@@ -284,12 +284,12 @@ export const affiliatePage: ServicePageData = {
           {
             question: 'How long until the program generates revenue?',
             answer:
-              'Most marine affiliate programs start generating revenue in 8–12 weeks — the first 4–6 weeks are setup and recruitment, then partners need 2–4 weeks to create content and start driving traffic. Revenue ramps up as partners produce more content and optimization kicks in.',
+              'Most affiliate programs start generating revenue in 8–12 weeks — the first 4–6 weeks are setup and recruitment, then partners need 2–4 weeks to create content and start driving traffic. Revenue ramps up as partners produce more content and optimization kicks in.',
           },
           {
-            question: 'Can affiliate marketing work for high-ticket marine items?',
+            question: 'Can affiliate marketing work for high-ticket items?',
             answer:
-              'Yes, but the model shifts from direct sales to lead generation. For boats and yachts, affiliates drive qualified leads (form fills, calls, showroom visits) rather than direct purchases. Commission structures shift to per-lead or per-qualified-appointment models. This works well with marine publications and review sites.',
+              'Yes, but the model shifts from direct sales to lead generation. For boats and yachts, affiliates drive qualified leads (form fills, calls, showroom visits) rather than direct purchases. Commission structures shift to per-lead or per-qualified-appointment models. This works well with publications and review sites.',
           },
         ],
       },
@@ -299,7 +299,7 @@ export const affiliatePage: ServicePageData = {
       data: {
         headline: 'Ready to build your partner network?',
         description:
-          'Grow your marine business through performance-based partnerships. Only pay for results that matter.',
+          'Grow your business through performance-based partnerships. Only pay for results that matter.',
         ctaText: 'Build Your Affiliate Program',
         ctaHref: '#contact',
       },

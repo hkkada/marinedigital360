@@ -72,7 +72,7 @@ export function Services() {
                   Navigate the
                   <br />
                   <span className="bg-gradient-to-r from-[#1877F2] via-[#42A5F5] to-[#1877F2] bg-clip-text text-transparent">
-                    digital ocean
+                    industry
                   </span>
                 </h2>
               </div>
@@ -247,16 +247,16 @@ export function Services() {
               </h3>
 
               <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-5 sm:mb-6">
-                {SITE_CONFIG.name} is a specialized marine commercialization agency for boat
-                manufacturers, marine technology companies, dealers, and charter operators. We take
+                {SITE_CONFIG.name} is a specialized commercialization agency for boat
+                manufacturers, technology companies, dealers, and charter operators. We take
                 what your business already does and transform it into a fully packaged, sellable
                 product &mdash; complete with naming, pricing, positioning, and AI-powered sales
                 systems &mdash; so you can go to market faster and generate more revenue.
               </p>
 
               <p className="text-base md:text-lg text-gray-400 leading-relaxed mb-7 md:mb-8">
-                Most marine marketing agencies run campaigns for what you already sell. We build the
-                product itself &mdash; pairing deep marine industry expertise with an AI-powered
+                Most marketing agencies run campaigns for what you already sell. We build the
+                product itself &mdash; pairing deep industry expertise with an AI-powered
                 process that delivers finished, revenue-ready systems in weeks, not months &mdash;
                 so you leave with something ready to sell, not just a plan.
               </p>

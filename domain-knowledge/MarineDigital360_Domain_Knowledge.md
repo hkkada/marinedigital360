@@ -19,13 +19,13 @@
 ## 2. Mission, Vision & Core Values
 
 ### Mission
-> "To empower marine businesses by transforming their capabilities into fully-realized, market-ready products that drive sales and revenue growth."
+> "To empower businesses by transforming their capabilities into fully-realized, market-ready products that drive sales and revenue growth."
 
 ### Vision
-> "To become the leading productization and commercialization partner for the marine industry, known for turning innovative marine capabilities into profitable market successes."
+> "To become the leading productization and commercialization partner for the industry, known for turning innovative capabilities into profitable market successes."
 
 ### Core Values
-- **Marine Industry Expertise** — Deep understanding of marine markets, from luxury yachts to fishing charters
+- **Marine Industry Expertise** — Deep understanding of markets, from luxury yachts to fishing charters
 - **Product-Centric Approach** — Focus on deliverable, finished products over abstract plans
 - **Technology Innovation** — Leverage AI and automation to accelerate client success
 - **Revenue Enablement** — Every deliverable designed to drive sales and revenue
@@ -42,7 +42,7 @@
 - **Productization-First Model** — We transform capabilities into packaged, branded, priced products ready for market (competitors only market existing services)
 - **Complete Sales Enablement** — Clients receive full sales systems: CRM workflows, pitch decks, demo scripts, AI-powered outreach automation
 - **AI-Powered Acceleration** — Proprietary AI tools for persona modeling, market intelligence, asset generation, and predictive pricing; results delivered 3–5x faster than traditional agencies
-- **Marine Industry Specialization** — Deep expertise across boat manufacturing, marine technology, luxury yachts, sport fishing, and marine retail
+- **Marine Industry Specialization** — Deep expertise across boat manufacturing, technology, luxury yachts, sport fishing, and retail
 - **Revenue-Focused Deliverables** — Success measured by client revenue growth, not vanity metrics
 - **End-to-End Commercialization** — Single-source solution from concept to market-ready product
 - **Finished Product Delivery** — Clients leave with completed, ready-to-sell products — not just plans
@@ -54,7 +54,7 @@
 | Finished products, not just plans | Clients can sell immediately upon delivery |
 | End-to-end commercialization | No need to coordinate multiple vendors |
 | AI-accelerated delivery | Weeks, not months — without sacrificing quality |
-| Marine industry expertise | Relevant, effective messaging for real marine buyers |
+| Marine industry expertise | Relevant, effective messaging for real buyers |
 | Revenue enablement focus | Every asset drives sales, not just awareness |
 | Proven frameworks | Consistent, high-quality results across all engagements |
 
@@ -70,11 +70,11 @@
 - Key needs: Product line differentiation, dealer network sales enablement, new model launch campaigns, competitive positioning
 
 **Marine Technology Companies**
-- Navigation systems, fish finders/sonar, marine electronics, propulsion systems, safety equipment
+- Navigation systems, fish finders/sonar, electronics, propulsion systems, safety equipment
 - Key needs: Productization of technical capabilities, B2B and B2C positioning, dealer/distributor enablement, market education
 
 **Marine Retail & Dealers**
-- Boat dealerships, marine parts/accessories retailers, marina operators, specialty marine stores
+- Boat dealerships, parts/accessories retailers, marina operators, specialty stores
 - Key needs: Local SEO and GEO, inventory marketing, service package creation, customer retention programs
 
 **Fishing Charter Captains**
@@ -82,7 +82,7 @@
 - Key needs: Service productization, booking system optimization, experience packaging, seasonal marketing
 
 **E-Commerce Marine Products**
-- Marine parts online retailers, fishing tackle e-commerce, boating accessories, marine apparel/lifestyle
+- Marine parts online retailers, fishing tackle e-commerce, boating accessories, apparel/lifestyle
 - Key needs: Product catalog optimization, PPC and marketplace advertising, conversion optimization, affiliate programs
 
 ---
@@ -99,7 +99,7 @@
 ### Why These Markets
 - High boat ownership per capita
 - Concentration of boat manufacturers and dealers
-- Strong marine industry infrastructure
+- Strong industry infrastructure
 - Access to boat shows and industry events
 - Affluent customer demographics
 
@@ -195,14 +195,14 @@ Comprehensive search engine optimization, generative engine optimization (GEO), 
 - Google My Business / Google Business Profile Optimization
 - Marine Industry Schema Markup (Organization, LocalBusiness, Product, Review, FAQ)
 
-**Key Deliverables:** Technical SEO audit with fixes; keyword research report (200–500 keywords); optimized site architecture; schema markup; 12–24 SEO-optimized content pieces; fully optimized Google Business Profile; local SEO and marine directory submissions; GEO optimization framework; link building campaign (10–20 links/month); monthly performance reports
+**Key Deliverables:** Technical SEO audit with fixes; keyword research report (200–500 keywords); optimized site architecture; schema markup; 12–24 SEO-optimized content pieces; fully optimized Google Business Profile; local SEO and directory submissions; GEO optimization framework; link building campaign (10–20 links/month); monthly performance reports
 
 **Client Outcomes:** 50–100% increase in organic traffic within 6–12 months; top 3 rankings for priority keywords; improved local pack visibility; higher domain authority; increased conversion from organic visitors; featured snippet acquisitions; enhanced brand visibility in AI search results
 
 ---
 
 ### 6.6 Web Design & Development
-Custom website design and development tailored for marine businesses with mobile-first approach, high-performance optimization, and conversion-focused UX.
+Custom website design and development tailored for businesses with mobile-first approach, high-performance optimization, and conversion-focused UX.
 
 **What's included:**
 - Discovery & Strategy
@@ -219,7 +219,7 @@ Custom website design and development tailored for marine businesses with mobile
 ---
 
 ### 6.7 PPC Management
-Strategic paid advertising across Google Ads, Bing Ads, and social platforms to drive qualified traffic and maximize ROAS for marine businesses.
+Strategic paid advertising across Google Ads, Bing Ads, and social platforms to drive qualified traffic and maximize ROAS for businesses.
 
 **What's included:**
 - PPC Strategy & Planning
@@ -409,9 +409,9 @@ All retainers include priority support, monthly strategy sessions, and continuou
 
 ### Problem/Intent Keywords
 - How to market a boat dealership
-- How to launch a marine product
+- How to launch a product
 - Marine business digital marketing
-- How to productize a marine service
+- How to productize a service
 - Boat charter booking optimization
 - Marine brand positioning
 
@@ -424,7 +424,7 @@ All retainers include priority support, monthly strategy sessions, and continuou
 | Competitor Type | Examples | Their Focus | Their Gap |
 |---|---|---|---|
 | Traditional Marine Marketing | Marine Marketing Pros, Boat Marketing Pros, Marine SEO | SEO, PPC, web design, social media | No productization or end-to-end commercialization |
-| General B2B Marketing | Gresham Group | Broad marine brand marketing | Industry knowledge but no product transformation or sales enablement |
+| General B2B Marketing | Gresham Group | Broad brand marketing | Industry knowledge but no product transformation or sales enablement |
 | Marine PR/Media | MAA, Marine Marketing International | PR, content, events | Awareness-only; no revenue enablement or productization |
 
 **MarineDigital360's unique position:** The only marine-focused commercialization agency that does productization + sales systems + AI acceleration + full revenue enablement together.
@@ -434,7 +434,7 @@ All retainers include priority support, monthly strategy sessions, and continuou
 ## 13. Messaging Frameworks
 
 ### Elevator Pitch (Short)
-MarineDigital360 is a specialized marine commercialization agency. We take what marine businesses already do and transform it into fully packaged, sellable products — complete with pricing, positioning, sales systems, and AI-powered automation — so they can go to market faster and generate more revenue.
+MarineDigital360 is a specialized commercialization agency. We take what businesses already do and transform it into fully packaged, sellable products — complete with pricing, positioning, sales systems, and AI-powered automation — so they can go to market faster and generate more revenue.
 
 ### Value Proposition by Segment
 
@@ -454,9 +454,9 @@ Stop leaving revenue on the table. Package your charter experiences into distinc
 Scale profitably with optimized product catalogs, high-ROAS paid media, conversion-focused storefronts, and affiliate programs that extend your reach.
 
 ### Objection Handling
-- *"We already work with a marketing agency"* — Most marine marketing agencies run campaigns. We build products. Our work enables your agency to market something more compelling.
+- *"We already work with a marketing agency"* — Most marketing agencies run campaigns. We build products. Our work enables your agency to market something more compelling.
 - *"We don't have time"* — That's exactly why you need us. Our AI-powered process and proven frameworks mean you get finished deliverables in weeks, not months.
-- *"We're too small"* — We have scalable packages from startups to enterprise. Our starter productization service is specifically designed for smaller marine businesses ready to professionalize their offerings.
+- *"We're too small"* — We have scalable packages from startups to enterprise. Our starter productization service is specifically designed for smaller businesses ready to professionalize their offerings.
 
 ---
 

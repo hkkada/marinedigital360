@@ -1,6 +1,6 @@
 # MarineDigital360
 
-Single-page marketing website for a marine digital agency. Built with Next.js 14 (App Router), React 18, Tailwind CSS v4, and Framer Motion.
+Single-page marketing website for a digital agency. Built with Next.js 14 (App Router), React 18, Tailwind CSS v4, and Framer Motion.
 
 ## Domain Knowledge
 
@@ -9,7 +9,7 @@ Single-page marketing website for a marine digital agency. Built with Next.js 14
 - **[domain-knowledge/MarineDigital360_Domain_Knowledge.md](../domain-knowledge/MarineDigital360_Domain_Knowledge.md)** — Complete business context including:
   - Company identity, mission, vision, and values
   - Brand positioning and key differentiators
-  - Target markets and client segments (boat manufacturers, marine tech, dealers, charters, e-commerce)
+  - Target markets and client segments (boat manufacturers, tech, dealers, charters, e-commerce)
   - All 9 service offerings with deliverables and outcomes
   - AI technology stack and implementation methodology
   - Pricing structure and service tiers

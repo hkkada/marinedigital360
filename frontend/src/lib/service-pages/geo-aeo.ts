@@ -7,17 +7,17 @@ export const geoAeoPage: ServicePageData = {
   iconName: 'Sparkles',
   metadata: {
     title: 'Marine GEO & AEO Services — AI Citations, Featured Snippets & Voice Search',
-    description: `${SITE_CONFIG.name} delivers Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO) — ensuring your marine business is cited by ChatGPT, Perplexity, Google AI Overviews, featured snippets, and voice search.`,
+    description: `${SITE_CONFIG.name} delivers Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO) — ensuring your business is cited by ChatGPT, Perplexity, Google AI Overviews, featured snippets, and voice search.`,
     keywords: [
-      'marine GEO optimization',
-      'marine AEO',
+      'GEO optimization',
+      'AEO',
       'generative engine optimization marine',
-      'marine AI search visibility',
-      'marine voice search optimization',
-      'marine featured snippets',
-      'AI citations marine business',
-      'marine answer engine optimization',
-      'marine entity building',
+      'AI search visibility',
+      'voice search optimization',
+      'featured snippets',
+      'AI citations business',
+      'answer engine optimization',
+      'entity building',
     ],
   },
   sections: [
@@ -26,7 +26,7 @@ export const geoAeoPage: ServicePageData = {
       data: {
         tagline: 'GEO / AEO Services',
         headline: 'Get cited by AI and voice search platforms',
-        description: `${SITE_CONFIG.name} ensures your marine business appears in AI-generated answers (ChatGPT, Perplexity, Google AI Overviews), featured snippets, People Also Ask boxes, and voice assistant responses — reaching buyers through every next-generation search channel.`,
+        description: `${SITE_CONFIG.name} ensures your business appears in AI-generated answers (ChatGPT, Perplexity, Google AI Overviews), featured snippets, People Also Ask boxes, and voice assistant responses — reaching buyers through every next-generation search channel.`,
         ctaText: 'Get Your AI Visibility Audit',
         ctaHref: '#contact',
         imageKey: 'serviceHero.seo-geo',
@@ -37,7 +37,7 @@ export const geoAeoPage: ServicePageData = {
       data: {
         headline: 'What is GEO and AEO?',
         description:
-          'GEO (Generative Engine Optimization) and AEO (Answer Engine Optimization) are two complementary disciplines that ensure your marine business is cited as a direct answer — not just a search result. AEO targets featured snippets, People Also Ask boxes, and voice assistant responses. GEO targets AI-generated answers in ChatGPT, Perplexity, Google AI Overviews, and Gemini. Together, they capture the fastest-growing segment of search: zero-click and AI-driven discovery.',
+          'GEO (Generative Engine Optimization) and AEO (Answer Engine Optimization) are two complementary disciplines that ensure your business is cited as a direct answer — not just a search result. AEO targets featured snippets, People Also Ask boxes, and voice assistant responses. GEO targets AI-generated answers in ChatGPT, Perplexity, Google AI Overviews, and Gemini. Together, they capture the fastest-growing segment of search: zero-click and AI-driven discovery.',
         cards: [
           {
             iconName: 'MessageSquare',
@@ -79,7 +79,7 @@ export const geoAeoPage: ServicePageData = {
             fullName: 'Generative Engine Optimization',
             iconName: 'Sparkles',
             description:
-              'AI-generated citations in ChatGPT, Perplexity, Google AI Overviews, and Gemini. AI referrals surged 357% year-over-year. GEO ensures AI platforms cite your marine business as a trusted authority when answering questions about your products, services, and industry.',
+              'AI-generated citations in ChatGPT, Perplexity, Google AI Overviews, and Gemini. AI referrals surged 357% year-over-year. GEO ensures AI platforms cite your business as a trusted authority when answering questions about your products, services, and industry.',
             tactics: [
               'Entity building (consistent brand identity across web properties)',
               'E-E-A-T signal strengthening (author bios, credentials, dates)',
@@ -188,7 +188,7 @@ export const geoAeoPage: ServicePageData = {
             title: 'Entity Building & Distribution',
             duration: 'Weeks 4–8',
             description:
-              'Strengthen brand entity across web properties — LinkedIn, directories, marine publications, press. Verify AI crawler access and build E-E-A-T signals.',
+              'Strengthen brand entity across web properties — LinkedIn, directories, publications, press. Verify AI crawler access and build E-E-A-T signals.',
             deliverables: ['Entity presence audit', 'Multi-platform brand consistency'],
           },
           {
@@ -247,7 +247,7 @@ export const geoAeoPage: ServicePageData = {
           {
             question: 'What is Generative Engine Optimization (GEO)?',
             answer:
-              'GEO ensures your marine business is cited by AI platforms when users ask questions about your industry, products, or services. It involves building strong entity signals, E-E-A-T credibility, and structured content that AI can reliably extract and attribute to your brand.',
+              'GEO ensures your business is cited by AI platforms when users ask questions about your industry, products, or services. It involves building strong entity signals, E-E-A-T credibility, and structured content that AI can reliably extract and attribute to your brand.',
           },
           {
             question: 'Do I need SEO before starting GEO/AEO?',
@@ -277,7 +277,7 @@ export const geoAeoPage: ServicePageData = {
       data: {
         headline: 'Ready for AI and voice search visibility?',
         description:
-          'Start with a free AI visibility audit. We\'ll show you where your marine business stands in AI search results and map out a strategy to get cited.',
+          'Start with a free AI visibility audit. We\'ll show you where your business stands in AI search results and map out a strategy to get cited.',
         ctaText: 'Get Your Free AI Visibility Audit',
         ctaHref: '#contact',
       },

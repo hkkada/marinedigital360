@@ -15,11 +15,11 @@ These Terms of Service ("Terms") constitute a legally binding agreement between 
 
 ### 2.1 Professional Services
 
-{{COMPANY_NAME}} provides professional marine marketing and commercialization services, including but not limited to:
+{{COMPANY_NAME}} provides professional marketing and commercialization services, including but not limited to:
 
 - Marine productization and commercialization services
 - Sales enablement system development
-- SEO, GEO, and AEO optimization for marine businesses
+- SEO, GEO, and AEO optimization for businesses
 - Marine web design and development
 - AI-powered marketing automation
 - Digital marketing strategy and execution

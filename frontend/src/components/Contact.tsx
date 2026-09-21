@@ -110,7 +110,7 @@ export function Contact() {
             className="text-sm sm:text-base md:text-lg lg:text-base text-gray-600 font-light max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto leading-relaxed text-pretty"
           >
             Let's create something exceptional. Start the conversation and
-            discover how we can elevate your marine brand.
+            discover how we can elevate your brand.
           </motion.p>
         </motion.div>
 
@@ -375,7 +375,7 @@ export function Contact() {
                 <BrandWordmark className="text-xl tracking-tight text-gray-900 whitespace-nowrap" />
               </div>
               <p className="text-sm text-gray-500 leading-relaxed">
-                Full-spectrum marine digital agency. Strategy, design, and growth for the marine industry.
+                Full-spectrum digital agency. Strategy, design, and growth for the industry.
               </p>
             </div>
 

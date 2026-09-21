@@ -248,7 +248,7 @@ new `components/services/ContentBlock.tsx`, `components/services/SectionRenderer
   `description` lead with "Paid Ads" while **retaining the existing PPC keywords** (D1 keeps
   the URL, so the keyword set must not be dropped).
 - Directly under the hero, a `content-block` with **two paragraphs explaining what paid
-  advertising is** for marine businesses — AEO-shaped: the first sentence is a direct,
+  advertising is** for businesses — AEO-shaped: the first sentence is a direct,
   quotable definition (per the SEO/GEO/AEO doc).
 - Further `content-block` sections for **Google Ads campaign services** and **Bing Ads
   campaign services** as separate, clearly-headed blocks.

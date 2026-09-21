@@ -113,8 +113,8 @@ export function FAQ() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl text-gray-400 font-light max-w-2xl mx-auto"
           >
-            Answers to common questions about marine marketing, productization,
-            and how {SITE_CONFIG.name} helps marine businesses grow.
+            Answers to common questions about marketing, productization,
+            and how {SITE_CONFIG.name} helps businesses grow.
           </motion.p>
         </motion.div>
 

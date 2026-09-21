@@ -7,17 +7,17 @@ export const seoPage: ServicePageData = {
   iconName: 'Search',
   metadata: {
     title: 'Marine SEO Services — Search Engine Optimization for Marine Businesses',
-    description: `${SITE_CONFIG.name} delivers marine SEO services — technical audits, keyword strategy, content optimization, local search, and link building to drive organic traffic growth for boat manufacturers and marine businesses.`,
+    description: `${SITE_CONFIG.name} delivers SEO services — technical audits, keyword strategy, content optimization, local search, and link building to drive organic traffic growth for boat manufacturers and businesses.`,
     keywords: [
-      'marine SEO',
+      'SEO',
       'boat manufacturer SEO',
-      'marine content strategy',
-      'marine local SEO',
-      'marine keyword research',
-      'marine link building',
+      'content strategy',
+      'local SEO',
+      'keyword research',
+      'link building',
       'boat dealer SEO',
-      'marine search engine optimization',
-      'marine technical SEO',
+      'search engine optimization',
+      'technical SEO',
     ],
   },
   sections: [
@@ -25,8 +25,8 @@ export const seoPage: ServicePageData = {
       type: 'service-hero',
       data: {
         tagline: 'SEO Services',
-        headline: 'Dominate Google rankings for your marine business',
-        description: `${SITE_CONFIG.name} drives organic traffic and top search rankings for marine businesses through technical SEO, keyword strategy, content optimization, local search, and authority-building link campaigns.`,
+        headline: 'Dominate Google rankings for your business',
+        description: `${SITE_CONFIG.name} drives organic traffic and top search rankings for businesses through technical SEO, keyword strategy, content optimization, local search, and authority-building link campaigns.`,
         ctaText: 'Get Your SEO Audit',
         ctaHref: '#contact',
         imageKey: 'serviceHero.seo-geo',
@@ -35,9 +35,9 @@ export const seoPage: ServicePageData = {
     {
       type: 'service-overview',
       data: {
-        headline: 'What is marine SEO?',
+        headline: 'What is SEO?',
         description:
-          'Marine SEO is the practice of optimizing your website and online presence to rank higher in Google and Bing search results for marine-industry keywords. It combines technical optimization, content strategy, local search, and link building to drive qualified organic traffic to your marine business — whether you sell boats, marine electronics, charter services, or marine accessories.',
+          'Marine SEO is the practice of optimizing your website and online presence to rank higher in Google and Bing search results for marine-industry keywords. It combines technical optimization, content strategy, local search, and link building to drive qualified organic traffic to your business — whether you sell boats, electronics, charter services, or accessories.',
         cards: [
           {
             iconName: 'Search',
@@ -49,19 +49,19 @@ export const seoPage: ServicePageData = {
             iconName: 'FileText',
             title: 'Content Strategy',
             description:
-              'Keyword research, buyer guides, comparison content, how-to articles, and seasonal marine content calendars tailored to your niche.',
+              'Keyword research, buyer guides, comparison content, how-to articles, and seasonal content calendars tailored to your niche.',
           },
           {
             iconName: 'MapPin',
             title: 'Local & Map SEO',
             description:
-              'Google Business Profile optimization, local citations, marine directory submissions, review management, and location page strategy.',
+              'Google Business Profile optimization, local citations, directory submissions, review management, and location page strategy.',
           },
           {
             iconName: 'Link',
             title: 'Link Building',
             description:
-              'Authority-building backlinks from marine publications, boating directories, industry partners, and relevant business sites.',
+              'Authority-building backlinks from publications, boating directories, industry partners, and relevant business sites.',
           },
         ],
       },
@@ -71,7 +71,7 @@ export const seoPage: ServicePageData = {
       data: {
         headline: 'Results you can measure',
         description:
-          'Our marine SEO strategies deliver compounding organic growth over 6–12 months.',
+          'Our SEO strategies deliver compounding organic growth over 6–12 months.',
         metrics: [
           {
             value: '50–100%',
@@ -81,7 +81,7 @@ export const seoPage: ServicePageData = {
           {
             value: 'Top 3',
             label: 'Keyword Rankings',
-            description: 'For priority marine industry keywords',
+            description: 'For priority industry keywords',
           },
           {
             value: '200–500',
@@ -96,7 +96,7 @@ export const seoPage: ServicePageData = {
           {
             value: '10–20',
             label: 'Quality Links / Month',
-            description: 'Authority-building backlinks from marine and business publications',
+            description: 'Authority-building backlinks from and business publications',
           },
           {
             value: '90+',
@@ -194,22 +194,22 @@ export const seoPage: ServicePageData = {
       type: 'service-faq',
       data: {
         headline: 'SEO FAQ',
-        description: 'Common questions about marine search engine optimization.',
+        description: 'Common questions about search engine optimization.',
         items: [
           {
             question: 'How long does it take to see SEO results?',
             answer:
-              'Most marine businesses see measurable improvements within 3–4 months (technical fixes and quick wins), with significant traffic growth at 6–12 months. SEO is a compounding investment — results accelerate over time as domain authority builds.',
+              'Most businesses see measurable improvements within 3–4 months (technical fixes and quick wins), with significant traffic growth at 6–12 months. SEO is a compounding investment — results accelerate over time as domain authority builds.',
           },
           {
             question: 'What marine-specific keywords do you target?',
             answer:
-              'We research 200–500 keywords per engagement, including product-specific terms (e.g., "center console boats for sale"), service queries ("marine electronics installation near me"), comparison searches ("Yamaha vs Mercury outboard"), and informational queries ("how to winterize a boat"). The strategy is tailored to your specific marine niche.',
+              'We research 200–500 keywords per engagement, including product-specific terms (e.g., "center console boats for sale"), service queries ("electronics installation near me"), comparison searches ("Yamaha vs Mercury outboard"), and informational queries ("how to winterize a boat"). The strategy is tailored to your specific niche.',
           },
           {
-            question: 'Do you handle local SEO for marine businesses?',
+            question: 'Do you handle local SEO for businesses?',
             answer:
-              'Yes. Local SEO is critical for marine dealers, charter operators, and service providers. We optimize your Google Business Profile, build local citations in marine directories, manage reviews, and create location-specific pages to drive local traffic and map pack visibility.',
+              'Yes. Local SEO is critical for dealers, charter operators, and service providers. We optimize your Google Business Profile, build local citations in directories, manage reviews, and create location-specific pages to drive local traffic and map pack visibility.',
           },
           {
             question: 'What does a technical SEO audit include?',
@@ -234,7 +234,7 @@ export const seoPage: ServicePageData = {
       data: {
         headline: 'Ready to grow your organic traffic?',
         description:
-          'Start with a free SEO audit. We\'ll identify your biggest opportunities and build a roadmap to top rankings for your marine business.',
+          'Start with a free SEO audit. We\'ll identify your biggest opportunities and build a roadmap to top rankings for your business.',
         ctaText: 'Get Your Free SEO Audit',
         ctaHref: '#contact',
       },

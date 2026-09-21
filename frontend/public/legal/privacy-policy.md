@@ -70,7 +70,7 @@ We use your information for the following purposes:
 
 ### 3.1 Service Delivery
 
-- **Provide marine marketing services** as outlined in our contracts
+- **Provide marketing services** as outlined in our contracts
 - **Respond to inquiries** and consultation requests
 - **Communicate about projects**, including updates, deliverables, and support
 - **Manage client relationships** and project delivery
@@ -86,7 +86,7 @@ We use your information for the following purposes:
 ### 3.3 Marketing & Communications
 
 - **Send newsletters** and service updates (with your consent)
-- **Share relevant content** about marine industry trends and our capabilities
+- **Share relevant content** about industry trends and our capabilities
 - **Provide information** about new services or offerings
 - **Send surveys** to gather feedback (optional participation)
 
@@ -344,7 +344,7 @@ We comply with the Digital Personal Data Protection Act, 2023. You have the righ
 
 ## 16. Business Clients and Project Data
 
-When we provide marine marketing services to business clients:
+When we provide marketing services to business clients:
 
 ### 16.1 Client Data
 

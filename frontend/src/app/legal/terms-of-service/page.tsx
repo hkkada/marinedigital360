@@ -20,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
       'service agreement',
       'consulting terms',
       'legal terms',
-      'marine marketing contract',
+      'marketing contract',
       `${SITE_CONFIG.company.name} terms`,
     ],
     alternates: {

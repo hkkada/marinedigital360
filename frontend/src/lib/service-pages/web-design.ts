@@ -8,15 +8,15 @@ export const webDesignPage: ServicePageData = {
   metadata: {
     title: 'Marine Web Design & Development — Custom Websites for Marine Businesses',
     description:
-      `${SITE_CONFIG.name} builds custom marine websites with mobile-first responsive design, conversion-focused UX, and high-performance optimization for boat manufacturers, dealers, and marine tech companies.`,
+      `${SITE_CONFIG.name} builds custom websites with mobile-first responsive design, conversion-focused UX, and high-performance optimization for boat manufacturers, dealers, and tech companies.`,
     keywords: [
-      'marine web design',
+      'web design',
       'boat manufacturer website',
-      'marine website development',
+      'website development',
       'yacht website design',
-      'marine e-commerce website',
-      'responsive marine website',
-      'marine dealer website',
+      'e-commerce website',
+      'responsive website',
+      'dealer website',
     ],
   },
   sections: [
@@ -26,7 +26,7 @@ export const webDesignPage: ServicePageData = {
         tagline: 'Web Design & Development',
         headline: 'Websites that move vessels',
         description:
-          'Your website is your most powerful salesperson — working 24/7 to attract, qualify, and convert marine buyers. We build custom websites that look stunning, load fast, and turn visitors into customers.',
+          'Your website is your most powerful salesperson — working 24/7 to attract, qualify, and convert buyers. We build custom websites that look stunning, load fast, and turn visitors into customers.',
         ctaText: 'Get a Free Estimate',
         ctaHref: '#contact',
         imageKey: 'serviceHero.web-design',
@@ -35,15 +35,15 @@ export const webDesignPage: ServicePageData = {
     {
       type: 'service-overview',
       data: {
-        headline: 'What makes a great marine website?',
+        headline: 'What makes a great website?',
         description:
-          `A great marine website combines stunning visuals with conversion-focused design, fast performance, and search engine visibility. It showcases vessels and marine products with the visual impact they deserve, while guiding buyers through a clear path from discovery to inquiry. ${SITE_CONFIG.name} builds custom websites purpose-built for the marine industry — from single-page dealer sites to full e-commerce platforms with inventory management.`,
+          `A great website combines stunning visuals with conversion-focused design, fast performance, and search engine visibility. It showcases vessels and products with the visual impact they deserve, while guiding buyers through a clear path from discovery to inquiry. ${SITE_CONFIG.name} builds custom websites purpose-built for the industry — from single-page dealer sites to full e-commerce platforms with inventory management.`,
         cards: [
           {
             iconName: 'Smartphone',
             title: 'Mobile-First Design',
             description:
-              'Over 60% of marine searches happen on mobile. Every site we build starts mobile and scales up to desktop.',
+              'Over 60% of searches happen on mobile. Every site we build starts mobile and scales up to desktop.',
           },
           {
             iconName: 'MousePointerClick',
@@ -118,7 +118,7 @@ export const webDesignPage: ServicePageData = {
           },
           {
             name: 'Business Website',
-            description: 'Full marketing website for established marine businesses.',
+            description: 'Full marketing website for established businesses.',
             features: [
               '5–15 custom pages',
               'Mobile-first responsive design',
@@ -134,7 +134,7 @@ export const webDesignPage: ServicePageData = {
           },
           {
             name: 'E-Commerce',
-            description: 'Full online store for marine parts, gear, or accessories.',
+            description: 'Full online store for parts, gear, or accessories.',
             features: [
               'Product catalog & filtering',
               'Shopping cart & checkout',
@@ -220,10 +220,10 @@ export const webDesignPage: ServicePageData = {
       type: 'service-faq',
       data: {
         headline: 'Web Design FAQ',
-        description: 'Common questions about marine web design and development.',
+        description: 'Common questions about web design and development.',
         items: [
           {
-            question: 'How long does it take to build a marine website?',
+            question: 'How long does it take to build a website?',
             answer:
               'Timelines vary by scope: Landing pages take 2 weeks, business websites 4–6 weeks, e-commerce sites 6–10 weeks, and enterprise platforms 10–16 weeks. We provide a detailed timeline during the discovery phase and stick to it.',
           },
@@ -235,12 +235,12 @@ export const webDesignPage: ServicePageData = {
           {
             question: 'Will my website be mobile-responsive?',
             answer:
-              'Absolutely. Every website we build is mobile-first — designed for phones first, then enhanced for tablets and desktops. With over 60% of marine searches happening on mobile devices, this approach ensures the best experience for the majority of your visitors.',
+              'Absolutely. Every website we build is mobile-first — designed for phones first, then enhanced for tablets and desktops. With over 60% of searches happening on mobile devices, this approach ensures the best experience for the majority of your visitors.',
           },
           {
             question: 'Do you handle content and copywriting?',
             answer:
-              'Yes. We can provide SEO-optimized copywriting for all pages, product descriptions, and blog content. We work with our domain knowledge of the marine industry to create content that resonates with boaters, dealers, and marine professionals.',
+              'Yes. We can provide SEO-optimized copywriting for all pages, product descriptions, and blog content. We work with our domain knowledge of the industry to create content that resonates with boaters, dealers, and professionals.',
           },
           {
             question: 'What about ongoing maintenance?',
@@ -248,9 +248,9 @@ export const webDesignPage: ServicePageData = {
               'We offer ongoing maintenance packages that include security updates, performance monitoring, content updates, and technical support. Most clients choose a monthly retainer for peace of mind, but we also handle one-off updates.',
           },
           {
-            question: 'Can you redesign my existing marine website?',
+            question: 'Can you redesign my existing website?',
             answer:
-              'Yes. We frequently redesign existing marine websites — migrating content, improving UX, and optimizing performance while preserving SEO equity. We conduct a thorough audit of your current site before starting to ensure nothing is lost in the transition.',
+              'Yes. We frequently redesign existing websites — migrating content, improving UX, and optimizing performance while preserving SEO equity. We conduct a thorough audit of your current site before starting to ensure nothing is lost in the transition.',
           },
         ],
       }
@@ -258,7 +258,7 @@ export const webDesignPage: ServicePageData = {
     {
       type: 'service-cta',
       data: {
-        headline: 'Ready to build your marine digital presence?',
+        headline: 'Ready to build your digital presence?',
         description:
           'From landing pages to enterprise platforms, we build websites that convert visitors into customers.',
         ctaText: 'Get a Free Estimate',

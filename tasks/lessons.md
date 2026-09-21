@@ -104,3 +104,65 @@ Build to a scratch dir with `NEXT_DIST_DIR=.next-build npx next build`. Unset, i
 to before, so Vercel is unaffected. Note `next build` still rewrites `tsconfig.json` (appends
 the distDir types glob) and `tsconfig.tsbuildinfo` is tracked in this repo — both need
 restoring afterwards.
+
+## An in-page anchor offset should undershoot the chrome, never overshoot
+`--spacing-anchor` was first set to nav + sub-nav + 16px of breathing room. That 16px does not
+become breathing room — it parks the *tail of the previous section* in the gap under the sticky
+bars, which on `/services/ppc` rendered an 11px black sliver of `platform-coverage` above
+`#ppc-management` on every anchor landing.
+
+**Why:** the target's own `py-section` already supplies the space under the bar. Anything added
+on top of the bar height scrolls the target *down* past flush, exposing whatever sits above it.
+
+**How to apply:** set an anchor offset to the bars' combined height and no more, and take the
+*smallest* combined height across breakpoints (the mobile bar is taller than the desktop one).
+Landing a few px behind the bar is invisible; landing short of it is not. Verify by measuring
+`section.getBoundingClientRect().top - chromeBottom` at each anchor — it must be `<= 0`.
+
+## Tailwind v4 `@theme` silently drops a token no utility consumes
+`--spacing-subnav` was added alongside `--spacing-anchor` to document the sub-nav's measured
+height. It never reached the built CSS: `@theme inline` only emits vars that a generated utility
+actually references, so a token kept purely for documentation is dead on arrival.
+
+**How to apply:** a value that exists only to explain another value belongs in a comment, not in
+`@theme`. If a token is load-bearing, grep the built CSS for the utility it should generate
+(`grep -oh "scroll-mt-anchor{[^}]*}" .next-build/static/css/*.css`) rather than assuming.
+
+## IntersectionObserver is the wrong primitive for a geometry-based scroll-spy
+Two IO formulations were built and measured before switching to a rAF-coalesced `scroll`
+listener. Deciding by "topmost intersecting entry" makes a section clipping the observation band
+by 15px outrank the section filling it — `#bing-ads` highlighted "Google Ads". Deciding by live
+geometry *inside* an IO callback is correct when it runs, but IO only fires when an intersection
+changes: a thin band misses an instant jump between two positions both outside it, and a wide
+band misses the boundary crossings themselves. There is no band width that fires in both cases.
+
+**How to apply:** use IO for "is this element on screen" (lazy-load, reveal-on-enter). For "which
+section am I in", read geometry on scroll inside `requestAnimationFrame` — four
+`getBoundingClientRect()` reads per frame with no writes is not a perf problem, and it has no
+dead zones. Test the spy at: each anchor landing, mid-section, the non-target sections between
+targets, above the first target, past the last, and instant jumps in both directions.
+
+## Section-level concerns belong on the section, not inside one section type's data
+`ServiceSubNav` was built to read anchor ids out of `ContentBlockData`. That silently capped the
+sub-nav at whatever `content-block` sections a page happened to have, so `/services/ppc` shipped a
+bar covering four of its twelve sections and claiming to be "Section navigation".
+
+**Why:** an id and a nav label describe *a section's place in the page*, which every section type
+has. Putting them in one variant's data made the capability accidental rather than designed.
+
+**How to apply:** when a concern applies to every member of a discriminated union, intersect it
+into the union (`type ServiceSection = ServiceSectionVariant & SectionAnchor`) rather than adding
+a field to one variant. Render it once in the dispatcher — `SectionRenderer` wraps any section
+carrying an `id`, so no section component knows about ids or scroll offsets, and a new section
+type gets the behaviour for free.
+
+## `offsetLeft` is relative to `offsetParent`, which is rarely the scroll container
+The sub-nav's follow-the-active-link scroll compared `link.offsetLeft` against
+`list.scrollLeft`. Those are different coordinate spaces: the sticky `<nav>` is positioned, so it
+— not the scrolling `<ul>` — is the `offsetParent`, and `offsetLeft` carried the container's
+gutter (32px at 390w, 64px at 1440w).
+
+**How to apply:** to place an element within a scroll container, derive it from rects —
+`el.getBoundingClientRect().left - container.getBoundingClientRect().left + container.scrollLeft`
+— and clamp the result to `[0, scrollWidth - clientWidth]`. Verify by comparing on-screen rects,
+not the same `offsetLeft` the code used, or the check inherits the bug it is meant to catch.

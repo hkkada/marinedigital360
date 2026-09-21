@@ -57,7 +57,7 @@ const imageRegistry: ImageCategory = {
   hero: {
     'main-background': {
       src: '/images/nicol-JrMzz7jUD5s-unsplash.jpg',
-      alt: `${SITE_CONFIG.name} marine marketing agency — luxury yacht cruising on open blue ocean water`,
+      alt: `${SITE_CONFIG.name} marketing agency — luxury yacht cruising on open blue ocean water`,
       priority: true, // LCP optimization
       quality: 75,
       sizes: '100vw',
@@ -68,7 +68,7 @@ const imageRegistry: ImageCategory = {
   // About Section Images
   // ═══════════════════════════════════════════════════════════════════════════
   about: {
-    // TODO(brand): this is still a marine stock photo, now the only marine
+    // TODO(brand): this is still a stock photo, now the only marine
     // reference left on the industry-agnostic /about page. Replace the asset;
     // the alt text describes the current image truthfully until then.
     'yacht-lifestyle': {
@@ -110,31 +110,31 @@ const imageRegistry: ImageCategory = {
   serviceHero: {
     'web-design': {
       src: webDesignImage,
-      alt: 'Modern web design workspace — custom marine website development',
+      alt: 'Modern web design workspace — custom website development',
       priority: true, // Hero images are LCP candidates
       sizes: '100vw',
     },
     'ppc': {
       src: ppcImage,
-      alt: 'Digital advertising analytics — PPC campaign management for marine businesses',
+      alt: 'Digital advertising analytics — PPC campaign management for businesses',
       priority: true,
       sizes: '100vw',
     },
     'seo-geo': {
       src: seoGeoImage,
-      alt: 'Digital analytics dashboard — SEO and search optimization for marine businesses',
+      alt: 'Digital analytics dashboard — SEO and search optimization for businesses',
       priority: true,
       sizes: '100vw',
     },
     'affiliate': {
       src: affliateImage,
-      alt: 'Business partnership meeting — affiliate marketing strategy for marine companies',
+      alt: 'Business partnership meeting — affiliate marketing strategy for companies',
       priority: true,
       sizes: '100vw',
     },
     'productization': {
       src: productizationImage,
-      alt: 'Business strategy session — productization planning for marine companies',
+      alt: 'Business strategy session — productization planning for companies',
       priority: true,
       sizes: '100vw',
     },
@@ -156,7 +156,7 @@ const imageRegistry: ImageCategory = {
     },
     'web-design-horizon': {
       src: '/images/Placeholder_Sail-Yacht.jpg',
-      alt: 'Horizon Marine Supply e-commerce — marine parts store | Placeholder: search "marine e-commerce website modern design"',
+      alt: 'Horizon Marine Supply e-commerce — parts store | Placeholder: search "e-commerce website modern design"',
       sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
     },
   },

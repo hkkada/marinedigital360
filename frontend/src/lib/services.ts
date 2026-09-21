@@ -31,7 +31,7 @@ const allServices: ServiceData[] = [
     description:
       'Transform your capabilities into fully packaged, market-ready products with naming, pricing, and competitive positioning.',
     schemaDescription:
-      'Marine productization services that transform business capabilities into fully packaged, market-ready products with defined naming, pricing, positioning, and differentiation for boat manufacturers and marine technology companies.',
+      'Marine productization services that transform business capabilities into fully packaged, market-ready products with defined naming, pricing, positioning, and differentiation for boat manufacturers and technology companies.',
     serviceType: 'Marine Product Development',
     group: 'sales',
     isVisible: false,
@@ -44,7 +44,7 @@ const allServices: ServiceData[] = [
     description:
       'Comprehensive GTM frameworks with buyer personas, market segmentation, channel strategy, and 90-day launch plans.',
     schemaDescription:
-      'Go-to-market strategy services for marine businesses including buyer persona development, market segmentation, channel strategy, and 90-day launch plans for boat manufacturers and marine technology companies.',
+      'Go-to-market strategy services for businesses including buyer persona development, market segmentation, channel strategy, and 90-day launch plans for boat manufacturers and technology companies.',
     serviceType: 'Go-To-Market Strategy',
     group: 'sales',
     isVisible: false,
@@ -57,7 +57,7 @@ const allServices: ServiceData[] = [
     description:
       'Landing pages, pitch decks, demo scripts, sales playbooks, and battle cards that shorten sales cycles and increase win rates.',
     schemaDescription:
-      'Marine sales enablement services including landing pages, pitch decks, demo scripts, sales playbooks, and competitive battle cards designed to shorten sales cycles and increase win rates for marine businesses.',
+      'Marine sales enablement services including landing pages, pitch decks, demo scripts, sales playbooks, and competitive battle cards designed to shorten sales cycles and increase win rates for businesses.',
     serviceType: 'Sales Enablement',
     group: 'sales',
     isVisible: false,
@@ -70,7 +70,7 @@ const allServices: ServiceData[] = [
     description:
       'CRM configuration, AI-powered outreach sequences, lead scoring, pipeline management, and revenue forecasting dashboards.',
     schemaDescription:
-      'Revenue enablement and CRM services for marine businesses including CRM configuration, AI-powered outreach sequences, lead scoring, pipeline management, and revenue forecasting dashboards.',
+      'Revenue enablement and CRM services for businesses including CRM configuration, AI-powered outreach sequences, lead scoring, pipeline management, and revenue forecasting dashboards.',
     serviceType: 'Revenue Enablement & CRM',
     group: 'administration',
     isVisible: false,
@@ -81,9 +81,9 @@ const allServices: ServiceData[] = [
     iconName: 'Search',
     tagline: 'Dominate search rankings on Google and Bing',
     description:
-      'Technical SEO, keyword strategy, content optimization, local search, and link building to drive organic traffic and top rankings for marine businesses.',
+      'Technical SEO, keyword strategy, content optimization, local search, and link building to drive organic traffic and top rankings for businesses.',
     schemaDescription:
-      'Marine SEO services including technical audits, keyword research, content strategy, local search optimization, and link building to drive organic traffic growth for boat manufacturers and marine technology companies.',
+      'Marine SEO services including technical audits, keyword research, content strategy, local search optimization, and link building to drive organic traffic growth for boat manufacturers and technology companies.',
     serviceType: 'Search Engine Optimization',
     group: 'marketing',
     isVisible: true,
@@ -94,9 +94,9 @@ const allServices: ServiceData[] = [
     iconName: 'Sparkles',
     tagline: 'Get cited by AI and voice search platforms',
     description:
-      'AI citation optimization, featured snippets, voice search, and entity building to ensure your marine business is found on ChatGPT, Perplexity, and Google AI Overviews.',
+      'AI citation optimization, featured snippets, voice search, and entity building to ensure your business is found on ChatGPT, Perplexity, and Google AI Overviews.',
     schemaDescription:
-      'Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO) services for marine businesses — AI citations, featured snippets, voice search optimization, and entity building across ChatGPT, Perplexity, and Google AI Overviews.',
+      'Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO) services for businesses — AI citations, featured snippets, voice search optimization, and entity building across ChatGPT, Perplexity, and Google AI Overviews.',
     serviceType: 'AI & Answer Engine Optimization',
     group: 'marketing',
     isVisible: true,
@@ -109,7 +109,7 @@ const allServices: ServiceData[] = [
     description:
       'Strategic paid advertising across Google, Bing, and social platforms with bid optimization and ROAS tracking.',
     schemaDescription:
-      'PPC advertising management for marine businesses including strategic paid campaigns across Google, Bing, and social platforms with bid optimization, audience targeting, and ROAS tracking.',
+      'PPC advertising management for businesses including strategic paid campaigns across Google, Bing, and social platforms with bid optimization, audience targeting, and ROAS tracking.',
     serviceType: 'PPC Advertising',
     group: 'advertising',
     isVisible: true,
@@ -124,7 +124,7 @@ const allServices: ServiceData[] = [
     description:
       'Ongoing PPC strategy, campaign management, bid and budget optimization, and conversion tracking across Google, Bing, and social.',
     schemaDescription:
-      'Ongoing PPC management for marine businesses including PPC strategy and planning, day-to-day campaign management across Google Ads, Bing Ads, and social platforms, shopping and remarketing campaigns, landing page optimization, bid and budget optimization, and conversion tracking.',
+      'Ongoing PPC management for businesses including PPC strategy and planning, day-to-day campaign management across Google Ads, Bing Ads, and social platforms, shopping and remarketing campaigns, landing page optimization, bid and budget optimization, and conversion tracking.',
     serviceType: 'PPC Management',
     group: 'advertising',
     isVisible: true,
@@ -136,9 +136,9 @@ const allServices: ServiceData[] = [
     iconName: 'Monitor',
     tagline: 'Fast, mobile-first sites built to convert boat buyers',
     description:
-      'Custom marine websites with mobile-first responsive design, conversion-focused UX, and high-performance optimization.',
+      'Custom websites with mobile-first responsive design, conversion-focused UX, and high-performance optimization.',
     schemaDescription:
-      'Custom marine web design and development services with mobile-first responsive design, conversion-focused UX, and high-performance optimization for boat manufacturers, dealers, and marine technology companies.',
+      'Custom web design and development services with mobile-first responsive design, conversion-focused UX, and high-performance optimization for boat manufacturers, dealers, and technology companies.',
     serviceType: 'Web Design & Development',
     group: 'marketing',
     isVisible: true,
@@ -164,7 +164,7 @@ const allServices: ServiceData[] = [
     description:
       'Market analysis, competitive intelligence, brand positioning, multi-channel planning, and growth roadmaps.',
     schemaDescription:
-      'Marine marketing strategy services including market analysis, competitive intelligence, brand positioning, multi-channel planning, and growth roadmaps for boat manufacturers and marine businesses.',
+      'Marine marketing strategy services including market analysis, competitive intelligence, brand positioning, multi-channel planning, and growth roadmaps for boat manufacturers and businesses.',
     serviceType: 'Marketing Strategy',
     group: 'marketing',
     isVisible: false,
