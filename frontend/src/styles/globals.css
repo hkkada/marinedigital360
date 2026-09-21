@@ -255,6 +255,20 @@ html {
 .hero-animate-delay-4 { animation-delay: 0.4s; }
 .hero-animate-delay-5 { animation-delay: 1.5s; }
 
+/* Hero slide focal points.
+   The background photos are landscape (up to 1.87:1) while the hero box is a
+   tall portrait rectangle on phones, so object-cover has to crop away most of
+   the width. These vars let each slide name the point that must stay in frame;
+   --hero-focal-sm is the wider (desktop) framing. */
+.hero-slide {
+  object-position: var(--hero-focal, 50% 50%);
+}
+@media (min-width: 640px) {
+  .hero-slide {
+    object-position: var(--hero-focal-sm, 50% 50%);
+  }
+}
+
 /* Navigation glassmorphism utilities */
 @layer utilities {
   .nav-glass {

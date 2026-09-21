@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { motion, useReducedMotion } from 'motion/react';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { ChevronDown, ChevronLeft, ChevronRight, Gauge, Zap } from 'lucide-react';
 import { getImageSrc } from '@/lib/image-map';
 import { sectionTiming } from '@/lib/animations';
@@ -17,23 +17,65 @@ type Slide = {
   src: string;
   label: string;
   industry?: string;
+  /** object-position below `sm` — keeps the subject inside the narrow crop. */
+  focal?: string;
+  /** object-position from `sm` up, where far more of the frame is visible. */
+  focalSm?: string;
 };
 
 // Video slides are kept here (commented) so the background can be switched back
 // to footage by swapping which entries are active.
 // { type: 'video', src: '/clips/iStock-1716746648.mp4', label: 'Boating footage' },
 // { type: 'video', src: '/clips/iStock-1481894582.mp4', label: 'Marine lifestyle footage' },
+// The `-tall` files are the stock photos extended to a 1024x1024 canvas (see
+// scripts/extend-hero-images.py). object-cover scales by containerH/imageH, so
+// the original 1.5:1-1.87:1 landscapes were magnified ~1.5x on a phone and only
+// a quarter of their width survived; a square source drops that to 0.82x and
+// shows roughly half. Focal points then place the subject inside what is left.
 const SLIDES: readonly Slide[] = [
-  { type: 'image', src: '/images/hero/wine_istockphoto-2268784010-1024x1024.jpg', label: 'Winery and hospitality', industry: 'F&B' },
-  { type: 'image', src: '/images/hero/oil_istockphoto-2251140507-1024x1024.jpg', label: 'Oil and energy operations', industry: 'Manufacturing' },
-  { type: 'image', src: '/images/hero/aerial_istockphoto-1418267688-1024x1024.jpg', label: 'Aerial coastline', industry: 'Maritime' },
-  { type: 'image', src: '/images/hero/istockphoto-2155498776-1024x1024.jpg', label: 'Shopping coastline', industry: 'Retail' },
+  {
+    type: 'image',
+    src: '/images/hero/wine_istockphoto-2268784010-1024x1024.jpg',
+    label: 'Winery and hospitality',
+    industry: 'F&B',
+    focal: '38% 50%',
+  },
+  {
+    type: 'image',
+    src: '/images/hero/oil_istockphoto-2251140507-1024x1024-tall.jpg',
+    label: 'Oil and energy operations',
+    industry: 'Manufacturing',
+    focal: '55% 50%',
+  },
+  {
+    type: 'image',
+    src: '/images/hero/aerial_istockphoto-1418267688-1024x1024-tall.jpg',
+    label: 'Aerial coastline',
+    industry: 'Maritime',
+    focal: '50% 50%',
+  },
+  {
+    type: 'image',
+    // Left untouched at its native 1024x659: the shopper reads best
+    // right-anchored, so mobile simply shows the right half of the frame.
+    src: '/images/hero/istockphoto-2155498776-1024x1024.jpg',
+    label: 'Shopping coastline',
+    industry: 'Retail',
+    focal: '100% 50%',
+  },
 ] as const;
+
+// Fallback for slides that carry no industry (e.g. the video clips above).
+const DEFAULT_INDUSTRY = 'every industry';
 
 const SWIPE_THRESHOLD = 50;
 
-// Dwell time per slide before auto-advancing. Paused under reduced motion and
-// while only one slide exists.
+// When true the slideshow never advances on its own — the arrows, dots and
+// swipe are the only way to change slides. Flip to false to restore autoplay.
+const IS_SLIDE_MANUAL = true;
+
+// Dwell time per slide before auto-advancing. Only used when autoplay is on;
+// also paused under reduced motion and while only one slide exists.
 const SLIDE_DURATION_MS = 7000;
 
 // Proof points shown between the hero copy and the CTAs. Distinct icons rather
@@ -48,6 +90,7 @@ export function Hero() {
   const touchStart = useRef<{ x: number; y: number } | null>(null);
   const [active, setActive] = useState(0);
   const prefersReducedMotion = useReducedMotion();
+  const industry = SLIDES[active].industry ?? DEFAULT_INDUSTRY;
 
   const go = useCallback((dir: 1 | -1) => {
     setActive((i) => (i + dir + SLIDES.length) % SLIDES.length);
@@ -70,7 +113,7 @@ export function Hero() {
   // Auto-advance the slideshow. Restarts on every `active` change so manual
   // navigation gets a full dwell before the next automatic step.
   useEffect(() => {
-    if (prefersReducedMotion || SLIDES.length < 2) return;
+    if (IS_SLIDE_MANUAL || prefersReducedMotion || SLIDES.length < 2) return;
     const timer = window.setTimeout(() => go(1), SLIDE_DURATION_MS);
     return () => window.clearTimeout(timer);
   }, [active, go, prefersReducedMotion]);
@@ -98,7 +141,7 @@ export function Hero() {
 
   return (
     <div
-      className="relative h-screen overflow-hidden bg-black"
+      className="relative h-[100svh] overflow-hidden bg-black"
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
@@ -108,7 +151,16 @@ export function Hero() {
           const layerClass = `absolute inset-0 w-full h-full object-cover will-change-[opacity] pointer-events-none transition-opacity duration-700 ease-out ${
             i === active ? 'opacity-100' : 'opacity-0'
           }`;
-          const layerStyle = { filter: 'contrast(1.1) saturate(1.05)' };
+          // `hero-slide` reads these vars for object-position, which lets the
+          // focal point differ per breakpoint without a JS width check.
+          const layerStyle = {
+            filter: 'contrast(1.1) saturate(1.05)',
+            '--hero-focal': slide.focal ?? '50% 50%',
+            // Deliberately not falling back to `focal`: the wide crop already
+            // shows nearly the whole frame, so it stays centred unless a slide
+            // asks otherwise.
+            '--hero-focal-sm': slide.focalSm ?? '50% 50%',
+          } as React.CSSProperties;
 
           return slide.type === 'video' ? (
             <video
@@ -137,7 +189,7 @@ export function Hero() {
               sizes="100vw"
               priority={i === 0}
               aria-hidden="true"
-              className={layerClass}
+              className={`${layerClass} hero-slide`}
               style={layerStyle}
             />
           );
@@ -168,11 +220,28 @@ export function Hero() {
               meets growth
             </h1>
 
-            {/* Description */}
+            {/* Description — the industry swaps with the background slide so the
+                copy names whoever the current image speaks to. It sits last in the
+                sentence so a longer word never reflows the text around it, and
+                aria-live announces each change. */}
             <p
               className="text-xl md:text-2xl text-white/80 mb-12 max-w-2xl leading-relaxed font-light drop-shadow(0 2px 8px rgba(0,0,0,0.5)) hero-animate hero-animate-delay-3 text-center sm:text-left mx-auto sm:mx-0"
             >
-              We ignite growth through visibility for the world's best businesses.
+              We ignite growth through visibility for the world&apos;s best businesses in{' '}
+              <span className="inline-flex align-bottom" aria-live="polite">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.span
+                    key={industry}
+                    initial={prefersReducedMotion ? false : { opacity: 0, y: 12, filter: 'blur(4px)' }}
+                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                    exit={prefersReducedMotion ? undefined : { opacity: 0, y: -12, filter: 'blur(4px)' }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                    className="text-white font-normal whitespace-nowrap"
+                  >
+                    {industry}.
+                  </motion.span>
+                </AnimatePresence>
+              </span>
             </p>
 
             {/* Quick proof points, directly above the CTAs. Gradient-edged glass
