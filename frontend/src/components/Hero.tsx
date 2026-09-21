@@ -1,23 +1,46 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { motion, useReducedMotion } from 'motion/react';
 import { ChevronDown, ChevronLeft, ChevronRight, Gauge, Zap } from 'lucide-react';
 import { getImageSrc } from '@/lib/image-map';
 import { sectionTiming } from '@/lib/animations';
 
-const SLIDES = [
-  { src: '/clips/iStock-1716746648.mp4', label: 'Boating footage' },
-  { src: '/clips/iStock-1481894582.mp4', label: 'Marine lifestyle footage' },
+/**
+ * A hero background slide. `type` decides how it renders: video slides play a
+ * muted looping <video>, image slides paint a next/image fill. Both share the
+ * same crossfade, controls, swipe and dot navigation.
+ */
+type Slide = {
+  type: 'video' | 'image';
+  src: string;
+  label: string;
+  industry?: string;
+};
+
+// Video slides are kept here (commented) so the background can be switched back
+// to footage by swapping which entries are active.
+// { type: 'video', src: '/clips/iStock-1716746648.mp4', label: 'Boating footage' },
+// { type: 'video', src: '/clips/iStock-1481894582.mp4', label: 'Marine lifestyle footage' },
+const SLIDES: readonly Slide[] = [
+  { type: 'image', src: '/images/hero/wine_istockphoto-2268784010-1024x1024.jpg', label: 'Winery and hospitality', industry: 'F&B' },
+  { type: 'image', src: '/images/hero/oil_istockphoto-2251140507-1024x1024.jpg', label: 'Oil and energy operations', industry: 'Manufacturing' },
+  { type: 'image', src: '/images/hero/aerial_istockphoto-1418267688-1024x1024.jpg', label: 'Aerial coastline', industry: 'Maritime' },
+  { type: 'image', src: '/images/hero/istockphoto-2155498776-1024x1024.jpg', label: 'Shopping coastline', industry: 'Retail' },
 ] as const;
 
 const SWIPE_THRESHOLD = 50;
 
+// Dwell time per slide before auto-advancing. Paused under reduced motion and
+// while only one slide exists.
+const SLIDE_DURATION_MS = 7000;
+
 // Proof points shown between the hero copy and the CTAs. Distinct icons rather
 // than two identical checkmarks so each claim reads on its own.
 const PROOF_POINTS = [
-  { label: 'Instant bookings', Icon: Zap },
   { label: 'No delays', Icon: Gauge },
+  { label: 'Instant bookings', Icon: Zap },
 ] as const;
 
 export function Hero() {
@@ -30,7 +53,8 @@ export function Hero() {
     setActive((i) => (i + dir + SLIDES.length) % SLIDES.length);
   }, []);
 
-  // Play only the active clip; pause the rest (and everything under reduced motion)
+  // Play only the active clip; pause the rest (and everything under reduced
+  // motion). Image slides never register a ref, so they're simply skipped.
   useEffect(() => {
     videoRefs.current.forEach((video, i) => {
       if (!video) return;
@@ -42,6 +66,14 @@ export function Hero() {
       }
     });
   }, [active, prefersReducedMotion]);
+
+  // Auto-advance the slideshow. Restarts on every `active` change so manual
+  // navigation gets a full dwell before the next automatic step.
+  useEffect(() => {
+    if (prefersReducedMotion || SLIDES.length < 2) return;
+    const timer = window.setTimeout(() => go(1), SLIDE_DURATION_MS);
+    return () => window.clearTimeout(timer);
+  }, [active, go, prefersReducedMotion]);
 
   const onTouchStart = (e: React.TouchEvent) => {
     const t = e.changedTouches[0];
@@ -70,29 +102,46 @@ export function Hero() {
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
-      {/* Background video slider — aria-hidden since it's decorative */}
+      {/* Background slider — aria-hidden since it's decorative */}
       <div className="absolute inset-0">
-        {SLIDES.map((slide, i) => (
-          <video
-            key={slide.src}
-            ref={(el) => {
-              videoRefs.current[i] = el;
-            }}
-            autoPlay={i === 0}
-            muted
-            loop
-            playsInline
-            preload={i === 0 ? 'auto' : 'metadata'}
-            poster={getImageSrc('hero.main-background')}
-            aria-hidden="true"
-            className={`absolute inset-0 w-full h-full object-cover will-change-[opacity] pointer-events-none transition-opacity duration-700 ease-out ${
-              i === active ? 'opacity-100' : 'opacity-0'
-            }`}
-            style={{ filter: 'contrast(1.1) saturate(1.05)' }}
-          >
-            <source src={slide.src} type="video/mp4" />
-          </video>
-        ))}
+        {SLIDES.map((slide, i) => {
+          const layerClass = `absolute inset-0 w-full h-full object-cover will-change-[opacity] pointer-events-none transition-opacity duration-700 ease-out ${
+            i === active ? 'opacity-100' : 'opacity-0'
+          }`;
+          const layerStyle = { filter: 'contrast(1.1) saturate(1.05)' };
+
+          return slide.type === 'video' ? (
+            <video
+              key={slide.src}
+              ref={(el) => {
+                videoRefs.current[i] = el;
+              }}
+              autoPlay={i === 0}
+              muted
+              loop
+              playsInline
+              preload={i === 0 ? 'auto' : 'metadata'}
+              poster={getImageSrc('hero.main-background')}
+              aria-hidden="true"
+              className={layerClass}
+              style={layerStyle}
+            >
+              <source src={slide.src} type="video/mp4" />
+            </video>
+          ) : (
+            <Image
+              key={slide.src}
+              src={slide.src}
+              alt=""
+              fill
+              sizes="100vw"
+              priority={i === 0}
+              aria-hidden="true"
+              className={layerClass}
+              style={layerStyle}
+            />
+          );
+        })}
 
         {/* Elegant overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
@@ -114,7 +163,7 @@ export function Hero() {
             <h1
               className="text-5xl md:text-7xl lg:text-8xl text-white mb-8 leading-[0.95] tracking-tight drop-shadow(0 4px 12px rgba(0,0,0,0.6)) select-none text-center sm:text-left"
             >
-              Where content
+              Where visibility
               <br />
               meets growth
             </h1>
@@ -213,7 +262,7 @@ export function Hero() {
       <button
         type="button"
         onClick={() => go(-1)}
-        aria-label="Previous background clip"
+        aria-label="Previous background slide"
         className={`${arrowClass} hidden lg:flex absolute left-4 top-1/2 -translate-y-1/2 z-20`}
       >
         <ChevronLeft size={20} />
@@ -221,7 +270,7 @@ export function Hero() {
       <button
         type="button"
         onClick={() => go(1)}
-        aria-label="Next background clip"
+        aria-label="Next background slide"
         className={`${arrowClass} hidden lg:flex absolute right-4 top-1/2 -translate-y-1/2 z-20`}
       >
         <ChevronRight size={20} />
@@ -232,7 +281,7 @@ export function Hero() {
         <button
           type="button"
           onClick={() => go(-1)}
-          aria-label="Previous background clip"
+          aria-label="Previous background slide"
           className={`${arrowClass} flex lg:hidden`}
         >
           <ChevronLeft size={20} />
@@ -257,7 +306,7 @@ export function Hero() {
         <button
           type="button"
           onClick={() => go(1)}
-          aria-label="Next background clip"
+          aria-label="Next background slide"
           className={`${arrowClass} flex lg:hidden`}
         >
           <ChevronRight size={20} />

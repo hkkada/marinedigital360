@@ -247,18 +247,21 @@ export function Services() {
               </h3>
 
               <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-5 sm:mb-6">
-                {SITE_CONFIG.name} is a specialized commercialization agency for boat
-                manufacturers, technology companies, dealers, and charter operators. We take
-                what your business already does and transform it into a fully packaged, sellable
-                product &mdash; complete with naming, pricing, positioning, and AI-powered sales
-                systems &mdash; so you can go to market faster and generate more revenue.
+                {SITE_CONFIG.name} is a specialized digital marketing agency for most industries. 
+                We drive up your traffic and visibility. 
+                We execute the right positioning and AI-powered sales system for your pipeline expansion. 
+                Your return is our top priority.
               </p>
 
               <p className="text-base md:text-lg text-gray-400 leading-relaxed mb-7 md:mb-8">
-                Most marketing agencies run campaigns for what you already sell. We build the
-                product itself &mdash; pairing deep industry expertise with an AI-powered
-                process that delivers finished, revenue-ready systems in weeks, not months &mdash;
-                so you leave with something ready to sell, not just a plan.
+                Most digital marketing agencies run campaigns for what you already sell. 
+                Our in-house Azure and AWS certified developers use web design & development to build the product itself — pairing deep industry expertise with an AI-powered process that delivers revenue-ready systems in weeks, not months. 
+              </p>
+              <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-5 sm:mb-6">
+              {SITE_CONFIG.name} focuses on the customer, we prioritize no delays, guaranteed short and long term contracts, and constant transparency throughout the process.  
+              <br></br>
+              {SITE_CONFIG.abv} helps businesses across many industry sectors, but we love helping those out in our sunbelt footprint.
+              Ready for any and all types of situations dedicated and diverse teams.
               </p>
               <motion.a
                 href="#contact"
