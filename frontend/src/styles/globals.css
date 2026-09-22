@@ -269,6 +269,25 @@ html {
   }
 }
 
+/* Opt-in per slide: on phones the photo covers only part of the hero and
+   dissolves into the background at its lower edge. Because object-cover scales
+   by (layer height / image height), the shorter layer magnifies the photo less
+   and more of its width survives the crop. Full-bleed again from `sm` up.
+   The height travels through a custom property because next/image's `fill`
+   writes height:100% inline, which a class cannot override. */
+.hero-slide-fade {
+  --hero-slide-h: 72%;
+  -webkit-mask-image: linear-gradient(to bottom, #000 58%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 58%, transparent 100%);
+}
+@media (min-width: 640px) {
+  .hero-slide-fade {
+    --hero-slide-h: 100%;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
+
 /* Navigation glassmorphism utilities */
 @layer utilities {
   .nav-glass {

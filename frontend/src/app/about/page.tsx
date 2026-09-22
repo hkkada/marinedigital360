@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Navigation } from '@/components/Navigation/Navigation';
 import { Contact } from '@/components/Contact';
+import { Footer } from '@/components/Footer';
 import { AboutHero } from '@/components/about/AboutHero';
 import { AboutStory } from '@/components/about/AboutStory';
 import { AboutValues } from '@/components/about/AboutValues';
@@ -50,6 +51,7 @@ export default function AboutPage() {
         <AboutCTA />
       </main>
       <Contact />
+      <Footer />
     </div>
   );
 }

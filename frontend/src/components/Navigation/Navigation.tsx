@@ -8,15 +8,25 @@ import { MobileNav } from './MobileNav';
 import { springs } from '@/lib/animations';
 import { BrandWordmark } from '@/components/BrandWordmark';
 
-export function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false);
+interface NavigationProps {
+  /**
+   * Force the opaque, dark-text state. Pages that open on a light background
+   * (no dark hero under the fixed nav) need this, or the white wordmark and
+   * links render white-on-white until the visitor scrolls.
+   */
+  solid?: boolean;
+}
+
+export function Navigation({ solid = false }: NavigationProps = {}) {
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const isScrolled = solid || hasScrolled;
 
   useEffect(() => {
     let ticking = false;
     const handleScroll = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 50);
+          setHasScrolled(window.scrollY > 50);
           ticking = false;
         });
         ticking = true;
@@ -64,7 +74,7 @@ export function Navigation() {
 
           {/* CTA Button */}
           <motion.a
-            href="/#contact"
+            href="/contact-us"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
             transition={springs.bouncy}

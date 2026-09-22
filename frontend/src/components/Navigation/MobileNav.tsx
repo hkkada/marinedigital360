@@ -69,9 +69,10 @@ export function MobileNav({ isScrolled }: MobileNavProps) {
 
           {/* Other links (Work, Contact anchor to the homepage; About is a real page) */}
           {[
-            { label: 'Work', href: '/#work' },
+            // { label: 'Work', href: '/#work' },
+            { label: 'Industries', href: '/#industries' },
             { label: 'About', href: '/about' },
-            { label: 'Contact', href: '/#contact' },
+            { label: 'Contact', href: '/contact-us' },
           ].map((link) => (
             <Link
               key={link.label}
@@ -85,7 +86,7 @@ export function MobileNav({ isScrolled }: MobileNavProps) {
 
           {/* CTA */}
           <Link
-            href="/#contact"
+            href="/contact-us"
             onClick={() => setOpen(false)}
             className="mt-4 py-3 px-4 bg-gray-900 text-white text-center rounded-full font-medium hover:bg-gray-800 transition-colors"
           >

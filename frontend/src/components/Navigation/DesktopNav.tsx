@@ -34,9 +34,9 @@ export function DesktopNav({ isScrolled }: DesktopNavProps) {
 
         {/* Simple links (Work, Contact anchor to the homepage; About is a real page) */}
         {[
-          { label: 'Work', href: '/#work' },
+          { label: 'Industries', href: '/#industries' },
           { label: 'About', href: '/about' },
-          { label: 'Contact', href: '/#contact' },
+          { label: 'Contact', href: '/contact-us' },
         ].map((link) => (
           <NavigationMenuItem key={link.label}>
             <NavigationMenuLink

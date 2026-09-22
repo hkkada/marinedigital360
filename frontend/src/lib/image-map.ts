@@ -71,6 +71,11 @@ const imageRegistry: ImageCategory = {
     // TODO(brand): this is still a stock photo, now the only marine
     // reference left on the industry-agnostic /about page. Replace the asset;
     // the alt text describes the current image truthfully until then.
+    'hand-smartphone-screen':{
+      src: '/images/istockphoto-875335732-1024x1024.jpg',
+      alt: 'Hand holding smartphone with digital marketing analytics dashboard on screen',
+      sizes: '100vw, 66vw',
+    },
     'yacht-lifestyle': {
       src: centerConsolesImage,
       alt: 'Boats on open water at golden hour',

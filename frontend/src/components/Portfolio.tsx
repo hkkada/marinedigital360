@@ -238,7 +238,7 @@ export function Portfolio() {
 
                       {/* CTA */}
                       <motion.a
-                        href="#contact"
+                        href="/contact-us"
                         whileHover={{ scale: 1.05, x: 10 }}
                         className="inline-flex items-center gap-3 text-lg font-semibold text-gray-900 group/link"
                       >
@@ -292,7 +292,7 @@ export function Portfolio() {
                 Let's create a digital experience that dominates your market
               </p>
               <motion.a
-                href="#contact"
+                href="/contact-us"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center gap-3 px-12 py-6 bg-white text-gray-900 rounded-full text-lg font-semibold shadow-2xl hover:bg-gray-100 transition-all"

@@ -196,7 +196,7 @@ export function Services() {
             className="mt-20 text-center"
           >
             <motion.a
-              href="#contact"
+              href="/contact-us"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-3 px-12 py-6 bg-gradient-to-r from-[#1877F2] to-[#0D5DBF] text-white rounded-full text-lg font-semibold shadow-2xl shadow-[#1877F2]/50 hover:shadow-[#1877F2]/70 transition-all"
@@ -264,7 +264,7 @@ export function Services() {
               Ready for any and all types of situations dedicated and diverse teams.
               </p>
               <motion.a
-                href="#contact"
+                href="/contact-us"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center justify-center gap-2 sm:gap-3 px-5 py-3.5 sm:px-9 sm:py-4 md:px-12 md:py-5 bg-white text-gray-900 rounded-full text-base sm:text-lg font-semibold whitespace-nowrap shadow-2xl hover:bg-gray-100 transition-all"

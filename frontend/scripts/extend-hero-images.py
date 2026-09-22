@@ -15,17 +15,25 @@ from PIL import Image, ImageFilter
 
 SRC = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'public', 'images', 'hero')
 OUT = sys.argv[1] if len(sys.argv) > 1 else SRC
-TARGET_H = 1024
+TARGET_H = 1024          # default canvas height; see PER_IMAGE for overrides
 TOP_SHARE = 0.55       # default split: a little more headroom than floor
 
 # Per-image overrides, keyed by filename prefix.
 #   top_share 1.0 puts the whole extension above the horizon (all sky, no floor)
+#   target_h  overrides the canvas height; taller means less object-cover
+#             magnification on a phone, at the cost of more synthetic area
 #   skip      leaves the photo at its native size — the slide uses the original
 PER_IMAGE = {
-    'oil_': {'top_share': 1.0},
+    # Tall enough that the extra sky alone does the zooming out, so this slide
+    # needs no bottom fade. Hero.tsx pairs it with a low focalSm so the wide
+    # crop still frames the plant rather than the sky.
+    'oil_': {'top_share': 1.0, 'target_h': 1400},
     # The shopper reads best right-anchored at its native size on mobile, so it
     # gets no extension; Hero.tsx points that slide at the untouched file.
     'istockphoto-2155498776': {'skip': True},
+    # Slide 1 was reverted to the untouched photo; it gets its zoom-out from the
+    # bottom fade instead, so no extended file is needed.
+    'wine_': {'skip': True},
 }
 
 
@@ -62,11 +70,12 @@ for name in sorted(os.listdir(SRC)):
         print(f'{name}: skipped (slide uses the original)'); continue
     img = Image.open(os.path.join(SRC, name)).convert('RGB')
     w, h = img.size
-    pad = TARGET_H - h
+    target = cfg.get('target_h', TARGET_H)
+    pad = target - h
     if pad <= 0:
         print(f'{name}: already {w}x{h}, skipped'); continue
     top = int(pad * cfg.get('top_share', TOP_SHARE)); bot = pad - top
-    canvas = Image.new('RGB', (w, TARGET_H))
+    canvas = Image.new('RGB', (w, target))
     if top:
         canvas.paste(band(img, top, True), (0, 0))
     canvas.paste(img, (0, top))
@@ -74,4 +83,4 @@ for name in sorted(os.listdir(SRC)):
         canvas.paste(band(img, bot, False), (0, top + h))
     dst = os.path.join(OUT, name[:-4] + '-tall.jpg')
     canvas.save(dst, 'JPEG', quality=86, optimize=True, progressive=True)
-    print(f'{name}: {w}x{h} -> {w}x{TARGET_H} (+{top}/-{bot}) {os.path.getsize(dst)//1024}KB')
+    print(f'{name}: {w}x{h} -> {w}x{target} (+{top}/-{bot}) {os.path.getsize(dst)//1024}KB')

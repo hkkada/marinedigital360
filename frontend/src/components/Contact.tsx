@@ -4,12 +4,10 @@ import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
 import { useRef, useState } from 'react';
 import { Send, Mail, Phone, MapPin, Waves } from 'lucide-react';
-import Link from 'next/link';
 import { getVisibleServices } from '@/lib/services';
 import { BookingModal } from '@/components/BookingModal';
 import { durations } from '@/lib/animations';
-import { CONTACT_EMAIL, CONTACT_CONFIG, SITE_CONFIG, NAVIGATION } from '@/lib/constants';
-import { BrandWordmark } from '@/components/BrandWordmark';
+import { CONTACT_EMAIL, CONTACT_CONFIG, SITE_CONFIG } from '@/lib/constants';
 import { Card, IconBox } from '@/components/shared';
 
 export function Contact() {
@@ -47,8 +45,11 @@ export function Contact() {
     },
   ];
 
-  // scroll-mt (not top padding) offsets the #contact anchor jump past the fixed nav,
-  // so the section keeps the same compact vertical rhythm as the sections above it.
+  // Composed both as the body of `/contact-us` and as the closing section of
+  // `/about` and `/services/[slug]` — the home page is the one place it is not
+  // rendered. scroll-mt (not top padding) offsets the #contact anchor jump past
+  // the fixed nav, so the section keeps the same vertical rhythm as the sections
+  // above it.
   return (
     <section id="contact" className="py-section scroll-mt-20 lg:scroll-mt-24 bg-white relative overflow-hidden" ref={ref} aria-labelledby="contact-heading">
       {/* Bold background graphics */}
@@ -99,7 +100,7 @@ export function Contact() {
             {/* Stacks on small screens; single line from lg up so the section fits one viewport */}
             <br className="lg:hidden" />
             <span className="bg-gradient-to-r from-[#1877F2] via-[#42A5F5] to-[#0D5DBF] bg-clip-text text-transparent">
-              chart your course?
+              Book?
             </span>
           </h2>
 
@@ -358,104 +359,6 @@ export function Contact() {
           </motion.div>
         </div>
 
-        {/* Footer */}
-        <motion.footer
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: durations.smooth, delay: 1.5 }}
-          className="mt-block pt-block border-t border-gray-200"
-        >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-10">
-            {/* Column 1: Logo + tagline */}
-            <div className="col-span-2 md:col-span-1">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-[#1877F2] to-[#0D5DBF] rounded-xl flex items-center justify-center">
-                  <Waves className="w-5 h-5 text-white" />
-                </div>
-                <BrandWordmark className="text-xl tracking-tight text-gray-900 whitespace-nowrap" />
-              </div>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                Full-spectrum digital agency. Strategy, design, and growth for the industry.
-              </p>
-            </div>
-
-            {/* Column 2: Services */}
-            <div>
-              <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-4">
-                Services
-              </h4>
-              <ul className="space-y-3">
-                {getVisibleServices().map((service) => (
-                  <li key={service.slug}>
-                    <Link
-                      href={`/services/${service.slug}`}
-                      className="text-sm text-gray-600 hover:text-[#1877F2] transition-colors"
-                    >
-                      {service.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Column 3: Company */}
-            <div>
-              <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-4">
-                Company
-              </h4>
-              <ul className="space-y-3">
-                {/*
-                  Derived from NAVIGATION.main so the footer cannot drift from the
-                  header the way it did when About moved to its own page. Services
-                  is excluded — column 2 already lists them individually.
-                */}
-                {[
-                  ...NAVIGATION.main.filter((link) => link.label !== 'Services'),
-                  { label: 'Privacy Policy', href: '/legal/privacy-policy' },
-                  { label: 'Terms of Service', href: '/legal/terms-of-service' },
-                ].map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-gray-600 hover:text-[#1877F2] transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Column 4: Connect */}
-            <div>
-              <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-4">
-                Connect
-              </h4>
-              <ul className="space-y-3">
-                {['LinkedIn', 'Instagram', 'Behance'].map((social) => (
-                  <li key={social}>
-                    <a
-                      href="#"
-                      className="text-sm text-gray-600 hover:text-[#1877F2] transition-colors"
-                    >
-                      {social}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Bottom bar */}
-          <div className="pt-8 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-gray-500">
-              © 2026 {SITE_CONFIG.name}. {SITE_CONFIG.company.slogan}.
-            </p>
-            <p className="text-sm text-gray-400">
-              {SITE_CONFIG.company.address.city}, {SITE_CONFIG.company.address.stateName}
-            </p>
-          </div>
-        </motion.footer>
       </div>
 
       <BookingModal

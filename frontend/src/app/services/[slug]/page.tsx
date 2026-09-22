@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { Navigation } from '@/components/Navigation/Navigation';
 import { Contact } from '@/components/Contact';
+import { Footer } from '@/components/Footer';
 import { SectionRenderer } from '@/components/services/SectionRenderer';
 import { ServiceSubNav } from '@/components/services/ServiceSubNav';
 import { RelatedServices } from '@/components/services/RelatedServices';
@@ -82,6 +83,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
         <RelatedServices currentSlug={slug} />
       </main>
       <Contact />
+      <Footer />
     </div>
   );
 }

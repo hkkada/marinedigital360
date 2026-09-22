@@ -64,9 +64,9 @@ export const SITE_CONFIG = {
 export const NAVIGATION = {
   main: [
     { label: 'Services', href: '/#services' },
-    { label: 'Work', href: '/#work' },
+    { label: 'Industries', href: '/#industries' },
     { label: 'About', href: '/about' },
-    { label: 'Contact', href: '/#contact' },
+    { label: 'Contact', href: '/contact-us' },
   ],
 } as const;
 

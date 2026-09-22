@@ -1,0 +1,116 @@
+/*
+ * Industries concepts — the handful of things Tailwind can't express.
+ *
+ * Everything else (layout, colour, spacing, hover) is Tailwind in the
+ * components themselves. Only keyframes and the orbit's polar geometry live
+ * here. Every rule is prefixed `ic-` and scoped to this feature so the file
+ * can be deleted wholesale once a concept is chosen.
+ *
+ * All motion is wrapped so `prefers-reduced-motion: reduce` stops it dead
+ * while leaving the final, readable state on screen.
+ */
+
+/* ---------- B · Drifting Marquee ---------- */
+.ic-marquee {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
+}
+.ic-drift-l { animation: ic-drift-l 46s linear infinite; }
+.ic-drift-r { animation: ic-drift-r 52s linear infinite; }
+.ic-marquee:hover .ic-drift-l,
+.ic-marquee:hover .ic-drift-r,
+.ic-marquee:focus-within .ic-drift-l,
+.ic-marquee:focus-within .ic-drift-r { animation-play-state: paused; }
+
+@keyframes ic-drift-l { from { transform: translateX(0); }    to { transform: translateX(-50%); } }
+@keyframes ic-drift-r { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+
+/* ---------- C · Orbital Constellation ---------- */
+.ic-orbit {
+  --ic-r1: clamp(88px, 21vw, 132px);
+  --ic-r2: clamp(132px, 33vw, 208px);
+}
+.ic-ring-1 { animation: ic-spin 78s linear infinite; }
+.ic-ring-2 { animation: ic-spin-r 104s linear infinite; }
+/* Each node counter-rotates at its ring's rate so labels never turn upside down. */
+.ic-ring-1 .ic-node-in { animation: ic-spin-r 78s linear infinite; }
+.ic-ring-2 .ic-node-in { animation: ic-spin 104s linear infinite; }
+.ic-orbit:hover [class*='ic-ring-'],
+.ic-orbit:focus-within [class*='ic-ring-'],
+.ic-orbit:hover .ic-node-in,
+.ic-orbit:focus-within .ic-node-in { animation-play-state: paused; }
+
+/* Polar placement: rotate out to the ring radius, then un-rotate the node itself. */
+.ic-node {
+  transform: rotate(var(--ic-a)) translateY(calc(-1 * var(--ic-r))) rotate(calc(-1 * var(--ic-a)));
+}
+
+@keyframes ic-spin   { to { transform: rotate(360deg); } }
+@keyframes ic-spin-r { to { transform: rotate(-360deg); } }
+
+
+/* ---------- H · Search Wheel ---------- */
+.ic-wheel {
+  /* Ring radius. The hub is 58% of the box, so the chips clear it at every size. */
+  --ic-wr: clamp(108px, 40vw, 140px);
+}
+/* The ring and its chips turn together; chips counter-rotate to stay upright. */
+.ic-wheel-turn {
+  transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+/*
+ * Chips need the same turn PLUS their active-state colour change. Declared as
+ * one shorthand here rather than composed from a Tailwind `transition-*`
+ * utility, which would overwrite the transform timing.
+ */
+.ic-chip-turn {
+  transition:
+    transform 900ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 500ms ease,
+    color 500ms ease,
+    border-color 500ms ease,
+    box-shadow 500ms ease;
+}
+
+/* ---------- D · Live Market Board ---------- */
+.ic-live-dot { animation: ic-pulse 2.4s ease-out infinite; }
+@keyframes ic-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55); }
+  70%  { box-shadow: 0 0 0 9px rgba(52, 211, 153, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+}
+
+/* ---------- G · SERP Simulator ---------- */
+.ic-caret { animation: ic-blink 1.05s steps(1) infinite; }
+@keyframes ic-blink { 50% { opacity: 0; } }
+
+.ic-serp-in { animation: ic-serp-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
+@keyframes ic-serp-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .ic-drift-l,
+  .ic-drift-r,
+  .ic-ring-1,
+  .ic-ring-2,
+  .ic-node-in,
+  .ic-live-dot,
+  .ic-caret,
+  .ic-serp-in {
+    animation: none !important;
+  }
+  /* The marquee stops scrolling, so let it wrap into a static cloud instead. */
+  .ic-marquee { -webkit-mask-image: none; mask-image: none; }
+  .ic-marquee .ic-drift-l,
+  .ic-marquee .ic-drift-r {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  /* The wheel still selects, it just snaps to the next chip instead of turning. */
+  .ic-wheel-turn,
+  .ic-chip-turn { transition: none; }
+}

@@ -21,6 +21,12 @@ type Slide = {
   focal?: string;
   /** object-position from `sm` up, where far more of the frame is visible. */
   focalSm?: string;
+  /**
+   * Phones only: shrink the photo to part of the hero's height and dissolve its
+   * lower edge into the background. Trades full-bleed for a wider view of the
+   * frame — worth it where the subject would otherwise be cropped tight.
+   */
+  fadeBottomMobile?: boolean;
 };
 
 // Video slides are kept here (commented) so the background can be switched back
@@ -37,8 +43,9 @@ const SLIDES: readonly Slide[] = [
     type: 'image',
     src: '/images/hero/wine_istockphoto-2268784010-1024x1024.jpg',
     label: 'Winery and hospitality',
-    industry: 'F&B',
+    industry: 'Food & Beverage',
     focal: '38% 50%',
+    fadeBottomMobile: true,
   },
   {
     type: 'image',
@@ -46,6 +53,10 @@ const SLIDES: readonly Slide[] = [
     label: 'Oil and energy operations',
     industry: 'Manufacturing',
     focal: '55% 50%',
+    // No bottom fade here: this source is extended to 1024x1400, and the extra
+    // sky alone drops the phone scale to 0.60x. The wide crop keeps only ~46%
+    // of that height though, so it anchors low or it would frame mostly sky.
+    focalSm: '50% 90%',
   },
   {
     type: 'image',
@@ -54,14 +65,27 @@ const SLIDES: readonly Slide[] = [
     industry: 'Maritime',
     focal: '50% 50%',
   },
+  // {
+  //   type: 'image',
+  //   // Left untouched at its native 1024x659: the shopper reads best
+  //   // right-anchored, so mobile simply shows the right half of the frame.
+  //   src: '/images/hero/istockphoto-2155498776-1024x1024.jpg',
+  //   label: 'Shopping coastline',
+  //   industry: 'Retail',
+  //   focal: '100% 50%',
+  //   fadeBottomMobile: true,
+  // },
   {
     type: 'image',
-    // Left untouched at its native 1024x659: the shopper reads best
-    // right-anchored, so mobile simply shows the right half of the frame.
-    src: '/images/hero/istockphoto-2155498776-1024x1024.jpg',
-    label: 'Shopping coastline',
-    industry: 'Retail',
-    focal: '100% 50%',
+    // The tablet and both hands sit between x455 and x870 of the source, a
+    // 415px span. Extended to 1024x1024 and combined with the fade, the phone
+    // crop is ~656px wide, so the whole group clears both edges comfortably;
+    // the native file only gave 437px and pinned the tablet to the frame edge.
+    src: '/images/hero/istockphoto-1387134070-1024x1024-tall.jpg',
+    label: 'Store manager reviewing a dashboard',
+    industry: 'E-commerce',
+    focal: '85% 50%',
+    fadeBottomMobile: true,
   },
 ] as const;
 
@@ -141,20 +165,23 @@ export function Hero() {
 
   return (
     <div
-      className="relative h-[100svh] overflow-hidden bg-black"
+      className="relative min-h-[100svh] overflow-hidden bg-black"
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
       {/* Background slider — aria-hidden since it's decorative */}
       <div className="absolute inset-0">
         {SLIDES.map((slide, i) => {
-          const layerClass = `absolute inset-0 w-full h-full object-cover will-change-[opacity] pointer-events-none transition-opacity duration-700 ease-out ${
+          // Positioning + crossfade, shared by both slide kinds.
+          const layerBase = `absolute inset-0 w-full will-change-[opacity] pointer-events-none transition-opacity duration-700 ease-out ${
             i === active ? 'opacity-100' : 'opacity-0'
           }`;
+          const layerClass = `${layerBase} h-full object-cover`;
+          const layerStyle = { filter: 'contrast(1.1) saturate(1.05)' };
           // `hero-slide` reads these vars for object-position, which lets the
           // focal point differ per breakpoint without a JS width check.
-          const layerStyle = {
-            filter: 'contrast(1.1) saturate(1.05)',
+          const imageStyle = {
+            ...layerStyle,
             '--hero-focal': slide.focal ?? '50% 50%',
             // Deliberately not falling back to `focal`: the wide crop already
             // shows nearly the whole frame, so it stays centred unless a slide
@@ -181,17 +208,25 @@ export function Hero() {
               <source src={slide.src} type="video/mp4" />
             </video>
           ) : (
-            <Image
+            // The wrapper owns height and the fade mask: next/image rejects a
+            // `height` in the style prop of a `fill` image, and the mask has to
+            // clip the layer rather than the photo's object-fit box.
+            <div
               key={slide.src}
-              src={slide.src}
-              alt=""
-              fill
-              sizes="100vw"
-              priority={i === 0}
-              aria-hidden="true"
-              className={`${layerClass} hero-slide`}
-              style={layerStyle}
-            />
+              className={`${layerBase} ${slide.fadeBottomMobile ? 'hero-slide-fade' : 'h-full'}`}
+              style={slide.fadeBottomMobile ? { height: 'var(--hero-slide-h, 100%)' } : undefined}
+            >
+              <Image
+                src={slide.src}
+                alt=""
+                fill
+                sizes="100vw"
+                priority={i === 0}
+                aria-hidden="true"
+                className="object-cover hero-slide"
+                style={imageStyle}
+              />
+            </div>
           );
         })}
 
@@ -200,8 +235,14 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent" />
       </div>
 
-      {/* Content — h1 is outside motion.div so it paints immediately for LCP */}
-      <div className="relative h-full flex items-center">
+      {/* Content — h1 is outside motion.div so it paints immediately for LCP.
+          The fixed navbar (~80px) overlays this box, and the scroll cue /
+          slider controls sit along the bottom edge, so both ends are padded
+          out: centring alone would push the eyebrow under the brand wordmark
+          on short viewports (landscape phones, short desktop windows). The
+          hero grows past 100svh rather than clipping when the copy no longer
+          fits between those reserved bands. */}
+      <div className="relative min-h-[100svh] flex items-center pt-28 pb-28 sm:pb-32">
         <div className="max-w-[1600px] mx-auto px-8 lg:px-16 w-full">
           <div className="max-w-4xl mx-auto sm:mx-0">
             {/* Elegant subtitle */}
@@ -227,7 +268,7 @@ export function Hero() {
             <p
               className="text-xl md:text-2xl text-white/80 mb-12 max-w-2xl leading-relaxed font-light drop-shadow(0 2px 8px rgba(0,0,0,0.5)) hero-animate hero-animate-delay-3 text-center sm:text-left mx-auto sm:mx-0"
             >
-              We ignite growth through visibility for the world&apos;s best businesses in{' '}
+              We ignite growth through visibility for the world&apos;s best {' '}
               <span className="inline-flex align-bottom" aria-live="polite">
                 <AnimatePresence mode="wait" initial={false}>
                   <motion.span
@@ -238,10 +279,11 @@ export function Hero() {
                     transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                     className="text-white font-normal whitespace-nowrap"
                   >
-                    {industry}.
+                    {industry}
                   </motion.span>
                 </AnimatePresence>
               </span>
+              {' '} businesses.
             </p>
 
             {/* Quick proof points, directly above the CTAs. Gradient-edged glass
@@ -306,7 +348,7 @@ export function Hero() {
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-6 hero-animate hero-animate-delay-4 items-center sm:items-start">
               <motion.a
-                href="#contact"
+                href="/contact-us"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-10 py-5 bg-white text-gray-900 rounded-full text-sm tracking-wide hover:bg-gray-100 transition-all inline-flex items-center justify-center"
@@ -314,14 +356,14 @@ export function Hero() {
                 Start Your Project
               </motion.a>
 
-              <motion.a
+              {/* <motion.a
                 href="#work"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-10 py-5 bg-white/10 backdrop-blur-md text-white rounded-full text-sm tracking-wide border border-white/20 hover:bg-white/20 transition-all inline-flex items-center justify-center"
               >
                 View Our Work
-              </motion.a>
+              </motion.a> */}
             </div>
           </div>
         </div>
