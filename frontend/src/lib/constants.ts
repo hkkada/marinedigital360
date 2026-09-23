@@ -1,17 +1,17 @@
 import { BRAND } from './brand';
 
-export const CONTACT_EMAIL = 'info@marinedigital360.com';
-export const SUPPORT_EMAIL = 'info@marinedigital360.com';
-export const PRIVACY_EMAIL = 'privacy@marinedigital360.com';
-export const LEGAL_EMAIL = 'legal@marinedigital360.com';
-export const BILLING_EMAIL = 'billing@marinedigital360.com';
-export const FROM_EMAIL = 'notifications@marinedigital360.com';
+export const CONTACT_EMAIL = `info@${BRAND.domainName}`;
+export const SUPPORT_EMAIL = `info@${BRAND.domainName}`;
+export const PRIVACY_EMAIL = `privacy@${BRAND.domainName}`;
+export const LEGAL_EMAIL = `legal@${BRAND.domainName}`;
+export const BILLING_EMAIL = `billing@${BRAND.domainName}`;
+export const FROM_EMAIL = `notifications@${BRAND.domainName}`;
 
 export const SITE_CONFIG = {
   name: BRAND.name,
   sld: BRAND.slug,
   abv: BRAND.abbreviation,
-  title: `${BRAND.compact} — Marine Marketing Agency | Productization, SEO & Sales Enablement`,
+  title: `${BRAND.compact} — Digital Marketing Agency | SEO & Sales Enablement`,
   description:
     `${BRAND.compact} is a specialized marketing agency that transforms boat manufacturer, dealer, and technology capabilities into market-ready products through productization, sales enablement, SEO, and AI-powered digital marketing.`,
   url: process.env.NEXT_PUBLIC_SITE_URL || `https://${BRAND.slug}.com`,

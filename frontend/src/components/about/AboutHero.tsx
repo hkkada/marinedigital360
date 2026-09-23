@@ -16,7 +16,7 @@ import { SITE_CONFIG } from '@/lib/constants';
  * of clipping.
  *
  * Copy is deliberately industry-agnostic: the brand is being repurposed away
- * from the marine-only positioning, so nothing here names a vertical. The
+ * from the industry-agnostic positioning, so nothing here names a vertical. The
  * structure still follows the §13 "Elevator Pitch (Short)" shape.
  * CTA label matches the real booking type in lib/constants.ts
  * (CONTACT_CONFIG.booking.consultationType = "Free Discovery Call").

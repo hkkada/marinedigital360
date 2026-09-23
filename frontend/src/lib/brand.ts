@@ -15,6 +15,7 @@
 const PART_1 = process.env.NEXT_PUBLIC_BRAND_NAME_PART_1?.trim() || 'Marine';
 const PART_2 = process.env.NEXT_PUBLIC_BRAND_NAME_PART_2?.trim() || 'Digital 360';
 const ABV = process.env.NEXT_PUBLIC_BRAND_NAME_ABV?.trim();
+const DOMAIN_NAME = process.env.NEXT_PUBLIC_DOMAIN_NAME?.trim();
 
 /** "Marine Digital 360" — spaced, human-readable form. */
 const FULL_NAME = `${PART_1} ${PART_2}`;
@@ -22,10 +23,10 @@ const FULL_NAME = `${PART_1} ${PART_2}`;
 /** "MarineDigital360" — closed-up form used in copy, SEO titles and legal name. */
 const COMPACT_NAME = `${PART_1}${PART_2}`.replace(/\s+/g, '');
 
-/** "marinedigital360" — second-level domain / handle form. */
 const SLUG = COMPACT_NAME.toLowerCase();
 
 export const BRAND = {
+  domainName: DOMAIN_NAME,
   part1: PART_1,
   part2: PART_2,
   name: FULL_NAME,

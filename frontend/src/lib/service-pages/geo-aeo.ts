@@ -6,12 +6,12 @@ export const geoAeoPage: ServicePageData = {
   title: 'GEO/AEO',
   iconName: 'Sparkles',
   metadata: {
-    title: 'Marine GEO & AEO Services — AI Citations, Featured Snippets & Voice Search',
+    title: 'Industry GEO & AEO Services — AI Citations, Featured Snippets & Voice Search',
     description: `${SITE_CONFIG.name} delivers Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO) — ensuring your business is cited by ChatGPT, Perplexity, Google AI Overviews, featured snippets, and voice search.`,
     keywords: [
       'GEO optimization',
       'AEO',
-      'generative engine optimization marine',
+      'generative engine optimization',
       'AI search visibility',
       'voice search optimization',
       'featured snippets',

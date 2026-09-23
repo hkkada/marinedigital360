@@ -8,9 +8,9 @@ import { SITE_CONFIG } from '@/lib/constants';
  * Company narrative section.
  *
  * Copy is deliberately industry-agnostic — the brand is being repurposed away
- * from the marine-only positioning, so no vertical is named here.
+ * from the industry-agnostic positioning, so no vertical is named here.
  *
- * The former third paragraph listed the Mid-Atlantic/Southeast *marine*
+ * The former third paragraph listed the Mid-Atlantic/Southeast
  * markets from the old domain-knowledge doc. It was dropped rather than
  * reworded: that list is both vertical-specific and geographically at odds
  * with the real HQ. A replacement service area needs to come from the

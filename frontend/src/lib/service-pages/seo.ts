@@ -37,7 +37,7 @@ export const seoPage: ServicePageData = {
       data: {
         headline: 'What is SEO?',
         description:
-          'Marine SEO is the practice of optimizing your website and online presence to rank higher in Google and Bing search results for marine-industry keywords. It combines technical optimization, content strategy, local search, and link building to drive qualified organic traffic to your business — whether you sell boats, electronics, charter services, or accessories.',
+          'Marine SEO is the practice of optimizing your website and online presence to rank higher in Google and Bing search results for industry keywords. It combines technical optimization, content strategy, local search, and link building to drive qualified organic traffic to your business — whether you sell boats, electronics, charter services, or accessories.',
         cards: [
           {
             iconName: 'Search',
@@ -202,7 +202,7 @@ export const seoPage: ServicePageData = {
               'Most businesses see measurable improvements within 3–4 months (technical fixes and quick wins), with significant traffic growth at 6–12 months. SEO is a compounding investment — results accelerate over time as domain authority builds.',
           },
           {
-            question: 'What marine-specific keywords do you target?',
+            question: 'What industry-specific keywords do you target?',
             answer:
               'We research 200–500 keywords per engagement, including product-specific terms (e.g., "center console boats for sale"), service queries ("electronics installation near me"), comparison searches ("Yamaha vs Mercury outboard"), and informational queries ("how to winterize a boat"). The strategy is tailored to your specific niche.',
           },

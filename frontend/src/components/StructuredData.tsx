@@ -108,7 +108,7 @@ export const faqData = [
   {
     question: 'What is productization?',
     answer:
-      `Marine productization is the process of transforming a business's capabilities and services into fully packaged, market-ready products with defined naming, pricing, positioning, and differentiation. ${SITE_CONFIG.name} delivers finished products — not just plans — so clients can sell immediately upon delivery.`,
+      `Productization is the process of transforming a business's capabilities and services into fully packaged, market-ready products with defined naming, pricing, positioning, and differentiation. ${SITE_CONFIG.name} delivers finished products — not just plans — so clients can sell immediately upon delivery.`,
   },
   {
     question: 'How much does marketing cost?',
@@ -121,9 +121,9 @@ export const faqData = [
       `A marketing agency has deep expertise in the boating industry — understanding boat manufacturers, dealers, technology, and the high-net-worth buyer journey. ${SITE_CONFIG.name} combines industry specialization with productization and AI-powered acceleration, delivering results 3-5x faster than general agencies unfamiliar with the market,`
   },
   {
-    question: 'How can I improve my boat dealership\'s online presence?',
+    question: 'How can I improve my dealership\'s online presence?',
     answer:
-      `Improving a boat dealership's online presence requires local SEO, Google Business Profile optimization, inventory marketing, and conversion-focused web design. ${SITE_CONFIG.name} provides marine-specific SEO, GEO optimization for AI search results, and digital systems that generate leads automatically for boat dealers.`,
+      `Improving a dealership's online presence requires local SEO, Google Business Profile optimization, inventory marketing, and conversion-focused web design. ${SITE_CONFIG.name} provides industry-specific SEO, GEO optimization for AI search results, and digital systems that generate leads automatically for boat dealers.`,
   },
   {
     question: 'What is GEO optimization for businesses?',

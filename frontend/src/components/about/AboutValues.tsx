@@ -16,7 +16,7 @@ import { Card, CardTitle, CardBody, IconBox } from '@/components/shared';
  *   supported; replaced with "Industry Expertise".
  *
  * Copy is deliberately industry-agnostic — the brand is being repurposed away
- * from the marine-only positioning, so no vertical and no nautical metaphor
+ * from the industry-agnostic positioning, so no vertical and no nautical metaphor
  * appears here.
  */
 const values = [

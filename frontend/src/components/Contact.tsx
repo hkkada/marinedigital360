@@ -165,7 +165,7 @@ export function Contact() {
                     </label>
                     <input
                       type="text"
-                      placeholder="Your Boat Company"
+                      placeholder="Your Company Name"
                       onFocus={() => setHoveredField('company')}
                       onBlur={() => setHoveredField(null)}
                       className="w-full px-5 py-3 lg:py-2.5 bg-gray-50 border-2 border-gray-200 rounded-xl text-gray-900 text-base focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 placeholder:text-gray-400"
@@ -346,7 +346,7 @@ export function Contact() {
                 Trusted By Leading Manufacturers
               </p>
               <div className="flex flex-wrap gap-2">
-                {['Manufacturers & Custom Yachts Builders', 'Marine Products', 'Marine Technologies'].map((brand) => (
+                {['', '', ''].map((brand) => (
                   <span
                     key={brand}
                     className="px-3.5 py-1.5 bg-gray-100 text-gray-700 rounded-full text-xs font-medium"

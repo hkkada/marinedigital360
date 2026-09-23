@@ -102,8 +102,8 @@ export function About() {
                 className="text-xl text-gray-500 leading-relaxed"
               >
                 {/* Based in {SITE_CONFIG.company.address.city}, {SITE_CONFIG.company.address.stateName}, {SITE_CONFIG.name} is the only
-                marine-focused commercialization agency that combines productization,
-                sales enablement, and AI-powered marketing to drive revenue for marine
+                industry-focused commercialization agency that combines productization,
+                sales enablement, and AI-powered marketing to drive revenue for
                 businesses across the Mid-Atlantic and Southeast United States. */}
   
                 Based in {SITE_CONFIG.company.address.city}, {SITE_CONFIG.company.address.stateName}, {SITE_CONFIG.name} focus combines digital visibility, sales enablement, and AI-powered marketing to drive revenue for businesses across the Sun belt cities in the United States. 

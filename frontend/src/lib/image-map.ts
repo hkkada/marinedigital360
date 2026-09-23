@@ -48,8 +48,8 @@ const continentalYachtsImage = '/images/cy_iStock-2209853704.jpg';
 const sportFishingYachtsImage = '/images/sf_iStock-2166434797.jpg';
 const centerConsolesImage = '/images/cc_iStock-2184376329-2-g2.webp';
 
-const marineProductsImage = '/images/iStock-163915213.webp';
-const marineTechnologyImage = '/images/iStock-1184598249.webp';
+const productsImage = '/images/iStock-163915213.webp';
+const technologyImage = '/images/iStock-1184598249.webp';
 const imageRegistry: ImageCategory = {
   // ═══════════════════════════════════════════════════════════════════════════
   // Main Page Hero
@@ -68,7 +68,7 @@ const imageRegistry: ImageCategory = {
   // About Section Images
   // ═══════════════════════════════════════════════════════════════════════════
   about: {
-    // TODO(brand): this is still a stock photo, now the only marine
+    // TODO(brand): this is still a stock photo, 
     // reference left on the industry-agnostic /about page. Replace the asset;
     // the alt text describes the current image truthfully until then.
     'hand-smartphone-screen':{
@@ -98,12 +98,12 @@ const imageRegistry: ImageCategory = {
       sizes: '(max-width: 1024px) 100vw, 50vw',
     },
     'sport-fishing-yachts': {
-      src: marineProductsImage,
+      src: productsImage,
       alt: `Marine Products case study — luxury yacht at sunset on calm waters, complete brand transformation by ${SITE_CONFIG.name}`,
       sizes: '(max-width: 1024px) 100vw, 50vw',
     },
     'center-consoles': {
-      src: marineTechnologyImage,
+      src: technologyImage,
       alt: `Marine Technologies case study — adventure boat cutting through ocean waves, e-commerce platform project by ${SITE_CONFIG.name}`,
       sizes: '(max-width: 1024px) 100vw, 50vw',
     },
