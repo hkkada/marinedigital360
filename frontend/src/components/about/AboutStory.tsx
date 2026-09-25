@@ -38,11 +38,11 @@ export function AboutStory() {
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.1 }}
+              transition={{ duration: 0.45, delay: 0.1 }}
               className="flex items-center gap-4 mb-6"
             >
               <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] to-transparent" />
-              <span className="text-sm tracking-[0.3em] uppercase text-[#1877F2]">
+              <span className="text-eyebrow uppercase text-[#1877F2]">
                 Who We Are
               </span>
             </motion.div>
@@ -51,8 +51,8 @@ export function AboutStory() {
               id="about-story-heading"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[0.95] text-gray-900"
+              transition={{ duration: 0.45, delay: 0.2 }}
+              className="text-h2 text-gray-900"
             >
               Your industry&rsquo;s commercialization partner
             </motion.h2>
@@ -61,8 +61,8 @@ export function AboutStory() {
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-lg md:text-xl text-gray-600 leading-relaxed font-light lg:pt-12"
+            transition={{ duration: 0.45, delay: 0.3 }}
+            className="text-lead text-gray-600 font-light lg:pt-12"
           >
             {SITE_CONFIG.name} is a commercialization agency that turns business
             capabilities into finished, sellable products — complete with naming, pricing,
@@ -75,8 +75,8 @@ export function AboutStory() {
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.35 }}
-            className="text-lg text-gray-600 leading-relaxed"
+            transition={{ duration: 0.45, delay: 0.35 }}
+            className="text-body text-gray-600"
           >
             Our mission is to empower businesses by transforming their capabilities into
             fully-realized, market-ready products that drive sales and revenue growth — every
@@ -85,8 +85,8 @@ export function AboutStory() {
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg text-gray-600 leading-relaxed"
+            transition={{ duration: 0.45, delay: 0.4 }}
+            className="text-body text-gray-600"
           >
             Headquartered in {SITE_CONFIG.company.address.city}, {SITE_CONFIG.company.address.stateName}, we work across sectors rather than
             specialising in one. The engagement model stays the same whichever industry you

@@ -6,3 +6,6 @@ export type { IconBoxProps, IconBoxVariant, IconBoxSize } from './IconBox';
 
 export { StatCard } from './StatCard';
 export type { StatCardProps } from './StatCard';
+
+export { SpotlightDots } from './SpotlightDots';
+export type { SpotlightDotsProps } from './SpotlightDots';

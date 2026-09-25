@@ -15,33 +15,33 @@ export function TechStack({ data }: TechStackProps) {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="py-section bg-gradient-to-b from-gray-900 to-black relative overflow-hidden" ref={ref}>
-      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#1877F2]/10 rounded-full blur-3xl" />
+    <section className="py-section bg-gradient-to-b from-brand-navy to-brand-navy-deep relative overflow-hidden" ref={ref}>
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-brand-cyan/10 rounded-full blur-3xl" />
 
       <div className="max-w-[1600px] mx-auto px-8 lg:px-16 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.45 }}
           className="mb-block"
         >
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.45, delay: 0.2 }}
             className="flex items-center gap-4 mb-6"
           >
-            <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] to-transparent" />
-            <span className="text-sm tracking-[0.3em] uppercase text-[#1877F2]">
+            <div className="h-px w-16 bg-gradient-to-r from-brand-cyan to-transparent" />
+            <span className="text-eyebrow uppercase text-brand-cyan">
               Technology
             </span>
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[0.95] text-white mb-6">
+          <h2 className="text-h2 text-white mb-6">
             {data.headline}
           </h2>
-          <p className="text-xl text-gray-400 font-light max-w-3xl">
+          <p className="text-lead text-gray-400 font-light max-w-3xl">
             {data.description}
           </p>
         </motion.div>
@@ -55,7 +55,7 @@ export function TechStack({ data }: TechStackProps) {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 + catIndex * 0.15 }}
             >
-              <h3 className="text-lg font-semibold text-[#42A5F5] mb-6 tracking-wide">
+              <h3 className="text-h3 text-brand-cyan mb-6">
                 {category.name}
               </h3>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
@@ -72,10 +72,10 @@ export function TechStack({ data }: TechStackProps) {
                       <Card variant="glass" size="none" hoverable className="flex items-start gap-4 p-5">
                         <IconBox icon={Icon} variant="glass" size="sm" />
                         <div>
-                          <h4 className="text-sm font-semibold text-white mb-1 group-hover:text-[#42A5F5] transition-colors">
+                          <h4 className="text-h4 text-white mb-1 group-hover:text-brand-cyan transition-colors">
                             {tool.name}
                           </h4>
-                          <p className="text-xs text-gray-500 leading-relaxed">
+                          <p className="text-meta text-gray-500">
                             {tool.description}
                           </p>
                         </div>

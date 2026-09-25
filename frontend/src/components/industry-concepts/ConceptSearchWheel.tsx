@@ -189,17 +189,17 @@ export function ConceptSearchWheel() {
 
             {/* Hub — carries the name, so the chips never need labels. */}
             <div className="pointer-events-none absolute inset-0 m-auto flex h-[58%] w-[58%] flex-col items-center justify-center rounded-full bg-white px-3 text-center">
-              <span className="mb-1 font-mono text-[9px] uppercase tracking-[0.16em] text-gray-400">
+              <span className="mb-1 font-mono text-meta uppercase tracking-[0.16em] text-gray-400">
                 {String(wheelIndex + 1).padStart(2, '0')} / {INDUSTRIES.length}
               </span>
-              <span className="text-[15px] font-bold leading-tight tracking-tight text-gray-900 sm:text-base">
+              <span className="text-body font-bold text-gray-900">
                 {INDUSTRIES[wheelIndex].name}
               </span>
               <span className="mt-1.5 h-px w-8 bg-gradient-to-r from-transparent via-[#1877F2] to-transparent" />
             </div>
           </div>
 
-          <p className="mt-3 text-center text-xs text-gray-500">
+          <p className="mt-3 text-center text-meta text-gray-500">
             Hover, tap or Tab a chip to take the dial.
           </p>
         </div>

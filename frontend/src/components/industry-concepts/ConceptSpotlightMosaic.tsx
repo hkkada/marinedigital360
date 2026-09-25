@@ -93,18 +93,18 @@ export function ConceptSpotlightMosaic() {
 
               {isActive ? (
                 <span className="absolute inset-x-[18px] bottom-[18px] block">
-                  <span className="mb-1.5 block text-base font-bold leading-tight tracking-tight text-white sm:text-lg">
+                  <span className="mb-1.5 block text-h3 font-bold text-white">
                     {industry.name}
                   </span>
-                  <span className="mb-2.5 block text-[12.5px] leading-snug text-white/90">
+                  <span className="mb-2.5 block text-meta text-white/90">
                     {industry.proof}
                   </span>
-                  <span className="block border-t border-white/30 pt-2 font-mono text-[10px] uppercase leading-snug tracking-wide text-white">
+                  <span className="block border-t border-white/30 pt-2 font-mono text-meta uppercase tracking-wide text-white">
                     {industry.metric}
                   </span>
                 </span>
               ) : (
-                <span className="text-[11.5px] font-medium leading-tight text-gray-600">
+                <span className="text-meta font-medium text-gray-600">
                   {industry.name}
                 </span>
               )}

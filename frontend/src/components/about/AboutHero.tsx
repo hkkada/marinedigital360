@@ -27,7 +27,7 @@ export function AboutHero() {
   return (
     <section
       aria-labelledby="about-hero-heading"
-      className="relative min-h-[100svh] flex items-center-safe overflow-hidden bg-black"
+      className="relative min-h-[100svh] flex items-center-safe overflow-hidden bg-brand-navy-deep"
     >
       <div className="absolute inset-0">
         {imageProps && (
@@ -50,11 +50,11 @@ export function AboutHero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.45, delay: 0.2 }}
             className="flex items-center gap-4 mb-6 [@media(max-height:880px)]:mb-4"
           >
-            <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] to-transparent" />
-            <span className="text-sm tracking-[0.3em] uppercase text-[#42A5F5] font-medium">
+            <div className="h-px w-16 bg-gradient-to-r from-brand-cyan to-transparent" />
+            <span className="text-eyebrow uppercase text-brand-cyan font-medium">
               About {SITE_CONFIG.name}
             </span>
           </motion.div>
@@ -64,7 +64,7 @@ export function AboutHero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="text-5xl md:text-6xl lg:text-7xl text-white mb-8 leading-[0.95] tracking-tight [@media(max-height:880px)]:mb-5 [@media(max-height:660px)]:text-5xl [@media(max-width:380px)]:text-4xl"
+            className="text-display text-white mb-8 [@media(max-height:880px)]:mb-5"
           >
             Turning what your business already does into market-ready products
           </motion.h1>
@@ -73,7 +73,7 @@ export function AboutHero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
-            className="text-xl md:text-2xl text-white/80 mb-12 leading-relaxed font-light [@media(max-height:880px)]:mb-6 [@media(max-height:660px)]:text-xl [@media(max-width:380px)]:text-lg"
+            className="text-lead text-white/80 mb-12 font-light [@media(max-height:880px)]:mb-6"
           >
             We take the capabilities you already have and package them into something
             sellable — pricing, positioning, sales systems, and AI-powered automation —
@@ -89,7 +89,7 @@ export function AboutHero() {
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 px-10 py-5 [@media(max-height:880px)]:py-3.5 bg-gradient-to-r from-[#1877F2] to-[#0D5DBF] text-white rounded-full text-lg font-semibold shadow-2xl shadow-[#1877F2]/40 hover:shadow-[#1877F2]/60 transition-shadow"
+              className="inline-flex items-center gap-3 px-10 py-5 [@media(max-height:880px)]:py-3.5 bg-gradient-to-r from-[#00CEFA] to-[#00A1FD] text-brand-navy-deep rounded-full text-body font-semibold shadow-2xl shadow-brand-cyan/30 hover:shadow-brand-cyan/50 transition-shadow"
             >
               Schedule a Free Discovery Call
             </motion.a>

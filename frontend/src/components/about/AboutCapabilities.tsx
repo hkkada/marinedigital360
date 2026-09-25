@@ -66,29 +66,29 @@ export function AboutCapabilities() {
     <section
       id="about-capabilities"
       aria-labelledby="about-capabilities-heading"
-      className="py-section bg-black relative overflow-hidden"
+      className="py-section bg-brand-navy-deep relative overflow-hidden"
       ref={ref}
     >
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-[#1877F2]/15 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-[#0D5DBF]/15 to-transparent rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-brand-cyan/10 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-brand-cyan/5 to-transparent rounded-full blur-3xl" />
 
       <div className="max-w-[1600px] mx-auto px-8 lg:px-16 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.45 }}
           className="mb-block text-center max-w-2xl mx-auto"
         >
           <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#1877F2] to-transparent" />
-            <span className="text-sm tracking-[0.3em] uppercase text-[#1877F2]">
+            <div className="h-px w-16 bg-gradient-to-r from-transparent via-brand-cyan to-transparent" />
+            <span className="text-eyebrow uppercase text-brand-cyan">
               Capability Areas
             </span>
-            <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] via-transparent to-transparent" />
+            <div className="h-px w-16 bg-gradient-to-r from-brand-cyan via-transparent to-transparent" />
           </div>
           <h2
             id="about-capabilities-heading"
-            className="text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[0.95] text-white"
+            className="text-h2 text-white"
           >
             The functions behind every engagement
           </h2>
@@ -103,8 +103,8 @@ export function AboutCapabilities() {
               transition={{ duration: 0.5, delay: 0.2 + index * 0.08 }}
             >
               <Card variant="glass" size="md" className="h-full">
-                <IconBox icon={card.icon} className="mb-5" />
-                <span className="block text-xs font-semibold tracking-[0.2em] uppercase text-[#42A5F5] mb-2">
+                <IconBox icon={card.icon} surface="dark" className="mb-5" />
+                <span className="block text-eyebrow font-semibold uppercase text-brand-cyan mb-2">
                   {card.tagline}
                 </span>
                 <CardTitle className="mb-3">{card.label}</CardTitle>

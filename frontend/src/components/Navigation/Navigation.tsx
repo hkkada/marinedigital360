@@ -60,7 +60,7 @@ export function Navigation({ solid = false }: NavigationProps = {}) {
               className="flex items-center gap-3"
             >
               <BrandWordmark
-                className={`text-2xl tracking-tight transition-colors duration-300 whitespace-nowrap ${
+                className={`text-wordmark transition-colors duration-300 whitespace-nowrap ${
                   isScrolled ? 'text-gray-900' : 'text-white'
                 }`}
               />
@@ -78,9 +78,9 @@ export function Navigation({ solid = false }: NavigationProps = {}) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
             transition={springs.bouncy}
-            className={`hidden lg:block px-8 py-3 rounded-full text-sm tracking-wide transition-all duration-300 ${
+            className={`hidden lg:block px-8 py-3 rounded-full text-meta tracking-wide transition-all duration-300 ${
               isScrolled
-                ? 'bg-gray-900 text-white hover:bg-gray-800'
+                ? 'bg-brand-navy text-white hover:bg-brand-navy-raised'
                 : 'bg-white text-gray-900 hover:bg-gray-100'
             }`}
           >

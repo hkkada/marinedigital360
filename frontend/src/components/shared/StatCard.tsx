@@ -46,7 +46,8 @@ export function StatCard({
     >
       <motion.div
         className={cn(
-          'text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#1877F2] to-[#0D5DBF] bg-clip-text text-transparent mb-3',
+          'text-stat font-bold bg-gradient-to-r bg-clip-text text-transparent mb-3',
+          isDark ? 'from-[#00CEFA] to-[#00A1FD]' : 'from-[#1877F2] to-[#0D5DBF]',
           valueClassName,
         )}
         whileHover={{ scale: 1.05 }}
@@ -54,9 +55,9 @@ export function StatCard({
       >
         {value}
       </motion.div>
-      <div className="text-base font-semibold mb-1">{label}</div>
+      <div className="text-h4 font-semibold mb-1">{label}</div>
       {description ? (
-        <div className={cn('text-sm', isDark ? 'text-gray-400' : 'text-gray-500')}>
+        <div className={cn('text-meta', isDark ? 'text-gray-400' : 'text-gray-500')}>
           {description}
         </div>
       ) : null}

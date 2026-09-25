@@ -34,12 +34,12 @@ export function RelatedServices({ currentSlug }: RelatedServicesProps) {
         >
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="h-px w-12 bg-gradient-to-r from-transparent to-[#1877F2]" />
-            <span className="text-sm tracking-[0.3em] uppercase text-[#1877F2]">
+            <span className="text-eyebrow uppercase text-[#1877F2]">
               More Services
             </span>
             <div className="h-px w-12 bg-gradient-to-l from-transparent to-[#1877F2]" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+          <h2 className="text-h2 text-gray-900">
             Explore More Services
           </h2>
         </motion.div>
@@ -66,17 +66,17 @@ export function RelatedServices({ currentSlug }: RelatedServicesProps) {
                     <IconBox icon={Icon} className="mb-4" />
 
                     {/* Title */}
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-[#1877F2] transition-colors">
+                    <h3 className="text-h3 text-gray-900 mb-2 group-hover:text-[#1877F2] transition-colors">
                       {service.title}
                     </h3>
 
                     {/* Tagline */}
-                    <p className="text-sm text-gray-500 leading-relaxed mb-4">
+                    <p className="text-body text-gray-500 mb-4">
                       {service.tagline}
                     </p>
 
                     {/* Arrow */}
-                    <div className="flex items-center gap-1.5 text-sm font-medium text-[#42A5F5] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="flex items-center gap-1.5 text-meta font-medium text-[#42A5F5] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <span>Learn more</span>
                       {ArrowRight && <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />}
                     </div>

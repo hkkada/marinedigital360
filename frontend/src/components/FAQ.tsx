@@ -31,7 +31,7 @@ function FAQItem({
       >
         <Card variant="glass" size="none" className="p-6 md:p-8">
           <div className="flex items-start justify-between gap-4">
-            <h3 className="text-lg md:text-xl font-semibold text-white group-hover:text-[#1877F2] transition-colors pr-4">
+            <h3 className="text-h3 text-white group-hover:text-brand-cyan transition-colors pr-4">
               {question}
             </h3>
             <motion.div
@@ -39,7 +39,7 @@ function FAQItem({
               transition={{ duration: 0.3 }}
               className="flex-shrink-0 mt-1"
             >
-              <ChevronDown className="w-5 h-5 text-gray-400 group-hover:text-[#1877F2] transition-colors" />
+              <ChevronDown className="w-5 h-5 text-gray-400 group-hover:text-brand-cyan transition-colors" />
             </motion.div>
           </div>
 
@@ -53,7 +53,7 @@ function FAQItem({
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <p className="text-gray-400 leading-relaxed text-base md:text-lg">
+            <p className="text-gray-400 text-body">
               {answer}
             </p>
           </motion.div>
@@ -70,39 +70,39 @@ export function FAQ() {
   return (
     <section
       id="faq"
-      className="py-section bg-gradient-to-b from-gray-900 to-black relative overflow-hidden"
+      className="scroll-mt-nav py-section bg-gradient-to-b from-brand-navy to-brand-navy-deep relative overflow-hidden"
       aria-labelledby="faq-heading"
       ref={ref}
     >
       {/* Background */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#1877F2]/10 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-brand-cyan/10 rounded-full blur-3xl" />
 
       <div className="max-w-4xl mx-auto px-8 lg:px-16 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.45 }}
           className="mb-block text-center"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.45, delay: 0.2 }}
             className="inline-flex items-center gap-4 mb-8"
           >
-            <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#1877F2]" />
-            <HelpCircle className="w-8 h-8 text-[#1877F2]" />
-            <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] to-transparent" />
+            <div className="h-px w-16 bg-gradient-to-r from-transparent to-brand-cyan" />
+            <HelpCircle className="w-8 h-8 text-brand-cyan" />
+            <div className="h-px w-16 bg-gradient-to-r from-brand-cyan to-transparent" />
           </motion.div>
 
           <h2
             id="faq-heading"
-            className="text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.9] text-white mb-8"
+            className="text-h2 text-white mb-8"
           >
             Frequently asked
             <br />
-            <span className="bg-gradient-to-r from-[#1877F2] via-[#42A5F5] to-[#0D5DBF] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#00CEFA] via-[#0FF1FD] to-[#00A1FD] bg-clip-text text-transparent">
               questions
             </span>
           </h2>
@@ -110,8 +110,8 @@ export function FAQ() {
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl text-gray-400 font-light max-w-2xl mx-auto"
+            transition={{ duration: 0.45, delay: 0.4 }}
+            className="text-lead text-gray-400 font-light max-w-2xl mx-auto"
           >
             Answers to common questions about marketing, productization,
             and how {SITE_CONFIG.name} helps businesses grow.

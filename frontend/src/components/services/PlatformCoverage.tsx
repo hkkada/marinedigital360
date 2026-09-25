@@ -15,33 +15,33 @@ export function PlatformCoverage({ data }: PlatformCoverageProps) {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="py-section bg-black relative overflow-hidden" ref={ref}>
-      <div className="absolute top-1/3 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-[#1877F2]/15 to-transparent rounded-full blur-3xl" />
+    <section className="py-section bg-brand-navy-deep relative overflow-hidden" ref={ref}>
+      <div className="absolute top-1/3 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-brand-cyan/10 to-transparent rounded-full blur-3xl" />
 
       <div className="max-w-[1600px] mx-auto px-8 lg:px-16 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.45 }}
           className="mb-block"
         >
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.45, delay: 0.2 }}
             className="flex items-center gap-4 mb-6"
           >
-            <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] to-transparent" />
-            <span className="text-sm tracking-[0.3em] uppercase text-[#1877F2]">
+            <div className="h-px w-16 bg-gradient-to-r from-brand-cyan to-transparent" />
+            <span className="text-eyebrow uppercase text-brand-cyan">
               Platforms
             </span>
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[0.95] text-white mb-6">
+          <h2 className="text-h2 text-white mb-6">
             {data.headline}
           </h2>
-          <p className="text-xl text-gray-400 font-light max-w-3xl">
+          <p className="text-lead text-gray-400 font-light max-w-3xl">
             {data.description}
           </p>
         </motion.div>
@@ -61,9 +61,9 @@ export function PlatformCoverage({ data }: PlatformCoverageProps) {
               >
                 <Card variant="glass" size="none" className="h-full p-8">
                   <div className="flex items-start gap-5 mb-6">
-                    <IconBox icon={Icon} size="lg" className="flex-shrink-0" />
-                    <div>
-                      <CardTitle className="mb-1 group-hover:text-[#1877F2] transition-colors">
+                    <IconBox icon={Icon} surface="dark" size="lg" className="flex-shrink-0" />
+                    <div className="min-w-0">
+                      <CardTitle className="mb-1 group-hover:text-brand-cyan transition-colors">
                         {platform.name}
                       </CardTitle>
                       <CardBody className="leading-relaxed">{platform.description}</CardBody>
@@ -72,8 +72,8 @@ export function PlatformCoverage({ data }: PlatformCoverageProps) {
 
                   <ul className="space-y-2">
                     {platform.features.map((feature, i) => (
-                      <li key={i} className="flex items-center gap-2 text-sm text-gray-300">
-                        {Check && <Check className="w-4 h-4 text-[#42A5F5] flex-shrink-0" />}
+                      <li key={i} className="flex items-center gap-2 text-body text-gray-300">
+                        {Check && <Check className="w-4 h-4 text-brand-cyan flex-shrink-0" />}
                         {feature}
                       </li>
                     ))}

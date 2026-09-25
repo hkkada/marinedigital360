@@ -30,25 +30,25 @@ export function AboutStats() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.45 }}
           className="mb-block text-center max-w-2xl mx-auto"
         >
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#1877F2] to-transparent" />
-            <span className="text-sm tracking-[0.3em] uppercase text-[#1877F2]">
+            <span className="text-eyebrow uppercase text-[#1877F2]">
               By The Numbers
             </span>
             <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] via-transparent to-transparent" />
           </div>
           <h2
             id="about-stats-heading"
-            className="text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[0.95] text-gray-900"
+            className="text-h2 text-gray-900"
           >
             Built on results, not promises
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-6 md:gap-8 max-w-2xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-2xl mx-auto">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}

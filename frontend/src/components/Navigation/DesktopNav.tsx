@@ -23,7 +23,7 @@ export function DesktopNav({ isScrolled }: DesktopNavProps) {
         {/* Services with mega menu */}
         <NavigationMenuItem className="static">
           <NavigationMenuTrigger
-            className={`text-base font-medium ${textColor} bg-transparent hover:bg-transparent data-[state=open]:bg-transparent focus:bg-transparent`}
+            className={`text-body font-medium ${textColor} bg-transparent hover:bg-transparent data-[state=open]:bg-transparent focus:bg-transparent`}
           >
             Services
           </NavigationMenuTrigger>
@@ -41,11 +41,15 @@ export function DesktopNav({ isScrolled }: DesktopNavProps) {
           <NavigationMenuItem key={link.label}>
             <NavigationMenuLink
               href={link.href}
-              className={`text-base font-medium relative group ${textColor} px-0 py-2 hover:bg-transparent focus:bg-transparent data-[active=true]:bg-transparent`}
+              className={`text-body font-medium relative group ${textColor} px-0 py-2 hover:bg-transparent focus:bg-transparent data-[active=true]:bg-transparent`}
             >
               {link.label}
               {/* Hover underline animation */}
-              <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-[var(--nav-link-blue)] transition-all duration-150 group-hover:w-full" />
+              <span
+                className={`absolute left-0 -bottom-1 h-0.5 w-0 transition-all duration-150 group-hover:w-full ${
+                  isScrolled ? 'bg-[var(--nav-link-blue)]' : 'bg-brand-cyan'
+                }`}
+              />
             </NavigationMenuLink>
           </NavigationMenuItem>
         ))}

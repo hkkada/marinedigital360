@@ -62,7 +62,7 @@ export function Portfolio() {
   ];
 
   return (
-    <section id="work" className="py-section bg-white relative overflow-hidden" ref={ref} aria-labelledby="work-heading">
+    <section id="work" className="scroll-mt-nav py-section bg-white relative overflow-hidden" ref={ref} aria-labelledby="work-heading">
       {/* Decorative elements */}
       <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-[#1877F2]/5 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-0 w-[400px] h-[400px] bg-[#0D5DBF]/5 rounded-full blur-3xl" />
@@ -84,13 +84,13 @@ export function Portfolio() {
             className="flex items-center gap-4 mb-8"
           >
             <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] to-transparent" />
-            <span className="text-sm tracking-[0.3em] uppercase text-[#1877F2]">
+            <span className="text-eyebrow uppercase text-[#1877F2]">
               Featured Work
             </span>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-end">
-            <h2 id="work-heading" className="text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.9] text-gray-900">
+            <h2 id="work-heading" className="text-h2 text-gray-900">
               Projects that
               <br />
               <span className="bg-gradient-to-r from-[#1877F2] to-[#0D5DBF] bg-clip-text text-transparent">
@@ -102,7 +102,7 @@ export function Portfolio() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: durations.normal, delay: 0.15 }}
-              className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed"
+              className="text-lead text-gray-600 font-light"
             >
               Real results for real manufacturers. We don't just build 
               websites—we engineer digital dominance.
@@ -129,7 +129,7 @@ export function Portfolio() {
                   {/* Image side - dramatic with animations */}
                   <div className={`relative ${!isEven ? 'lg:col-start-2' : ''}`}>
                     <motion.div
-                      className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-gray-900 shadow-2xl"
+                      className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-brand-navy shadow-2xl"
                       whileHover={{ scale: 1.02 }}
                       transition={{ duration: durations.smooth }}
                     >
@@ -153,7 +153,7 @@ export function Portfolio() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         className="absolute top-4 right-4 w-14 h-14 md:top-8 md:right-8 md:w-20 md:h-20 bg-white rounded-full flex items-center justify-center shadow-xl"
                       >
-                        <span className="text-sm md:text-lg font-bold text-gray-900">{project.year}</span>
+                        <span className="text-h4 font-bold text-gray-900">{project.year}</span>
                       </motion.div>
 
                       {/* Gradient overlay on hover */}
@@ -184,7 +184,7 @@ export function Portfolio() {
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ duration: durations.smooth, delay: sectionTiming.portfolio.projectStagger(index) + 0.15 }}
                     >
-                      <span className="inline-block px-4 py-2 bg-gray-100 rounded-full text-sm font-semibold text-gray-700 mb-3">
+                      <span className="inline-block px-4 py-2 bg-gray-100 rounded-full text-meta font-semibold text-gray-700 mb-3">
                         {project.category}
                       </span>
 
@@ -197,7 +197,7 @@ export function Portfolio() {
                             <Link
                               key={slug}
                               href={`/services/${slug}`}
-                              className="inline-block px-3 py-1 bg-[#1877F2]/10 text-[#1877F2] rounded-full text-xs font-medium hover:bg-[#1877F2]/20 transition-colors"
+                              className="inline-block px-3 py-1 bg-[#1877F2]/10 text-[#1877F2] rounded-full text-meta font-medium hover:bg-[#1877F2]/20 transition-colors"
                             >
                               {service.title}
                             </Link>
@@ -205,11 +205,11 @@ export function Portfolio() {
                         })}
                       </div>
 
-                      <h3 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-4 leading-[0.9] group-hover:text-[#1877F2] transition-colors duration-300">
+                      <h3 className="text-h2 text-gray-900 mb-4 group-hover:text-[#1877F2] transition-colors duration-300">
                         {project.title}
                       </h3>
 
-                      <p className="text-2xl md:text-3xl text-gray-500 font-light mb-12">
+                      <p className="text-lead text-gray-500 font-light mb-12">
                         {project.subtitle}
                       </p>
 
@@ -225,10 +225,10 @@ export function Portfolio() {
                             className="relative p-6 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 hover:border-[#1877F2] transition-colors group/metric"
                           >
                             <metric.icon className="w-8 h-8 text-[#1877F2] mb-3 group-hover/metric:scale-110 transition-transform" />
-                            <p className="text-4xl font-bold text-gray-900 mb-1">
+                            <p className="text-stat font-bold text-gray-900 mb-1">
                               {metric.value}
                             </p>
-                            <p className="text-sm text-gray-600 uppercase tracking-wide">
+                            <p className="text-meta text-gray-600 uppercase tracking-wide">
                               {metric.label}
                             </p>
                           </motion.div>
@@ -240,12 +240,12 @@ export function Portfolio() {
                       <motion.a
                         href="/contact-us"
                         whileHover={{ scale: 1.05, x: 10 }}
-                        className="inline-flex items-center gap-3 text-lg font-semibold text-gray-900 group/link"
+                        className="inline-flex items-center gap-3 text-body font-semibold text-gray-900 group/link"
                       >
                         <span className="group-hover/link:text-[#1877F2] transition-colors">
                           View Case Study
                         </span>
-                        <div className="w-12 h-12 bg-gray-900 group-hover/link:bg-[#1877F2] rounded-full flex items-center justify-center transition-all">
+                        <div className="w-12 h-12 bg-brand-navy group-hover/link:bg-[#1877F2] rounded-full flex items-center justify-center transition-all">
                           <ExternalLink className="w-5 h-5 text-white" />
                         </div>
                       </motion.a>
@@ -266,7 +266,7 @@ export function Portfolio() {
           transition={{ duration: durations.smooth, delay: 0.8 }}
           className={showPortfolio ? 'mt-32 relative' : 'relative'}
         >
-          <div className="relative p-16 bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-3xl overflow-hidden">
+          <div className="relative p-6 sm:p-10 md:p-16 bg-gradient-to-br from-brand-navy via-brand-navy-raised to-brand-navy-deep rounded-3xl overflow-hidden">
             {/* Animated background */}
             <motion.div
               className="absolute inset-0 opacity-20"
@@ -279,23 +279,23 @@ export function Portfolio() {
                 repeatType: 'reverse',
               }}
               style={{
-                backgroundImage: 'radial-gradient(circle, #1877F2 1px, transparent 1px)',
+                backgroundImage: 'radial-gradient(circle, #0FF1FD 1px, transparent 1px)',
                 backgroundSize: '50px 50px',
               }}
             />
 
             <div className="relative z-10 text-center">
-              <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              <h3 className="text-h3 text-white mb-6">
                 Ready to make waves?
               </h3>
-              <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+              <p className="text-lead text-gray-400 mb-10 max-w-2xl mx-auto">
                 Let's create a digital experience that dominates your market
               </p>
               <motion.a
                 href="/contact-us"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 px-12 py-6 bg-white text-gray-900 rounded-full text-lg font-semibold shadow-2xl hover:bg-gray-100 transition-all"
+                className="inline-flex items-center gap-3 px-6 py-4 sm:px-9 sm:py-5 md:px-12 md:py-6 bg-white text-gray-900 rounded-full text-body font-semibold shadow-2xl hover:bg-gray-100 transition-all"
               >
                 Start Your Project
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -12,8 +12,17 @@ const iconBoxVariants = cva('flex items-center justify-center flex-shrink-0', {
   variants: {
     /** `gradient` is the standard brand chip. `glass` is the subdued chip used on dense, dark lists (e.g. a tech-stack grid). */
     variant: {
-      gradient: 'bg-gradient-to-br from-[#1877F2] to-[#0D5DBF] shadow-lg shadow-[#1877F2]/20',
+      gradient: 'shadow-lg',
       glass: 'bg-white/10',
+    },
+    /**
+     * Which surface the chip sits on. The brand runs two accents — azure on
+     * white, cyan on navy — so a single gradient cannot serve both: the azure
+     * chip on a navy section leaves two different blues inside one card.
+     */
+    surface: {
+      light: '',
+      dark: '',
     },
     size: {
       sm: 'w-10 h-10 rounded-lg',
@@ -21,8 +30,21 @@ const iconBoxVariants = cva('flex items-center justify-center flex-shrink-0', {
       lg: 'w-14 h-14 rounded-xl',
     },
   },
+  compoundVariants: [
+    {
+      variant: 'gradient',
+      surface: 'light',
+      class: 'bg-gradient-to-br from-[#1877F2] to-[#0D5DBF] shadow-[#1877F2]/20',
+    },
+    {
+      variant: 'gradient',
+      surface: 'dark',
+      class: 'bg-gradient-to-br from-brand-cta-from to-brand-cta-to shadow-brand-cta-to/25',
+    },
+  ],
   defaultVariants: {
     variant: 'gradient',
+    surface: 'light',
     size: 'md',
   },
 });
@@ -41,21 +63,21 @@ export interface IconBoxProps extends VariantProps<typeof iconBoxVariants> {
   icon?: LucideIcon | React.ComponentType<{ className?: string }> | null;
   /** Layout-only passthrough (margins, flex alignment), merged via `cn()`. */
   className?: string;
-  /** Icon color override. Defaults to white for `gradient`, brand blue (#42A5F5) for `glass`. */
+  /** Icon color override. Defaults to white for `gradient`, brand cyan for `glass` (the glass chip only ever sits on a navy surface). */
   iconClassName?: string;
 }
 
-export function IconBox({ icon: Icon, variant, size, className, iconClassName }: IconBoxProps) {
+export function IconBox({ icon: Icon, variant, surface, size, className, iconClassName }: IconBoxProps) {
   const resolvedSize: 'sm' | 'md' | 'lg' = size ?? 'md';
   const resolvedVariant: 'gradient' | 'glass' = variant ?? 'gradient';
 
   return (
-    <div className={cn(iconBoxVariants({ variant, size }), className)}>
+    <div className={cn(iconBoxVariants({ variant, surface, size }), className)}>
       {Icon ? (
         <Icon
           className={cn(
             ICON_SIZE_CLASSES[resolvedSize],
-            iconClassName ?? (resolvedVariant === 'glass' ? 'text-[#42A5F5]' : 'text-white'),
+            iconClassName ?? (resolvedVariant === 'glass' ? 'text-brand-cyan' : 'text-white'),
           )}
         />
       ) : null}

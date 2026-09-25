@@ -106,20 +106,20 @@ export function ConceptOrbitalConstellation() {
             className="absolute inset-0 m-auto flex h-[46%] max-h-[210px] w-[46%] max-w-[210px] flex-col items-center justify-center rounded-full border border-gray-200 bg-white p-4 text-center shadow-lg"
             aria-live="polite"
           >
-            <span className="mb-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-[#1877F2]">
+            <span className="mb-1.5 font-mono text-eyebrow uppercase text-[#1877F2]">
               Industry
             </span>
-            <span className="mb-1 text-sm font-bold leading-tight text-gray-900 sm:text-base">
+            <span className="mb-1 text-body font-bold text-gray-900">
               {current.name}
             </span>
-            <span className="hidden text-[11.5px] leading-snug text-gray-600 sm:block">
+            <span className="hidden text-meta text-gray-600 sm:block">
               {current.metric}
             </span>
           </div>
         </div>
       </div>
 
-      <p className="mt-4 text-center text-xs text-gray-500">
+      <p className="mt-4 text-center text-meta text-gray-500">
         Hover or Tab to a node to stop the rings.
       </p>
     </section>

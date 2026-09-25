@@ -166,3 +166,47 @@ gutter (32px at 390w, 64px at 1440w).
 `el.getBoundingClientRect().left - container.getBoundingClientRect().left + container.scrollLeft`
 — and clamp the result to `[0, scrollWidth - clientWidth]`. Verify by comparing on-screen rects,
 not the same `offsetLeft` the code used, or the check inherits the bug it is meant to catch.
+
+## Tailwind v4 font-size tokens carry leading and tracking, but not weight
+`@theme` accepts `--text-h2--line-height`, `--text-h2--letter-spacing` *and*
+`--text-h2--font-weight`, so the type scale was written assuming all three ride along with the
+size. Only the first two are emitted. At 4.1.18 the built rule is:
+
+```css
+h1{font-size:clamp(2.25rem,2.6vw + 1.25rem,3.5rem);line-height:var(--tw-leading,1.08);letter-spacing:var(--tw-tracking,-.025em)}
+```
+
+No `font-weight`. Ten `--text-*--font-weight` declarations were dead on arrival — the same
+class of silent no-op as `--spacing-subnav`, and invisible unless you read the built CSS.
+
+**How to apply:** weight lives in the `@layer base` element rules (`h1`/`h2` bold, `h3`-`h6`
+semibold), so a real heading element needs no weight class but a `div`/`span`/`motion.*`
+carrying a heading token still does. More generally: after adding any `@theme` token, grep the
+built CSS for the property you expect, not just the utility name — a utility can emit while
+silently dropping one of its declarations.
+
+## A type scale is one token set, the same as the spacing rhythm
+Font sizes were 26 distinct responsive heading combinations plus 24 arbitrary bracket values,
+because `@theme inline` had spacing/color/radius tokens but nothing for type. Home-page section
+headings ran to 96px while the same role on a service page capped at 60px, and the 18 service
+headings carried no weight class at all, so they rendered 400 next to a bold duplicate.
+
+**How to apply:** `text-display`/`h1`/`h2`/`h3`/`h4`/`lead`/`body`/`meta`/`eyebrow`/`stat`/
+`wordmark` are defined once in `globals.css`. Use one, with no `sm:`/`md:`/`lg:` step — they are
+`clamp()`-based and scale continuously, which is also what stopped `lg:text-6xl` from shipping a
+60px headline to a 1024px iPad. Retuning the whole site is a one-line edit there.
+See [tasks/typography-tokens/todo.md](typography-tokens/todo.md).
+
+## Chrome's `--screenshot` renders the page in whatever window height you pass
+Capturing a full page by passing `--window-size=320,5200` does not work on this site: the hero
+is viewport-height, so it expands to 5200px and pushes every other section off the shot. Two
+crops were spent looking at hero photo before this was obvious.
+
+**How to apply:** `--screenshot` captures the viewport, and the viewport *is* the window size,
+so a tall window distorts any `vh`/`min-h-screen` layout. For real measurement install
+`puppeteer-core` into the scratchpad (not the project) and point `executablePath` at the
+installed Chrome — that gives `fullPage` screenshots, per-element screenshots, and
+`page.evaluate` for geometry. Note Framer Motion's scroll-reveal leaves content at `opacity: 0`
+in a headless shot; inject `*{opacity:1!important;transform:none!important}` or the screenshot
+is of an empty section.
+

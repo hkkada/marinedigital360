@@ -35,27 +35,16 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="py-section bg-gradient-to-b from-gray-900 via-black to-gray-900 relative overflow-hidden" ref={sectionRef} aria-labelledby="about-heading">
+    <section id="about" className="scroll-mt-nav py-section bg-gradient-to-b from-brand-navy via-brand-navy-deep to-brand-navy relative overflow-hidden" ref={sectionRef} aria-labelledby="about-heading">
       {/* Animated background elements */}
       <motion.div
-        className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-[#1877F2]/20 rounded-full blur-3xl"
+        className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-brand-cyan/10 rounded-full blur-3xl"
         style={{ y: y1 }}
       />
       <motion.div
-        className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-[#0D5DBF]/20 rounded-full blur-3xl"
+        className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-brand-cyan/10 rounded-full blur-3xl"
         style={{ y: y2 }}
       />
-
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 opacity-10">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: 'linear-gradient(#1877F2 1px, transparent 1px), linear-gradient(90deg, #1877F2 1px, transparent 1px)',
-            backgroundSize: '100px 100px',
-          }}
-        />
-      </div>
 
       <div className="max-w-[1600px] mx-auto px-8 lg:px-16 relative z-10" ref={ref}>
         {/* Header */}
@@ -71,16 +60,16 @@ export function About() {
             transition={{ duration: sectionTiming.about.headerDuration, delay: 0.1 }}
             className="flex items-center gap-4 mb-5 sm:mb-6"
           >
-            <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] to-transparent" />
-            <span className="text-sm tracking-[0.3em] uppercase text-[#1877F2]">
+            <div className="h-px w-16 bg-gradient-to-r from-brand-cyan to-transparent" />
+            <span className="text-eyebrow uppercase text-brand-cyan">
               About {SITE_CONFIG.name}
             </span>
           </motion.div>
 
-          <h2 id="about-heading" className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.9] text-white mb-4 sm:mb-6">
+          <h2 id="about-heading" className="text-h2 text-white mb-4 sm:mb-6">
             Built by
             <br />
-            <span className="bg-gradient-to-r from-[#1877F2] via-[#42A5F5] to-[#1877F2] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#00CEFA] via-[#0FF1FD] to-[#00CEFA] bg-clip-text text-transparent">
               industry experts
             </span>
           </h2>
@@ -91,7 +80,7 @@ export function About() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: sectionTiming.about.headerDuration, delay: 0.2 }}
-                className="text-xl text-gray-500 leading-relaxed mb-4"
+                className="text-lead text-white/70 mb-4"
               >
                 Our approach combines deep industry knowledge with cutting-edge digital strategy to create experiences that captivate and convert.
               </motion.p>
@@ -99,7 +88,7 @@ export function About() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: sectionTiming.about.headerDuration, delay: 0.25 }}
-                className="text-xl text-gray-500 leading-relaxed"
+                className="text-lead text-white/70"
               >
                 {/* Based in {SITE_CONFIG.company.address.city}, {SITE_CONFIG.company.address.stateName}, {SITE_CONFIG.name} is the only
                 industry-focused commercialization agency that combines productization,
@@ -121,7 +110,7 @@ export function About() {
           transition={{ duration: durations.smooth, delay: 0.4 }}
           className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-16"
         >
-          <div className="grid grid-cols-2 gap-6 md:gap-8 max-w-md">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-md">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -146,10 +135,10 @@ export function About() {
           >
             <Link
               href="/about"
-              className="group inline-flex items-center gap-2 text-lg font-semibold text-white hover:text-[#1877F2] transition-colors duration-300"
+              className="group inline-flex items-center gap-2 text-body font-semibold text-white hover:text-brand-cyan transition-colors duration-300"
             >
               <span>Learn more about us</span>
-              <ArrowRight className="w-5 h-5 text-[#1877F2] group-hover:translate-x-1 transition-transform duration-300" />
+              <ArrowRight className="w-5 h-5 text-brand-cyan group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
           </motion.div>
         </motion.div>

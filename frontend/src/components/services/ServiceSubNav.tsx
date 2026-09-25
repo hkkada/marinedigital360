@@ -171,7 +171,7 @@ export function ServiceSubNav({ sections }: ServiceSubNavProps) {
                   onClick={(event) => handleClick(event, link.id)}
                   aria-current={isActive ? 'location' : undefined}
                   className={cn(
-                    'block py-5 text-sm font-medium transition-colors whitespace-nowrap rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--nav-link-blue)] focus-visible:outline-offset-2',
+                    'block py-5 text-meta font-medium transition-colors whitespace-nowrap rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--nav-link-blue)] focus-visible:outline-offset-2',
                     // Colour *and* underline, so the active section is not
                     // signalled by hue alone. `underline-offset` keeps the
                     // indicator out of the layout, so the bar's height — which

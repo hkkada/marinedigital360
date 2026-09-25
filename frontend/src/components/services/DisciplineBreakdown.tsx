@@ -19,29 +19,29 @@ export function DisciplineBreakdown({ data }: DisciplineBreakdownProps) {
   const Check = getIcon('Check');
 
   return (
-    <section className="py-section bg-black relative overflow-hidden" ref={ref}>
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-[#1877F2]/15 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-[#0D5DBF]/15 to-transparent rounded-full blur-3xl" />
+    <section className="py-section bg-brand-navy-deep relative overflow-hidden" ref={ref}>
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-brand-cyan/10 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-[#00A1FD]/10 to-transparent rounded-full blur-3xl" />
 
       <div className="max-w-[1600px] mx-auto px-8 lg:px-16 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.45 }}
           className="mb-block text-center"
         >
           <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#1877F2] to-transparent" />
-            <span className="text-sm tracking-[0.3em] uppercase text-[#1877F2]">
+            <div className="h-px w-16 bg-gradient-to-r from-transparent via-brand-cyan to-transparent" />
+            <span className="text-eyebrow uppercase text-brand-cyan">
               The Three Disciplines
             </span>
-            <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] via-transparent to-transparent" />
+            <div className="h-px w-16 bg-gradient-to-r from-brand-cyan via-transparent to-transparent" />
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[0.95] text-white mb-6">
+          <h2 className="text-h2 text-white mb-6">
             {data.headline}
           </h2>
-          <p className="text-xl text-gray-400 font-light max-w-3xl mx-auto">
+          <p className="text-lead text-gray-400 font-light max-w-3xl mx-auto">
             {data.description}
           </p>
         </motion.div>
@@ -62,7 +62,7 @@ export function DisciplineBreakdown({ data }: DisciplineBreakdownProps) {
                 onClick={() => setActiveTab(discipline.id)}
                 className={`flex-1 flex items-center justify-center gap-3 px-6 py-4 rounded-xl font-semibold transition-all duration-300 ${
                   isActive
-                    ? 'bg-gradient-to-r from-[#1877F2] to-[#0D5DBF] text-white shadow-lg shadow-[#1877F2]/30'
+                    ? 'bg-gradient-to-r from-[#00CEFA] to-[#00A1FD] text-brand-navy-deep shadow-lg shadow-[#00A1FD]/30'
                     : 'bg-white/5 text-gray-400 border border-white/10 hover:bg-white/10 hover:text-white'
                 }`}
               >
@@ -86,21 +86,21 @@ export function DisciplineBreakdown({ data }: DisciplineBreakdownProps) {
               <div className="grid lg:grid-cols-2 gap-10">
                 {/* Left: description */}
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                  <h3 className="text-h3 text-white mb-2">
                     {activeDiscipline.fullName}
                   </h3>
-                  <p className="text-lg text-gray-400 leading-relaxed mb-8">
+                  <p className="text-body text-gray-400 mb-8">
                     {activeDiscipline.description}
                   </p>
 
                   {/* Metrics */}
-                  <h4 className="text-sm font-semibold tracking-[0.2em] uppercase text-[#42A5F5] mb-4">
+                  <h4 className="text-eyebrow uppercase text-brand-cyan mb-4">
                     Expected Results
                   </h4>
                   <ul className="space-y-3">
                     {activeDiscipline.metrics.map((metric, i) => (
                       <li key={i} className="flex items-start gap-3 text-gray-300">
-                        {Check && <Check className="w-5 h-5 text-[#42A5F5] flex-shrink-0 mt-0.5" />}
+                        {Check && <Check className="w-5 h-5 text-brand-cyan flex-shrink-0 mt-0.5" />}
                         {metric}
                       </li>
                     ))}
@@ -109,14 +109,14 @@ export function DisciplineBreakdown({ data }: DisciplineBreakdownProps) {
 
                 {/* Right: tactics */}
                 <div>
-                  <h4 className="text-sm font-semibold tracking-[0.2em] uppercase text-[#42A5F5] mb-4">
+                  <h4 className="text-eyebrow uppercase text-brand-cyan mb-4">
                     What We Do
                   </h4>
                   <ul className="space-y-3">
                     {activeDiscipline.tactics.map((tactic, i) => (
                       <li key={i} className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-[#1877F2]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <span className="text-xs font-bold text-[#42A5F5]">
+                        <div className="w-6 h-6 rounded-full bg-brand-cyan/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <span className="text-meta font-bold text-brand-cyan">
                             {i + 1}
                           </span>
                         </div>

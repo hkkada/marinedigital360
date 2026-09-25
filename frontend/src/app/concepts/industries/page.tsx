@@ -143,7 +143,7 @@ export default function IndustriesConceptsPage() {
         {CONCEPTS.map(({ id, letter, name, blurb, Component }) => (
           <section key={id} id={id} className="mb-14 scroll-mt-5">
             <div className="mb-2 flex flex-wrap items-baseline gap-x-3.5 gap-y-2.5">
-              <span className="rounded-md bg-gray-900 px-2 py-1 font-mono text-[11px] font-semibold tracking-widest text-gray-100">
+              <span className="rounded-md bg-brand-navy px-2 py-1 font-mono text-[11px] font-semibold tracking-widest text-gray-100">
                 {letter}
               </span>
               <h2 className="text-xl font-semibold tracking-tight text-gray-900 sm:text-2xl">

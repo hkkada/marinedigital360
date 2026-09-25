@@ -26,12 +26,12 @@ export function Experience() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.45 }}
           className="flex flex-col items-center text-center"
         >
           <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5">
             <div className="h-px w-8 sm:w-12 lg:w-16 bg-gradient-to-r from-transparent to-[#1877F2]" />
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-900 whitespace-nowrap">
+            <h2 className="text-h2 text-gray-900 whitespace-nowrap">
               Our{' '}
               <span className="bg-gradient-to-r from-[#1877F2] via-[#42A5F5] to-[#1877F2] bg-clip-text text-transparent">
                 Experience

@@ -24,7 +24,7 @@ export function Industries() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="industries" ref={ref} className="pt-section-sm pb-section bg-white">
+    <section id="industries" ref={ref} className="scroll-mt-nav pt-section-sm pb-section bg-white">
       <div className="max-w-[1600px] mx-auto px-5 sm:px-8 lg:px-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

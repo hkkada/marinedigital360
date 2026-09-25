@@ -24,4 +24,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://marinedigital360.com/sitemap.xml
+Sitemap: https://crescentcitydigital.com/sitemap.xml

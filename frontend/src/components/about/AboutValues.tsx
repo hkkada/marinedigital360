@@ -57,16 +57,16 @@ export function AboutValues() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.45 }}
           className="mb-block max-w-2xl"
         >
           <div className="flex items-center gap-4 mb-6">
             <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] to-transparent" />
-            <span className="text-sm tracking-[0.3em] uppercase text-[#1877F2]">Our Values</span>
+            <span className="text-eyebrow uppercase text-[#1877F2]">Our Values</span>
           </div>
           <h2
             id="about-values-heading"
-            className="text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[0.95] text-gray-900"
+            className="text-h2 text-gray-900"
           >
             What drives every engagement
           </h2>

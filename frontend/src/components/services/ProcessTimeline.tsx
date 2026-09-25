@@ -19,7 +19,7 @@ function TimelineStep({ step, index }: TimelineStepProps) {
   const stepNumber = String(index + 1).padStart(2, '0');
 
   return (
-    <div ref={stepRef} className="relative grid grid-cols-[48px_1fr] md:grid-cols-[80px_1fr] gap-4 md:gap-6">
+    <div ref={stepRef} className="relative grid grid-cols-[48px_minmax(0,1fr)] md:grid-cols-[80px_minmax(0,1fr)] gap-4 md:gap-6">
       {/* Milestone node column */}
       <div className="flex flex-col items-center">
         {/* Node */}
@@ -31,9 +31,9 @@ function TimelineStep({ step, index }: TimelineStepProps) {
               : { scale: 0.8, opacity: 0 }
           }
           transition={{ duration: 0.5, delay: 0.1 }}
-          className={`relative z-10 w-9 h-9 md:w-12 md:h-12 rounded-full flex items-center justify-center text-xs md:text-sm font-bold transition-all duration-500 ${
+          className={`relative z-10 w-9 h-9 md:w-12 md:h-12 rounded-full flex items-center justify-center text-meta font-bold transition-all duration-500 ${
             isInView
-              ? 'bg-gradient-to-br from-[#1877F2] to-[#0D5DBF] border-2 border-[#1877F2] text-white shadow-lg shadow-[#1877F2]/30'
+              ? 'bg-gradient-to-br from-[#00CEFA] to-[#00A1FD] border-2 border-[#00CEFA] text-brand-navy-deep shadow-lg shadow-[#00A1FD]/30'
               : 'bg-white/5 border-2 border-white/20 text-gray-500'
           }`}
         >
@@ -51,19 +51,19 @@ function TimelineStep({ step, index }: TimelineStepProps) {
         <Card variant="glass" size="none" className="p-5 md:p-6 lg:p-8">
           {/* Header row */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
-            <div className="flex items-center gap-3">
-              {Icon && <IconBox icon={Icon} size="sm" className="flex-shrink-0" />}
-              <h3 className="text-xl md:text-2xl font-semibold text-white">
+            <div className="flex items-center gap-3 min-w-0">
+              {Icon && <IconBox icon={Icon} surface="dark" size="sm" className="flex-shrink-0" />}
+              <h3 className="text-h3 text-white min-w-0 break-words">
                 {step.title}
               </h3>
             </div>
-            <span className="sm:ml-auto px-3 py-1 bg-[#1877F2]/10 text-[#42A5F5] text-xs font-semibold tracking-wide rounded-full border border-[#1877F2]/20 w-fit">
+            <span className="sm:ml-auto px-3 py-1 bg-brand-cyan/10 text-brand-cyan text-meta font-semibold tracking-wide rounded-full border border-brand-cyan/20 w-fit">
               {step.duration}
             </span>
           </div>
 
           {/* Description */}
-          <p className="text-gray-400 leading-relaxed mt-4">
+          <p className="text-gray-400 leading-relaxed mt-4 break-words">
             {step.description}
           </p>
 
@@ -75,7 +75,7 @@ function TimelineStep({ step, index }: TimelineStepProps) {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.3, delay: 0.4 + i * 0.08 }}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#1877F2]/10 rounded-full text-sm text-[#42A5F5]"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-brand-cyan/10 rounded-full text-meta text-brand-cyan"
               >
                 <Check size={14} className="flex-shrink-0" />
                 {deliverable}
@@ -106,40 +106,40 @@ export function ProcessTimeline({ data }: ProcessTimelineProps) {
   return (
     <section
       ref={sectionRef}
-      className="py-section bg-gradient-to-b from-gray-900 to-black relative overflow-hidden"
+      className="py-section bg-gradient-to-b from-brand-navy to-brand-navy-deep relative overflow-hidden"
     >
       {/* Background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#1877F2]/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-cyan/10 rounded-full blur-3xl" />
 
       <div className="max-w-[1200px] mx-auto px-8 lg:px-16 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={isSectionInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.45 }}
           className="mb-block text-center"
         >
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isSectionInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.45, delay: 0.2 }}
             className="flex items-center justify-center gap-4 mb-6"
           >
-            <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#1877F2] to-transparent" />
-            <span className="text-sm tracking-[0.3em] uppercase text-[#1877F2]">
+            <div className="h-px w-16 bg-gradient-to-r from-transparent via-brand-cyan to-transparent" />
+            <span className="text-eyebrow uppercase text-brand-cyan">
               Our Process
             </span>
-            <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] via-transparent to-transparent" />
+            <div className="h-px w-16 bg-gradient-to-r from-brand-cyan via-transparent to-transparent" />
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[0.95] text-white mb-6">
+          <h2 className="text-h2 text-white mb-6">
             {data.headline}
           </h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isSectionInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-xl text-gray-400 font-light max-w-2xl mx-auto"
+            transition={{ duration: 0.45, delay: 0.3 }}
+            className="text-lead text-gray-400 font-light max-w-2xl mx-auto"
           >
             {data.description}
           </motion.p>
@@ -150,7 +150,7 @@ export function ProcessTimeline({ data }: ProcessTimelineProps) {
           {/* Progress rail */}
           <div className="absolute left-6 md:left-10 top-0 bottom-0 w-0.5 bg-white/10 -translate-x-1/2">
             <motion.div
-              className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#1877F2] to-[#42A5F5] origin-top shadow-[0_0_8px_rgba(24,119,242,0.4)]"
+              className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#00CEFA] to-[#00A1FD] origin-top shadow-[0_0_8px_rgba(0,206,250,0.4)]"
               style={{ scaleY: fillScaleY }}
             />
           </div>

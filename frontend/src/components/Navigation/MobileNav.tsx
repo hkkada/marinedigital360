@@ -40,7 +40,7 @@ export function MobileNav({ isScrolled }: MobileNavProps) {
 
       <SheetContent side="right" className="w-[85vw] max-w-[320px]">
         <SheetHeader>
-          <SheetTitle className="text-xl">
+          <SheetTitle className="text-wordmark">
             <BrandWordmark />
           </SheetTitle>
         </SheetHeader>
@@ -48,7 +48,7 @@ export function MobileNav({ isScrolled }: MobileNavProps) {
         <nav className="flex flex-col gap-2 mt-8">
           {/* Services accordion */}
           <Collapsible open={servicesOpen} onOpenChange={setServicesOpen}>
-            <CollapsibleTrigger className="flex items-center justify-between w-full py-3 px-4 text-base font-medium hover:bg-gray-100 rounded-lg transition-colors">
+            <CollapsibleTrigger className="flex items-center justify-between w-full py-3 px-4 text-body font-medium hover:bg-gray-100 rounded-lg transition-colors">
               Services
               <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
             </CollapsibleTrigger>
@@ -58,7 +58,7 @@ export function MobileNav({ isScrolled }: MobileNavProps) {
                   <Link
                     href={getServiceHref(service)}
                     onClick={() => setOpen(false)}
-                    className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                    className="block py-2 px-4 text-meta text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
                   >
                     {service.title}
                   </Link>
@@ -78,7 +78,7 @@ export function MobileNav({ isScrolled }: MobileNavProps) {
               key={link.label}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="py-3 px-4 text-base font-medium hover:bg-gray-100 rounded-lg transition-colors"
+              className="py-3 px-4 text-body font-medium hover:bg-gray-100 rounded-lg transition-colors"
             >
               {link.label}
             </Link>
@@ -88,7 +88,7 @@ export function MobileNav({ isScrolled }: MobileNavProps) {
           <Link
             href="/contact-us"
             onClick={() => setOpen(false)}
-            className="mt-4 py-3 px-4 bg-gray-900 text-white text-center rounded-full font-medium hover:bg-gray-800 transition-colors"
+            className="mt-4 py-3 px-4 bg-brand-navy text-white text-center rounded-full font-medium hover:bg-brand-navy-raised transition-colors"
           >
             Start a Project
           </Link>

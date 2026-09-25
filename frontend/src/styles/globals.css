@@ -82,7 +82,38 @@
   --sidebar-ring: oklch(0.439 0 0);
 }
 
+/* ---------------------------------------------------------------------------
+   Brand palette.
+
+   A three-tone system: a navy scale for dark surfaces, cyan for accents on
+   those surfaces, and the existing azure for accents on white. Cyan is
+   deliberately restricted to dark backgrounds — at 1.2:1 against white it is
+   unusable there — which is why azure is kept rather than replaced.
+   --------------------------------------------------------------------------- */
+:root {
+  --brand-navy-900: #001836; /* deepest: hero base, footer floor */
+  --brand-navy-800: #012441; /* primary dark surface */
+  --brand-navy-700: #063356; /* raised cards, hover states on navy */
+  --brand-navy-600: #0a4470; /* hairline borders on navy */
+
+  --brand-cyan: #0ff1fd; /* accent on dark only */
+  --brand-azure: #1877f2; /* accent on light */
+  --brand-azure-deep: #0d5dbf;
+
+  --brand-cta-from: #00cefa;
+  --brand-cta-to: #00a1fd;
+}
+
 @theme inline {
+  --color-brand-navy: var(--brand-navy-800);
+  --color-brand-navy-deep: var(--brand-navy-900);
+  --color-brand-navy-raised: var(--brand-navy-700);
+  --color-brand-navy-line: var(--brand-navy-600);
+  --color-brand-cyan: var(--brand-cyan);
+  --color-brand-azure: var(--brand-azure);
+  --color-brand-azure-deep: var(--brand-azure-deep);
+  --color-brand-cta-from: var(--brand-cta-from);
+  --color-brand-cta-to: var(--brand-cta-to);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -163,6 +194,80 @@
    * height across breakpoints (desktop; the mobile bar is taller).
    */
   --spacing-anchor: 9.5rem;                                   /* 152px = nav 96 + sub-nav 56 */
+
+  /**
+   * Type scale — the single source of truth for font size, and the leading,
+   * tracking and weight that belong with each size. Tailwind v4 treats
+   * `--text-*` as the font-size namespace, so these emit real utilities:
+   * `text-h2`, `text-lead`, `text-eyebrow`. Retune the whole site from here.
+   *
+   * Every step is `clamp()`, so a size grows continuously with the viewport and
+   * there is no `sm:`/`md:`/`lg:` ladder to keep in sync. That also fixes a
+   * specific bug the old ladder had: `lg` is 1024px — an iPad Pro in portrait —
+   * so `lg:text-6xl` shipped the densest desktop headline to a tablet.
+   *
+   * The `--line-height` and `--letter-spacing` companions ride along with the
+   * size, which retires the scattered `leading-[0.95]` / `tracking-tight`
+   * literals — add a `leading-*` class only to deliberately override one.
+   *
+   * Weight is deliberately *not* a companion here: Tailwind 4.1.18 accepts
+   * `--text-*--font-weight` but does not emit it (verified in the built CSS),
+   * so such a token would be silently dead. Weight comes from the base element
+   * rules below instead, which is why a section heading needs no `font-bold`.
+   *
+   * Role names only. Never redefine `--text-sm` / `--text-base` / `--text-xl`:
+   * those are Tailwind's stock steps and the 46 `ui/` primitives are built on
+   * them, so overriding one silently retunes every shadcn component.
+   */
+  --text-display: clamp(2.5rem, 3.4vw + 1.35rem, 4.5rem);     /* 40 → 72px: marketing hero h1 */
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.03em;
+
+  --text-h1: clamp(2.25rem, 2.6vw + 1.25rem, 3.5rem);         /* 36 → 56px: interior page title */
+  --text-h1--line-height: 1.08;
+  --text-h1--letter-spacing: -0.025em;
+
+  --text-h2: clamp(2rem, 2.2vw + 1.15rem, 3.25rem);           /* 32 → 52px: section heading */
+  --text-h2--line-height: 1.1;
+  --text-h2--letter-spacing: -0.02em;
+
+  --text-h3: clamp(1.25rem, 0.7vw + 1.05rem, 1.625rem);       /* 20 → 26px: card / sub-heading */
+  --text-h3--line-height: 1.25;
+  --text-h3--letter-spacing: -0.01em;
+
+  --text-h4: clamp(1.0625rem, 0.4vw + 0.95rem, 1.25rem);      /* 17 → 20px: small heading */
+  --text-h4--line-height: 1.35;
+
+  --text-lead: clamp(1.125rem, 0.5vw + 1rem, 1.375rem);       /* 18 → 22px: section intro paragraph */
+  --text-lead--line-height: 1.55;
+
+  --text-body: clamp(1rem, 0.25vw + 0.95rem, 1.125rem);       /* 16 → 18px: body copy — never below 16px on a phone */
+  --text-body--line-height: 1.65;
+
+  --text-meta: 0.875rem;                                      /* 14px: captions, helper text, footer links */
+  --text-meta--line-height: 1.5;
+
+  /* Codifies the one thing that was already consistent: `text-sm tracking-[0.3em]
+     uppercase` appeared identically in 24 places. Same value, one name. */
+  --text-eyebrow: 0.875rem;                                   /* 14px: uppercase kicker */
+  --text-eyebrow--line-height: 1.4;
+  --text-eyebrow--letter-spacing: 0.3em;
+
+  --text-stat: clamp(2.25rem, 2.6vw + 1.2rem, 3.5rem);        /* 36 → 56px: stat numbers */
+  --text-stat--line-height: 1;
+  --text-stat--letter-spacing: -0.03em;
+
+  /* The brand lockup is an identity size, not a content role, so it gets its
+     own step rather than borrowing one. It was previously spelled three
+     different ways for the same wordmark — an inline clamp in the nav and
+     `text-xl` in both the footer and the mobile drawer. */
+  --text-wordmark: clamp(1.125rem, 0.5vw + 1rem, 1.5rem);     /* 18 → 24px: BrandWordmark lockup */
+  --text-wordmark--line-height: 1.2;
+  --text-wordmark--letter-spacing: -0.02em;
+
+  /* `font-mono` is used in a dozen places but no mono family was ever declared,
+     so it fell back to whatever the browser chose. */
+  --font-mono: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 }
 
 @layer base {
@@ -178,51 +283,36 @@
 }
 
 /**
- * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ * Base typography — the fallback for an element that carries no size class.
+ *
+ * The previous version of this block was wrapped in
+ * `:where(:not(:has([class*=' text-']), :not(:has([class^='text-']))))`, a
+ * mangled selector from the original Figma export. It reads as "has a
+ * descendant whose class *starts with* `text-`, and none containing ` text-`",
+ * so whether an `<h1>` picked up a base size depended on the class ordering of
+ * unrelated descendants. It also set every heading to 24px/500, which fought
+ * the type scale above wherever it did happen to match.
+ *
+ * Plain element selectors in `@layer base` are what that block was reaching
+ * for: zero specificity beyond the element, so any `text-*` utility on the
+ * element wins, and an un-classed heading gets a sane size instead of a coin
+ * flip.
  */
 @layer base {
-  :where(:not(:has([class*=' text-']), :not(:has([class^='text-'])))) {
-    h1 {
-      font-size: var(--text-2xl);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
+  h1 { @apply text-h1 font-bold; }
+  h2 { @apply text-h2 font-bold; }
+  h3 { @apply text-h3 font-semibold; }
+  h4 { @apply text-h4 font-semibold; }
+  h5,
+  h6 { @apply text-h4 font-semibold; }
+  p  { @apply text-body; }
 
-    h2 {
-      font-size: var(--text-xl);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
-
-    h3 {
-      font-size: var(--text-lg);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
-
-    h4 {
-      font-size: var(--text-base);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
-
-    label {
-      font-size: var(--text-base);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
-
-    button {
-      font-size: var(--text-base);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.5;
-    }
-
-    input {
-      font-size: var(--text-base);
-      font-weight: var(--font-weight-normal);
-      line-height: 1.5;
-    }
+  label,
+  button,
+  input,
+  textarea,
+  select {
+    @apply text-body;
   }
 }
 
@@ -255,36 +345,65 @@ html {
 .hero-animate-delay-4 { animation-delay: 0.4s; }
 .hero-animate-delay-5 { animation-delay: 1.5s; }
 
-/* Hero slide focal points.
-   The background photos are landscape (up to 1.87:1) while the hero box is a
-   tall portrait rectangle on phones, so object-cover has to crop away most of
-   the width. These vars let each slide name the point that must stay in frame;
-   --hero-focal-sm is the wider (desktop) framing. */
-.hero-slide {
-  object-position: var(--hero-focal, 50% 50%);
+/* Hero photo panel.
+   The hero is a two-column composition: a flat navy field carrying the copy on
+   the left, and the photograph on the right. The photo dissolves into that navy
+   along its left edge so the headline always sits on solid colour instead of on
+   image detail — a scrim over the whole frame would have muddied the sunset.
+   Below `lg` the columns collapse, the photo goes full-bleed behind the copy and
+   the mask is dropped in favour of an overlay scrim. */
+/* Below `lg` the photo is a band across the top of the hero that dissolves
+   into the navy at its lower edge — opaque through its first half, gone by the
+   bottom, so the eyebrow lands on flat colour. */
+.hero-photo {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 48%,
+    rgba(0, 0, 0, 0.78) 64%,
+    rgba(0, 0, 0, 0.4) 82%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 48%,
+    rgba(0, 0, 0, 0.78) 64%,
+    rgba(0, 0, 0, 0.4) 82%,
+    transparent 100%
+  );
 }
-@media (min-width: 640px) {
-  .hero-slide {
-    object-position: var(--hero-focal-sm, 50% 50%);
-  }
-}
-
-/* Opt-in per slide: on phones the photo covers only part of the hero and
-   dissolves into the background at its lower edge. Because object-cover scales
-   by (layer height / image height), the shorter layer magnifies the photo less
-   and more of its width survives the crop. Full-bleed again from `sm` up.
-   The height travels through a custom property because next/image's `fill`
-   writes height:100% inline, which a class cannot override. */
-.hero-slide-fade {
-  --hero-slide-h: 72%;
-  -webkit-mask-image: linear-gradient(to bottom, #000 58%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 58%, transparent 100%);
-}
-@media (min-width: 640px) {
-  .hero-slide-fade {
-    --hero-slide-h: 100%;
-    -webkit-mask-image: none;
-    mask-image: none;
+@media (min-width: 1024px) {
+  /* Nine stops rather than four. The eye picks up the second derivative of a
+     fade long before the fade itself, so a short ramp with few stops shows as a
+     seam no matter where it sits; this S-curve is traced from the reference's
+     own left-to-right profile — clear navy to ~26%, then a long pull that only
+     reaches the untouched photo around 70%. */
+  .hero-photo {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.02) 22%,
+      rgba(0, 0, 0, 0.1) 30%,
+      rgba(0, 0, 0, 0.26) 38%,
+      rgba(0, 0, 0, 0.45) 45%,
+      rgba(0, 0, 0, 0.64) 52%,
+      rgba(0, 0, 0, 0.8) 59%,
+      rgba(0, 0, 0, 0.92) 66%,
+      #000 74%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.02) 22%,
+      rgba(0, 0, 0, 0.1) 30%,
+      rgba(0, 0, 0, 0.26) 38%,
+      rgba(0, 0, 0, 0.45) 45%,
+      rgba(0, 0, 0, 0.64) 52%,
+      rgba(0, 0, 0, 0.8) 59%,
+      rgba(0, 0, 0, 0.92) 66%,
+      #000 74%
+    );
   }
 }
 

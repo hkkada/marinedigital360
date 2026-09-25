@@ -16,11 +16,15 @@ const cardVariants = cva('relative rounded-2xl border transition-colors duration
     variant: {
       light: 'bg-white border-gray-200 text-gray-900',
       glass: 'bg-white/5 backdrop-blur-sm border-white/10 text-white',
-      solid: 'bg-gray-900 border-gray-800 text-white',
+      solid: 'bg-brand-navy border-brand-navy-line text-white',
     },
     /**
-     * Padding + base body font size. `md` is the default per the audit.
-     * `none` emits no padding/font-size classes at all — use it when the
+     * Padding only. `md` is the default per the audit. Font size used to be
+     * welded in here (`md` and `lg` had identical padding and differed *only*
+     * in body text size), which meant you could not restate a card's padding
+     * without also changing its typography. Type now comes from the scale in
+     * `globals.css` via `CardTitle`/`CardBody`.
+     * `none` emits no padding classes at all — use it when the
      * caller supplies its own padding via `className`. `tailwind-merge`
      * only dedupes classes that share the exact same responsive modifier,
      * so overriding e.g. `p-6 sm:p-7 md:p-8` with a plain `className="p-8
@@ -29,16 +33,16 @@ const cardVariants = cva('relative rounded-2xl border transition-colors duration
      * callers to write matching per-breakpoint overrides.
      */
     size: {
-      sm: 'p-5 sm:p-6 text-sm',
-      md: 'p-6 sm:p-7 md:p-8 text-sm',
-      lg: 'p-6 sm:p-7 md:p-8 text-base',
+      sm: 'p-5 sm:p-6',
+      md: 'p-6 sm:p-7 md:p-8',
+      lg: 'p-6 sm:p-7 md:p-8',
       none: '',
     },
     /** Semantic border/accent only — does not touch the surface. `neutral` leaves the variant's own border untouched. */
     tone: {
       neutral: '',
       negative: 'border-red-500/20',
-      positive: 'border-[#1877F2]/30',
+      positive: 'border-brand-cyan/30',
     },
   },
   defaultVariants: {
@@ -109,7 +113,11 @@ export function Card({
       transition={transition ?? { duration: 0.3 }}
       className={cn(
         cardVariants({ variant, size, tone }),
-        hoverable && !highlighted && 'hover:border-[#1877F2]/50',
+        hoverable &&
+          !highlighted &&
+          (resolvedVariant === 'light'
+            ? 'hover:border-[#1877F2]/50'
+            : 'hover:border-brand-cyan/50'),
         highlighted && HIGHLIGHTED_CLASSES,
         className,
       )}
@@ -122,7 +130,7 @@ export function Card({
   );
 }
 
-/** Title typography per the standard: `text-xl font-semibold`. Color is inherited from the parent `Card`'s variant text color — not restated here. */
+/** Title typography per the standard: the shared `text-h3` step. Color is inherited from the parent `Card`'s variant text color — not restated here. */
 export interface CardTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
   /** Heading tag to render. Defaults to `h3`, the level used by every existing card grid. */
   as?: 'h2' | 'h3' | 'h4';
@@ -130,27 +138,29 @@ export interface CardTitleProps extends React.HTMLAttributes<HTMLHeadingElement>
 }
 
 export function CardTitle({ as: Tag = 'h3', className, ...props }: CardTitleProps) {
-  return <Tag className={cn('text-xl font-semibold', className)} {...props} />;
+  return <Tag className={cn('text-h3 font-semibold', className)} {...props} />;
 }
 
-const CARD_BODY_TEXT_SIZE: Record<ResolvedCardSize, string> = {
-  sm: 'text-sm',
-  md: 'text-sm',
-  lg: 'text-base',
-  none: 'text-sm',
-};
-
-/** Body typography per the standard: `text-sm` (`text-base` at the parent `Card`'s `size="lg"`), plus the variant's muted body color — gray-600 on `light`, gray-400 on `glass`/`solid`. */
+/**
+ * Body typography: the shared `text-body` step, plus the variant's muted body
+ * color — gray-600 on `light`, gray-400 on `glass`/`solid`.
+ *
+ * This used to be a `CARD_BODY_TEXT_SIZE` lookup keyed on the parent card's
+ * `size`, duplicating the font size already baked into `cardVariants.size` so
+ * the two could drift. Card body copy is one size everywhere now; it also
+ * clears the 14px that `sm`/`md` cards were rendering, which is below the
+ * readable floor for body text on a phone.
+ */
 export interface CardBodyProps extends React.HTMLAttributes<HTMLParagraphElement> {
   className?: string;
 }
 
 export function CardBody({ className, ...props }: CardBodyProps) {
-  const { variant, size } = React.useContext(CardContext);
+  const { variant } = React.useContext(CardContext);
   return (
     <p
       className={cn(
-        CARD_BODY_TEXT_SIZE[size],
+        'text-body',
         variant === 'light' ? 'text-gray-600' : 'text-gray-400',
         className,
       )}

@@ -23,20 +23,20 @@ export function PricingTiers({ data }: PricingTiersProps) {
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.45 }}
           className="mb-block text-center"
         >
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#1877F2] to-transparent" />
-            <span className="text-sm tracking-[0.3em] uppercase text-[#1877F2]">
+            <span className="text-eyebrow uppercase text-[#1877F2]">
               Pricing
             </span>
             <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] via-transparent to-transparent" />
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[0.95] text-gray-900 mb-6">
+          <h2 className="text-h2 text-gray-900 mb-6">
             {data.headline}
           </h2>
-          <p className="text-xl text-gray-600 font-light max-w-2xl mx-auto">
+          <p className="text-lead text-gray-600 font-light max-w-2xl mx-auto">
             {data.description}
           </p>
         </motion.div>
@@ -55,7 +55,7 @@ export function PricingTiers({ data }: PricingTiersProps) {
             >
               <Card variant="light" highlighted={tier.highlighted} className="flex flex-col">
                 {tier.highlighted && (
-                  <div className="inline-flex self-start px-3 py-1 bg-[#1877F2] text-white text-xs font-semibold rounded-full mb-4">
+                  <div className="inline-flex self-start px-3 py-1 bg-[#1877F2] text-white text-meta font-semibold rounded-full mb-4">
                     Recommended
                   </div>
                 )}
@@ -65,18 +65,18 @@ export function PricingTiers({ data }: PricingTiersProps) {
 
                 {tier.price && (
                   <div className="mb-4">
-                    <span className="text-3xl font-bold text-gray-900">{tier.price}</span>
+                    <span className="text-stat font-bold text-gray-900">{tier.price}</span>
                   </div>
                 )}
                 {tier.priceLabel && (
-                  <div className="text-sm text-[#1877F2] font-semibold mb-6">
+                  <div className="text-meta text-[#1877F2] font-semibold mb-6">
                     {tier.priceLabel}
                   </div>
                 )}
 
                 <ul className="space-y-3 mb-8 flex-1">
                   {tier.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                    <li key={i} className="flex items-start gap-2 text-body text-gray-700 min-w-0 break-words">
                       <Check className="w-4 h-4 text-[#1877F2] flex-shrink-0 mt-0.5" />
                       {feature}
                     </li>

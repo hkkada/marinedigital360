@@ -120,7 +120,7 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
         className="w-full sm:max-w-[700px] p-0 flex flex-col"
       >
         <SheetHeader className="px-6 py-4 border-b flex-shrink-0">
-          <SheetTitle className="text-2xl font-bold bg-gradient-to-r from-[#1877F2] to-[#0D5DBF] bg-clip-text text-transparent">
+          <SheetTitle className="text-h3 bg-gradient-to-r from-[#1877F2] to-[#0D5DBF] bg-clip-text text-transparent">
             Schedule Your Discovery Call
           </SheetTitle>
           <SheetDescription className="text-gray-600">

@@ -30,7 +30,7 @@ export function MarkdownPage({
           {showBackButton && (
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 mb-4 transition-colors"
+              className="inline-flex items-center gap-2 text-meta text-gray-600 hover:text-gray-900 mb-4 transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Home
@@ -38,13 +38,13 @@ export function MarkdownPage({
           )}
 
           {title && (
-            <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <h1 className="text-h1 text-gray-900 mb-4">
               {title}
             </h1>
           )}
 
           {(effectiveDate || lastUpdated) && (
-            <div className="flex flex-wrap gap-4 text-sm text-gray-600">
+            <div className="flex flex-wrap gap-4 text-meta text-gray-600">
               {effectiveDate && (
                 <div>
                   <span className="font-semibold">Effective Date:</span> {effectiveDate}
@@ -67,29 +67,29 @@ export function MarkdownPage({
             components={{
               // Headings
               h1: ({ children }) => (
-                <h1 className="text-3xl font-bold text-gray-900 mt-8 mb-4 first:mt-0">
+                <h1 className="text-h2 text-gray-900 mt-8 mb-4 first:mt-0">
                   {children}
                 </h1>
               ),
               h2: ({ children }) => (
-                <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4 border-b border-gray-200 pb-2">
+                <h2 className="text-h3 text-gray-900 mt-8 mb-4 border-b border-gray-200 pb-2">
                   {children}
                 </h2>
               ),
               h3: ({ children }) => (
-                <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">
+                <h3 className="text-h4 text-gray-900 mt-6 mb-3">
                   {children}
                 </h3>
               ),
               h4: ({ children }) => (
-                <h4 className="text-lg font-semibold text-gray-900 mt-4 mb-2">
+                <h4 className="text-body text-gray-900 mt-4 mb-2">
                   {children}
                 </h4>
               ),
 
               // Paragraphs
               p: ({ children }) => (
-                <p className="text-gray-700 leading-relaxed mb-4">{children}</p>
+                <p className="text-body text-gray-700 mb-4">{children}</p>
               ),
 
               // Lists
@@ -104,7 +104,7 @@ export function MarkdownPage({
                 </ol>
               ),
               li: ({ children }) => (
-                <li className="text-gray-700 leading-relaxed">{children}</li>
+                <li className="text-body text-gray-700">{children}</li>
               ),
 
               // Links
@@ -141,13 +141,13 @@ export function MarkdownPage({
                 const isInline = !className;
                 if (isInline) {
                   return (
-                    <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800">
+                    <code className="bg-gray-100 px-1.5 py-0.5 rounded text-meta font-mono text-gray-800">
                       {children}
                     </code>
                   );
                 }
                 return (
-                  <code className="block bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm font-mono my-4">
+                  <code className="block bg-brand-navy text-gray-100 p-4 rounded-lg overflow-x-auto text-meta font-mono my-4">
                     {children}
                   </code>
                 );
@@ -174,12 +174,12 @@ export function MarkdownPage({
               ),
               tr: ({ children }) => <tr>{children}</tr>,
               th: ({ children }) => (
-                <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                <th className="px-4 py-3 text-left text-meta font-semibold text-gray-700 uppercase tracking-wider">
                   {children}
                 </th>
               ),
               td: ({ children }) => (
-                <td className="px-4 py-3 text-sm text-gray-700">{children}</td>
+                <td className="px-4 py-3 text-body text-gray-700">{children}</td>
               ),
             }}
           >
@@ -190,9 +190,9 @@ export function MarkdownPage({
         {/* Print-friendly footer - documentUrl passed from server to avoid hydration mismatch */}
         {documentUrl && (
           <div className="mt-12 pt-8 border-t border-gray-200 print:block">
-            <p className="text-sm text-gray-600">
+            <p className="text-meta text-gray-600">
               This document is available online at{' '}
-              <span className="font-mono">{documentUrl}</span>
+              <span className="font-mono break-all">{documentUrl}</span>
             </p>
           </div>
         )}

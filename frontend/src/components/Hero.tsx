@@ -1,439 +1,183 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
-import { ChevronDown, ChevronLeft, ChevronRight, Gauge, Zap } from 'lucide-react';
-import { getImageSrc } from '@/lib/image-map';
-import { sectionTiming } from '@/lib/animations';
+import { motion, useReducedMotion } from 'motion/react';
+import { ArrowRight, Cloud, Play, Settings, Users } from 'lucide-react';
+import { BRAND } from '@/lib/brand';
 
-/**
- * A hero background slide. `type` decides how it renders: video slides play a
- * muted looping <video>, image slides paint a next/image fill. Both share the
- * same crossfade, controls, swipe and dot navigation.
- */
-type Slide = {
-  type: 'video' | 'image';
-  src: string;
-  label: string;
-  industry?: string;
-  /** object-position below `sm` — keeps the subject inside the narrow crop. */
-  focal?: string;
-  /** object-position from `sm` up, where far more of the frame is visible. */
-  focalSm?: string;
-  /**
-   * Phones only: shrink the photo to part of the hero's height and dissolve its
-   * lower edge into the background. Trades full-bleed for a wider view of the
-   * frame — worth it where the subject would otherwise be cropped tight.
-   */
-  fadeBottomMobile?: boolean;
-};
+const HERO_IMAGE = '/images/hero/new-orleans-skyline.jpg';
 
-// Video slides are kept here (commented) so the background can be switched back
-// to footage by swapping which entries are active.
-// { type: 'video', src: '/clips/iStock-1716746648.mp4', label: 'Boating footage' },
-// { type: 'video', src: '/clips/iStock-1481894582.mp4', label: 'Marine lifestyle footage' },
-// The `-tall` files are the stock photos extended to a 1024x1024 canvas (see
-// scripts/extend-hero-images.py). object-cover scales by containerH/imageH, so
-// the original 1.5:1-1.87:1 landscapes were magnified ~1.5x on a phone and only
-// a quarter of their width survived; a square source drops that to 0.82x and
-// shows roughly half. Focal points then place the subject inside what is left.
-const SLIDES: readonly Slide[] = [
-  {
-    type: 'image',
-    src: '/images/hero/wine_istockphoto-2268784010-1024x1024.jpg',
-    label: 'Winery and hospitality',
-    industry: 'Food & Beverage',
-    focal: '38% 50%',
-    fadeBottomMobile: true,
-  },
-  {
-    type: 'image',
-    src: '/images/hero/oil_istockphoto-2251140507-1024x1024-tall.jpg',
-    label: 'Oil and energy operations',
-    industry: 'Manufacturing',
-    focal: '55% 50%',
-    // No bottom fade here: this source is extended to 1024x1400, and the extra
-    // sky alone drops the phone scale to 0.60x. The wide crop keeps only ~46%
-    // of that height though, so it anchors low or it would frame mostly sky.
-    focalSm: '50% 90%',
-  },
-  {
-    type: 'image',
-    src: '/images/hero/aerial_istockphoto-1418267688-1024x1024-tall.jpg',
-    label: 'Aerial coastline',
-    industry: 'Maritime',
-    focal: '50% 50%',
-  },
-  // {
-  //   type: 'image',
-  //   // Left untouched at its native 1024x659: the shopper reads best
-  //   // right-anchored, so mobile simply shows the right half of the frame.
-  //   src: '/images/hero/istockphoto-2155498776-1024x1024.jpg',
-  //   label: 'Shopping coastline',
-  //   industry: 'Retail',
-  //   focal: '100% 50%',
-  //   fadeBottomMobile: true,
-  // },
-  {
-    type: 'image',
-    // The tablet and both hands sit between x455 and x870 of the source, a
-    // 415px span. Extended to 1024x1024 and combined with the fade, the phone
-    // crop is ~656px wide, so the whole group clears both edges comfortably;
-    // the native file only gave 437px and pinned the tablet to the frame edge.
-    src: '/images/hero/istockphoto-1387134070-1024x1024-tall.jpg',
-    label: 'Store manager reviewing a dashboard',
-    industry: 'E-commerce',
-    focal: '85% 50%',
-    fadeBottomMobile: true,
-  },
-] as const;
+// Accent used by the eyebrow rule, the second headline line and the icon
+// strokes. Kept as one constant so the three never drift apart.
+const ACCENT = 'var(--brand-cyan)';
 
-// Fallback for slides that carry no industry (e.g. the video clips above).
-const DEFAULT_INDUSTRY = 'every industry';
-
-const SWIPE_THRESHOLD = 50;
-
-// When true the slideshow never advances on its own — the arrows, dots and
-// swipe are the only way to change slides. Flip to false to restore autoplay.
-const IS_SLIDE_MANUAL = true;
-
-// Dwell time per slide before auto-advancing. Only used when autoplay is on;
-// also paused under reduced motion and while only one slide exists.
-const SLIDE_DURATION_MS = 7000;
-
-// Proof points shown between the hero copy and the CTAs. Distinct icons rather
-// than two identical checkmarks so each claim reads on its own.
-const PROOF_POINTS = [
-  { label: 'No delays', Icon: Gauge },
-  { label: 'Instant bookings', Icon: Zap },
+// Credibility strip between the paragraph and the CTAs. Two-line labels, so the
+// break point is explicit rather than left to the container width. A blank
+// `line2` still renders its <br />, which keeps every label the same two-line
+// height — that is what holds the icons on a common line across the row.
+const CREDENTIALS = [
+  { Icon: Settings, line1: 'AI-Powered', line2: '' },
+  { Icon: Users, line1: 'Expert Marketers', line2: '& Engineers' },
+  { Icon: Cloud, line1: 'Azure & AWS', line2: 'Certified' },
 ] as const;
 
 export function Hero() {
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
-  const touchStart = useRef<{ x: number; y: number } | null>(null);
-  const [active, setActive] = useState(0);
   const prefersReducedMotion = useReducedMotion();
-  const industry = SLIDES[active].industry ?? DEFAULT_INDUSTRY;
 
-  const go = useCallback((dir: 1 | -1) => {
-    setActive((i) => (i + dir + SLIDES.length) % SLIDES.length);
-  }, []);
-
-  // Play only the active clip; pause the rest (and everything under reduced
-  // motion). Image slides never register a ref, so they're simply skipped.
-  useEffect(() => {
-    videoRefs.current.forEach((video, i) => {
-      if (!video) return;
-      if (i === active && !prefersReducedMotion) {
-        video.currentTime = 0;
-        video.play().catch(() => {});
-      } else {
-        video.pause();
-      }
-    });
-  }, [active, prefersReducedMotion]);
-
-  // Auto-advance the slideshow. Restarts on every `active` change so manual
-  // navigation gets a full dwell before the next automatic step.
-  useEffect(() => {
-    if (IS_SLIDE_MANUAL || prefersReducedMotion || SLIDES.length < 2) return;
-    const timer = window.setTimeout(() => go(1), SLIDE_DURATION_MS);
-    return () => window.clearTimeout(timer);
-  }, [active, go, prefersReducedMotion]);
-
-  const onTouchStart = (e: React.TouchEvent) => {
-    const t = e.changedTouches[0];
-    touchStart.current = { x: t.clientX, y: t.clientY };
+  // Same treatment the service sub-nav gives its anchors: keep the real href so
+  // the link works without JS and can be opened in a new tab, but take over the
+  // jump to scroll smoothly (and instantly under reduced motion).
+  const onAnchorClick = (id: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const target = document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
   };
-
-  const onTouchEnd = (e: React.TouchEvent) => {
-    const start = touchStart.current;
-    if (!start) return;
-    touchStart.current = null;
-    const t = e.changedTouches[0];
-    const dx = t.clientX - start.x;
-    const dy = t.clientY - start.y;
-    // Horizontal intent only — never hijack vertical scrolling
-    if (Math.abs(dx) > SWIPE_THRESHOLD && Math.abs(dx) > Math.abs(dy)) {
-      go(dx < 0 ? 1 : -1);
-    }
-  };
-
-  const arrowClass =
-    'items-center justify-center w-10 h-10 sm:w-11 sm:h-11 shrink-0 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white transition-all hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70';
 
   return (
-    <div
-      className="relative min-h-[100svh] overflow-hidden bg-black"
-      onTouchStart={onTouchStart}
-      onTouchEnd={onTouchEnd}
-    >
-      {/* Background slider — aria-hidden since it's decorative */}
-      <div className="absolute inset-0">
-        {SLIDES.map((slide, i) => {
-          // Positioning + crossfade, shared by both slide kinds.
-          const layerBase = `absolute inset-0 w-full will-change-[opacity] pointer-events-none transition-opacity duration-700 ease-out ${
-            i === active ? 'opacity-100' : 'opacity-0'
-          }`;
-          const layerClass = `${layerBase} h-full object-cover`;
-          const layerStyle = { filter: 'contrast(1.1) saturate(1.05)' };
-          // `hero-slide` reads these vars for object-position, which lets the
-          // focal point differ per breakpoint without a JS width check.
-          const imageStyle = {
-            ...layerStyle,
-            '--hero-focal': slide.focal ?? '50% 50%',
-            // Deliberately not falling back to `focal`: the wide crop already
-            // shows nearly the whole frame, so it stays centred unless a slide
-            // asks otherwise.
-            '--hero-focal-sm': slide.focalSm ?? '50% 50%',
-          } as React.CSSProperties;
+    <div className="relative min-h-[100svh] overflow-hidden bg-brand-navy-deep">
+      {/* Navy field. A single flat colour reads as a printing error at this
+          size, so two very low-contrast radial washes give the left column some
+          depth without ever competing with the copy. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0"
+        style={{
+          backgroundImage:
+            'radial-gradient(110% 85% at 6% 0%, rgba(15,241,253,0.09) 0%, transparent 55%), radial-gradient(95% 85% at 10% 100%, rgba(0,110,220,0.14) 0%, transparent 62%)',
+        }}
+      />
 
-          return slide.type === 'video' ? (
-            <video
-              key={slide.src}
-              ref={(el) => {
-                videoRefs.current[i] = el;
-              }}
-              autoPlay={i === 0}
-              muted
-              loop
-              playsInline
-              preload={i === 0 ? 'auto' : 'metadata'}
-              poster={getImageSrc('hero.main-background')}
-              aria-hidden="true"
-              className={layerClass}
-              style={layerStyle}
-            >
-              <source src={slide.src} type="video/mp4" />
-            </video>
-          ) : (
-            // The wrapper owns height and the fade mask: next/image rejects a
-            // `height` in the style prop of a `fill` image, and the mask has to
-            // clip the layer rather than the photo's object-fit box.
-            <div
-              key={slide.src}
-              className={`${layerBase} ${slide.fadeBottomMobile ? 'hero-slide-fade' : 'h-full'}`}
-              style={slide.fadeBottomMobile ? { height: 'var(--hero-slide-h, 100%)' } : undefined}
-            >
-              <Image
-                src={slide.src}
-                alt=""
-                fill
-                sizes="100vw"
-                priority={i === 0}
-                aria-hidden="true"
-                className="object-cover hero-slide"
-                style={imageStyle}
-              />
-            </div>
-          );
-        })}
+      {/* Faint ring bleeding off the top-left corner — the one piece of
+          geometry in an otherwise photographic composition. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-40 -top-56 h-[28rem] w-[28rem] rounded-full border border-white/10 lg:h-[36rem] lg:w-[36rem]"
+      />
 
-        {/* Elegant overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent" />
+      {/* Photograph. A band across the top of the hero below `lg`; full-bleed
+          behind the whole hero from `lg` up, where the mask alone is what makes
+          it read as a right-hand column. That distinction is the trick — laying
+          it out as a real 64%-wide panel made it taller than it is wide relative
+          to this source, so object-cover threw away 42% of the image width and
+          the fade then had to dissolve lit buildings and water reflections
+          straight into flat navy, which greys out into a visible band.
+          Full-bleed crops only ~10%, so the fade falls on the photo's own dark
+          left edge and the two sides meet on colours that already match. */}
+      <div className="absolute inset-x-0 top-0 h-[40svh] sm:h-[44svh] lg:bottom-0 lg:h-auto hero-photo">
+        <Image
+          src={HERO_IMAGE}
+          alt=""
+          fill
+          sizes="100vw"
+          priority
+          aria-hidden="true"
+          // Right-of-centre so the steamboat and the "New Orleans" script stay
+          // inside the frame when a tall viewport crops the width.
+          className="object-cover object-[62%_50%]"
+          style={{ filter: 'contrast(1.06) saturate(1.08)' }}
+        />
       </div>
 
-      {/* Content — h1 is outside motion.div so it paints immediately for LCP.
-          The fixed navbar (~80px) overlays this box, and the scroll cue /
-          slider controls sit along the bottom edge, so both ends are padded
-          out: centring alone would push the eyebrow under the brand wordmark
-          on short viewports (landscape phones, short desktop windows). The
-          hero grows past 100svh rather than clipping when the copy no longer
-          fits between those reserved bands. */}
-      <div className="relative min-h-[100svh] flex items-center pt-28 pb-28 sm:pb-32">
-        <div className="max-w-[1600px] mx-auto px-8 lg:px-16 w-full">
-          <div className="max-w-4xl mx-auto sm:mx-0">
-            {/* Elegant subtitle */}
-            <div className="mb-8 hero-animate hero-animate-delay-1 text-center sm:text-left">
-              <span className="text-white/80 text-sm tracking-[0.3em] uppercase drop-shadow(0 2px 8px rgba(0,0,0,0.5))">
-                Premium Digital
+      {/* Content. The h1 sits outside any motion wrapper so it paints
+          immediately for LCP. The fixed navbar is ~92px tall (py-6 around a
+          44px CTA button) and overlays the top of this box, so `lg:pt-24`
+          reserves that band rather than centring blindly; the larger top pad
+          than bottom is what keeps the copy optically centred under it.
+          Type comes from the shared scale (`text-display`/`text-lead`), which
+          is clamp()-based and scales continuously with the viewport. */}
+      <div className="relative flex items-center pt-[calc(40svh+1.25rem)] pb-14 sm:pt-[calc(44svh+1.5rem)] sm:pb-16 min-h-[100svh] lg:pt-24 lg:pb-12">
+        <div className="max-w-[1600px] mx-auto px-8 w-full lg:max-w-none lg:px-[7.9%]">
+          <div className="max-w-2xl lg:max-w-[43.5%]">
+            {/* Eyebrow — a short accent rule, then the label */}
+            <div className="mb-5 flex items-center gap-3 sm:mb-7 sm:gap-4 lg:mb-5 lg:gap-5 hero-animate hero-animate-delay-1">
+              <span aria-hidden="true" className="h-px w-6 shrink-0 sm:w-10 lg:w-11" style={{ backgroundColor: ACCENT }} />
+              <span className="text-white text-eyebrow uppercase font-medium">
+                Digital marketing for modern businesses
               </span>
             </div>
 
-            {/* Hero headline — no animation classes or motion wrapper to ensure LCP detection */}
-            <h1
-              className="text-5xl md:text-7xl lg:text-8xl text-white mb-8 leading-[0.95] tracking-tight drop-shadow(0 4px 12px rgba(0,0,0,0.6)) select-none text-center sm:text-left"
-            >
+            {/* Headline — no animation classes or motion wrapper to ensure LCP detection */}
+            <h1 className="text-display text-white mb-6 sm:mb-7 lg:mb-4">
               Where visibility
               <br />
-              meets growth
+              <span style={{ color: ACCENT }}>meets growth.</span>
             </h1>
 
-            {/* Description — the industry swaps with the background slide so the
-                copy names whoever the current image speaks to. It sits last in the
-                sentence so a longer word never reflows the text around it, and
-                aria-live announces each change. */}
-            <p
-              className="text-xl md:text-2xl text-white/80 mb-12 max-w-2xl leading-relaxed font-light drop-shadow(0 2px 8px rgba(0,0,0,0.5)) hero-animate hero-animate-delay-3 text-center sm:text-left mx-auto sm:mx-0"
-            >
-              We ignite growth through visibility for the world&apos;s best {' '}
-              <span className="inline-flex align-bottom" aria-live="polite">
-                <AnimatePresence mode="wait" initial={false}>
-                  <motion.span
-                    key={industry}
-                    initial={prefersReducedMotion ? false : { opacity: 0, y: 12, filter: 'blur(4px)' }}
-                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                    exit={prefersReducedMotion ? undefined : { opacity: 0, y: -12, filter: 'blur(4px)' }}
-                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                    className="text-white font-normal whitespace-nowrap"
-                  >
-                    {industry}
-                  </motion.span>
-                </AnimatePresence>
-              </span>
-              {' '} businesses.
+            <p className="text-lead text-white mb-8 sm:mb-9 lg:mb-6 max-w-xl lg:max-w-[32vw] font-light hero-animate hero-animate-delay-3">
+              {BRAND.name} is a New Orleans based digital marketing agency helping startups to
+              enterprises with a focus on Sun Belt cities turn their capabilities into
+              measurable, revenue-driving products.
             </p>
 
-            {/* Quick proof points, directly above the CTAs. Gradient-edged glass
-                pills rather than plain text: the video behind them is too busy
-                for low-contrast body copy, and the live pulse on each icon is
-                what sells "instant" before the words are even read. Each pill
-                carries its own entrance so they arrive in sequence. */}
-            <ul className="flex flex-col gap-3.5 mb-10 items-center sm:items-start">
-              {PROOF_POINTS.map(({ label, Icon }, i) => (
+            {/* Credential strip. Three columns split by hairline rules on the
+                narrow layout — icon stacked over a centred two-line label — and
+                a single row with the icon beside the label from `sm` up. Rules
+                rather than cards: these are supporting proof, and boxing them
+                would give them more weight than the CTAs below. */}
+            <ul className="mb-9 grid grid-cols-3 divide-x divide-white/15 sm:mb-10 lg:mb-6 sm:flex sm:flex-wrap sm:items-center sm:gap-x-7 sm:gap-y-4 sm:divide-x-0">
+              {CREDENTIALS.map(({ Icon, line1, line2 }, i) => (
                 <motion.li
-                  key={label}
-                  initial={prefersReducedMotion ? false : { opacity: 0, x: -24, filter: 'blur(6px)' }}
-                  animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
-                  transition={{ delay: 0.45 + i * 0.14, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  whileHover={{ x: 6 }}
-                  className="group relative rounded-full p-px bg-gradient-to-r from-[#1877F2]/80 via-white/25 to-white/5 shadow-lg shadow-black/25 transition-shadow hover:shadow-[#1877F2]/30"
+                  key={line1}
+                  initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.35 + i * 0.12, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  className={`flex flex-col items-center gap-2 px-1 text-center sm:flex-row sm:gap-3 sm:px-0 sm:text-left ${
+                    i > 0 ? 'sm:border-l sm:border-white/15 sm:pl-7' : ''
+                  }`}
                 >
-                  <div className="relative flex items-center gap-3 rounded-full bg-black/40 backdrop-blur-xl pl-2 pr-6 py-2 overflow-hidden">
-                    {/* Light sweep — a slow, occasional shine across the glass */}
-                    <motion.span
-                      aria-hidden="true"
-                      className="absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none"
-                      animate={prefersReducedMotion ? undefined : { x: ['-150%', '400%'] }}
-                      transition={{
-                        duration: 2.2,
-                        repeat: Infinity,
-                        repeatDelay: 5,
-                        delay: 1.6 + i * 0.4,
-                        ease: 'easeInOut',
-                      }}
-                    />
-
-                    <span className="relative flex items-center justify-center w-7 h-7 shrink-0">
-                      {/* Pulsing halo behind the icon */}
-                      <motion.span
-                        aria-hidden="true"
-                        className="absolute inset-0 rounded-full bg-[#1877F2]"
-                        animate={
-                          prefersReducedMotion ? { opacity: 0 } : { scale: [1, 1.9], opacity: [0.55, 0] }
-                        }
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          repeatDelay: 0.6,
-                          delay: i * 0.5,
-                          ease: 'easeOut',
-                        }}
-                      />
-                      <span className="relative flex items-center justify-center w-7 h-7 rounded-full bg-gradient-to-br from-[#42A5F5] to-[#1877F2] ring-1 ring-white/30">
-                        <Icon className="w-3.5 h-3.5 text-white" strokeWidth={2.5} aria-hidden="true" />
-                      </span>
-                    </span>
-
-                    <span className="relative text-white text-sm md:text-base font-medium tracking-wide whitespace-nowrap">
-                      {label}
-                    </span>
-                  </div>
+                  <Icon
+                    className="w-6 h-6 shrink-0 sm:w-7 sm:h-7 lg:w-10 lg:h-10"
+                    style={{ color: ACCENT }}
+                    strokeWidth={1.25}
+                    aria-hidden="true"
+                  />
+                  <span className="text-white/80 text-meta tracking-wide">
+                    {line1}
+                    <br />
+                    {line2}
+                  </span>
                 </motion.li>
               ))}
             </ul>
 
-            {/* CTA */}
-            <div className="flex flex-col sm:flex-row gap-6 hero-animate hero-animate-delay-4 items-center sm:items-start">
+            {/* CTAs. Full-width stacked buttons on the narrow layout, an inline
+                pair from `sm` up. */}
+            <div className="flex flex-col gap-3 hero-animate hero-animate-delay-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
               <motion.a
                 href="/contact-us"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-10 py-5 bg-white text-gray-900 rounded-full text-sm tracking-wide hover:bg-gray-100 transition-all inline-flex items-center justify-center"
+                whileHover={prefersReducedMotion ? undefined : { scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+                className="group inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-brand-cta-from to-brand-cta-to px-9 py-3.5 text-brand-navy-deep text-body font-medium tracking-wide shadow-lg shadow-brand-cta-to/30 transition-shadow hover:shadow-xl hover:shadow-brand-cta-to/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy-deep sm:w-auto sm:py-4 lg:px-11 lg:py-[1.125rem]"
               >
                 Start Your Project
+                <ArrowRight
+                  size={16}
+                  aria-hidden="true"
+                  className="transition-transform group-hover:translate-x-1 motion-reduce:transition-none"
+                />
               </motion.a>
 
-              {/* <motion.a
-                href="#work"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-10 py-5 bg-white/10 backdrop-blur-md text-white rounded-full text-sm tracking-wide border border-white/20 hover:bg-white/20 transition-all inline-flex items-center justify-center"
+              {/* Below `sm` this is an outlined pill matching the primary CTA's
+                  footprint; from `sm` up the border drops away and it reverts to
+                  a bare link, which is how the wide layout frames it. */}
+              {/* <a
+                href="#services"
+                onClick={onAnchorClick('services')}
+                className="group inline-flex w-full items-center justify-center gap-3 lg:gap-4 rounded-full border border-[#0A66B0] py-3 text-white text-body font-medium tracking-wide transition-colors hover:border-brand-cta-to focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy-deep sm:w-auto sm:border-0 sm:py-0 sm:ring-offset-4"
               >
-                View Our Work
-              </motion.a> */}
+                <span
+                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white transition-colors group-hover:bg-white/15 sm:h-9 sm:w-9 sm:border-[color:var(--hero-accent)] lg:h-10 lg:w-10 lg:border-2"
+                  style={{ '--hero-accent': ACCENT } as React.CSSProperties}
+                >
+                  <Play size={10} className="ml-px fill-white text-white sm:hidden" aria-hidden="true" />
+                  <Play size={13} className="ml-0.5 hidden fill-white text-white sm:block" aria-hidden="true" />
+                </span>
+                Watch Our Process
+              </a> */}
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Slider arrows — edge-anchored from lg up, where the layout gutter has room */}
-      <button
-        type="button"
-        onClick={() => go(-1)}
-        aria-label="Previous background slide"
-        className={`${arrowClass} hidden lg:flex absolute left-4 top-1/2 -translate-y-1/2 z-20`}
-      >
-        <ChevronLeft size={20} />
-      </button>
-      <button
-        type="button"
-        onClick={() => go(1)}
-        aria-label="Next background slide"
-        className={`${arrowClass} hidden lg:flex absolute right-4 top-1/2 -translate-y-1/2 z-20`}
-      >
-        <ChevronRight size={20} />
-      </button>
-
-      {/* Compact control cluster — arrows collapse here below lg so they never overlap the copy */}
-      <div className="absolute bottom-5 sm:bottom-10 right-4 sm:right-8 z-20 flex items-center gap-2 sm:gap-3">
-        <button
-          type="button"
-          onClick={() => go(-1)}
-          aria-label="Previous background slide"
-          className={`${arrowClass} flex lg:hidden`}
-        >
-          <ChevronLeft size={20} />
-        </button>
-
-        {/* Dots hidden on the narrowest screens so the cluster clears the centered scroll cue */}
-        <div className="hidden sm:flex items-center gap-2">
-          {SLIDES.map((slide, i) => (
-            <button
-              key={slide.src}
-              type="button"
-              onClick={() => setActive(i)}
-              aria-label={`Show ${slide.label}`}
-              aria-current={i === active}
-              className={`h-1.5 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent ${
-                i === active ? 'w-6 bg-white' : 'w-1.5 bg-white/40 hover:bg-white/70'
-              }`}
-            />
-          ))}
-        </div>
-
-        <button
-          type="button"
-          onClick={() => go(1)}
-          aria-label="Next background slide"
-          className={`${arrowClass} flex lg:hidden`}
-        >
-          <ChevronRight size={20} />
-        </button>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 hero-animate hero-animate-delay-5">
-        <motion.div
-          animate={{ y: [0, 12, 0] }}
-          transition={{ duration: sectionTiming.hero.animationDuration * 5, repeat: Infinity, ease: 'easeInOut' }}
-          className="flex flex-col items-center gap-2 text-white/60"
-        >
-          <span className="text-xs tracking-widest uppercase">Scroll</span>
-          <ChevronDown size={20} />
-        </motion.div>
       </div>
     </div>
   );
