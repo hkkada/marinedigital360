@@ -107,20 +107,20 @@ export default function IndustriesConceptsPage() {
     <div className="min-h-screen bg-gray-100">
       <div className="mx-auto max-w-[1160px] px-5 pb-20 pt-10 sm:px-8">
         <header className="mb-6 border-b border-gray-300 pb-6">
-          <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.14em] text-gray-500">
+          <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">
             Internal review · not indexed
           </p>
-          <h1 className="mb-3 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h1 className="mb-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
             Eight ways to show {INDUSTRIES.length} industries
           </h1>
-          <p className="max-w-[62ch] leading-relaxed text-gray-600">
+          <p className="max-w-[62ch] leading-relaxed text-ink-body">
             Every section below is live — hover, tap and keyboard focus all work. All eight reuse
             the site&rsquo;s existing language: white section, <code className="font-mono text-[13px]">#1877F2 → #0D5DBF</code>{' '}
             gradient, gradient-text heading with hairline rules, 16px card radius, the same motion
             curve. None adds a dependency. Whichever wins drops into the home page after{' '}
             <code className="font-mono text-[13px]">&lt;Experience /&gt;</code>.
           </p>
-          <p className="mt-5 rounded-xl border border-amber-500/40 bg-amber-500/10 px-4 py-3 text-[13px] leading-relaxed text-gray-800">
+          <p className="mt-5 rounded-xl border border-amber-500/40 bg-amber-500/10 px-4 py-3 text-[13px] leading-relaxed text-ink">
             <strong>On the numbers:</strong> every metric shown is a market-level placeholder
             written to demonstrate layout — not a verified figure and not one of our own
             results. Pick a concept first; each stat gets sourced or reworded before it ships.
@@ -132,9 +132,9 @@ export default function IndustriesConceptsPage() {
             <a
               key={c.id}
               href={`#${c.id}`}
-              className="inline-flex items-baseline gap-2 rounded-full border border-gray-300 px-3 py-1.5 text-[13px] font-medium text-gray-900 transition-colors hover:border-[#1877F2] hover:text-[#1877F2] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1877F2]"
+              className="inline-flex items-baseline gap-2 rounded-full border border-gray-300 px-3 py-1.5 text-[13px] font-medium text-ink transition-colors hover:border-[#1877F2] hover:text-ink-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1877F2]"
             >
-              <b className="font-mono text-[11px] font-semibold text-gray-500">{c.letter}</b>
+              <b className="font-mono text-[11px] font-semibold text-ink-muted">{c.letter}</b>
               {c.name}
             </a>
           ))}
@@ -143,14 +143,14 @@ export default function IndustriesConceptsPage() {
         {CONCEPTS.map(({ id, letter, name, blurb, Component }) => (
           <section key={id} id={id} className="mb-14 scroll-mt-5">
             <div className="mb-2 flex flex-wrap items-baseline gap-x-3.5 gap-y-2.5">
-              <span className="rounded-md bg-brand-navy px-2 py-1 font-mono text-[11px] font-semibold tracking-widest text-gray-100">
+              <span className="rounded-md bg-brand-navy px-2 py-1 font-mono text-[11px] font-semibold tracking-widest text-white">
                 {letter}
               </span>
-              <h2 className="text-xl font-semibold tracking-tight text-gray-900 sm:text-2xl">
+              <h2 className="text-xl font-semibold tracking-tight text-ink sm:text-2xl">
                 {name}
               </h2>
             </div>
-            <p className="mb-4 max-w-[74ch] text-sm leading-relaxed text-gray-600">{blurb}</p>
+            <p className="mb-4 max-w-[74ch] text-sm leading-relaxed text-ink-body">{blurb}</p>
 
             {/* Artboard — white, so each concept is judged on the real surface. */}
             <div className="overflow-hidden rounded-2xl border border-gray-300 bg-white shadow-xl shadow-gray-900/5">
@@ -158,7 +158,7 @@ export default function IndustriesConceptsPage() {
                 <span className="h-2.5 w-2.5 rounded-full bg-gray-300" />
                 <span className="h-2.5 w-2.5 rounded-full bg-gray-300" />
                 <span className="h-2.5 w-2.5 rounded-full bg-gray-300" />
-                <span className="ml-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-gray-400">
+                <span className="ml-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">
                   {letter} · live
                 </span>
               </div>

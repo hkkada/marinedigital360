@@ -41,7 +41,7 @@ export function ClientSegments({ data }: ClientSegmentsProps) {
           <h2 className="text-h2 text-white mb-6">
             {data.headline}
           </h2>
-          <p className="text-lead text-gray-400 font-light max-w-3xl">
+          <p className="text-lead text-on-dark font-light max-w-3xl">
             {data.description}
           </p>
         </motion.div>
@@ -65,13 +65,13 @@ export function ClientSegments({ data }: ClientSegmentsProps) {
                   <CardTitle className="mb-3 group-hover:text-brand-cyan transition-colors">
                     {segment.title}
                   </CardTitle>
-                  <p className="text-gray-400 leading-relaxed mb-5">
+                  <p className="text-on-dark-muted leading-relaxed mb-5">
                     {segment.description}
                   </p>
 
                   <ul className="space-y-2">
                     {segment.benefits.map((benefit, i) => (
-                      <li key={i} className="flex items-center gap-2 text-body text-gray-300">
+                      <li key={i} className="flex items-center gap-2 text-body text-on-dark">
                         {Check && <Check className="w-4 h-4 text-brand-cyan flex-shrink-0" />}
                         {benefit}
                       </li>

@@ -177,8 +177,8 @@ export function ServiceSubNav({ sections }: ServiceSubNavProps) {
                     // indicator out of the layout, so the bar's height — which
                     // `--spacing-anchor` depends on — does not shift.
                     isActive
-                      ? 'text-[var(--nav-link-blue)] underline decoration-2 underline-offset-8'
-                      : 'text-gray-600 hover:text-[var(--nav-link-blue)]',
+                      ? 'text-ink-accent underline decoration-2 underline-offset-8'
+                      : 'text-ink-body hover:text-ink-accent',
                   )}
                 >
                   {link.label}

@@ -43,7 +43,7 @@ export function ServiceHero({ data, serviceName, iconName }: ServiceHeroProps) {
           aria-label="Breadcrumb"
           className="mb-8"
         >
-          <ol className="flex items-center gap-2 text-meta text-white/70">
+          <ol className="flex items-center gap-2 text-meta text-on-dark">
             <li>
               <Link href="/" className="hover:text-white transition-colors">
                 Home
@@ -91,7 +91,7 @@ export function ServiceHero({ data, serviceName, iconName }: ServiceHeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.7 }}
-            className="text-lead text-white/80 mb-12 font-light"
+            className="text-lead text-on-dark mb-12 font-light"
           >
             {data.description}
           </motion.p>

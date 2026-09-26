@@ -41,7 +41,7 @@ export function PartnerNetwork({ data }: PartnerNetworkProps) {
           <h2 className="text-h2 text-white mb-6">
             {data.headline}
           </h2>
-          <p className="text-lead text-gray-400 font-light max-w-3xl">
+          <p className="text-lead text-on-dark font-light max-w-3xl">
             {data.description}
           </p>
         </motion.div>

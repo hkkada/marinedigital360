@@ -37,7 +37,7 @@ export function PortfolioShowcase({ data }: PortfolioShowcaseProps) {
           <h2 className="text-h2 text-white mb-6">
             {data.headline}
           </h2>
-          <p className="text-lead text-gray-400 font-light max-w-2xl mx-auto">
+          <p className="text-lead text-on-dark font-light max-w-2xl mx-auto">
             {data.description}
           </p>
         </motion.div>
@@ -65,7 +65,7 @@ export function PortfolioShowcase({ data }: PortfolioShowcaseProps) {
                     <div className="w-3 h-3 rounded-full bg-green-500/60" />
                   </div>
                   <div className="flex-1 mx-4">
-                    <div className="bg-brand-navy-raised rounded-md px-3 py-1 text-meta text-gray-400 text-center truncate">
+                    <div className="bg-brand-navy-raised rounded-md px-3 py-1 text-meta text-on-dark-muted text-center truncate">
                       {project.title.toLowerCase().replace(/\s+/g, '')}.com
                     </div>
                   </div>
@@ -77,11 +77,11 @@ export function PortfolioShowcase({ data }: PortfolioShowcaseProps) {
                     <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-brand-navy-raised to-brand-navy-raised">
                       <div className="text-center p-6">
                         <div className="w-16 h-16 mx-auto mb-4 bg-white/10 rounded-2xl flex items-center justify-center">
-                          <svg className="w-8 h-8 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <svg className="w-8 h-8 text-on-dark-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                           </svg>
                         </div>
-                        <p className="text-meta text-gray-500 max-w-[200px]">
+                        <p className="text-meta text-on-dark-muted max-w-[200px]">
                           {imageProps?.alt}
                         </p>
                       </div>

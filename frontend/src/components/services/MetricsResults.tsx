@@ -27,15 +27,15 @@ export function MetricsResults({ data }: MetricsResultsProps) {
         >
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#1877F2] to-transparent" />
-            <span className="text-eyebrow uppercase text-[#1877F2]">
+            <span className="text-eyebrow uppercase text-ink-accent">
               Results
             </span>
             <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] via-transparent to-transparent" />
           </div>
-          <h2 className="text-h2 text-gray-900 mb-6">
+          <h2 className="text-h2 text-ink mb-6">
             {data.headline}
           </h2>
-          <p className="text-lead text-gray-600 font-light max-w-2xl mx-auto">
+          <p className="text-lead text-ink-body font-light max-w-2xl mx-auto">
             {data.description}
           </p>
         </motion.div>

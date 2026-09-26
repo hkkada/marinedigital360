@@ -35,14 +35,14 @@ export function AboutStats() {
         >
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#1877F2] to-transparent" />
-            <span className="text-eyebrow uppercase text-[#1877F2]">
+            <span className="text-eyebrow uppercase text-ink-accent">
               By The Numbers
             </span>
             <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] via-transparent to-transparent" />
           </div>
           <h2
             id="about-stats-heading"
-            className="text-h2 text-gray-900"
+            className="text-h2 text-ink"
           >
             Built on results, not promises
           </h2>

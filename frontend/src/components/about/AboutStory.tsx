@@ -42,7 +42,7 @@ export function AboutStory() {
               className="flex items-center gap-4 mb-6"
             >
               <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] to-transparent" />
-              <span className="text-eyebrow uppercase text-[#1877F2]">
+              <span className="text-eyebrow uppercase text-ink-accent">
                 Who We Are
               </span>
             </motion.div>
@@ -52,7 +52,7 @@ export function AboutStory() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.45, delay: 0.2 }}
-              className="text-h2 text-gray-900"
+              className="text-h2 text-ink"
             >
               Your industry&rsquo;s commercialization partner
             </motion.h2>
@@ -62,7 +62,7 @@ export function AboutStory() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.45, delay: 0.3 }}
-            className="text-lead text-gray-600 font-light lg:pt-12"
+            className="text-lead text-ink-body font-light lg:pt-12"
           >
             {SITE_CONFIG.name} is a commercialization agency that turns business
             capabilities into finished, sellable products — complete with naming, pricing,
@@ -76,7 +76,7 @@ export function AboutStory() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.45, delay: 0.35 }}
-            className="text-body text-gray-600"
+            className="text-body text-ink-body"
           >
             Our mission is to empower businesses by transforming their capabilities into
             fully-realized, market-ready products that drive sales and revenue growth — every
@@ -86,7 +86,7 @@ export function AboutStory() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.45, delay: 0.4 }}
-            className="text-body text-gray-600"
+            className="text-body text-ink-body"
           >
             Headquartered in {SITE_CONFIG.company.address.city}, {SITE_CONFIG.company.address.stateName}, we work across sectors rather than
             specialising in one. The engagement model stays the same whichever industry you

@@ -41,7 +41,7 @@ export function PlatformCoverage({ data }: PlatformCoverageProps) {
           <h2 className="text-h2 text-white mb-6">
             {data.headline}
           </h2>
-          <p className="text-lead text-gray-400 font-light max-w-3xl">
+          <p className="text-lead text-on-dark font-light max-w-3xl">
             {data.description}
           </p>
         </motion.div>
@@ -72,7 +72,7 @@ export function PlatformCoverage({ data }: PlatformCoverageProps) {
 
                   <ul className="space-y-2">
                     {platform.features.map((feature, i) => (
-                      <li key={i} className="flex items-center gap-2 text-body text-gray-300">
+                      <li key={i} className="flex items-center gap-2 text-body text-on-dark">
                         {Check && <Check className="w-4 h-4 text-brand-cyan flex-shrink-0" />}
                         {feature}
                       </li>

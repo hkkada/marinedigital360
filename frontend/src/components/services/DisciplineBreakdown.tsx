@@ -41,7 +41,7 @@ export function DisciplineBreakdown({ data }: DisciplineBreakdownProps) {
           <h2 className="text-h2 text-white mb-6">
             {data.headline}
           </h2>
-          <p className="text-lead text-gray-400 font-light max-w-3xl mx-auto">
+          <p className="text-lead text-on-dark font-light max-w-3xl mx-auto">
             {data.description}
           </p>
         </motion.div>
@@ -63,7 +63,7 @@ export function DisciplineBreakdown({ data }: DisciplineBreakdownProps) {
                 className={`flex-1 flex items-center justify-center gap-3 px-6 py-4 rounded-xl font-semibold transition-all duration-300 ${
                   isActive
                     ? 'bg-gradient-to-r from-[#00CEFA] to-[#00A1FD] text-brand-navy-deep shadow-lg shadow-[#00A1FD]/30'
-                    : 'bg-white/5 text-gray-400 border border-white/10 hover:bg-white/10 hover:text-white'
+                    : 'bg-white/5 text-on-dark-muted border border-white/10 hover:bg-white/10 hover:text-white'
                 }`}
               >
                 {Icon && <Icon size={20} />}
@@ -89,7 +89,7 @@ export function DisciplineBreakdown({ data }: DisciplineBreakdownProps) {
                   <h3 className="text-h3 text-white mb-2">
                     {activeDiscipline.fullName}
                   </h3>
-                  <p className="text-body text-gray-400 mb-8">
+                  <p className="text-body text-on-dark-muted mb-8">
                     {activeDiscipline.description}
                   </p>
 
@@ -99,7 +99,7 @@ export function DisciplineBreakdown({ data }: DisciplineBreakdownProps) {
                   </h4>
                   <ul className="space-y-3">
                     {activeDiscipline.metrics.map((metric, i) => (
-                      <li key={i} className="flex items-start gap-3 text-gray-300">
+                      <li key={i} className="flex items-start gap-3 text-on-dark">
                         {Check && <Check className="w-5 h-5 text-brand-cyan flex-shrink-0 mt-0.5" />}
                         {metric}
                       </li>
@@ -120,7 +120,7 @@ export function DisciplineBreakdown({ data }: DisciplineBreakdownProps) {
                             {i + 1}
                           </span>
                         </div>
-                        <span className="text-gray-300">{tactic}</span>
+                        <span className="text-on-dark">{tactic}</span>
                       </li>
                     ))}
                   </ul>

@@ -53,7 +53,7 @@ export function AboutCTA() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.45, delay: 0.4 }}
-              className="text-lead text-gray-400 font-light mb-10"
+              className="text-lead text-on-dark font-light mb-10"
             >
               Book a free discovery call and see how productization, sales enablement, and
               AI-powered marketing can drive revenue for your business.

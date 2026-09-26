@@ -39,7 +39,7 @@ function FAQItem({
               transition={{ duration: 0.3 }}
               className="flex-shrink-0 mt-1"
             >
-              <ChevronDown className="w-5 h-5 text-gray-400 group-hover:text-brand-cyan transition-colors" />
+              <ChevronDown className="w-5 h-5 text-on-dark-muted group-hover:text-brand-cyan transition-colors" />
             </motion.div>
           </div>
 
@@ -53,7 +53,7 @@ function FAQItem({
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <p className="text-gray-400 text-body">
+            <p className="text-on-dark text-body">
               {answer}
             </p>
           </motion.div>
@@ -111,7 +111,7 @@ export function FAQ() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.45, delay: 0.4 }}
-            className="text-lead text-gray-400 font-light max-w-2xl mx-auto"
+            className="text-lead text-on-dark font-light max-w-2xl mx-auto"
           >
             Answers to common questions about marketing, productization,
             and how {SITE_CONFIG.name} helps businesses grow.

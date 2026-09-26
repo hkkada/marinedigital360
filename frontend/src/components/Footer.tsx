@@ -37,7 +37,7 @@ export function Footer() {
               </div>
               <BrandWordmark className="text-wordmark text-white" />
             </div>
-            <p className="text-meta text-white/60">
+            <p className="text-meta text-on-dark-muted">
               Full-spectrum digital agency. Strategy, design, and growth for the industry.
             </p>
           </div>
@@ -52,7 +52,7 @@ export function Footer() {
                 <li key={service.slug}>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="text-meta text-white/70 hover:text-brand-cyan transition-colors"
+                    className="text-meta text-on-dark hover:text-brand-cyan transition-colors"
                   >
                     {service.title}
                   </Link>
@@ -80,7 +80,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-meta text-white/70 hover:text-brand-cyan transition-colors"
+                    className="text-meta text-on-dark hover:text-brand-cyan transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -99,7 +99,7 @@ export function Footer() {
                 <li key={social}>
                   <a
                     href="#"
-                    className="text-meta text-white/70 hover:text-brand-cyan transition-colors"
+                    className="text-meta text-on-dark hover:text-brand-cyan transition-colors"
                   >
                     {social}
                   </a>
@@ -111,10 +111,10 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-8 border-t border-brand-navy-line flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-meta text-white/60">
+          <p className="text-meta text-on-dark-muted">
             © 2026 {SITE_CONFIG.name}. {SITE_CONFIG.company.slogan}.
           </p>
-          <p className="text-meta text-white/45">
+          <p className="text-meta text-on-dark-muted">
             {SITE_CONFIG.company.address.city}, {SITE_CONFIG.company.address.stateName}
           </p>
         </div>

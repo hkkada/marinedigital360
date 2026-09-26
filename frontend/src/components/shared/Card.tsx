@@ -14,7 +14,7 @@ const cardVariants = cva('relative rounded-2xl border transition-colors duration
   variants: {
     /** Surface family. `light` = white card on a light section; `glass` = translucent card on a dark section; `solid` = opaque dark card on a light section. */
     variant: {
-      light: 'bg-white border-gray-200 text-gray-900',
+      light: 'bg-white border-gray-200 text-ink',
       glass: 'bg-white/5 backdrop-blur-sm border-white/10 text-white',
       solid: 'bg-brand-navy border-brand-navy-line text-white',
     },
@@ -161,7 +161,7 @@ export function CardBody({ className, ...props }: CardBodyProps) {
     <p
       className={cn(
         'text-body',
-        variant === 'light' ? 'text-gray-600' : 'text-gray-400',
+        variant === 'light' ? 'text-ink-body' : 'text-on-dark',
         className,
       )}
       {...props}

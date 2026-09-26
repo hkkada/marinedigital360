@@ -54,7 +54,7 @@ export function ContentBlock({ data }: ContentBlockProps) {
           >
             <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] to-transparent" />
             {data.eyebrow ? (
-              <span className="text-eyebrow uppercase text-[#1877F2]">
+              <span className="text-eyebrow uppercase text-ink-accent">
                 {data.eyebrow}
               </span>
             ) : null}
@@ -65,7 +65,7 @@ export function ContentBlock({ data }: ContentBlockProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-h2 text-gray-900 mb-block"
+            className="text-h2 text-ink mb-block"
           >
             {data.headline}
           </motion.h2>
@@ -83,8 +83,8 @@ export function ContentBlock({ data }: ContentBlockProps) {
                 // block from rendering as one flat wall of identical text.
                 className={
                   index === 0
-                    ? 'text-lead text-gray-600 font-light'
-                    : 'text-body text-gray-500'
+                    ? 'text-lead text-ink-body font-light'
+                    : 'text-body text-ink-body'
                 }
               >
                 {paragraph}

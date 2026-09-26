@@ -57,7 +57,7 @@ export function StatCard({
       </motion.div>
       <div className="text-h4 font-semibold mb-1">{label}</div>
       {description ? (
-        <div className={cn('text-meta', isDark ? 'text-gray-400' : 'text-gray-500')}>
+        <div className={cn('text-meta', isDark ? 'text-on-dark-muted' : 'text-ink-muted')}>
           {description}
         </div>
       ) : null}

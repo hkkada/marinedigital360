@@ -38,7 +38,7 @@ export function TransformationShowcase({ data }: TransformationShowcaseProps) {
           <h2 className="text-h2 text-white mb-6">
             {data.headline}
           </h2>
-          <p className="text-lead text-gray-400 font-light max-w-2xl mx-auto">
+          <p className="text-lead text-on-dark font-light max-w-2xl mx-auto">
             {data.description}
           </p>
         </motion.div>
@@ -67,7 +67,7 @@ export function TransformationShowcase({ data }: TransformationShowcaseProps) {
                     className="flex items-start gap-3"
                   >
                     <X className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-400">{item}</span>
+                    <span className="text-on-dark-muted">{item}</span>
                   </motion.li>
                 ))}
               </ul>
@@ -96,7 +96,7 @@ export function TransformationShowcase({ data }: TransformationShowcaseProps) {
                     className="flex items-start gap-3"
                   >
                     <Check className="w-5 h-5 text-brand-cyan flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-300">{item}</span>
+                    <span className="text-on-dark">{item}</span>
                   </motion.li>
                 ))}
               </ul>

@@ -41,7 +41,7 @@ export function TechStack({ data }: TechStackProps) {
           <h2 className="text-h2 text-white mb-6">
             {data.headline}
           </h2>
-          <p className="text-lead text-gray-400 font-light max-w-3xl">
+          <p className="text-lead text-on-dark font-light max-w-3xl">
             {data.description}
           </p>
         </motion.div>
@@ -75,7 +75,7 @@ export function TechStack({ data }: TechStackProps) {
                           <h4 className="text-h4 text-white mb-1 group-hover:text-brand-cyan transition-colors">
                             {tool.name}
                           </h4>
-                          <p className="text-meta text-gray-500">
+                          <p className="text-meta text-on-dark-muted">
                             {tool.description}
                           </p>
                         </div>

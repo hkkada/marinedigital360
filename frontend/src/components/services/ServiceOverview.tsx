@@ -36,12 +36,12 @@ export function ServiceOverview({ data }: ServiceOverviewProps) {
                 className="flex items-center gap-4 mb-6"
               >
                 <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] to-transparent" />
-                <span className="text-eyebrow uppercase text-[#1877F2]">
+                <span className="text-eyebrow uppercase text-ink-accent">
                   Overview
                 </span>
               </motion.div>
 
-              <h2 className="text-h2 text-gray-900">
+              <h2 className="text-h2 text-ink">
                 {data.headline}
               </h2>
             </div>
@@ -50,7 +50,7 @@ export function ServiceOverview({ data }: ServiceOverviewProps) {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.45, delay: 0.3 }}
-              className="text-lead text-gray-600 font-light lg:pt-12"
+              className="text-lead text-ink-body font-light lg:pt-12"
             >
               {data.description}
             </motion.p>
@@ -71,7 +71,7 @@ export function ServiceOverview({ data }: ServiceOverviewProps) {
               >
                 <Card variant="light" size="md" className="h-full">
                   <IconBox icon={Icon} className="mb-5" />
-                  <CardTitle className="mb-2 group-hover:text-[#1877F2] transition-colors">
+                  <CardTitle className="mb-2 group-hover:text-ink-accent transition-colors">
                     {card.title}
                   </CardTitle>
                   <CardBody className="leading-relaxed">{card.description}</CardBody>

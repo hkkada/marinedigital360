@@ -58,7 +58,7 @@ function Ring({
                 'focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-[#1877F2]',
                 isOn
                   ? 'scale-110 border-transparent bg-gradient-to-br from-[#1877F2] to-[#0D5DBF] text-white shadow-lg shadow-[#1877F2]/30'
-                  : 'border-gray-200 bg-white text-[#1877F2] shadow-sm hover:scale-110 hover:border-transparent hover:bg-gradient-to-br hover:from-[#1877F2] hover:to-[#0D5DBF] hover:text-white',
+                  : 'border-gray-200 bg-white text-brand-azure shadow-sm hover:scale-110 hover:border-transparent hover:bg-gradient-to-br hover:from-[#1877F2] hover:to-[#0D5DBF] hover:text-white',
               ].join(' ')}
             >
               <Icon aria-hidden="true" className="h-5 w-5" />
@@ -106,20 +106,20 @@ export function ConceptOrbitalConstellation() {
             className="absolute inset-0 m-auto flex h-[46%] max-h-[210px] w-[46%] max-w-[210px] flex-col items-center justify-center rounded-full border border-gray-200 bg-white p-4 text-center shadow-lg"
             aria-live="polite"
           >
-            <span className="mb-1.5 font-mono text-eyebrow uppercase text-[#1877F2]">
+            <span className="mb-1.5 font-mono text-eyebrow uppercase text-ink-accent">
               Industry
             </span>
-            <span className="mb-1 text-body font-bold text-gray-900">
+            <span className="mb-1 text-body font-bold text-ink">
               {current.name}
             </span>
-            <span className="hidden text-meta text-gray-600 sm:block">
+            <span className="hidden text-meta text-ink-body sm:block">
               {current.metric}
             </span>
           </div>
         </div>
       </div>
 
-      <p className="mt-4 text-center text-meta text-gray-500">
+      <p className="mt-4 text-center text-meta text-ink-muted">
         Hover or Tab to a node to stop the rings.
       </p>
     </section>

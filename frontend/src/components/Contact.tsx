@@ -51,7 +51,7 @@ export function Contact() {
   // the fixed nav, so the section keeps the same vertical rhythm as the sections
   // above it.
   //
-  // `scroll-mt-nav` (96px) and not `scroll-mt-anchor` (152px), even though this
+  // `scroll-mt-nav` (80px) and not `scroll-mt-anchor` (136px), even though this
   // also renders on `/services/[slug]` where a sticky sub-nav sits under the
   // fixed nav: that sub-nav is `sticky` inside `<main>` and this section is
   // rendered *after* `</main>`, so the bar has already scrolled away by the time
@@ -98,11 +98,11 @@ export function Contact() {
             className="inline-flex items-center gap-3 md:gap-4 mb-4 md:mb-5 lg:mb-3"
           >
             <div className="h-px w-10 sm:w-12 md:w-16 bg-gradient-to-r from-transparent via-[#1877F2] to-transparent" />
-            <Waves className="w-5 h-5 md:w-6 md:h-6 text-[#1877F2]" />
+            <Waves className="w-5 h-5 md:w-6 md:h-6 text-brand-azure" />
             <div className="h-px w-10 sm:w-12 md:w-16 bg-gradient-to-r from-[#1877F2] via-transparent to-transparent" />
           </motion.div>
 
-          <h2 id="contact-heading" className="text-h2 text-gray-900 mb-3 md:mb-4 text-balance">
+          <h2 id="contact-heading" className="text-h2 text-ink mb-3 md:mb-4 text-balance">
             Ready to{' '}
             {/* Stacks on small screens; single line from lg up so the section fits one viewport */}
             <br className="lg:hidden" />
@@ -115,7 +115,7 @@ export function Contact() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: durations.normal, delay: 0.15 }}
-            className="text-lead text-gray-600 font-light max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto text-pretty"
+            className="text-lead text-ink-body font-light max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto text-pretty"
           >
             Let's create something exceptional. Start the conversation and
             discover how we can elevate your brand.
@@ -143,7 +143,7 @@ export function Contact() {
                     }}
                   />
                   <div className="relative">
-                    <label className="block text-meta font-semibold text-gray-700 mb-2 uppercase tracking-wide">
+                    <label className="block text-meta font-semibold text-ink-body mb-2 uppercase tracking-wide">
                       Your Name
                     </label>
                     <input
@@ -151,7 +151,7 @@ export function Contact() {
                       placeholder="John Smith"
                       onFocus={() => setHoveredField('name')}
                       onBlur={() => setHoveredField(null)}
-                      className="w-full px-5 py-3 lg:py-2.5 bg-gray-50 border-2 border-gray-200 rounded-xl text-gray-900 text-body focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 placeholder:text-gray-400"
+                      className="w-full px-5 py-3 lg:py-2.5 bg-gray-50 border-2 border-gray-200 rounded-xl text-ink text-body focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 placeholder:text-ink-muted"
                     />
                   </div>
                 </div>
@@ -167,7 +167,7 @@ export function Contact() {
                     }}
                   />
                   <div className="relative">
-                    <label className="block text-meta font-semibold text-gray-700 mb-2 uppercase tracking-wide">
+                    <label className="block text-meta font-semibold text-ink-body mb-2 uppercase tracking-wide">
                       Company
                     </label>
                     <input
@@ -175,7 +175,7 @@ export function Contact() {
                       placeholder="Your Company Name"
                       onFocus={() => setHoveredField('company')}
                       onBlur={() => setHoveredField(null)}
-                      className="w-full px-5 py-3 lg:py-2.5 bg-gray-50 border-2 border-gray-200 rounded-xl text-gray-900 text-body focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 placeholder:text-gray-400"
+                      className="w-full px-5 py-3 lg:py-2.5 bg-gray-50 border-2 border-gray-200 rounded-xl text-ink text-body focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 placeholder:text-ink-muted"
                     />
                   </div>
                 </div>
@@ -192,7 +192,7 @@ export function Contact() {
                   }}
                 />
                 <div className="relative">
-                  <label className="block text-meta font-semibold text-gray-700 mb-2 uppercase tracking-wide">
+                  <label className="block text-meta font-semibold text-ink-body mb-2 uppercase tracking-wide">
                     Email Address
                   </label>
                   <input
@@ -200,7 +200,7 @@ export function Contact() {
                     placeholder="john@company.com"
                     onFocus={() => setHoveredField('email')}
                     onBlur={() => setHoveredField(null)}
-                    className="w-full px-5 py-3 lg:py-2.5 bg-gray-50 border-2 border-gray-200 rounded-xl text-gray-900 text-body focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 placeholder:text-gray-400"
+                    className="w-full px-5 py-3 lg:py-2.5 bg-gray-50 border-2 border-gray-200 rounded-xl text-ink text-body focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 placeholder:text-ink-muted"
                   />
                 </div>
               </div>
@@ -216,13 +216,13 @@ export function Contact() {
                   }}
                 />
                 <div className="relative">
-                  <label className="block text-meta font-semibold text-gray-700 mb-2 uppercase tracking-wide">
+                  <label className="block text-meta font-semibold text-ink-body mb-2 uppercase tracking-wide">
                     Project Type
                   </label>
                   <select
                     onFocus={() => setHoveredField('type')}
                     onBlur={() => setHoveredField(null)}
-                    className="w-full px-5 py-3 lg:py-2.5 bg-gray-50 border-2 border-gray-200 rounded-xl text-gray-900 text-body focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 appearance-none cursor-pointer"
+                    className="w-full px-5 py-3 lg:py-2.5 bg-gray-50 border-2 border-gray-200 rounded-xl text-ink text-body focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 appearance-none cursor-pointer"
                   >
                     <option value="">Select a service</option>
                     {getVisibleServices().map((service) => (
@@ -246,7 +246,7 @@ export function Contact() {
                   }}
                 />
                 <div className="relative">
-                  <label className="block text-meta font-semibold text-gray-700 mb-2 uppercase tracking-wide">
+                  <label className="block text-meta font-semibold text-ink-body mb-2 uppercase tracking-wide">
                     Your Message
                   </label>
                   <textarea
@@ -254,7 +254,7 @@ export function Contact() {
                     placeholder="Tell us about your vision and goals..."
                     onFocus={() => setHoveredField('message')}
                     onBlur={() => setHoveredField(null)}
-                    className="w-full px-5 py-3 lg:py-2.5 bg-gray-50 border-2 border-gray-200 rounded-xl text-gray-900 text-body focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 resize-none placeholder:text-gray-400"
+                    className="w-full px-5 py-3 lg:py-2.5 bg-gray-50 border-2 border-gray-200 rounded-xl text-ink text-body focus:outline-none focus:border-[#1877F2] focus:bg-white transition-all duration-300 resize-none placeholder:text-ink-muted"
                   />
                 </div>
               </div>
@@ -298,10 +298,10 @@ export function Contact() {
                     <IconBox icon={method.icon} className="flex-shrink-0" />
 
                     <div className="flex-1 min-w-0">
-                      <p className="text-meta text-gray-500 uppercase tracking-wide mb-1.5 font-medium">
+                      <p className="text-meta text-ink-muted uppercase tracking-wide mb-1.5 font-medium">
                         {method.label}
                       </p>
-                      <p className="text-body font-semibold text-gray-900 break-words">
+                      <p className="text-body font-semibold text-ink break-words">
                         {method.value}
                       </p>
                     </div>
@@ -323,7 +323,7 @@ export function Contact() {
                   <h3 className="text-h3 text-white mb-2">
                     Prefer a Quick Call?
                   </h3>
-                  <p className="text-gray-400 text-meta mb-4">
+                  <p className="text-on-dark-muted text-meta mb-4">
                     Schedule a 30-minute discovery session with our team to
                     discuss your project in detail.
                   </p>
@@ -331,7 +331,7 @@ export function Contact() {
                     onClick={() => setIsBookingOpen(true)}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.98 }}
-                    className="inline-flex items-center gap-2 px-5 py-3 lg:py-2 bg-white text-gray-900 rounded-full text-meta font-semibold hover:bg-gray-100 transition-all"
+                    className="inline-flex items-center gap-2 px-5 py-3 lg:py-2 bg-white text-ink rounded-full text-meta font-semibold hover:bg-gray-100 transition-all"
                   >
                     <span>Book a Call</span>
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -349,14 +349,14 @@ export function Contact() {
               transition={{ duration: durations.smooth, delay: 1.3 }}
               className="pt-6 lg:pt-5 border-t border-gray-200"
             >
-              <p className="text-meta text-gray-500 uppercase tracking-wide mb-3">
+              <p className="text-meta text-ink-muted uppercase tracking-wide mb-3">
                 Trusted By Leading Manufacturers
               </p>
               <div className="flex flex-wrap gap-2">
                 {['', '', ''].map((brand) => (
                   <span
                     key={brand}
-                    className="px-3.5 py-1.5 bg-gray-100 text-gray-700 rounded-full text-meta font-medium"
+                    className="px-3.5 py-1.5 bg-gray-100 text-ink-body rounded-full text-meta font-medium"
                   >
                     {brand}
                   </span>

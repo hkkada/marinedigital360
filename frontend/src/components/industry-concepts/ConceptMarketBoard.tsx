@@ -92,11 +92,11 @@ export function ConceptMarketBoard() {
       <div className="mx-auto max-w-[1000px] overflow-hidden rounded-2xl border border-[#1E2936] bg-brand-navy-deep">
         <div className="flex items-center gap-2.5 border-b border-[#1E2936] bg-brand-navy px-[18px] py-3">
           <span className="ic-live-dot h-[7px] w-[7px] rounded-full bg-emerald-400" />
-          <span className="font-mono text-meta uppercase tracking-[0.16em] text-[#93A6BC]">
-            <b className="font-semibold text-[#E6EEF8]">Demand board</b> · {INDUSTRIES.length} markets
+          <span className="font-mono text-meta uppercase tracking-[0.16em] text-on-dark-muted">
+            <b className="font-semibold text-on-dark">Demand board</b> · {INDUSTRIES.length} markets
           </span>
           <span
-            className="ml-auto font-mono text-meta tabular-nums tracking-widest text-[#5C6F86]"
+            className="ml-auto font-mono text-meta tabular-nums tracking-widest text-on-dark-muted"
             suppressHydrationWarning
           >
             {clock}
@@ -115,10 +115,10 @@ export function ConceptMarketBoard() {
                 isHot ? 'bg-gradient-to-r from-brand-cyan/15 to-transparent to-70%' : '',
               ].join(' ')}
             >
-              <span className="font-mono text-meta tabular-nums text-[#43566C]">
+              <span className="font-mono text-meta tabular-nums text-on-dark-muted">
                 {String(k + 1).padStart(2, '0')}
               </span>
-              <span className="flex items-center gap-2.5 text-meta font-semibold text-[#E6EEF8]">
+              <span className="flex items-center gap-2.5 text-meta font-semibold text-on-dark">
                 <Icon
                   aria-hidden="true"
                   className={`h-[17px] w-[17px] transition-colors duration-500 ${
@@ -127,7 +127,7 @@ export function ConceptMarketBoard() {
                 />
                 {industry.name}
               </span>
-              <span className="hidden text-meta text-[#8497AC] md:block">{industry.proof}</span>
+              <span className="hidden text-meta text-on-dark-muted md:block">{industry.proof}</span>
               <Signal text={`${industry.signal} · ${industry.metric}`} active={isHot} />
             </div>
           );

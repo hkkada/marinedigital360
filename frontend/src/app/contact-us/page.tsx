@@ -34,7 +34,7 @@ export default function ContactUsPage() {
   return (
     <div className="min-h-screen bg-white">
       <header>
-        <Navigation solid />
+        <Navigation />
       </header>
       {/*
         The nav is fixed and transparent until scrolled, so this page — which has

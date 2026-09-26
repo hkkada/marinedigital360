@@ -73,7 +73,7 @@ export function AboutHero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
-            className="text-lead text-white/80 mb-12 font-light [@media(max-height:880px)]:mb-6"
+            className="text-lead text-on-dark mb-12 font-light [@media(max-height:880px)]:mb-6"
           >
             We take the capabilities you already have and package them into something
             sellable — pricing, positioning, sales systems, and AI-powered automation —

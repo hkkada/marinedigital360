@@ -56,8 +56,8 @@ export function ConceptElasticSlats() {
               {/* Closed state — sideways on desktop, a plain row on mobile. */}
               {!isOpen && (
                 <span className="flex items-center gap-3 px-5 py-4 lg:absolute lg:inset-0 lg:flex-col lg:justify-between lg:px-0 lg:py-4">
-                  <Icon aria-hidden="true" className="h-5 w-5 flex-shrink-0 text-[#1877F2]" />
-                  <span className="text-meta font-semibold text-gray-600 lg:[writing-mode:vertical-rl] lg:rotate-180 lg:whitespace-nowrap">
+                  <Icon aria-hidden="true" className="h-5 w-5 flex-shrink-0 text-brand-azure" />
+                  <span className="text-meta font-semibold text-ink-body lg:[writing-mode:vertical-rl] lg:rotate-180 lg:whitespace-nowrap">
                     {industry.name}
                   </span>
                 </span>
@@ -73,7 +73,7 @@ export function ConceptElasticSlats() {
                   <span className="mb-2 block text-h3 font-bold text-white">
                     {industry.name}
                   </span>
-                  <span className="mb-3 block max-w-[34ch] text-meta text-white/90">
+                  <span className="mb-3 block max-w-[34ch] text-meta text-white">
                     {industry.proof}
                   </span>
                   <span className="block max-w-[40ch] border-t border-white/30 pt-2.5 font-mono text-meta uppercase tracking-wide text-white">

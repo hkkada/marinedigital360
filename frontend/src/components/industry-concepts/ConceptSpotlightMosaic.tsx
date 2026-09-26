@@ -87,7 +87,7 @@ export function ConceptSpotlightMosaic() {
                 className={
                   isActive
                     ? 'absolute left-[18px] top-[18px] h-[22px] w-[22px] text-white'
-                    : 'h-[22px] w-[22px] text-[#1877F2]'
+                    : 'h-[22px] w-[22px] text-brand-azure'
                 }
               />
 
@@ -96,7 +96,7 @@ export function ConceptSpotlightMosaic() {
                   <span className="mb-1.5 block text-h3 font-bold text-white">
                     {industry.name}
                   </span>
-                  <span className="mb-2.5 block text-meta text-white/90">
+                  <span className="mb-2.5 block text-meta text-white">
                     {industry.proof}
                   </span>
                   <span className="block border-t border-white/30 pt-2 font-mono text-meta uppercase tracking-wide text-white">
@@ -104,7 +104,7 @@ export function ConceptSpotlightMosaic() {
                   </span>
                 </span>
               ) : (
-                <span className="text-meta font-medium text-gray-600">
+                <span className="text-meta font-medium text-ink-body">
                   {industry.name}
                 </span>
               )}

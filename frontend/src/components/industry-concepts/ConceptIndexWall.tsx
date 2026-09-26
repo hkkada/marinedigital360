@@ -44,29 +44,29 @@ export function ConceptIndexWall() {
                 className="absolute inset-0 origin-left scale-x-0 bg-gradient-to-r from-[#1877F2]/[0.09] to-transparent to-70% transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100"
               />
 
-              <span className="relative font-mono text-meta tabular-nums text-gray-500">
+              <span className="relative font-mono text-meta tabular-nums text-ink-muted">
                 {String(k + 1).padStart(2, '0')}
               </span>
 
               {/* Deliberate one-off: this wall's whole effect is names that scale with the
                   viewport, and the low floor is what keeps a long name inside a truncating
                   row on a phone. No token in the scale reproduces both ends. */}
-              <span className="relative truncate text-[clamp(1.05rem,4.2vw,2.5rem)] font-bold uppercase leading-none tracking-tighter text-gray-900 transition-colors duration-300 group-hover:bg-gradient-to-r group-hover:from-[#1877F2] group-hover:via-[#42A5F5] group-hover:to-[#1877F2] group-hover:bg-clip-text group-hover:text-transparent group-focus-visible:bg-gradient-to-r group-focus-visible:from-[#1877F2] group-focus-visible:via-[#42A5F5] group-focus-visible:to-[#1877F2] group-focus-visible:bg-clip-text group-focus-visible:text-transparent">
+              <span className="relative truncate text-[clamp(1.05rem,4.2vw,2.5rem)] font-bold uppercase leading-none tracking-tighter text-ink transition-colors duration-300 group-hover:bg-gradient-to-r group-hover:from-[#1877F2] group-hover:via-[#42A5F5] group-hover:to-[#1877F2] group-hover:bg-clip-text group-hover:text-transparent group-focus-visible:bg-gradient-to-r group-focus-visible:from-[#1877F2] group-focus-visible:via-[#42A5F5] group-focus-visible:to-[#1877F2] group-focus-visible:bg-clip-text group-focus-visible:text-transparent">
                 {industry.name}
               </span>
 
               <span className="relative hidden max-w-[30ch] translate-x-3.5 text-right opacity-0 transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100 md:block">
-                <span className="block text-meta text-gray-600">
+                <span className="block text-meta text-ink-body">
                   {industry.proof}
                 </span>
-                <span className="mt-1 block font-mono text-meta uppercase tracking-wide text-[#1877F2]">
+                <span className="mt-1 block font-mono text-meta uppercase tracking-wide text-ink-accent">
                   {industry.metric}
                 </span>
               </span>
 
               <ArrowRight
                 aria-hidden="true"
-                className="relative h-5 w-5 text-gray-200 transition-[color,transform] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1 group-hover:text-[#1877F2] group-focus-visible:translate-x-1 group-focus-visible:text-[#1877F2]"
+                className="relative h-5 w-5 text-gray-200 transition-[color,transform] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1 group-hover:text-brand-azure group-focus-visible:translate-x-1 group-focus-visible:text-brand-azure"
               />
             </button>
           </li>

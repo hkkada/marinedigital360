@@ -31,7 +31,7 @@ export function Experience() {
         >
           <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5">
             <div className="h-px w-8 sm:w-12 lg:w-16 bg-gradient-to-r from-transparent to-[#1877F2]" />
-            <h2 className="text-h2 text-gray-900 whitespace-nowrap">
+            <h2 className="text-h2 text-ink whitespace-nowrap">
               Our{' '}
               <span className="bg-gradient-to-r from-[#1877F2] via-[#42A5F5] to-[#1877F2] bg-clip-text text-transparent">
                 Experience

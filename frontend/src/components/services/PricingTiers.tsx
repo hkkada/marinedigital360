@@ -28,15 +28,15 @@ export function PricingTiers({ data }: PricingTiersProps) {
         >
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#1877F2] to-transparent" />
-            <span className="text-eyebrow uppercase text-[#1877F2]">
+            <span className="text-eyebrow uppercase text-ink-accent">
               Pricing
             </span>
             <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] via-transparent to-transparent" />
           </div>
-          <h2 className="text-h2 text-gray-900 mb-6">
+          <h2 className="text-h2 text-ink mb-6">
             {data.headline}
           </h2>
-          <p className="text-lead text-gray-600 font-light max-w-2xl mx-auto">
+          <p className="text-lead text-ink-body font-light max-w-2xl mx-auto">
             {data.description}
           </p>
         </motion.div>
@@ -65,19 +65,19 @@ export function PricingTiers({ data }: PricingTiersProps) {
 
                 {tier.price && (
                   <div className="mb-4">
-                    <span className="text-stat font-bold text-gray-900">{tier.price}</span>
+                    <span className="text-stat font-bold text-ink">{tier.price}</span>
                   </div>
                 )}
                 {tier.priceLabel && (
-                  <div className="text-meta text-[#1877F2] font-semibold mb-6">
+                  <div className="text-meta text-ink-accent font-semibold mb-6">
                     {tier.priceLabel}
                   </div>
                 )}
 
                 <ul className="space-y-3 mb-8 flex-1">
                   {tier.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-2 text-body text-gray-700 min-w-0 break-words">
-                      <Check className="w-4 h-4 text-[#1877F2] flex-shrink-0 mt-0.5" />
+                    <li key={i} className="flex items-start gap-2 text-body text-ink-body min-w-0 break-words">
+                      <Check className="w-4 h-4 text-brand-azure flex-shrink-0 mt-0.5" />
                       {feature}
                     </li>
                   ))}
@@ -90,7 +90,7 @@ export function PricingTiers({ data }: PricingTiersProps) {
                   className={`block text-center py-4 px-6 rounded-xl font-semibold transition-all ${
                     tier.highlighted
                       ? 'bg-gradient-to-r from-[#1877F2] to-[#0D5DBF] text-white shadow-lg shadow-[#1877F2]/30'
-                      : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                      : 'bg-gray-100 text-ink hover:bg-gray-200'
                   }`}
                 >
                   {tier.ctaText}

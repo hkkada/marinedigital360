@@ -210,3 +210,15 @@ installed Chrome — that gives `fullPage` screenshots, per-element screenshots,
 in a headless shot; inject `*{opacity:1!important;transform:none!important}` or the screenshot
 is of an empty section.
 
+
+## Re-check for a running dev server before *every* build, not once per session
+
+A dev server can be started between two builds in the same session. On 2026-09-24 I checked
+port 3000 before the first `npm run build`, found it free, and then ran a second build later without
+checking again. By then the user had started `next dev --port 3000`, and the build overwrote its `.next`,
+so every page returned 500. Port 3100 also had a stale `next start` from earlier in the day serving
+old chunk hashes, so a page that seemed to load there was not coming from the new build.
+
+**How to apply:** immediately before each build, run `netstat -ano | grep LISTENING` for 3000/3100
+and look up the owner's command line. If a `next dev` is running, don't build. Verify against it,
+or ask. Serve your own build on an unused port such as 4317, and never on a port an old server might hold.

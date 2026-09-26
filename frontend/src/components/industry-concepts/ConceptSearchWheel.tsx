@@ -177,7 +177,7 @@ export function ConceptSearchWheel() {
                         'focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-[#1877F2]',
                         isOn
                           ? 'border-transparent bg-gradient-to-br from-[#1877F2] to-[#0D5DBF] text-white shadow-lg shadow-[#1877F2]/35'
-                          : 'border-gray-200 bg-white text-gray-400 hover:border-[#1877F2]/50 hover:text-[#1877F2]',
+                          : 'border-gray-200 bg-white text-ink-muted hover:border-[#1877F2]/50 hover:text-brand-azure',
                       ].join(' ')}
                     >
                       <Icon aria-hidden="true" className="h-[18px] w-[18px]" />
@@ -189,17 +189,17 @@ export function ConceptSearchWheel() {
 
             {/* Hub — carries the name, so the chips never need labels. */}
             <div className="pointer-events-none absolute inset-0 m-auto flex h-[58%] w-[58%] flex-col items-center justify-center rounded-full bg-white px-3 text-center">
-              <span className="mb-1 font-mono text-meta uppercase tracking-[0.16em] text-gray-400">
+              <span className="mb-1 font-mono text-meta uppercase tracking-[0.16em] text-ink-muted">
                 {String(wheelIndex + 1).padStart(2, '0')} / {INDUSTRIES.length}
               </span>
-              <span className="text-body font-bold text-gray-900">
+              <span className="text-body font-bold text-ink">
                 {INDUSTRIES[wheelIndex].name}
               </span>
               <span className="mt-1.5 h-px w-8 bg-gradient-to-r from-transparent via-[#1877F2] to-transparent" />
             </div>
           </div>
 
-          <p className="mt-3 text-center text-meta text-gray-500">
+          <p className="mt-3 text-center text-meta text-ink-muted">
             Hover, tap or Tab a chip to take the dial.
           </p>
         </div>

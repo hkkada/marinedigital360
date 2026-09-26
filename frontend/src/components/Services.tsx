@@ -64,12 +64,12 @@ export function Services() {
                   className="flex items-center gap-4 mb-5 sm:mb-6"
                 >
                   <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] to-transparent" />
-                  <span className="text-eyebrow uppercase text-[#1877F2]">
+                  <span className="text-eyebrow uppercase text-ink-accent">
                     What We Do
                   </span>
                 </motion.div>
 
-                <h2 id="services-heading" className="text-h2 text-gray-900">
+                <h2 id="services-heading" className="text-h2 text-ink">
                   Navigate the
                   <br />
                   <span className="bg-gradient-to-r from-[#1877F2] via-[#42A5F5] to-[#1877F2] bg-clip-text text-transparent">
@@ -84,7 +84,7 @@ export function Services() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: sectionTiming.services.headerDuration, delay: 0.15 }}
-                  className="text-lead text-gray-600 font-light mb-5 sm:mb-6"
+                  className="text-lead text-ink-body font-light mb-5 sm:mb-6"
                 >
                   We are here to deliver comprehensive digital marketing services with no long-term commitments. 
                   From strategic positioning to instant execution—we deliver results that move millions.
@@ -94,7 +94,7 @@ export function Services() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: sectionTiming.services.headerDuration, delay: 0.2 }}
-                  className="space-y-4 text-body text-gray-500"
+                  className="space-y-4 text-body text-ink-muted"
                 >
                   <li className="flex gap-4">
                     <span
@@ -141,10 +141,10 @@ export function Services() {
                 {serviceGroups.map((group) => (
                   <div key={group.id}>
                     <div className="mb-block">
-                      <h3 className="text-h3 text-gray-900 mb-2">
+                      <h3 className="text-h3 text-ink mb-2">
                         {group.label}
                       </h3>
-                      <p className="text-body text-gray-500">{group.tagline}</p>
+                      <p className="text-body text-ink-muted">{group.tagline}</p>
                     </div>
 
                     <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
@@ -236,18 +236,18 @@ export function Services() {
                 </span>
               </h3>
 
-              <p className="text-lead text-gray-300 font-light mb-5 sm:mb-6">
+              <p className="text-lead text-on-dark font-light mb-5 sm:mb-6">
                 {SITE_CONFIG.name} is a specialized digital marketing agency for most industries. 
                 We drive up your traffic and visibility. 
                 We execute the right positioning and AI-powered sales system for your pipeline expansion. 
                 Your return is our top priority.
               </p>
 
-              <p className="text-body text-gray-400 mb-7 md:mb-8">
+              <p className="text-body text-on-dark mb-7 md:mb-8">
                 Most digital marketing agencies run campaigns for what you already sell. 
                 Our in-house Azure and AWS certified developers use web design & development to build the product itself — pairing deep industry expertise with an AI-powered process that delivers revenue-ready systems in weeks, not months. 
               </p>
-              <p className="text-lead text-gray-300 font-light mb-5 sm:mb-6">
+              <p className="text-lead text-on-dark font-light mb-5 sm:mb-6">
               {SITE_CONFIG.name} focuses on the customer, we prioritize no delays, guaranteed short and long term contracts, and constant transparency throughout the process.  
               <br></br>
               {SITE_CONFIG.abv} helps businesses across many industry sectors, but we love helping those out in our sunbelt footprint.
@@ -257,7 +257,7 @@ export function Services() {
                 href="/contact-us"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center gap-2 sm:gap-3 px-5 py-3.5 sm:px-9 sm:py-4 md:px-12 md:py-5 bg-white text-gray-900 rounded-full text-body font-semibold whitespace-nowrap shadow-2xl hover:bg-gray-100 transition-all"
+                className="inline-flex items-center justify-center gap-2 sm:gap-3 px-5 py-3.5 sm:px-9 sm:py-4 md:px-12 md:py-5 bg-white text-ink rounded-full text-body font-semibold whitespace-nowrap shadow-2xl hover:bg-gray-100 transition-all"
               >
                 Start Your Project
                 <svg className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">

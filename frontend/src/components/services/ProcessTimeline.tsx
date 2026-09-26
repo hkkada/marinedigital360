@@ -34,7 +34,7 @@ function TimelineStep({ step, index }: TimelineStepProps) {
           className={`relative z-10 w-9 h-9 md:w-12 md:h-12 rounded-full flex items-center justify-center text-meta font-bold transition-all duration-500 ${
             isInView
               ? 'bg-gradient-to-br from-[#00CEFA] to-[#00A1FD] border-2 border-[#00CEFA] text-brand-navy-deep shadow-lg shadow-[#00A1FD]/30'
-              : 'bg-white/5 border-2 border-white/20 text-gray-500'
+              : 'bg-white/5 border-2 border-white/20 text-on-dark-muted'
           }`}
         >
           {stepNumber}
@@ -63,7 +63,7 @@ function TimelineStep({ step, index }: TimelineStepProps) {
           </div>
 
           {/* Description */}
-          <p className="text-gray-400 leading-relaxed mt-4 break-words">
+          <p className="text-on-dark-muted leading-relaxed mt-4 break-words">
             {step.description}
           </p>
 
@@ -139,7 +139,7 @@ export function ProcessTimeline({ data }: ProcessTimelineProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={isSectionInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.45, delay: 0.3 }}
-            className="text-lead text-gray-400 font-light max-w-2xl mx-auto"
+            className="text-lead text-on-dark font-light max-w-2xl mx-auto"
           >
             {data.description}
           </motion.p>

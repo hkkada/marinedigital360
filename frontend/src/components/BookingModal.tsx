@@ -123,7 +123,7 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
           <SheetTitle className="text-h3 bg-gradient-to-r from-[#1877F2] to-[#0D5DBF] bg-clip-text text-transparent">
             Schedule Your Discovery Call
           </SheetTitle>
-          <SheetDescription className="text-gray-600">
+          <SheetDescription className="text-ink-body">
             Select a time that works best for you. We'll discuss your project goals and how we can help.
           </SheetDescription>
         </SheetHeader>
@@ -131,8 +131,8 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
         <div className="flex-1 overflow-hidden">
           {isLoading && !error && (
             <div className="flex flex-col items-center justify-center h-full gap-4">
-              <Loader2 className="w-12 h-12 animate-spin text-[#1877F2]" />
-              <p className="text-gray-600">Loading availability...</p>
+              <Loader2 className="w-12 h-12 animate-spin text-brand-azure" />
+              <p className="text-ink-body">Loading availability...</p>
             </div>
           )}
 

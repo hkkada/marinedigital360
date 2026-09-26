@@ -41,7 +41,7 @@ export function ServicesMegaMenu() {
       <div className="mt-6 pt-6 border-t border-gray-200">
         <Link
           href="/#services"
-          className="text-meta text-[var(--nav-link-blue)] hover:underline font-medium"
+          className="text-meta text-ink-accent hover:underline font-medium"
         >
           Explore All Services →
         </Link>

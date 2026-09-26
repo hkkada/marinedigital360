@@ -1,20 +1,26 @@
 @import "tailwindcss";
 @custom-variant dark (&:is(.dark *));
+/* Short viewports — a phone like the iPhone SE (667px), or a 720/768px laptop.
+   Used where a block must fit one screen (the home hero), so its type and
+   spacing tighten by height, not just by width. */
+@custom-variant short (@media (max-height: 800px));
+/* Very short — a 568/640px phone, or a phone held in landscape. */
+@custom-variant tiny (@media (max-height: 650px));
 
 :root {
   --font-size: 16px;
   --background: #ffffff;
-  --foreground: oklch(0.145 0 0);
+  --foreground: var(--ink);
   --card: #ffffff;
-  --card-foreground: oklch(0.145 0 0);
+  --card-foreground: var(--ink);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
+  --popover-foreground: var(--ink);
   --primary: #030213;
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.95 0.0058 264.53);
   --secondary-foreground: #030213;
   --muted: #ececf0;
-  --muted-foreground: #717182;
+  --muted-foreground: var(--ink-muted);
   --accent: #e9ebef;
   --accent-foreground: #030213;
   --destructive: #d4183d;
@@ -42,7 +48,7 @@
   --sidebar-ring: oklch(0.708 0 0);
 
   /* Navigation-specific variables */
-  --nav-link-blue: #0D5DBF; /* Accessible blue (4.68:1 contrast) */
+  --nav-link-blue: var(--ink-accent);
 }
 
 .dark {
@@ -102,6 +108,25 @@
 
   --brand-cta-from: #00cefa;
   --brand-cta-to: #00a1fd;
+
+  /* Text colours — the only text colours components should reach for. Pick by
+     the surface the text sits on, then by role:
+
+       light surface          dark (navy) surface
+       text-ink         h     text-white             headings, strong text
+       text-ink-body    p     text-on-dark           body and lead copy
+       text-ink-muted   meta  text-on-dark-muted     captions, card descriptions
+       text-ink-accent  link  text-brand-cyan        eyebrows, links, accents
+
+     Every pair clears WCAG AA (4.5:1) at body size on white / navy-800. Azure
+     (#1877f2) is 4.2:1 on white, so it is kept for icons, fills and rules and
+     `ink-accent` carries small blue text instead. */
+  --ink: #0b2545;           /* 15.4:1 on white */
+  --ink-body: #41566e;      /* 7.6:1 */
+  --ink-muted: #5c6f86;     /* 5.2:1 (4.8:1 on #f5f8fc) */
+  --ink-accent: #1366d6;    /* 5.4:1 */
+  --on-dark: #c9d6e5;       /* 10.7:1 on navy-800 */
+  --on-dark-muted: #93a6bc; /* 6.3:1 on navy-800, 5.2:1 on navy-700 */
 }
 
 @theme inline {
@@ -114,6 +139,12 @@
   --color-brand-azure-deep: var(--brand-azure-deep);
   --color-brand-cta-from: var(--brand-cta-from);
   --color-brand-cta-to: var(--brand-cta-to);
+  --color-ink: var(--ink);
+  --color-ink-body: var(--ink-body);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-accent: var(--ink-accent);
+  --color-on-dark: var(--on-dark);
+  --color-on-dark-muted: var(--on-dark-muted);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -174,7 +205,7 @@
    * above, so it gets its own token. Keep `--spacing-nav` in sync with the real
    * rendered height of `components/Navigation/Navigation.tsx` (py-6 + logo row).
    */
-  --spacing-nav: 6rem;                                        /* 96px: measured height of the fixed nav */
+  --spacing-nav: 5rem;                                        /* 80px: measured height of the fixed nav */
   --spacing-hero: clamp(7.5rem, 4vw + 6rem, 9rem);            /* 120 → 144px: nav clearance + breathing room, for a hero's top padding */
 
   /**
@@ -193,7 +224,7 @@
    * is therefore the safe direction, so this tracks the *smallest* combined
    * height across breakpoints (desktop; the mobile bar is taller).
    */
-  --spacing-anchor: 9.5rem;                                   /* 152px = nav 96 + sub-nav 56 */
+  --spacing-anchor: 8.5rem;                                   /* 136px = nav 80 + sub-nav 56 */
 
   /**
    * Type scale — the single source of truth for font size, and the leading,
@@ -353,23 +384,24 @@ html {
    Below `lg` the columns collapse, the photo goes full-bleed behind the copy and
    the mask is dropped in favour of an overlay scrim. */
 /* Below `lg` the photo is a band across the top of the hero that dissolves
-   into the navy at its lower edge — opaque through its first half, gone by the
-   bottom, so the eyebrow lands on flat colour. */
+   into the navy at its lower edge, so the eyebrow lands on flat colour. The
+   band's height is whatever the copy leaves of the screen, so it can be short;
+   it stays opaque through ~60% so a short band doesn't read as all fade. */
 .hero-photo {
   -webkit-mask-image: linear-gradient(
     to bottom,
     #000 0%,
-    #000 48%,
-    rgba(0, 0, 0, 0.78) 64%,
-    rgba(0, 0, 0, 0.4) 82%,
+    #000 62%,
+    rgba(0, 0, 0, 0.78) 76%,
+    rgba(0, 0, 0, 0.4) 89%,
     transparent 100%
   );
   mask-image: linear-gradient(
     to bottom,
     #000 0%,
-    #000 48%,
-    rgba(0, 0, 0, 0.78) 64%,
-    rgba(0, 0, 0, 0.4) 82%,
+    #000 62%,
+    rgba(0, 0, 0, 0.78) 76%,
+    rgba(0, 0, 0, 0.4) 89%,
     transparent 100%
   );
 }

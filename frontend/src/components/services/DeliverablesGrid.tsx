@@ -33,15 +33,15 @@ export function DeliverablesGrid({ data }: DeliverablesGridProps) {
             className="flex items-center gap-4 mb-6"
           >
             <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] to-transparent" />
-            <span className="text-eyebrow uppercase text-[#1877F2]">
+            <span className="text-eyebrow uppercase text-ink-accent">
               Deliverables
             </span>
           </motion.div>
 
-          <h2 className="text-h2 text-gray-900 mb-6">
+          <h2 className="text-h2 text-ink mb-6">
             {data.headline}
           </h2>
-          <p className="text-lead text-gray-600 font-light max-w-3xl">
+          <p className="text-lead text-ink-body font-light max-w-3xl">
             {data.description}
           </p>
         </motion.div>
@@ -60,7 +60,7 @@ export function DeliverablesGrid({ data }: DeliverablesGridProps) {
               >
                 <Card variant="light" size="md" className="h-full">
                   <IconBox icon={Icon} size="sm" className="mb-4" />
-                  <h3 className="text-h3 text-gray-900 mb-2 group-hover:text-[#1877F2] transition-colors">
+                  <h3 className="text-h3 text-ink mb-2 group-hover:text-ink-accent transition-colors">
                     {item.title}
                   </h3>
                   <CardBody className="leading-relaxed">{item.description}</CardBody>

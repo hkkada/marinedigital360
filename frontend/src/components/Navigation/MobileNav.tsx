@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, ChevronDown } from 'lucide-react';
 import {
   Sheet,
@@ -13,13 +14,10 @@ import {
 import { Button } from '@/components/ui/button';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { getVisibleServices, getServiceHref } from '@/lib/services';
-import { BrandWordmark } from '@/components/BrandWordmark';
+import { NavBrand } from './NavBrand';
 
-interface MobileNavProps {
-  isScrolled: boolean;
-}
-
-export function MobileNav({ isScrolled }: MobileNavProps) {
+export function MobileNav() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const services = getVisibleServices();
@@ -30,18 +28,18 @@ export function MobileNav({ isScrolled }: MobileNavProps) {
         <Button
           variant="ghost"
           size="icon"
-          className={`w-12 h-12 ${isScrolled ? 'text-gray-900' : 'text-white'} hover:bg-transparent`}
+          className="w-12 h-12 text-white hover:bg-transparent hover:text-brand-cyan"
           aria-label="Open navigation menu"
           aria-expanded={open}
         >
-          <Menu className="w-6 h-6" />
+          <Menu className="size-7" />
         </Button>
       </SheetTrigger>
 
       <SheetContent side="right" className="w-[85vw] max-w-[320px]">
         <SheetHeader>
-          <SheetTitle className="text-wordmark">
-            <BrandWordmark />
+          <SheetTitle>
+            <NavBrand className="text-ink" />
           </SheetTitle>
         </SheetHeader>
 
@@ -58,7 +56,7 @@ export function MobileNav({ isScrolled }: MobileNavProps) {
                   <Link
                     href={getServiceHref(service)}
                     onClick={() => setOpen(false)}
-                    className="block py-2 px-4 text-meta text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                    className="block py-2 px-4 text-meta text-ink-body hover:bg-gray-100 rounded-lg transition-colors"
                   >
                     {service.title}
                   </Link>
@@ -78,7 +76,10 @@ export function MobileNav({ isScrolled }: MobileNavProps) {
               key={link.label}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="py-3 px-4 text-body font-medium hover:bg-gray-100 rounded-lg transition-colors"
+              aria-current={pathname === link.href ? 'page' : undefined}
+              className={`py-3 px-4 text-body font-medium hover:bg-gray-100 rounded-lg transition-colors ${
+                pathname === link.href ? 'text-ink-accent' : ''
+              }`}
             >
               {link.label}
             </Link>

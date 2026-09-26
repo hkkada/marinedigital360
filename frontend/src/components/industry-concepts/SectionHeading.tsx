@@ -23,7 +23,7 @@ export function SectionHeading({ lead, accent, sub, id }: SectionHeadingProps) {
         <div className="h-px w-8 sm:w-12 lg:w-16 bg-gradient-to-r from-transparent to-[#1877F2]" />
         <h2
           id={id}
-          className="text-h2 text-gray-900 max-sm:whitespace-normal sm:whitespace-nowrap"
+          className="text-h2 text-ink max-sm:whitespace-normal sm:whitespace-nowrap"
         >
           {lead}{' '}
           <span className="bg-gradient-to-r from-[#1877F2] via-[#42A5F5] to-[#1877F2] bg-clip-text text-transparent">
@@ -32,7 +32,7 @@ export function SectionHeading({ lead, accent, sub, id }: SectionHeadingProps) {
         </h2>
         <div className="h-px w-8 sm:w-12 lg:w-16 bg-gradient-to-r from-[#1877F2] to-transparent" />
       </div>
-      <p className="max-w-[54ch] text-lead text-gray-600 font-light">
+      <p className="max-w-[54ch] text-lead text-ink-body font-light">
         {sub}
       </p>
     </div>

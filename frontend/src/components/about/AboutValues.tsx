@@ -62,11 +62,11 @@ export function AboutValues() {
         >
           <div className="flex items-center gap-4 mb-6">
             <div className="h-px w-16 bg-gradient-to-r from-[#1877F2] to-transparent" />
-            <span className="text-eyebrow uppercase text-[#1877F2]">Our Values</span>
+            <span className="text-eyebrow uppercase text-ink-accent">Our Values</span>
           </div>
           <h2
             id="about-values-heading"
-            className="text-h2 text-gray-900"
+            className="text-h2 text-ink"
           >
             What drives every engagement
           </h2>

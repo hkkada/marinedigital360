@@ -80,7 +80,7 @@ export function About() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: sectionTiming.about.headerDuration, delay: 0.2 }}
-                className="text-lead text-white/70 mb-4"
+                className="text-lead text-on-dark mb-4"
               >
                 Our approach combines deep industry knowledge with cutting-edge digital strategy to create experiences that captivate and convert.
               </motion.p>
@@ -88,7 +88,7 @@ export function About() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: sectionTiming.about.headerDuration, delay: 0.25 }}
-                className="text-lead text-white/70"
+                className="text-lead text-on-dark"
               >
                 {/* Based in {SITE_CONFIG.company.address.city}, {SITE_CONFIG.company.address.stateName}, {SITE_CONFIG.name} is the only
                 industry-focused commercialization agency that combines productization,
